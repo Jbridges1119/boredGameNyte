@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS game_nights CASCADE;
+
+CREATE TABLE game_nights (
+  id SERIAL PRIMARY KEY NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  host_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  competitive BOOLEAN NOT NULL DEFAULT FALSE,
+  status BOOLEAN NOT NULL DEFAULT FALSE,
+  location VARCHAR(255),
+  winner VARCHAR(255),
+  journal_entry TEXT,
+  date DATE NOT NULL
+);
