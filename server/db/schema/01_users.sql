@@ -6,8 +6,7 @@ CREATE TABLE users (
   last_name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
+  avatar_img VARCHAR(255),
   city VARCHAR(255) NOT NULL,
-  favorite_genre VARCHAR(255),
-   games_attended SMALLINT DEFAULT 0,
-  games_won SMALLINT DEFAULT 0
+  favorite_genre VARCHAR(255)
 );
