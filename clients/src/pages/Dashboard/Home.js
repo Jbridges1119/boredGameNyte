@@ -6,9 +6,9 @@ const Home = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    axios.get('https://api.boardgameatlas.com/api/search?name=Catan&fuzzy_match=true&limit=10&client_id=e542YioTdP')
-      .then((res) => {
-        setData(res.data.games);
+      axios.get('https://api.boardgameatlas.com/api/search?name=Catan&client_id=JLBr5npPhV')
+      .then((all) => {
+        setData(all)
       })
   }, []);
 
@@ -16,17 +16,31 @@ const Home = () => {
   let gameSearchResults = data.map((game) => {
     return(
     <GameCard
-    key={game.name}
+    key={game.id}
     img={game.images.small}
-    gamename={game.name}
+    name={game.name}
     description={game.description}
     />
     )
   });
 
+  // let youtubeSearchResults = data[1].map((video) => {
+  //   return(
+  //   <GameCard
+  //   key={video.id}
+  //   img={video.thumb}
+  //   name={video.name}
+  //   description={video.description}
+  //   />
+  //   )
+  // });
+
   return ( 
     <div>
-      {gameSearchResults}
+      
+        {gameSearchResults}
+      
+
     </div>
    );
 }
