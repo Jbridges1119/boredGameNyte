@@ -6,7 +6,6 @@ const cookieSession = require("cookie-session");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
 const app = express();
-// db.connect();
 
 //MIDDLEWARE
 //Morgan - console.logs server connection info on request
@@ -25,20 +24,16 @@ app.use(
   })
 );
 
-//app.use((req, res, next) => {
-//   console.log("Custom middleware, you can put any action here instead of console.log")
-// })
-
 // ROUTES
-// const usersRoutes = require("./routes/users");
-// app.use("/api/users", usersRoutes(db));
+const usersRoutes = require("./routes/users");
+app.use("/api/users", usersRoutes(db));
 
-app.get("/", (req,res) => {
-  db.query("SELECT * FROM users")
-  .then((data) =>{
-    console.log(data.rows)
-  })
-})
+// app.get("/", (req,res) => {
+//   db.query("SELECT * FROM users")
+//   .then((data) =>{
+//     console.log(data.rows)
+//   })
+// })
 
 //SERVER CONNECTION
 const port = process.env.PORT || 3005;
