@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
-import { Home } from "pages/Home";
+import Home from "./pages/Dashboard/Home";
 import { motion } from "framer-motion";
 import theme from "./assets/theme";
 import { ThemeProvider } from "@mui/material";
