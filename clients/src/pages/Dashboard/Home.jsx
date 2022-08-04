@@ -10,7 +10,7 @@ const youtubeApiUrl = "https://www.googleapis.com/youtube/v3/search";
 
 const Home = () => {
   const [data, setData] = useState([])
-  const [videos, setVideos] = useState([])
+  // const [videos, setVideos] = useState([])
 
   useEffect(() => {
     Promise.all([
@@ -24,7 +24,7 @@ const Home = () => {
   }, []);
   // const tubeVideo = videos[0].id.videoId
   console.log('data:', data);
-  console.log('videos:', videos);
+  // console.log('videos:', videos);
   let gameSearchResults = data.map((game) => {
     return(
     <GameCard
