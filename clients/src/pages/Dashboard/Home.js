@@ -1,27 +1,28 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import GameCard from './homeComponents/GameCard';
-import { google } from 'googleapis';
 
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
-const apiUrl = "https://www.googleapis.com/youtube/v3";
-const youtube = google.youtube({
-  version: "v3",
-  auth: apiKey,
-});
+const youtubeApiUrl = "https://www.googleapis.com/youtube/v3/search";
 
 const Home = () => {
   const [data, setData] = useState([])
+  const [videos, setVideos] = useState([])
 
   useEffect(() => {
-      axios.get(`https://api.boardgameatlas.com/api/search?name=risk&fuzzy_match=true&limit=10&client_id=${BGA_CLIENT_ID}`)
-        .then((info) => {
-          setData(info.data.games)
+    Promise.all([
+      axios.get(`https://api.boardgameatlas.com/api/search?name=risk&fuzzy_match=true&limit=10&client_id=${BGA_CLIENT_ID}`),
+      axios.get(`${youtubeApiUrl}?q=risk%20how%20to%20play&key=${apiKey}`)
+    ])
+        .then((all) => {
+          setData(all[0].data.games)
+          setVideos(all[1].data.items)
         })
   }, []);
 
   console.log('data:', data);
+  console.log('videos:', videos);
   let gameSearchResults = data.map((game) => {
     return(
     <GameCard
