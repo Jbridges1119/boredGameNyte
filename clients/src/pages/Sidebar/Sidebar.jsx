@@ -27,12 +27,11 @@ const drawerWidth = 360;
 const Sidebar = (props) => {
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
+    <Box sx={{ display: 'flex', backgroundColor: theme.palette.primary.main }}>
+      {/* <CssBaseline enableColorScheme={true}/> */}
       <Drawer
         theme={theme}
         sx={{
-          backgroundColor: theme.palette.primary.main,
           width: drawerWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
@@ -48,8 +47,8 @@ const Sidebar = (props) => {
         <Divider />
         <List>
           <ListItem>
-          <ListItemButton sx={{ justifyContent: "center", backgroundColor: theme.palette.error.main}}>
-            <ListItemText alignItems="center" primary="Create your Game Nyte!" />
+          <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main}}>
+            <ListItemText primary="Create your Game Nyte!" />
           </ListItemButton>
        </ListItem>
        <ListItem>
@@ -80,7 +79,7 @@ const Sidebar = (props) => {
       </Drawer>
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+        sx={{ flexGrow: 1, bgcolor: theme.palette.primary.main, p: 3 }}
       >
         <Toolbar />
       </Box>
