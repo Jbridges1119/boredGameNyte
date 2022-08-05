@@ -10,7 +10,7 @@ const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 const youtubeApiUrl = "https://www.googleapis.com/youtube/v3/search";
 
-const Home = () => {
+const Search = () => {
   const [data, setData] = useState([])
   // const [videos, setVideos] = useState([])
 
@@ -66,4 +66,4 @@ const Home = () => {
    );
 }
  
-export default Home;
+export default Search;

@@ -10,6 +10,7 @@ import Home from "./pages/Dashboard/Home";
 import Layout from "./pages/Layout/Layout";
 import Search from "./pages/Search/Search";
 import GamePage from "./pages/GamePage/GamePage"
+import GameNyteList from "./pages/GameNyteList/GameNytesList";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                     <Route exact path="/" element={<Home />} theme={theme}/>
                     <Route path="/search" element={<Search />} theme={theme}/>
                     <Route path="/game" element={<GamePage />} theme={theme}/>
+                    <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
                   </Routes>
                 </BrowserRouter>
               </Layout>

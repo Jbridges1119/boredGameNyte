@@ -7,10 +7,10 @@ import { Accordion, AccordionSummary, Button, CardActionArea, Grid } from '@mui/
 import { ArrowDownward } from '@mui/icons-material';
 import theme from '../../../assets/theme';
 
-export default function GameSearchCard(props) {
+export default function GameNyteCard(props) {
   return (
     <Card direction="row" sx={{ 
-      backgroundColor: theme.palette.primary.light
+      backgroundColor: theme.palette.secondary.main
       }}>
       <CardActionArea
       sx={{
@@ -38,28 +38,22 @@ export default function GameSearchCard(props) {
           <Grid>
           <div>
             <h2>
-              {props.name}
+              Game Nyte Title!
             </h2>
           </div>
-          <Grid item justifyContent="space-around" sx={{ pl: 2, py: 1 }}>
-            <Button sx={{ backgroundColor: theme.palette.error.light }}>Add To Collection</Button>
-          </Grid>
-          <Grid item justifyContent="space-around" sx={{ pl: 2, py: 1 }}>
-            <Button sx={{ backgroundColor: theme.palette.error.light }}>View Game Details</Button>
-          </Grid>
           <CardContent>
             <Accordion sx={{
-              backgroundColor: theme.palette.secondary.main
+              backgroundColor: theme.palette.primary.light
             }}>
               <AccordionSummary
               expandIcon={<ArrowDownward />}
               aria-controls="panel1a-content"
               id="panel1a-header"
               >
-                <Typography>Game Description</Typography>
+                <Typography>Game Nyte Description</Typography>
               </AccordionSummary>
               <Typography variant="body2" color="text.secondary">
-                <span dangerouslySetInnerHTML={{__html:props.description}} />
+                This is where we will see what games were played at this game nyte!
               </Typography>
             </Accordion>
           </CardContent>
