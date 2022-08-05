@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     Promise.all([
-      axios.get(`https://api.boardgameatlas.com/api/search?name=azul&fuzzy_match=true&limit=10&client_id=${BGA_CLIENT_ID}`),
+      axios.get(`https://api.boardgameatlas.com/api/search?name=azul&fuzzy_match=true&limit=10&client_id=${BGA_CLIENT_ID}`)
       // axios.get(`${youtubeApiUrl}?q=azul%20how%20to%20play&key=${apiKey}`)
     ])
         .then((all) => {
@@ -49,9 +49,9 @@ const Home = () => {
 
   return ( 
     <Box flex={4} p={{ xs: 0, md: 2 }}>
-      <div className="games-container">
+      {/* <div className="games-container"> */}
         {gameSearchResults}
-      </div>
+      {/* </div> */}
       <div className="videos-container">
         <YoutubeEmbed embedId="nJ-ehbVQYxI" />
       </div>

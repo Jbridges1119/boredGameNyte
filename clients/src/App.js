@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -13,8 +13,8 @@ import Search from "./pages/Dashboard/Search";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-          {/* <Box sx={{ height: "100%", width: "100%"}}> */}
-            {/* <Stack direction="row" spacing={2} justifyContent="space-between" > */}
+          <Box sx={{ height: "100%", width: "100%"}}>
+            <Stack direction="row" spacing={2} justifyContent="space-between" >
             <Layout theme={theme}/>
           <BrowserRouter>
             <Routes>
@@ -22,8 +22,8 @@ function App() {
               <Route path="/search" element={<Search />} theme={theme}/>
             </Routes>
           </BrowserRouter>
-            {/* </Stack> */}
-          {/* </Box> */}
+            </Stack>
+          </Box>
       </ThemeProvider>
   );
 }

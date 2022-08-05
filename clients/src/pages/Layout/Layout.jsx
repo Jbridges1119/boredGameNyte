@@ -23,9 +23,8 @@ import { ClassNames } from "@emotion/react";
 
 const drawerWidth = 360;
 const sidebarButtonStyle = {
-  pl: 0, 
-  pr: 0, 
-  pb: 0, 
+  backgroundColor: theme.palette.secondary.main,
+  p: 0,
   boxShadow: theme.shadows
 };
 
