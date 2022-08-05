@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Accordion, AccordionSummary, CardActionArea } from '@mui/material';
+import { Accordion, AccordionSummary, Button, CardActionArea, Grid } from '@mui/material';
 import { ArrowDownward } from '@mui/icons-material';
 import theme from '../../../assets/theme';
 
@@ -34,23 +34,29 @@ export default function GameSearchCard(props) {
             height: "100%"
           }}
           />
-          <h2>
-            {props.name}
-          </h2>
-        <CardContent>
-          <Accordion>
-            <AccordionSummary
-            expandIcon={<ArrowDownward />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-            >
-              <Typography>Game Description</Typography>
-            </AccordionSummary>
-            <Typography variant="body2" color="text.secondary">
-            <span dangerouslySetInnerHTML={{__html:props.description}} />
-            </Typography>
-          </Accordion>
-        </CardContent>
+          <Grid>
+          <div>
+            <h2>
+              {props.name}
+            </h2>
+          </div>
+          <Button>Add To Collection</Button>
+          <Button>View Game Details</Button>
+          <CardContent>
+            <Accordion>
+              <AccordionSummary
+              expandIcon={<ArrowDownward />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              >
+                <Typography>Game Description</Typography>
+              </AccordionSummary>
+              <Typography variant="body2" color="text.secondary">
+                <span dangerouslySetInnerHTML={{__html:props.description}} />
+              </Typography>
+            </Accordion>
+          </CardContent>
+          </Grid>
       </CardActionArea>
     </Card>
   );
