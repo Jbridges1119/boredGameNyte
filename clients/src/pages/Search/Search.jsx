@@ -29,7 +29,7 @@ const Home = () => {
   // console.log('videos:', videos);
   let gameSearchResults = data.map((game) => {
     return(
-    <item>
+    <Grid item xs={11} sx={{p: 2}}>
       <GameSearchCard
       key={game.id}
       gameId={game.id}
@@ -37,7 +37,7 @@ const Home = () => {
       name={game.name}
       description={game.description}
       />
-    </item>
+    </Grid>
     )
   });
 
@@ -51,7 +51,7 @@ const Home = () => {
   // });
 
   return ( 
-    <Grid container justifyContent="center" sx={{ pt: 8, backgroundColor: theme.palette.primary.dark }}>
+    <Grid container justifyContent="center" alignItems="center" sx={{ pt: 8, backgroundColor: theme.palette.primary.dark }}>
       <TextField sx ={{ 
         backgroundColor: theme.palette.secondary.main, 
         alignContent: "center", 
@@ -61,9 +61,7 @@ const Home = () => {
         label="Find a game!" 
         color="primary" 
         focused />
-      <Box sx={{ justifyContent: "center" }}>
         {gameSearchResults}
-      </Box>
     </Grid>
    );
 }

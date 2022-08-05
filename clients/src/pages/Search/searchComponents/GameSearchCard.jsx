@@ -10,22 +10,21 @@ import theme from '../../../assets/theme';
 export default function GameSearchCard(props) {
   return (
     <Card direction="row" sx={{ 
-      backgroundColor: theme.palette.primary.dark, 
-      py: 4, 
-      px: 4
+      backgroundColor: theme.palette.primary.light
       }}>
       <CardActionArea
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
         alignContent: "center",
-        color: "white"
+        color: "white",
+        p: 1
       }}
       >
         <CardMedia
           component="img"
-          height="60"
-          width="60"
+          height="30"
+          width="30"
           image={props.img}
           alt="green iguana"
           sx={{
