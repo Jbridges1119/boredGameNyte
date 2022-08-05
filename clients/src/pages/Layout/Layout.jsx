@@ -1,5 +1,6 @@
 import {
   CalendarMonth,
+  Casino,
   Person,
   Search,
 } from "@mui/icons-material";

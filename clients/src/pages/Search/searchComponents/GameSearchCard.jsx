@@ -30,7 +30,9 @@ export default function GameSearchCard(props) {
           sx={{
             display: 'flex',
             width: "33%",
-            height: "100%"
+            height: "100%",
+            maxWidth: "50",
+            maxHeight: "50"
           }}
           />
           <Grid>
