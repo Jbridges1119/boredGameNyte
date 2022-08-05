@@ -40,8 +40,8 @@ export default function GameSearchCard(props) {
               {props.name}
             </h2>
           </div>
-          <Button>Add To Collection</Button>
-          <Button>View Game Details</Button>
+          <Button sx={{ pl:5 }}>Add To Collection</Button>
+          <Button sx={{ pl:5 }}>View Game Details</Button>
           <CardContent>
             <Accordion>
               <AccordionSummary
