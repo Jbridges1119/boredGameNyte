@@ -1,9 +1,9 @@
 import { createTheme } from "@mui/material";
-import {  teal, amber } from "@mui/material/colors";
 
-const primaryColor = teal[400];
-const secondaryColor = teal["A400"];
-const dangerColor = amber[600];
+
+const primaryColor = '#0A3943';
+const secondaryColor = '#0F6E83';
+const dangerColor = '#976606';
 
 const theme = createTheme({
   palette: {
