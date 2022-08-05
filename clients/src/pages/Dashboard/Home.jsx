@@ -48,7 +48,7 @@ const Home = () => {
   // });
 
   return ( 
-    <Box flex={4} p={{ xs: 0, md: 2 }}>
+    <Box flex={4} p={{ xs: 0 }}>
       {/* <div className="games-container"> */}
         {gameSearchResults}
       {/* </div> */}

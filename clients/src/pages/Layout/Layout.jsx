@@ -61,7 +61,7 @@ const menuItems = [{
 const Layout = (props) => {
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box component="span" sx={{ display: 'flex' }}>
       <CssBaseline enableColorScheme={true}/>
       <Drawer
         theme={theme}
@@ -82,6 +82,7 @@ const Layout = (props) => {
         </Toolbar>
         <Divider />
         <List>
+          {/* CTA Button */}
         <ListItem sx={{ pl: 0, pr: 0, pb: 4}}>
           <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main }}>
             <ListItemText primary="Create your Game Nyte!" />
@@ -116,15 +117,9 @@ const Layout = (props) => {
 
         </List>
       </Drawer>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, p: 3 }}
-      >
-        <Toolbar />
-      </Box>
     
       {/* Main Content */}
-      <div className="content">
+      <div className="content" sx={{ display: "flex" }}>
         { props.children }
       </div>
     </Box>
