@@ -20,7 +20,7 @@ const GameNyteList = () => {
       sx={{ 
         pt: 2
       }}>
-        <Grid item xs={11}>
+        <Grid item xs={10}>
           <Stack spacing={2}>
             <div>
               <h2>Upcoming Game Nytes</h2>
