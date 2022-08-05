@@ -39,10 +39,16 @@ export default function GameSearchCard(props) {
               {props.name}
             </h2>
           </div>
-          <Button sx={{ pl:5 }}>Add To Collection</Button>
-          <Button sx={{ pl:5 }}>View Game Details</Button>
+          <Grid item justifyContent="space-around" sx={{ pl: 2, py: 1 }}>
+            <Button sx={{ backgroundColor: theme.palette.error.main }}>Add To Collection</Button>
+          </Grid>
+          <Grid item justifyContent="space-around" sx={{ pl: 2, py: 1 }}>
+            <Button sx={{ backgroundColor: theme.palette.error.main }}>View Game Details</Button>
+          </Grid>
           <CardContent>
-            <Accordion>
+            <Accordion sx={{
+              backgroundColor: theme.palette.secondary.main
+            }}>
               <AccordionSummary
               expandIcon={<ArrowDownward />}
               aria-controls="panel1a-content"
