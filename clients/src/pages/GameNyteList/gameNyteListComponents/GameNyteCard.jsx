@@ -10,7 +10,8 @@ import theme from '../../../assets/theme';
 export default function GameNyteCard(props) {
   return (
     <Card direction="row" sx={{ 
-      backgroundColor: theme.palette.secondary.main
+      backgroundColor: theme.palette.secondary.main,
+      width: "100%"
       }}>
       <CardActionArea
       sx={{
@@ -25,14 +26,14 @@ export default function GameNyteCard(props) {
           component="img"
           height="30"
           width="30"
-          image={props.img}
+          image="https://i.imgur.com/hHmdwtZ.png"
           alt="green iguana"
           sx={{
             display: 'flex',
-            width: "33%",
-            height: "100%",
-            maxWidth: "50",
-            maxHeight: "50"
+            width: "20%",
+            height: "20%",
+            maxWidth: "30",
+            maxHeight: "30"
           }}
           />
           <Grid>
