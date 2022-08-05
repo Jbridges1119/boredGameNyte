@@ -32,6 +32,7 @@ const Home = () => {
     <item>
       <GameSearchCard
       key={game.id}
+      gameId={game.id}
       img={game.images.small}
       name={game.name}
       description={game.description}

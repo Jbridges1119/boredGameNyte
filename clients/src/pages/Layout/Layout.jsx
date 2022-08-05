@@ -6,7 +6,6 @@ import {
 import {
   Avatar,
   Box,
-  CssBaseline,
   Divider,
   Drawer,
   List,
@@ -62,7 +61,6 @@ const Layout = (props) => {
 
   return (
     <Box component="div" sx={{ display: 'flex' }}>
-      <CssBaseline enableColorScheme={true}/>
       <Drawer
         theme={theme}
         sx={{
@@ -119,9 +117,7 @@ const Layout = (props) => {
       </Drawer>
     
       {/* Main Content */}
-      <div className="content" sx={{ display: "flex" }}>
         { props.children }
-      </div>
     </Box>
   );
 
