@@ -3,6 +3,7 @@ import { Box, Stack, Skeleton } from "@mui/material";
 import axios from 'axios';
 import GameCard from './homeComponents/GameCard';
 import YoutubeEmbed from "./homeComponents/YoutubeEmbed";
+import HomePage from "./HomePage";
 
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 const apiKey = process.env.REACT_APP_YOUTUBE_APIKEY;
@@ -50,10 +51,11 @@ const Home = () => {
   return ( 
     <Box flex={4} p={{ xs: 0, md: 2 }}>
       <div className="games-container">
-        {gameSearchResults}
+        <HomePage/>
+        {/* {gameSearchResults} */}
       </div>
       <div className="videos-container">
-        <YoutubeEmbed embedId="nJ-ehbVQYxI" />
+        {/* <YoutubeEmbed embedId="nJ-ehbVQYxI" /> */}
       </div>
     </Box>
    );
