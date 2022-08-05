@@ -35,12 +35,17 @@ const menuItems = [{
 {
     text: "Your Game Nytes",
     icon: <CalendarMonth />,
-    path: "/"
+    path: "/gamenytes"
 },
 {
     text: "Game Search",
     icon: <Search />,
-    path: "/"
+    path: "/search"
+},
+{
+    text: "Game Collection",
+    icon: <Casino />,
+    path: "/collection/:user_id"
 }
 ]
 
