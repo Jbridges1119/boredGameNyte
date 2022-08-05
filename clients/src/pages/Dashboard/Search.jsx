@@ -9,21 +9,21 @@ const youtubeApiUrl = "https://www.googleapis.com/youtube/v3/search";
 
 const Home = () => {
   const [data, setData] = useState([])
-  const [videos, setVideos] = useState([])
+  // const [videos, setVideos] = useState([])
 
   useEffect(() => {
     Promise.all([
       axios.get(`https://api.boardgameatlas.com/api/search?name=risk&fuzzy_match=true&limit=10&client_id=${BGA_CLIENT_ID}`),
-      axios.get(`${youtubeApiUrl}?q=risk%20how%20to%20play&key=${apiKey}`)
+      // axios.get(`${youtubeApiUrl}?q=risk%20how%20to%20play&key=${apiKey}`)
     ])
         .then((all) => {
           setData(all[0].data.games)
-          setVideos(all[1].data.items)
+          // setVideos(all[1].data.items)
         })
   }, []);
 
   console.log('data:', data);
-  console.log('videos:', videos);
+  // console.log('videos:', videos);
   let gameSearchResults = data.map((game) => {
     return(
     <GameCard
@@ -35,14 +35,14 @@ const Home = () => {
     )
   });
 
-  let youtubeSearchResults = videos.map((video) => {
-    return(
-    <YoutubeEmbed
-    key={video.id.videoId}
-    embedId={video.id.videoId}
-    />
-    )
-  });
+  // let youtubeSearchResults = videos.map((video) => {
+  //   return(
+  //   <YoutubeEmbed
+  //   key={video.id.videoId}
+  //   embedId={video.id.videoId}
+  //   />
+  //   )
+  // });
 
   return ( 
     <div>
@@ -50,7 +50,7 @@ const Home = () => {
         {gameSearchResults}
       </div>
       <div>
-        {youtubeSearchResults}
+        {/* {youtubeSearchResults} */}
       </div>
     </div>
    );
