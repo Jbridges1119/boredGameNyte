@@ -1,5 +1,6 @@
 import {
   CalendarMonth,
+  Person,
   Search,
 } from "@mui/icons-material";
 import {
@@ -28,6 +29,36 @@ const sidebarButtonStyle = {
   boxShadow: theme.shadows
 };
 
+const menuItems = [{
+    text: "Profile",
+    icon: <Avatar />,
+    path: "/"
+},
+{
+    text: "Your Game Nytes",
+    icon: <CalendarMonth />,
+    path: "/"
+},
+{
+    text: "Game Search",
+    icon: <Search />,
+    path: "/"
+}
+]
+
+// const sideBarLinks = menuItems.map((item) => {
+//   <ListItem
+//   key={item.text}
+//   sx={sidebarButtonStyle}>
+//      <ListItemButton>
+//        <ListItemIcon>
+//          {item.icon}
+//        </ListItemIcon>
+//        <ListItemText primary={item.text} />
+//      </ListItemButton>
+//   </ListItem>
+// })
+
 const Layout = (props) => {
 
   return (
@@ -52,35 +83,38 @@ const Layout = (props) => {
         </Toolbar>
         <Divider />
         <List>
-          <ListItem sx={{ pl: 0, pr: 0, pb: 6}}>
+        <ListItem sx={{ pl: 0, pr: 0, pb: 4}}>
           <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main }}>
             <ListItemText primary="Create your Game Nyte!" />
           </ListItemButton>
        </ListItem>
-       <ListItem sx={sidebarButtonStyle}>
+        {/* List links */}
+        <ListItem sx={sidebarButtonStyle}>
           <ListItemButton>
-            <ListItemIcon>
-              <Avatar />
-            </ListItemIcon>
+              <ListItemIcon>
+                <Person />
+              </ListItemIcon>
             <ListItemText primary="Profile" />
           </ListItemButton>
-       </ListItem>
-       <ListItem sx={sidebarButtonStyle}>
+        </ListItem>
+        <ListItem sx={sidebarButtonStyle}>
           <ListItemButton>
-            <ListItemIcon>
-              <CalendarMonth />
-            </ListItemIcon>
+              <ListItemIcon>
+                <CalendarMonth />
+              </ListItemIcon>
             <ListItemText primary="Your Game Nytes" />
           </ListItemButton>
-       </ListItem>
-       <ListItem sx={sidebarButtonStyle}>
-         <ListItemButton>
-            <ListItemIcon>
-              <Search />
-            </ListItemIcon>
-           <ListItemText primary="Game Search" />
-         </ListItemButton>
-       </ListItem>
+        </ListItem>
+        <ListItem sx={sidebarButtonStyle}>
+          <ListItemButton>
+              <ListItemIcon>
+                <Search />
+              </ListItemIcon>
+            <ListItemText primary="Game Search" />
+          </ListItemButton>
+        </ListItem>
+
+
         </List>
       </Drawer>
       <Box
