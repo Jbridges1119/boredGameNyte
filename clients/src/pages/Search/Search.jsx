@@ -53,13 +53,13 @@ const Home = () => {
   return ( 
     <Grid container justifyContent="center" alignItems="center" sx={{ pt: 8, backgroundColor: theme.palette.primary.dark }}>
       <TextField sx ={{ 
-        backgroundColor: theme.palette.secondary.main, 
+        backgroundColor: theme.palette.secondary.dark, 
         alignContent: "center", 
         justifyContent: "center", 
         width: "90%" 
       }}
         label="Find a game!" 
-        color="primary" 
+        color="secondary" 
         focused />
         {gameSearchResults}
     </Grid>
