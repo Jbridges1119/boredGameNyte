@@ -76,7 +76,7 @@ const Layout = (props) => {
         anchor="left"
       >
         <Toolbar sx={{ p: 0, alignContent: "left"}}>
-          <img src="https://i.imgur.com/XVw5c7s.png" width="300" height="300" alt="THIS IS GONNA BE A LOGO SOMEDAY"/>
+          <img src="https://i.imgur.com/9fxI7kC.jpg" width="300" height="200" alt="THIS IS GONNA BE A LOGO SOMEDAY"/>
         </Toolbar>
         <Divider />
         <List>
