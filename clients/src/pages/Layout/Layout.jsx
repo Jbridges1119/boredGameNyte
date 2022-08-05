@@ -61,7 +61,7 @@ const menuItems = [{
 const Layout = (props) => {
 
   return (
-    <Box component="span" sx={{ display: 'flex' }}>
+    <Box component="div" sx={{ display: 'flex' }}>
       <CssBaseline enableColorScheme={true}/>
       <Drawer
         theme={theme}

@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import GameCard from './homeComponents/GameCard';
-import YoutubeEmbed from "./homeComponents/YoutubeEmbed";
+import GameSearchCard from './searchComponents/GameSearchCard';
+import YoutubeEmbed from "./searchComponents/YoutubeEmbed";
+import { Box, Grid, TextField } from "@mui/material";
+import theme from "../../assets/theme";
+import '../../styles/Search.css'
 
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
@@ -26,12 +29,14 @@ const Home = () => {
   // console.log('videos:', videos);
   let gameSearchResults = data.map((game) => {
     return(
-    <GameCard
-    key={game.id}
-    img={game.images.small}
-    name={game.name}
-    description={game.description}
-    />
+    <item>
+      <GameSearchCard
+      key={game.id}
+      img={game.images.small}
+      name={game.name}
+      description={game.description}
+      />
+    </item>
     )
   });
 
@@ -45,14 +50,20 @@ const Home = () => {
   // });
 
   return ( 
-    <div>
-      <div>
+    <Grid container justifyContent="center" sx={{ pt: 8, backgroundColor: theme.palette.primary.dark }}>
+      <TextField sx ={{ 
+        backgroundColor: theme.palette.secondary.main, 
+        alignContent: "center", 
+        justifyContent: "center", 
+        width: "90%" 
+      }}
+        label="Find a game!" 
+        color="primary" 
+        focused />
+      <Box sx={{ justifyContent: "center" }}>
         {gameSearchResults}
-      </div>
-      <div>
-        {/* {youtubeSearchResults} */}
-      </div>
-    </div>
+      </Box>
+    </Grid>
    );
 }
  

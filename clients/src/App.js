@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Dashboard/Home";
 import Layout from "./pages/Layout/Layout";
-import Search from "./pages/Dashboard/Search";
+import Search from "./pages/Search/Search";
 import GamePage from "./pages/GamePage/GamePage"
 
 function App() {

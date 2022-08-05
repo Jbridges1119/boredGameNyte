@@ -1,0 +1,57 @@
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Accordion, AccordionSummary, CardActionArea } from '@mui/material';
+import { ArrowDownward } from '@mui/icons-material';
+import theme from '../../../assets/theme';
+
+export default function GameSearchCard(props) {
+  return (
+    <Card direction="row" sx={{ 
+      backgroundColor: theme.palette.primary.dark, 
+      py: 4, 
+      px: 4
+      }}>
+      <CardActionArea
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignContent: "center",
+        color: "white"
+      }}
+      >
+        <CardMedia
+          component="img"
+          height="60"
+          width="60"
+          image={props.img}
+          alt="green iguana"
+          sx={{
+            display: 'flex',
+            width: "33%",
+            height: "100%"
+          }}
+          />
+          <h2>
+            {props.name}
+          </h2>
+        <CardContent>
+          <Accordion>
+            <AccordionSummary
+            expandIcon={<ArrowDownward />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+            >
+              <Typography>Game Description</Typography>
+            </AccordionSummary>
+            <Typography variant="body2" color="text.secondary">
+            <span dangerouslySetInnerHTML={{__html:props.description}} />
+            </Typography>
+          </Accordion>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}
