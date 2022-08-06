@@ -21,7 +21,7 @@ export default function FriendsListCard() {
         <CardHeader title="Friends List" />
         <CardContent>
           <Grid container sx={{ justifyContent: "center" }}>
-            <Grid alignContent="center" item xs={11}>
+            <Grid item xs={11}>
               <Typography variant="h6" color="textSecondary">
                 <FriendsList />
               </Typography>

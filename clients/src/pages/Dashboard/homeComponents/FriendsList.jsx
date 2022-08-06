@@ -59,7 +59,6 @@ export default function FriendsList(props) {
   return (
     <Grid item xs={12}>
       <List
-        disableGutters
         sx={{
           width: "100%",
           position: "relative",
