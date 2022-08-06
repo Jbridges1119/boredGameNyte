@@ -1,12 +1,12 @@
 import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Checkbox from '@mui/material/Checkbox';
 import Avatar from '@mui/material/Avatar';
-import Person from '@mui/icons-material/Person';
+import theme from '../../../assets/theme';
+import { Person } from '@mui/icons-material';
 
 const friends = [
   {
@@ -34,6 +34,21 @@ const friends = [
     email: "superrich@gmail.com",
     id: 4
   },
+  {
+    name: "Scruffy",
+    email: "scruffythejanitor@gmail.com",
+    id: 5
+  },
+  {
+    name: "Zapp Brannigan",
+    email: "sexyspacecommander@gmail.com",
+    id: 6
+  },
+  {
+    name: "Kif Kroaker",
+    email: "ltkif@gmail.com",
+    id: 7
+  },
 ];
 
 
@@ -60,18 +75,15 @@ export default function FriendsList() {
       key={friend.id}
       secondaryAction={
         <Checkbox
+          color="error"
           edge="end"
           onChange={handleToggle(friend.id)}
           checked={checked.indexOf(friend.id) !== -1}
           inputProps={{ 'aria-labelledby': labelId }}
         />
-      }
-      disablePadding
-      >
+      }>
         <ListItemAvatar>
-          {/* <Avatar> */}
-            <Person />
-          {/* </Avatar> */}
+          <Person />
         </ListItemAvatar>
         <ListItemText primary={friend.name} secondary={friend.email} />
       </ListItem>
@@ -79,7 +91,15 @@ export default function FriendsList() {
   });
 
   return (
-    <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List 
+    dense 
+    sx={{ 
+      width: '100%', 
+      maxWidth: 500,
+      position: "relative",
+      overflow: "auto",
+      maxHeight: 350,
+      }}>
       {friendsList}
     </List>
   );

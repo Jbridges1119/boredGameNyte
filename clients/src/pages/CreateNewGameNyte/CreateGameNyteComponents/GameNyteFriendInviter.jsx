@@ -6,7 +6,7 @@ import theme from "../../../assets/theme";
 const FriendInviter = () => {
 
   return(
-    <Paper elevation={4} sx={{
+    <Paper elevation={8} sx={{
       backgroundColor: theme.palette.primary.main,
       width: "100%",
       height: "100%",

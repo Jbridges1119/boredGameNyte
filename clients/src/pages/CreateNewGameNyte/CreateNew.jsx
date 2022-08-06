@@ -36,7 +36,7 @@ const CreateNew = () => {
                 }}>
                   <Calendar />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={3} sx={{ px: 4, py: 2 }}>
                   <FriendInviter />
                 </Grid>
               </Stack>
