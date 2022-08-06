@@ -62,7 +62,7 @@ const Layout = (props) => {
 
   return (
     <Box component="span" sx={{ display: 'flex' }}>
-      <CssBaseline enableColorScheme={true}/>
+      {/* <CssBaseline enableColorScheme={true}/> */}
       <Drawer
         theme={theme}
         sx={{
@@ -119,9 +119,7 @@ const Layout = (props) => {
       </Drawer>
     
       {/* Main Content */}
-      <div className="content" sx={{ display: "flex" }}>
         { props.children }
-      </div>
     </Box>
   );
 
