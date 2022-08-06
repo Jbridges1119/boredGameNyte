@@ -1,16 +1,16 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import { Box, Card, CardActionArea, CardMedia, Stack } from "@mui/material";
+
+import { Box,  Stack } from "@mui/material";
 
 import NyteGameListButtonCard from "./NytePageComponents/NyteGameListButtonCard";
 import NyteGameListCard from "./NytePageComponents/NyteGameListCard";
 import NyteAttendees from "./NytePageComponents/NyteAttendees";
 import NytePicture from "./NytePageComponents/NytePicture";
-import NyteButtons from "./NytePageComponents/NyteButtons";
-import Button from "@mui/material/Button";
+
+
 import theme from "../../assets/theme";
-import { green } from '@mui/material/colors';
+
 import NyteStatus from "./NytePageComponents/NyteStatus";
 
 const NytePage = () => {
@@ -40,25 +40,7 @@ const NytePage = () => {
             >
           
               <Grid item xs={4}  >
-              <Card sx={{ maxWidth: 345 }}>
-                
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="300"
-          width="300"
-          image="https://i.imgur.com/hHmdwtZ.png"
-          alt="green iguana"
-          sx={{
-            display: 'flex',
-            width: "20%",
-            height: "20%",
-            maxWidth: "300",
-            maxHeight: "300"
-          }}
-        />
-      </CardActionArea>
-    </Card>
+              <NytePicture/>
 
               </Grid>
               <Grid item xs={3}>

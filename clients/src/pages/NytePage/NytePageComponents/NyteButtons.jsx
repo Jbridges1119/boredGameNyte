@@ -16,7 +16,7 @@ const NyteButtons = () => {
 
 ><Stack spacing={2}>
       <h1>Test</h1>
-          <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 50,textTransform: 'none', borderRadius: '20px' }} variant="contained">Gloomhaven</Button>
+          <Button  sx={{backgroundColor: theme.palette.primary.main, textTransform: 'none', borderRadius: '20px' }} variant="contained">Gloomhaven</Button>
           <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 50,textTransform: 'none', borderRadius: '20px' }} variant="contained">Lords of Waterdeep</Button>
           <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 50,textTransform: 'none', borderRadius: '20px' }} variant="contained">Smash up</Button>
         </Stack></CardContent>

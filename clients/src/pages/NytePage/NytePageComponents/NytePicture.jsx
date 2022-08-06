@@ -4,18 +4,30 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { Paper, Box } from "@mui/material";
+import theme from "../../../assets/theme" 
 
 export default function NytePicture() {
+  const card = 
+
+                
+
+    <CardMedia
+      component="img"
+      
+      image="https://i.imgur.com/hHmdwtZ.png"
+      alt="green iguana"
+      sx={{
+        maxWidth: 200,
+        maxHeight: 200
+    
+      }}
+    />
+
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="../../../assets/BGN-Logo.png"
-          alt="green iguana"
-        />
-      </CardActionArea>
-    </Card>
+    <Box sx={{ borderRadius: "20px", backgroundColor:  theme.palette.primary.main, }} elevation={4} >
+   {card}
+  </Box>
   );
 }

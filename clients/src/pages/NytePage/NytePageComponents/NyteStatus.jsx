@@ -5,10 +5,8 @@ const NyteStatus = () => {
   return ( 
    
     <Stack spacing={6}>
-              <Button  sx={{backgroundColor: 'green', height: 75,  fontSize: 50, textTransform: 'none', borderRadius: '20px',   }}
-              variant="contained" disableElevation>
-              Upcoming</Button>
-          <Button  sx={{backgroundColor: theme.palette.error.main, height: 75,  fontSize: 50, textTransform: 'none', borderRadius: '20px',  }} variant="contained">Cancel</Button>
+              
+          <Button  sx={{backgroundColor: theme.palette.error.main, height: 75,  fontSize: 40, textTransform: 'none', borderRadius: '20px',  }} variant="contained">Cancel</Button>
           
           </Stack>
         
