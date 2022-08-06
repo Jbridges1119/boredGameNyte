@@ -1,12 +1,12 @@
 import {
   CalendarMonth,
+  Casino,
   Person,
   Search,
 } from "@mui/icons-material";
 import {
   Avatar,
   Box,
-  CssBaseline,
   Divider,
   Drawer,
   List,
@@ -36,12 +36,17 @@ const menuItems = [{
 {
     text: "Your Game Nytes",
     icon: <CalendarMonth />,
-    path: "/"
+    path: "/gamenytes"
 },
 {
     text: "Game Search",
     icon: <Search />,
-    path: "/"
+    path: "/search"
+},
+{
+    text: "Game Collection",
+    icon: <Casino />,
+    path: "/collection/:user_id"
 }
 ]
 
@@ -61,8 +66,7 @@ const menuItems = [{
 const Layout = (props) => {
 
   return (
-    <Box component="span" sx={{ display: 'flex' }}>
-      <CssBaseline enableColorScheme={true}/>
+    <Box component="div" sx={{ display: 'flex' }}>
       <Drawer
         theme={theme}
         sx={{
@@ -78,7 +82,7 @@ const Layout = (props) => {
         anchor="left"
       >
         <Toolbar sx={{ p: 0, alignContent: "left"}}>
-          <img src="https://i.imgur.com/XVw5c7s.png" width="300" height="300" alt="THIS IS GONNA BE A LOGO SOMEDAY"/>
+          <img src="https://i.imgur.com/9fxI7kC.jpg" width="300" height="200" alt="THIS IS GONNA BE A LOGO SOMEDAY"/>
         </Toolbar>
         <Divider />
         <List>
@@ -119,9 +123,7 @@ const Layout = (props) => {
       </Drawer>
     
       {/* Main Content */}
-      <div className="content" sx={{ display: "flex" }}>
         { props.children }
-      </div>
     </Box>
   );
 
