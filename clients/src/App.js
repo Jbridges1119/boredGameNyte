@@ -10,19 +10,22 @@ import Home from "./pages/Dashboard/Home";
 import Layout from "./pages/Layout/Layout";
 import Search from "./pages/Search/Search";
 import NytePage from './pages/NytePage/NytePage'
+import GameNyteList from './pages/GameNyteList/GameNytesList'
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-              <Layout theme={theme}>
                 <BrowserRouter>
-                  <Routes>
-                    <Route exact path="/" element={<Home />} theme={theme}/>
-                    <Route path="/search" element={<Search />} theme={theme}/>
-                    <Route path="/nyte" element={<NytePage />} theme={theme}/>
-                  </Routes>
+                  <Layout theme={theme}>
+                    <Routes>
+                      <Route exact path="/" element={<Home />} theme={theme}/>
+                      <Route path="/search" element={<Search />} theme={theme}/>
+                      <Route path="/nyte" element={<NytePage />} theme={theme}/>
+                      <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
+                      <Route path="/create" element={<Home />} theme={theme}/>
+                    </Routes>
+                  </Layout>
                 </BrowserRouter>
-              </Layout>
       </ThemeProvider>
   );
 }

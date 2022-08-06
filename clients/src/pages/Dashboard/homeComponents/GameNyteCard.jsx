@@ -12,7 +12,8 @@ export default function GameNyteCard(props) {
     <Card direction="row" sx={{ 
       backgroundColor: theme.palette.secondary.main,
       width: "100%",
-      borderRadius: "20px"
+      borderRadius: "20px",
+      border: "none"
       }}>
       <CardActionArea
       sx={{
@@ -25,7 +26,7 @@ export default function GameNyteCard(props) {
       >
         <CardMedia
           component="img"
-          height="300"
+          height="30"
           width="30"
           image="https://i.imgur.com/hHmdwtZ.png"
           alt="green iguana"
