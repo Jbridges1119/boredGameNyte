@@ -19,18 +19,20 @@ import {
 import theme from "../../assets/theme";
 import React from "react";
 import '../../styles/Sidebar.css'
+import { Link } from "react-router-dom";
 import { ClassNames } from "@emotion/react";
 
 const drawerWidth = 360;
 const sidebarButtonStyle = {
   backgroundColor: theme.palette.secondary.main,
   p: 0,
-  boxShadow: theme.shadows
+  boxShadow: theme.shadows,
+
 };
 
 const menuItems = [{
     text: "Profile",
-    icon: <Avatar />,
+    icon: <Person />,
     path: "/"
 },
 {
@@ -46,22 +48,28 @@ const menuItems = [{
 {
     text: "Game Collection",
     icon: <Casino />,
-    path: "/collection/:user_id"
+    path: "/collection"
 }
 ]
 
-// const sideBarLinks = menuItems.map((item) => {
-//   <ListItem
-//   key={item.text}
-//   sx={sidebarButtonStyle}>
-//      <ListItemButton>
-//        <ListItemIcon>
-//          {item.icon}
-//        </ListItemIcon>
-//        <ListItemText primary={item.text} />
-//      </ListItemButton>
-//   </ListItem>
-// })
+const sideBarLinks = menuItems.map((item) => {
+  return(
+    <div style={{ paddingBottom: 10 }}>
+    <Link to={item.path}>
+      <ListItem
+      key={item.text}
+      sx={sidebarButtonStyle}>
+        <ListItemButton>
+            <ListItemIcon>
+              {item.icon}
+            </ListItemIcon>
+          <ListItemText primary={item.text} />
+        </ListItemButton>
+      </ListItem>
+    </Link>
+    </div>
+  )
+})
 
 const Layout = (props) => {
 
@@ -87,38 +95,16 @@ const Layout = (props) => {
         <Divider />
         <List>
           {/* CTA Button */}
-        <ListItem sx={{ pl: 0, pr: 0, pb: 4}}>
-          <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main }}>
-            <ListItemText primary="Create your Game Nyte!" />
-          </ListItemButton>
-       </ListItem>
+        <Link to="/create">
+          <ListItem sx={{ pt: 4, pl: 0, pr: 0, pb: 4}}>
+            <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main }}>
+              <ListItemText primary="Create your Game Nyte!" />
+            </ListItemButton>
+          </ListItem>
+       </Link>
         {/* List links */}
-        <ListItem sx={sidebarButtonStyle}>
-          <ListItemButton>
-              <ListItemIcon>
-                <Person />
-              </ListItemIcon>
-            <ListItemText primary="Profile" />
-          </ListItemButton>
-        </ListItem>
-        <ListItem sx={sidebarButtonStyle}>
-          <ListItemButton>
-              <ListItemIcon>
-                <CalendarMonth />
-              </ListItemIcon>
-            <ListItemText primary="Your Game Nytes" />
-          </ListItemButton>
-        </ListItem>
-        <ListItem sx={sidebarButtonStyle}>
-          <ListItemButton>
-              <ListItemIcon>
-                <Search />
-              </ListItemIcon>
-            <ListItemText primary="Game Search" />
-          </ListItemButton>
-        </ListItem>
-
-
+        {sideBarLinks}
+        
         </List>
       </Drawer>
     
