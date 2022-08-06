@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import Paper from '@mui/material/Paper';
 import theme from "../../../assets/theme"
 
-const GameListButtonCard = () => {
+const NyteGameListButtonCard = () => {
   const card = (
     <React.Fragment>
       <CardContent
@@ -24,16 +24,17 @@ const GameListButtonCard = () => {
           <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 50,textTransform: 'none', borderRadius: '20px' }} variant="contained">Smash up</Button>
         </Stack>
         </Grid>
-    </Grid>
+      </Grid>
       </CardContent>
     </React.Fragment>
   );
 
   return (
         <Paper sx={{
-          borderRadius: '20px' 
+          borderRadius: '20px',
+          width: '100%' 
         }} elevation={4}>{card}</Paper>
   );
 };
 
-export default GameListButtonCard;
+export default NyteGameListButtonCard;

@@ -1,12 +1,12 @@
 import { CardContent, Paper } from "@mui/material";
 import theme from "../../../assets/theme"
 
-const GameNyteAttendees = () => {
+const NyteAttendees = () => {
   const card = <>
   <CardContent
         sx={{
-          height: 250,
-          backgroundColor: theme.palette.primary.main,
+          height: 225,
+          backgroundColor: theme.palette.secondary.main,
           borderRadius: '15px' 
         }}
       ></CardContent>
@@ -24,4 +24,4 @@ const GameNyteAttendees = () => {
   
 
  
-export default GameNyteAttendees;
+export default NyteAttendees;

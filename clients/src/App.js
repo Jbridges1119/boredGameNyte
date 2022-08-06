@@ -9,7 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import Home from "./pages/Dashboard/Home";
 import Layout from "./pages/Layout/Layout";
 import Search from "./pages/Dashboard/Search";
-import GamePage from "./pages/GamePage/GamePage"
+import NytePage from "./pages/NytePage/NytePage"
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
                   <Routes>
                     <Route exact path="/" element={<Home />} theme={theme}/>
                     <Route path="/search" element={<Search />} theme={theme}/>
-                    <Route path="/game" element={<GamePage />} theme={theme}/>
+                    <Route path="/nyte" element={<NytePage />} theme={theme}/>
                   </Routes>
                 </BrowserRouter>
               </Layout>
