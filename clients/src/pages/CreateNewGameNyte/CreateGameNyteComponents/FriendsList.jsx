@@ -7,6 +7,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Checkbox from '@mui/material/Checkbox';
 import { Person } from '@mui/icons-material';
 import theme from '../../../assets/theme';
+import useGameChooserData from '../../../hooks/useGameChooserData';
 
 const friends = [
   {
@@ -53,20 +54,12 @@ const friends = [
 
 
 export default function FriendsList() {
-  const [checked, setChecked] = useState([0]);
-
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
+  
+  const {
+    state,
+    setState,
+    handleFriendToggle
+  } = useGameChooserData();
 
   const friendsList = friends.map((friend) => {
     let labelId = `checkbox-list-secondary-label-${friend.id}`;
@@ -77,8 +70,8 @@ export default function FriendsList() {
         <Checkbox
           color="error"
           edge="end"
-          onChange={handleToggle(friend.id)}
-          checked={checked.indexOf(friend.id) !== -1}
+          onChange={handleFriendToggle(friend.id)}
+          checked={state.friendsInvited.indexOf(friend.id) !== -1}
           inputProps={{ 'aria-labelledby': labelId }}
         />
       }>

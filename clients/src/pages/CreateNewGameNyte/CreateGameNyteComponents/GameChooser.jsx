@@ -1,12 +1,12 @@
 import { Grid, Paper, Stack } from "@mui/material";
 import theme from "../../../assets/theme";
 import GameChooserDialog from "./GameChooserDialog";
-import useGameCollectionData from "../../../hooks/useGameCollectionData";
+import useGameChooserData from "../../../hooks/useGameChooserData";
 
 const GameChooser = (props) => {
   const {
     state,
-  } = useGameCollectionData();
+  } = useGameChooserData();
   return(
     <Paper 
       elevation={12}
@@ -20,7 +20,7 @@ const GameChooser = (props) => {
         <Stack direction="column" sx={{py: 8, px: 12}}>
           <Grid item>
             <div>
-              {state.collection[state.checked[0]]}
+              {/* {state.collection[state.checked[0]]} */}
               THIS WILL DISPLAY GAME 1
             </div>
           </Grid>

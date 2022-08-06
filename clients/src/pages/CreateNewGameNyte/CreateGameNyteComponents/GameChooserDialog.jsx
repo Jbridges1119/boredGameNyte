@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import theme from '../../../assets/theme';
 import GameChooserCollection from './GameChooserCollection';
-import useGameCollectionData from '../../../hooks/useGameCollectionData';
+import useGameChooserData from '../../../hooks/useGameChooserData';
 
 const BootstrapDialog = styled(Dialog)(() => ({
   '& .MuiDialogContent-root': {
@@ -57,7 +57,7 @@ export default function GameChooserDialog(props) {
     handleClose,
     handleCloseSave,
     handleToggle
-    } = useGameCollectionData();
+    } = useGameChooserData();
 
   return (
     <div>

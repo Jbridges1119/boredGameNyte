@@ -6,7 +6,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
-import useGameCollectionData from '../../../hooks/useGameCollectionData'
+import useGameChooserData from '../../../hooks/useGameChooserData'
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import { ListItemAvatar } from '@mui/material';
 import theme from '../../../assets/theme';
@@ -18,7 +18,7 @@ export default function GameChooserCollection() {
     state,
     setState, 
     handleToggle
-   } = useGameCollectionData();
+   } = useGameChooserData();
 
   const displayCollection = state.collection.map((game) => {
     const labelId = `checkbox-list-label-${game.id}`;
