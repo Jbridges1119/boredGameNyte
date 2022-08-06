@@ -37,7 +37,7 @@ export default function GameSearchCard(props) {
             </h2>
           </div>
           <Grid item justifyContent="space-around" sx={{ pl: 2, py: 1 }}>
-            <Button sx={{ backgroundColor: theme.palette.error.light }}>Add To Collection</Button>
+            <Button sx={{ backgroundColor: theme.palette.error.light, '&:hover': theme.palette.error.dark }}>Add To Collection</Button>
           </Grid>
           <Grid item justifyContent="space-around" sx={{ pl: 2, py: 1 }}>
             <Button sx={{ backgroundColor: theme.palette.error.light }}>View Game Details</Button>

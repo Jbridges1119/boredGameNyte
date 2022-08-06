@@ -95,11 +95,13 @@ const Layout = (props) => {
         <Divider />
         <List>
           {/* CTA Button */}
-        <ListItem sx={{ pt: 4, pl: 0, pr: 0, pb: 4}}>
-          <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main }}>
-            <ListItemText primary="Create your Game Nyte!" />
-          </ListItemButton>
-       </ListItem>
+        <Link to="/create">
+          <ListItem sx={{ pt: 4, pl: 0, pr: 0, pb: 4}}>
+            <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main }}>
+              <ListItemText primary="Create your Game Nyte!" />
+            </ListItemButton>
+          </ListItem>
+       </Link>
         {/* List links */}
         {sideBarLinks}
         
