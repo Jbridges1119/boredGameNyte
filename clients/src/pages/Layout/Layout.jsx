@@ -30,7 +30,7 @@ const sidebarButtonStyle = {
 
 const menuItems = [{
     text: "Profile",
-    icon: <Avatar />,
+    icon: <Person />,
     path: "/"
 },
 {
