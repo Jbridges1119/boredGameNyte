@@ -47,7 +47,7 @@ const GameCardData = (props) => {
     alignItems:'space-between',}}
    >
 
-    <Typography sx={{color: "#FFFFFF"}}  variant="h3">{props.name}</Typography>
+    <Typography sx={{color: "#FFFFFF"}} pt={1} variant="h3">{props.name}</Typography>
     <Button  sx={{backgroundColor: theme.palette.error.main, height: 75,  fontSize: 40,textTransform: 'none', borderRadius: '20px' }} variant="contained">How To Play</Button>
     </Stack>
     </Grid>
