@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
+import Paper from '@mui/material/Paper';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
@@ -9,18 +9,13 @@ import theme from '../../../assets/theme';
 
 export default function GameSearchCard(props) {
   return (
-    <Card direction="row" sx={{ 
-      backgroundColor: theme.palette.primary.light
-      }}>
-      <CardActionArea
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignContent: "center",
-        color: "white",
-        p: 1
-      }}
-      >
+    <Paper direction="row" sx={{
+      display: 'flex',
+      backgroundColor: theme.palette.primary.main,
+      color: "white",
+      p: 1,
+      borderRadius: "20px"
+    }}>
         <CardMedia
           component="img"
           height="30"
@@ -28,11 +23,11 @@ export default function GameSearchCard(props) {
           image={props.img}
           alt="green iguana"
           sx={{
-            display: 'flex',
             width: "33%",
             height: "100%",
             maxWidth: "50",
-            maxHeight: "50"
+            maxHeight: "50",
+            borderRadius: "10px"
           }}
           />
           <Grid>
@@ -64,7 +59,6 @@ export default function GameSearchCard(props) {
             </Accordion>
           </CardContent>
           </Grid>
-      </CardActionArea>
-    </Card>
+    </Paper>
   );
 }

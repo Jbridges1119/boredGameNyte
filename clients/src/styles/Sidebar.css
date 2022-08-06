@@ -1,3 +1,12 @@
 .MuiListItemButton-root:first {
   background-color: amber;
 }
+
+span.MuiTypography-root {
+  text-decoration: none;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
