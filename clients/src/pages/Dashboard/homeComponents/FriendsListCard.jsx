@@ -18,11 +18,11 @@ export default function FriendsListCard() {
       }}
     >
       <Grid>
-        <CardHeader title="Friends List" />
+        <CardHeader sx={{ color: "white" }} title="Friends List" />
         <CardContent>
           <Grid container sx={{ justifyContent: "center" }}>
             <Grid item xs={11}>
-              <Typography variant="h6" color="textSecondary">
+              <Typography sx={{ color: "white" }} variant="h6" color="textSecondary">
                 <FriendsList />
               </Typography>
             </Grid>
