@@ -1,62 +1,87 @@
-import { useState, useEffect } from "react";
-import { Box, Stack, Skeleton } from "@mui/material";
-import axios from 'axios';
-import GameCard from './homeComponents/GameCard';
-import YoutubeEmbed from "./homeComponents/YoutubeEmbed";
+import React from "react";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import Card from "@mui/material/Card";
+import { Container, Stack, Box } from "@mui/material";
+import { useEffect } from "react";
+import ProfileCard from "./homeComponents/ProfileCard";
+import FriendsListCard from "./homeComponents/FriendsListCard";
+import GameNyteCard from "./homeComponents/GameNyteCard";
+import theme from "../../assets/theme";
 
-const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
-const apiKey = process.env.REACT_APP_YOUTUBE_APIKEY;
-const youtubeApiUrl = "https://www.googleapis.com/youtube/v3/search";
+export default function Home(props) {
+  // // state getter and setter for game night events
+  // const [events, setEvents] = useState([]);
 
-const Home = () => {
-  const [data, setData] = useState([])
-  // const [videos, setVideos] = useState([])
+  // useEffect(() => {
+  //   // retrieve past & future game night events
+  // })
 
-  useEffect(() => {
-    Promise.all([
-      axios.get(`https://api.boardgameatlas.com/api/search?name=azul&fuzzy_match=true&limit=10&client_id=${BGA_CLIENT_ID}`)
-      // axios.get(`${youtubeApiUrl}?q=azul%20how%20to%20play&key=${apiKey}`)
-    ])
-        .then((all) => {
-          setData(all[0].data.games)
-          // setVideos(all[1].data.items)
-        })
-  }, []);
-  // const tubeVideo = videos[0].id.videoId
-  console.log('data:', data);
-  // console.log('videos:', videos);
-  let gameSearchResults = data.map((game) => {
-    return(
-    <GameCard
-    key={game.id}
-    img={game.images.small}
-    name={game.name}
-    description={game.description}
-    />
-    )
-  });
-
-  // let youtubeSearchResults = data[1].map((video) => {
-  //   return(
-  //   <GameCard
-  //   key={video.id}
-  //   img={video.thumb}
-  //   name={video.name}
-  //   description={video.description}
-  //   />
-  //   )
-  // });
-
-  return ( 
-    <Box flex={4} p={{ xs: 0 }}>
-      {/* <div className="games-container"> */}
-        {gameSearchResults}
-      {/* </div> */}
-      <div className="videos-container">
-        <YoutubeEmbed embedId="nJ-ehbVQYxI" />
-      </div>
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        height: "100%",
+        backgroundColor: theme.palette.primary.main,
+      }}
+    >
+      <Stack
+        direction="row"
+        justifyContent="space-around"
+        alignItems="flex-end"
+        spacing={6}
+      >
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item xs={11}>
+            <Grid
+              container
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Grid item xs={5.5}>
+                <ProfileCard />
+              </Grid>
+              <Grid items xs={5.5}>
+                <FriendsListCard />
+              </Grid>
+            </Grid>
+            {/* Follow GameNyteCards to be replaced with mapped cards with data */}
+            <div style= {{ padding: 20 }}>
+              <Grid container justifyContent="center">
+                <Grid item xs={10}>
+                  <Paper sx={{backgroundColor: theme.palette.primary.main}} >
+                    <GameNyteCard />
+                  </Paper>
+                </Grid>
+              </Grid>
+            </div>
+            <div style= {{ padding: 20 }}>
+              <Grid container justifyContent="center">
+                <Grid item xs={10}>
+                  <Paper sx={{backgroundColor: theme.palette.primary.main}} >
+                    <GameNyteCard />
+                  </Paper>
+                </Grid>
+              </Grid>
+            </div>
+            <div style= {{ padding: 20 }}>
+              <Grid container justifyContent="center">
+                <Grid item xs={10}>
+                  <Paper sx={{backgroundColor: theme.palette.primary.main}} >
+                    <GameNyteCard />
+                  </Paper>
+                </Grid>
+              </Grid>
+            </div>
+          </Grid>
+        </Grid>
+      </Stack>
     </Box>
-   );
+  );
 }
- 
-export default Home;
