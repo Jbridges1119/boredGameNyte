@@ -22,6 +22,7 @@ function App() {
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/game" element={<GamePage />} theme={theme}/>
                       <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
+                      <Route path="/create" element={<Home />} theme={theme}/>
                     </Routes>
                   </Layout>
                 </BrowserRouter>
