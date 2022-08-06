@@ -1,5 +1,5 @@
 import { Card, Paper, CardHeader,CardContent, ListItemAvatar, ListItem, ListItemText ,Avatar, List, Typography, Table, TableContainer, TableHead, TableRow, TableBody, TableCell } from "@mui/material";
-import theme from "../../../assets/theme"
+import theme from "../../../../assets/theme"
 import Grid from "@mui/material/Grid";
 import Person from "@mui/icons-material/Person";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import HelpIcon from '@mui/icons-material/Help';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-const NyteAttendees = () => {
+const NyteInvites = () => {
 
   const attending = [
     {
@@ -42,29 +42,17 @@ const NyteAttendees = () => {
       name: "Amy Wong",
       email: "superrich@gmail.com",
     }, 
-    {
-      name: "Amy Wong",
-      email: "superrich@gmail.com",
-    }, 
-    {
-      name: "Amy Wong",
-      email: "superrich@gmail.com",
-    }, 
-  ];
- 
-          
     
+  ];
 
-
-  
   const attendingList = attending.map((friend) => {
     
     return (
-      <ListItem sx={{p: 0}}
+      <ListItem sx={{p:0}}
       >
-        <CancelIcon sx={{ width: 26, height: 26,color: 'darkred', px:2 }}/>
-          <HelpIcon sx={{ width: 26, height: 26, px:2 }}/> 
-            <CheckCircleIcon color="success"sx={{ width: 26, height: 26, px:2 }}/> 
+        {/* <CancelIcon sx={{ width: 26, height: 26,color: 'darkred', pr:2 }}/> */}
+          <HelpIcon sx={{ width: 26, height: 26, pr:2, color: theme.palette.error.main }}/> 
+            {/* <CheckCircleIcon sx={{ width: 26, height: 26, pr:2,color: '#00C41F' }}/>  */}
         <ListItemAvatar>
           <Avatar sx={{ width: 26, height: 26, pt: 0 }}>
             <Person />
@@ -75,28 +63,24 @@ const NyteAttendees = () => {
     );
         
   });
-  
 
 
 
-
-
-
-  const card = <>
-  
+  const card = 
   <Card
         sx={{
-          height: 265,
+          height: 380,
           backgroundColor: theme.palette.secondary.main,
-          borderRadius: '15px' 
+          borderRadius: '15px',
+         
         }} >
-          <CardHeader  title="Friends List" />
+          <CardHeader align="center" title="Invited" />
        <CardContent >
        <Grid container
           direction="row"
           justifyContent="space-evenly"
           alignItems="center" >
-          <Grid item xs={5}>
+          <Grid item xs={12}>
            
              
               {attendingList}
@@ -107,20 +91,28 @@ const NyteAttendees = () => {
         </Grid>
         </CardContent>
       </Card>
-  </>;
+ 
 
 
 
     
     return (
-      <Paper sx={{ borderRadius: "20px" }} elevation={4} >
+      <Paper sx={{ borderRadius: "20px", mt: '12px',width: '100%', }} elevation={4} >
          
         {card}
         
       </Paper>
     );
   };
-  
 
- 
-export default NyteAttendees;
+
+
+
+
+
+
+
+export default NyteInvites;
+
+
+

@@ -27,9 +27,6 @@ console.log(data)
 
 
 const game = data.map((game) =>{
-console.log(game.data.games[0].images)
-console.log(game.data.games[0].name)
-console.log(game.data.games[0].name)
   return (
     <Game 
     key={game.data.games.id}

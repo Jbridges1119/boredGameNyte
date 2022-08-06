@@ -3,105 +3,80 @@ import Grid from "@mui/material/Grid";
 
 import { Box,  Stack, Typography } from "@mui/material";
 
-import NyteGameListButtonCard from "./NytePageComponents/NyteGameListButtonCard";
-import NyteGameListCard from "./NytePageComponents/NyteGameListCard";
-import NyteAttendees from "./NytePageComponents/NyteAttendees";
-import NytePicture from "./NytePageComponents/NytePicture";
 
-
+import NyteDetails from './NytePageComponents/NyteDetails'
+import GameCard from './NytePageComponents/GameCard'
 import theme from "../../assets/theme";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
-import NyteStatus from "./NytePageComponents/NyteStatus";
+
+
 
 const NytePage = () => {
+
+
+  const [data, setData] = useState([])
+  // const [videos, setVideos] = useState([])
+  const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
+  useEffect(() => {
+    Promise.all([
+      axios.get(`https://api.boardgameatlas.com/api/search?ids=TAAifFP590,OIXt3DmJU0&pretty=true&client_id=JLBr5npPhV`),
+      axios.get(`https://api.boardgameatlas.com/api/search?ids=Dm71eMcqrp&pretty=true&client_id=${BGA_CLIENT_ID}`),
+      axios.get(`https://api.boardgameatlas.com/api/search?name=Catan&client_id=JLBr5npPhV`),
+    ])
+        .then((all) => {
+          setData(all)
+          // setVideos(all[1].data.items)
+        })
+  }, []);
+
+
+  const game = data.map((game) =>{
+    return (
+      <GameCard 
+      key={game.data.games.id}
+      img={game.data.games[0].images.large}
+      name={game.data.games[0].name}
+      />
+    )
+  })
+
   return (
     <Box sx={{ width: "100%", backgroundColor: theme.palette.primary.main, height: "100vh" }}>
-     <Typography py={1.5} align="center" variant="h2">Boardgame Night At Johnny's</Typography>
-      
-     
-      <Stack
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        spacing={2}
-      >
-        <Grid 
+     <Typography py={1.5} align="center" variant="h2">No Foolin Game Night</Typography>
+     <Grid 
           container
           direction="row"
           justifyContent="center"
           alignItems="center"
         >
           <Grid item xs={11}>
-            {/* First Container Grid */}
-            <Stack container spacing={2}>
-            <Grid
-            
-              container
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-            >
-           <Grid item xs={1}  >
-               
-              
-               </Grid>
-               
-              <Grid item xs={3}  >
-               {/* will need ternary operator to select comp or casual */}
-              <NytePicture/>
-            
-              </Grid>
-              <Grid item xs={2}>
-              </Grid>
 
-              <Grid item xs={5}>
-                {/* will need the 3 games id from db */}
-                <NyteGameListCard />
-              </Grid>
-              
-            </Grid>
- {/* Second Container Grid */}
-            <Grid
-              container
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-            >
-               <Grid item xs={1}  >
-               
-              
-               </Grid>
-              <Grid item xs={3} >
-              {/* will need prop to determin host cancel or attende cancel/confirm */}
-                <NyteStatus />
-              
-              </Grid>
-              <Grid item xs={2}>
-                
-              </Grid>
-              <Grid item xs={5}>
-                {/* will need list of people invited */}
-                <NyteAttendees />
-              </Grid>
-            </Grid>
-            </Stack>
-          </Grid>
-          
-        </Grid>
-         {/* Bottom Container Grid */}
-        <Grid
-          container
+
+
+
+
+    <Grid container
           direction="row"
           justifyContent="center"
-          alignItems="center"
-        >
-          <Grid item xs={11}>
-            {/* will need a 3 game ideas to set in buttons eg, array[0] */}
-            <NyteGameListButtonCard />
+          alignItems="center">
+          <Grid item xs={2.5}>
+            <NyteDetails/>
           </Grid>
-        </Grid>
+          <Grid item xs={0.5}>
+            
+          </Grid>
+      <Grid item xs={9}>
+     <Stack spacing={3}>
+      {game}
+     
       </Stack>
-      
+      </Grid>
+      </Grid>
+      </Grid>
+      </Grid>
     </Box>
   );
 };
