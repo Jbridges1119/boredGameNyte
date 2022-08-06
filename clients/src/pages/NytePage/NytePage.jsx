@@ -16,9 +16,9 @@ import NyteStatus from "./NytePageComponents/NyteStatus";
 const NytePage = () => {
   return (
     <Box sx={{ width: "100%", backgroundColor: "white", height: "100vh" }}>
-      <Box>
-      <Typography pt={2}  variant="h2" >BG at Johnny's House</Typography>
-      </Box>
+     
+      <Typography pt={2} align="center" variant="h2" >Boardgame Night At Johnny's</Typography>
+      
       <Stack
         direction="column"
         justifyContent="center"
@@ -41,7 +41,10 @@ const NytePage = () => {
               justifyContent="center"
               alignItems="center"
             >
-          
+           <Grid item xs={1}  >
+               
+              
+               </Grid>
               <Grid item xs={3}  >
                
               <NytePicture/>
@@ -62,6 +65,10 @@ const NytePage = () => {
               justifyContent="center"
               alignItems="center"
             >
+               <Grid item xs={1}  >
+               
+              
+               </Grid>
               <Grid item xs={3} >
               
                 <NyteStatus />

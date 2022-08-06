@@ -14,7 +14,7 @@ export default function NytePicture() {
 
 
   return (
-    <Paper component='div' sx={{ borderRadius: "20px",display: "flex", justifyContent: 'center'  }}  >
+    <Paper component='div' sx={{ borderRadius: "20px",display: "flex", justifyContent: 'center',backgroundColor:theme.palette.secondary.main  }}  >
    {card}
   </Paper>
   );

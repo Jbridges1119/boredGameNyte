@@ -11,13 +11,15 @@ const NyteGameListCard = () => {
           backgroundColor:theme.palette.secondary.main,
           borderRadius: '15px' 
         }}
+
+        
       ></CardContent>
   </>;
 
   
   
   return (
-    <Paper sx={{ borderRadius: "20px" }} elevation={4} >
+    <Paper sx={{ borderRadius: "20px",backgroundColor:theme.palette.secondary.main }} elevation={4} >
       {card}
     </Paper>
   );
