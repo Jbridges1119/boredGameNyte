@@ -12,22 +12,27 @@ const friends = [
   {
     name: "The Professor",
     email: "TheProfessor@gmail.com",
+    id: 0
   },
   {
     name: "Zoidberg",
     email: "Zoidberg@gmail.com",
+    id: 1
   },
   {
     name: "Bender",
     email: "BenderIsGreat@gmail.com",
+    id: 2
   },
   {
     name: "Turanga Leela",
     email: "Oneye@gmail.com",
+    id: 3
   },
   {
     name: "Amy Wong",
     email: "superrich@gmail.com",
+    id: 4
   },
 ];
 
@@ -49,25 +54,24 @@ export default function FriendsList() {
   };
 
   const friendsList = friends.map((friend) => {
-    const labelId = `checkbox-list-secondary-label-${friend.indexOf}`;
-    console.log(labelId);
+    let labelId = `checkbox-list-secondary-label-${friend.id}`;
     return (
       <ListItem
-      key={friend.indexOf}
+      key={friend.id}
       secondaryAction={
         <Checkbox
           edge="end"
-          onChange={handleToggle(friend.indexOf)}
-          checked={checked.indexOf(friend.indexOf) !== -1}
+          onChange={handleToggle(friend.id)}
+          checked={checked.indexOf(friend.id) !== -1}
           inputProps={{ 'aria-labelledby': labelId }}
         />
       }
       disablePadding
       >
         <ListItemAvatar>
-          <Avatar>
+          {/* <Avatar> */}
             <Person />
-          </Avatar>
+          {/* </Avatar> */}
         </ListItemAvatar>
         <ListItemText primary={friend.name} secondary={friend.email} />
       </ListItem>
