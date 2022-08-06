@@ -4,7 +4,9 @@ import GameChooserDialog from "./GameChooserDialog";
 import useGameCollectionData from "../../../hooks/useGameCollectionData";
 
 const GameChooser = (props) => {
-
+  const {
+    state,
+  } = useGameCollectionData();
   return(
     <Paper 
       elevation={12}
@@ -18,7 +20,7 @@ const GameChooser = (props) => {
         <Stack direction="column" sx={{py: 8, px: 12}}>
           <Grid item>
             <div>
-              {/* checked[0] */}
+              {state.collection[state.checked[0]]}
               THIS WILL DISPLAY GAME 1
             </div>
           </Grid>

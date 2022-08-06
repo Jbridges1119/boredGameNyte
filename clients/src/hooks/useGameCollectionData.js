@@ -47,27 +47,43 @@ const games = [
 
 const useGameCollectionData = () => {
 
-  const [checked, setChecked] = useState([]);
+  
   // This will ideally be the users collection retrieved from database
   // Currently, default state is dummy data stored above
   // Will have to use setCollection with a useEffect later
-  const [collection, setCollection] = useState(games);
+  
+  const [state, setState] = useState({
+    checked: [],
+    collection: games,
+    open: false
+  })
 
+  const handleClickOpen = () => {
+    setState({ ...state, open: true });
+  };
+  const handleClose = () => {
+    setState({...state, open: false});
+    console.log(state.checked)
+  };
+  const handleCloseSave = () => {
+    setState({ ...state, open: false, checked: state.checked });
+    console.log(state.checked)
+  };
 
   const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-  
+    const currentIndex = state.checked.indexOf(value);
+    const newChecked = [...state.checked];
+
     if (currentIndex === -1) {
       newChecked.push(value);
     } else {
       newChecked.splice(currentIndex, 1);
     }
-    console.log("newchecked:", newChecked)
-    setChecked(newChecked);
+    
+    setState({...state, checked: newChecked});
   };
 
-  return { collection, setCollection, checked, setChecked, handleToggle }
+  return { state, setState, handleToggle, handleClickOpen, handleClose, handleCloseSave }
 };
 
 export default useGameCollectionData;

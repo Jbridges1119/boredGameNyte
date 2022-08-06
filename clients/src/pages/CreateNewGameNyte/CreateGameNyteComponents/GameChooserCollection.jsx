@@ -15,13 +15,12 @@ import theme from '../../../assets/theme';
 export default function GameChooserCollection() {
 
   const{ 
-    checked, 
-    setChecked, 
-    collection, 
-    setCollection, 
-    handleToggle } = useGameCollectionData();
+    state,
+    setState, 
+    handleToggle
+   } = useGameCollectionData();
 
-  const displayCollection = collection.map((game) => {
+  const displayCollection = state.collection.map((game) => {
     const labelId = `checkbox-list-label-${game.id}`;
 
     return (
@@ -39,7 +38,7 @@ export default function GameChooserCollection() {
             <Checkbox
               edge="start"
               color="error"
-              checked={checked.indexOf(game.id) !== -1}
+              checked={state.checked.indexOf(game.id) !== -1}
               tabIndex={-1}
               disableRipple
               inputProps={{ 'aria-labelledby': labelId }}

@@ -51,21 +51,13 @@ BootstrapDialogTitle.propTypes = {
 export default function GameChooserDialog(props) {
 
   const{ 
-    checked, 
-    setChecked, 
-    collection, 
-    handleToggle } = useGameCollectionData();
-
-
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-    console.log(checked)
-  };
+    state,
+    setState,
+    handleClickOpen,
+    handleClose,
+    handleCloseSave,
+    handleToggle
+    } = useGameCollectionData();
 
   return (
     <div>
@@ -75,7 +67,7 @@ export default function GameChooserDialog(props) {
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
-        open={open}
+        open={state.open}
         >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} sx={{ backgroundColor: theme.palette.secondary.main }}>
           Your Collection
@@ -84,7 +76,7 @@ export default function GameChooserDialog(props) {
           <GameChooserCollection />
         </DialogContent>
         <DialogActions sx={{ backgroundColor: theme.palette.secondary.main }}>
-          <Button autoFocus onClick={handleClose} sx={{ backgroundColor: theme.palette.secondary.main }}>
+          <Button autoFocus onClick={handleCloseSave} sx={{ backgroundColor: theme.palette.secondary.main }}>
             Save changes
           </Button>
         </DialogActions>
