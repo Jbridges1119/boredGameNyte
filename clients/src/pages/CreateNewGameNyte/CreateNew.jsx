@@ -6,6 +6,7 @@ import TitleBar from "./CreateGameNyteComponents/GameNyteTitleBar";
 import FriendInviter from "./CreateGameNyteComponents/GameNyteFriendInviter";
 import 'react-widgets/styles.css'
 import { Calendar } from "react-widgets";
+import GameChooser from "./CreateGameNyteComponents/GameChooser";
 
 
 const CreateNew = () => {
@@ -20,30 +21,34 @@ const CreateNew = () => {
         width: "100%",
         backgroundColor: theme.palette.primary.main
       }}>
-      <Grid container alignContent="center" justifyContent="center">
+      <Grid container alignContent="center">
         <Stack direction="row">
           <Grid item>
-            <Grid container>
+            <Grid container alignContent="center">
               <Stack>
-                <Grid item xs={6} sx={{
-                  py: 4
+                <Grid item xs={11} sx={{
+                  py: 6,
+                  px: 3
                 }}>
                   <TitleBar />
                 </Grid>
-                <Grid item xs={3} sx={{
-                  py: 4,
-                  px: 4
+                <Grid item xs={8} sx={{
+                  py: 3,
+                  pl: 15
                 }}>
-                  <Calendar />
+                  <Calendar 
+                    bordered="false"
+                    defaultValue={new Date()}
+                    />
                 </Grid>
-                <Grid item xs={3} sx={{ px: 4, py: 2 }}>
+                <Grid item xs={8} sx={{ px: 3, py: 3 }}>
                   <FriendInviter />
                 </Grid>
               </Stack>
             </Grid>
           </Grid>
-          <Grid item xs={12}>
-              This will be the game chooser div. The dropdown will have games from the users collection, and checkboxes?
+          <Grid item alignContent="center" xs={12} sx={{px:3, py:12}}>
+              <GameChooser />
           </Grid>
         </Stack>
       </Grid>

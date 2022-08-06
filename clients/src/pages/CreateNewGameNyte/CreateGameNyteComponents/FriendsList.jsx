@@ -4,7 +4,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Checkbox from '@mui/material/Checkbox';
-import Avatar from '@mui/material/Avatar';
 import theme from '../../../assets/theme';
 import { Person } from '@mui/icons-material';
 
@@ -33,6 +32,36 @@ const friends = [
     name: "Amy Wong",
     email: "superrich@gmail.com",
     id: 4
+  },
+  {
+    name: "Scruffy",
+    email: "scruffythejanitor@gmail.com",
+    id: 5
+  },
+  {
+    name: "Zapp Brannigan",
+    email: "sexyspacecommander@gmail.com",
+    id: 6
+  },
+  {
+    name: "Kif Kroaker",
+    email: "ltkif@gmail.com",
+    id: 7
+  },
+  {
+    name: "Scruffy",
+    email: "scruffythejanitor@gmail.com",
+    id: 5
+  },
+  {
+    name: "Zapp Brannigan",
+    email: "sexyspacecommander@gmail.com",
+    id: 6
+  },
+  {
+    name: "Kif Kroaker",
+    email: "ltkif@gmail.com",
+    id: 7
   },
   {
     name: "Scruffy",
@@ -95,10 +124,11 @@ export default function FriendsList() {
     dense 
     sx={{ 
       width: '100%', 
-      maxWidth: 500,
+      midWidth: 360,
+      maxWidth: 800,
       position: "relative",
       overflow: "auto",
-      maxHeight: 350,
+      maxHeight: 475
       }}>
       {friendsList}
     </List>
