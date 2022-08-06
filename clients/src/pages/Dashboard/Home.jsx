@@ -9,8 +9,7 @@ import FriendsListCard from "./homeComponents/FriendsListCard";
 import GameNyteCard from "./homeComponents/GameNyteCard";
 import theme from "../../assets/theme";
 
-export default function HomePage(props) {
-  
+export default function Home(props) {
   // // state getter and setter for game night events
   // const [events, setEvents] = useState([]);
 
@@ -19,8 +18,13 @@ export default function HomePage(props) {
   // })
 
   return (
-    <Box sx={{ width: "100%", height: "100vh", backgroundColor: theme.palette.primary.main }}>
-      
+    <Box
+      sx={{
+        width: "100%",
+        height: "100%",
+        backgroundColor: theme.palette.primary.main,
+      }}
+    >
       <Stack
         direction="row"
         justifyContent="space-around"
@@ -32,35 +36,52 @@ export default function HomePage(props) {
           direction="row"
           justifyContent="center"
           alignItems="center"
-          
         >
           <Grid item xs={11}>
-            
-        <Grid container   
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"> 
-          <Grid item xs={5.5}>
-            <ProfileCard />
-          </Grid>
-          <Grid items xs={5.5}>
-            <FriendsListCard /> 
-          </Grid>
-        </Grid>
-
-          <Grid container>
-            <Grid item>
-              <Paper>UPCOMING GAME NIGHT
-              </Paper>   
+            <Grid
+              container
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Grid item xs={5.5}>
+                <ProfileCard />
+              </Grid>
+              <Grid items xs={5.5}>
+                <FriendsListCard />
+              </Grid>
             </Grid>
-          </Grid>
-        
-
-         
+            {/* Follow GameNyteCards to be replaced with mapped cards with data */}
+            <div style= {{ padding: 20 }}>
+              <Grid container justifyContent="center">
+                <Grid item xs={10}>
+                  <Paper sx={{backgroundColor: theme.palette.primary.main}} >
+                    <GameNyteCard />
+                  </Paper>
+                </Grid>
+              </Grid>
+            </div>
+            <div style= {{ padding: 20 }}>
+              <Grid container justifyContent="center">
+                <Grid item xs={10}>
+                  <Paper sx={{backgroundColor: theme.palette.primary.main}} >
+                    <GameNyteCard />
+                  </Paper>
+                </Grid>
+              </Grid>
+            </div>
+            <div style= {{ padding: 20 }}>
+              <Grid container justifyContent="center">
+                <Grid item xs={10}>
+                  <Paper sx={{backgroundColor: theme.palette.primary.main}} >
+                    <GameNyteCard />
+                  </Paper>
+                </Grid>
+              </Grid>
+            </div>
           </Grid>
         </Grid>
-        </Stack>
+      </Stack>
     </Box>
   );
-
-};
+}
