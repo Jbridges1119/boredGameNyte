@@ -32,42 +32,43 @@ const friends = [
   {
     name: "Amy Wong",
     email: "superrich@gmail.com",
-  }
+  },
 ];
 
 const friendsList = friends.map((friend) => {
-  return <ListItem
-    secondaryAction={
-      <IconButton edge="end" aria-label="delete">
-        <DeleteIcon />
-      </IconButton>
-    }>
-    <ListItemAvatar>
-      <Avatar>
-        <Person />
-      </Avatar>
-    </ListItemAvatar>
-    <ListItemText primary={friend.name} secondary={friend.email} />
-  </ListItem>
+  return (
+    <ListItem
+      secondaryAction={
+        <IconButton edge="end" aria-label="delete">
+          <DeleteIcon />
+        </IconButton>
+      }
+    >
+      <ListItemAvatar>
+        <Avatar>
+          <Person />
+        </Avatar>
+      </ListItemAvatar>
+      <ListItemText primary={friend.name} secondary={friend.email} />
+    </ListItem>
+  );
 });
 
 export default function FriendsList(props) {
-  
-
-
-  console.log(friendsList)
+  console.log(friendsList);
   return (
     <Grid item xs={12}>
-        <List 
+      <List
         disableGutters
         sx={{
-        width: '100%',
-        position: 'relative',
-        overflow: 'auto',
-        maxHeight: 200
-      }}>
-          {friendsList}
-        </List>
+          width: "100%",
+          position: "relative",
+          overflow: "auto",
+          maxHeight: 200,
+        }}
+      >
+        {friendsList}
+      </List>
     </Grid>
   );
 }
