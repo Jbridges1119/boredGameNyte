@@ -15,16 +15,16 @@ import GameNyteList from "./pages/GameNyteList/GameNytesList";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-              <Layout theme={theme}>
                 <BrowserRouter>
-                  <Routes>
-                    <Route exact path="/" element={<Home />} theme={theme}/>
-                    <Route path="/search" element={<Search />} theme={theme}/>
-                    <Route path="/game" element={<GamePage />} theme={theme}/>
-                    <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
-                  </Routes>
+                  <Layout theme={theme}>
+                    <Routes>
+                      <Route path="/" element={<Home />} theme={theme}/>
+                      <Route path="/search" element={<Search />} theme={theme}/>
+                      <Route path="/game" element={<GamePage />} theme={theme}/>
+                      <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
+                    </Routes>
+                  </Layout>
                 </BrowserRouter>
-              </Layout>
       </ThemeProvider>
   );
 }
