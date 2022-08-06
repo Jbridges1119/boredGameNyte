@@ -11,7 +11,9 @@ export default function GameNyteCard(props) {
   return (
     <Card direction="row" sx={{ 
       backgroundColor: theme.palette.secondary.main,
-      width: "100%"
+      width: "100%",
+      borderRadius: "20px",
+      border: "none"
       }}>
       <CardActionArea
       sx={{
