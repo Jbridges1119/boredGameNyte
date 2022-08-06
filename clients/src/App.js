@@ -18,7 +18,7 @@ function App() {
                 <BrowserRouter>
                   <Layout theme={theme}>
                     <Routes>
-                      <Route path="/" element={<Home />} theme={theme}/>
+                      <Route exact path="/" element={<Home />} theme={theme}/>
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/game" element={<GamePage />} theme={theme}/>
                       <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
