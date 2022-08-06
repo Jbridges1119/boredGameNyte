@@ -50,18 +50,18 @@ const menuItems = [{
 }
 ]
 
-// const sideBarLinks = menuItems.map((item) => {
-//   <ListItem
-//   key={item.text}
-//   sx={sidebarButtonStyle}>
-//      <ListItemButton>
-//        <ListItemIcon>
-//          {item.icon}
-//        </ListItemIcon>
-//        <ListItemText primary={item.text} />
-//      </ListItemButton>
-//   </ListItem>
-// })
+const sideBarLinks = menuItems.map((item) => {
+  return <ListItem
+  key={item.text}
+  sx={sidebarButtonStyle}>
+     <ListItemButton>
+       <ListItemIcon>
+         {item.icon}
+       </ListItemIcon>
+       <ListItemText primary={item.text} />
+     </ListItemButton>
+  </ListItem>
+})
 
 const Layout = (props) => {
 
@@ -93,32 +93,8 @@ const Layout = (props) => {
           </ListItemButton>
        </ListItem>
         {/* List links */}
-        <ListItem sx={sidebarButtonStyle}>
-          <ListItemButton>
-              <ListItemIcon>
-                <Person />
-              </ListItemIcon>
-            <ListItemText primary="Profile" />
-          </ListItemButton>
-        </ListItem>
-        <ListItem sx={sidebarButtonStyle}>
-          <ListItemButton>
-              <ListItemIcon>
-                <CalendarMonth />
-              </ListItemIcon>
-            <ListItemText primary="Your Game Nytes" />
-          </ListItemButton>
-        </ListItem>
-        <ListItem sx={sidebarButtonStyle}>
-          <ListItemButton>
-              <ListItemIcon>
-                <Search />
-              </ListItemIcon>
-            <ListItemText primary="Game Search" />
-          </ListItemButton>
-        </ListItem>
-
-
+        {sideBarLinks}
+        
         </List>
       </Drawer>
     
