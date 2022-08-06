@@ -8,9 +8,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
 import theme from '../../../assets/theme';
 import GameChooserCollection from './GameChooserCollection';
+import useGameCollectionData from '../../../hooks/useGameCollectionData';
 
 const BootstrapDialog = styled(Dialog)(() => ({
   '& .MuiDialogContent-root': {
@@ -48,7 +48,15 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function GameChooserDialog() {
+export default function GameChooserDialog(props) {
+
+  const{ 
+    checked, 
+    setChecked, 
+    collection, 
+    handleToggle } = useGameCollectionData();
+
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -56,6 +64,7 @@ export default function GameChooserDialog() {
   };
   const handleClose = () => {
     setOpen(false);
+    console.log(checked)
   };
 
   return (

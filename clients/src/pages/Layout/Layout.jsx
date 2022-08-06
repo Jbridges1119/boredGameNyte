@@ -5,7 +5,6 @@ import {
   Search,
 } from "@mui/icons-material";
 import {
-  Avatar,
   Box,
   Divider,
   Drawer,
@@ -57,7 +56,7 @@ const sideBarLinks = menuItems.map((item) => {
     <div style={{ paddingBottom: 10 }}>
     <Link to={item.path}>
       <ListItem
-      key={item.text}
+      key={menuItems.indexOf(item)}
       sx={sidebarButtonStyle}>
         <ListItemButton>
             <ListItemIcon>

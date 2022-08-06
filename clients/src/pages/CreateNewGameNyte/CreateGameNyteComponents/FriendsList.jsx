@@ -1,11 +1,12 @@
 import * as React from 'react';
+import { useState } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Checkbox from '@mui/material/Checkbox';
-import theme from '../../../assets/theme';
 import { Person } from '@mui/icons-material';
+import theme from '../../../assets/theme';
 
 const friends = [
   {
@@ -47,42 +48,12 @@ const friends = [
     name: "Kif Kroaker",
     email: "ltkif@gmail.com",
     id: 7
-  },
-  {
-    name: "Scruffy",
-    email: "scruffythejanitor@gmail.com",
-    id: 5
-  },
-  {
-    name: "Zapp Brannigan",
-    email: "sexyspacecommander@gmail.com",
-    id: 6
-  },
-  {
-    name: "Kif Kroaker",
-    email: "ltkif@gmail.com",
-    id: 7
-  },
-  {
-    name: "Scruffy",
-    email: "scruffythejanitor@gmail.com",
-    id: 5
-  },
-  {
-    name: "Zapp Brannigan",
-    email: "sexyspacecommander@gmail.com",
-    id: 6
-  },
-  {
-    name: "Kif Kroaker",
-    email: "ltkif@gmail.com",
-    id: 7
-  },
+  }
 ];
 
 
 export default function FriendsList() {
-  const [checked, setChecked] = React.useState([1]);
+  const [checked, setChecked] = useState([0]);
 
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);
