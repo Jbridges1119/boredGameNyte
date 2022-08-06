@@ -5,29 +5,17 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Paper, Box } from "@mui/material";
-import theme from "../../../assets/theme" 
+import theme from "../../../assets/theme"
+import myImage from './Pictures/BGN.png'
 
 export default function NytePicture() {
-  const card = 
 
-                
-
-    <CardMedia
-      component="img"
-      
-      image="https://i.imgur.com/hHmdwtZ.png"
-      alt="green iguana"
-      sx={{
-        maxWidth: 200,
-        maxHeight: 200
-    
-      }}
-    />
+  const card = <img src={myImage} width="265" height="265"  alt="Competitive"/>
 
 
   return (
-    <Box sx={{ borderRadius: "20px", backgroundColor:  theme.palette.primary.main, }} elevation={4} >
+    <Paper component='div' sx={{ borderRadius: "20px",display: "flex", justifyContent: 'center'  }}  >
    {card}
-  </Box>
+  </Paper>
   );
 }

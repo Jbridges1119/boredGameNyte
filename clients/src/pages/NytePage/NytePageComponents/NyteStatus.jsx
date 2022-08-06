@@ -4,7 +4,7 @@ import theme from "../../../assets/theme"
 const NyteStatus = () => {
   return ( 
    
-    <Stack spacing={6}>
+    <Stack >
               
           <Button  sx={{backgroundColor: theme.palette.error.main, height: 75,  fontSize: 40, textTransform: 'none', borderRadius: '20px',  }} variant="contained">Cancel</Button>
           

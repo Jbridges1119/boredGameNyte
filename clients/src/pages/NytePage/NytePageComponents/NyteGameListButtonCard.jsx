@@ -19,9 +19,9 @@ const NyteGameListButtonCard = () => {
         <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid item xs={11}>
         <Stack spacing={2}>
-          <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 50,textTransform: 'none', borderRadius: '20px' }} variant="contained">Gloomhaven</Button>
-          <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 50,textTransform: 'none', borderRadius: '20px' }} variant="contained">Lords of Waterdeep</Button>
-          <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 50,textTransform: 'none', borderRadius: '20px' }} variant="contained">Smash up</Button>
+          <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 45,textTransform: 'none', borderRadius: '20px' }} variant="contained">Check out Gloomhaven</Button>
+          <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 45,textTransform: 'none', borderRadius: '20px' }} variant="contained">Check out Lords of Waterdeep</Button>
+          <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 45,textTransform: 'none', borderRadius: '20px' }} variant="contained">Check out Smash up</Button>
         </Stack>
         </Grid>
       </Grid>
