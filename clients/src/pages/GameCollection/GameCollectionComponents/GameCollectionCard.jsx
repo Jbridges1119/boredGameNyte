@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React from "react";
 import Paper from '@mui/material/Paper';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Accordion, AccordionSummary, Button,  Grid } from '@mui/material';
+import { Accordion, AccordionSummary, Button, Grid } from '@mui/material';
 import { ArrowDownward } from '@mui/icons-material';
 import theme from '../../../assets/theme';
 
-export default function GameSearchCard(props) {
+export default function GameCollectionCard(props) {
   return (
     <Paper direction="row" sx={{
       display: 'flex',
@@ -36,9 +36,6 @@ export default function GameSearchCard(props) {
               {props.name}
             </h2>
           </div>
-          <Grid item justifyContent="space-around" sx={{ pl: 2, py: 1 }}>
-            <Button sx={{ backgroundColor: theme.palette.error.light, '&:hover': theme.palette.error.dark }}>Add To Collection</Button>
-          </Grid>
           <Grid item justifyContent="space-around" sx={{ pl: 2, py: 1 }}>
             <Button sx={{ backgroundColor: theme.palette.error.light }}>View Game Details</Button>
           </Grid>
