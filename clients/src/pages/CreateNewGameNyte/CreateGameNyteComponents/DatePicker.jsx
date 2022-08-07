@@ -16,6 +16,7 @@ const StaticDatePicker = () => {
         openTo="date"
         value={date}
         onChange={setDate}
+        theme={theme}
       />
     </>
   );

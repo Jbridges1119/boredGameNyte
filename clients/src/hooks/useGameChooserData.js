@@ -53,7 +53,7 @@ const useGameChooserData = () => {
   // Will have to use setCollection with a useEffect later
   
   const [state, setState] = useState({
-    checked: [0, 2],
+    checked: [0, 1, 4],
     friendsInvited: [0],
     collection: games,
     open: false
@@ -99,11 +99,18 @@ const useGameChooserData = () => {
       alert("Maximum of 3 selections");
       return
     };
+  };
+
+  const toggleOff = (value) => () => {
+    const currentIndex = state.checked.indexOf(value);
+    const newChecked = [...state.checked];
+
+    newChecked.splice(currentIndex, 1);
     
     setState(prev => ({...prev, checked: newChecked}));
   };
 
-  return { state, setState, handleToggle, handleFriendToggle, handleClickOpen, handleClose, handleCloseSave }
+  return { state, setState, handleToggle, toggleOff, handleFriendToggle, handleClickOpen, handleClose, handleCloseSave }
 };
 
 export default useGameChooserData;
