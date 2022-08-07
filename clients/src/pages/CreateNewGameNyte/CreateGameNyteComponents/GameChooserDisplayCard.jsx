@@ -17,21 +17,23 @@ export default function GameDisplayCard(props) {
       elevation={8}
       sx={{
       backgroundColor: theme.palette.primary.main,
-      width: 500,
-      maxHeight: 350,
+      width: 600,
+      maxHeight: 140,
+      borderRadius: "20px"
     }}>
-      <Grid container justifyContent="space-evenly" alignContent="center" direction="row">
+      <Grid container justifyContent="space-between" direction="row" p={2}>
         <Grid item alignContent="center">
         <img 
               style={{
                 height: 100,
-                width: 100
+                width: 100,
+                borderRadius: "10px"
               }} 
               src={props.thumbnail} 
               alt="no img"
               />
         </Grid>
-          <Stack>
+          <Stack alignContent="center">
             <Grid item>
                   <h2>
                     {props.name}

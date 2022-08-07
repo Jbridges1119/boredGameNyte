@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DatePicker } from "@material-ui/pickers";
+import { DateTimePicker } from "@material-ui/pickers";
 import theme from "../../../assets/theme";
 
 const StaticDatePicker = () => {
@@ -8,15 +8,12 @@ const StaticDatePicker = () => {
   // prettier-ignore
   return (
     <>
-      <DatePicker
-        autoOk
-        orientation="landscape"
-        variant="static"
-        inputVariant="filled"
-        openTo="date"
+      <DateTimePicker
         value={date}
+        variant="static"
+        disablePast
         onChange={setDate}
-        theme={theme}
+        showTodayButton
       />
     </>
   );

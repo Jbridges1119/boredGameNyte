@@ -13,6 +13,10 @@ const GameChooser = (props) => {
   let game1 = state.collection[state.checked[0]]
   let game2 = state.collection[state.checked[1]]
   let game3 = state.collection[state.checked[2]]
+  let chooserCardGridStyle = {
+    py: 6,
+    px: 12
+  }
 
   return(
     <Paper 
@@ -23,9 +27,12 @@ const GameChooser = (props) => {
       backgroundColor: theme.palette.secondary.main,
       borderRadius: "20px"
     }}>
-      <Grid container s={2}>
-        <Stack direction="column" sx={{py: 8, px: 12}}>
-          <Grid item>
+      <Grid container xs={12}>
+        <Stack direction="column">
+          <Grid 
+          item 
+          xs={4}
+          sx={chooserCardGridStyle}>
             <div>
               {game1 && 
               <GameChooserDisplayCard
@@ -38,9 +45,10 @@ const GameChooser = (props) => {
               {!game1 && null}
             </div>
           </Grid>
-          <Grid item sx={{
-            py:2
-          }}>
+          <Grid 
+          item 
+          xs={4}
+          sx={chooserCardGridStyle}>
             <div>
               {game2 && 
               <GameChooserDisplayCard
@@ -53,9 +61,10 @@ const GameChooser = (props) => {
               {!game2 && null}
             </div>
           </Grid>
-          <Grid item sx={{
-            py:2
-          }}>
+          <Grid 
+          item 
+          xs={4}
+          sx={chooserCardGridStyle}>
           <div>
               {game3 && 
               <GameChooserDisplayCard
