@@ -1,7 +1,7 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 
-import { Box,  Stack, Typography } from "@mui/material";
+import { Box,  Paper,  Stack, Typography } from "@mui/material";
 
 
 import NyteDetails from './NytePageComponents/NyteDetails'
@@ -45,7 +45,9 @@ const NytePage = () => {
 
   return (
     <Box sx={{ width: "100%", backgroundColor: theme.palette.primary.main, height: "100vh" }}>
+      
      <Typography py={1.5} align="center" variant="h2">No Foolin Game Night</Typography>
+    
      <Grid 
           container
           direction="row"
