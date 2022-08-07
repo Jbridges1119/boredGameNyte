@@ -1,4 +1,4 @@
-import { CardMedia, Paper } from '@mui/material';
+import { CardMedia,  } from '@mui/material';
 import { Box } from '@mui/system';
 import theme from '../../../../assets/theme'
 
@@ -19,11 +19,12 @@ sx={{
   alignContent: 'center'
 }}
 > 
+
 <CardMedia
     component="img"
    
-    image={props.picture.data[0].images.large ? props.picture.data[0].images.large : ""}
-    alt="Box Art"
+    image={props.picture.data[0] ? props.picture.data[0].images.large : ""}
+    alt=""
     sx={{
       objectFit: 'contain',
       maxWidth: '400px',

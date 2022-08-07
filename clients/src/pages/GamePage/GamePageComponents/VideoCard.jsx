@@ -2,18 +2,10 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import {
   Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Paper,
-  Stack,
   Typography,
 } from "@mui/material";
 
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
+
 import theme from "../../../assets/theme";
 import YoutubeEmbed from "./CardComponents/YoutubeEmbed";
 import { styled } from "@mui/material/styles";

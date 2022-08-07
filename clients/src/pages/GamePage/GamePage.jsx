@@ -1,13 +1,13 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack,  } from "@mui/material";
 import theme from "../../assets/theme";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import GameCard from "./GamePageComponents/GameCard";
 import VideoCard from "./GamePageComponents/VideoCard";
-import { ImagesearchRoller } from "@mui/icons-material";
+
 
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 const apiKey = process.env.REACT_APP_YOUTUBE_APIKEY;
@@ -24,7 +24,7 @@ const GamePage = (props) => {
   useEffect(() => {
     Promise.all([
       axios.get(
-        `https://api.boardgameatlas.com/api/search?ids=${atlasGame}&limit=1&client_id=${BGA_CLIENT_ID}`
+        `https://api.boardgameatlas.com/api/search?ids=TAAifFP590,OIXt3DmJU0&pretty=true&client_id=JLBr5npPhV`
       ),
       // axios.get(`${youtubeApiUrl}?q=${youTubeGame}%20how%20to%20play%20game&maxResults=3&key=${apiKey}`),
       // axios.get(`${youtubeApiUrl}?q=${youTubeGame}%20trips%20and%20tricks%20game&maxResults=3&key=${apiKey}`)
@@ -38,7 +38,7 @@ const GamePage = (props) => {
     <Box
       sx={{
         width: "100%",
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.dark,
         height: "100vh",
       }}
     >
@@ -49,7 +49,7 @@ const GamePage = (props) => {
         alignItems="center"
       >
         <Grid item xs={11}>
-          <Stack container spacing={2} mt={4}>
+          <Stack container spacing={2} mt={5}>
             <GameCard data={data}/>
             <VideoCard videos={videos[0]} videos2={videos[1]} />
           </Stack>
