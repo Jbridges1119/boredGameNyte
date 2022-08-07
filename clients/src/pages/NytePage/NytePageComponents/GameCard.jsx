@@ -1,15 +1,10 @@
 import {
-  Button,
   CardContent,
-  CardMedia,
   Grid,
   Paper,
-  Stack,
 } from "@mui/material";
 import theme from "../../../assets/theme";
-import BGN from "./Pictures/BGN.png";
-import { useState, useEffect } from "react";
-import axios from 'axios'
+
 import GameCardData from './NyteGameComponents/GameCardData'
 
 const GameCard = (props) => {

@@ -1,4 +1,4 @@
-import { CardContent, CardMedia, Grid, Paper, Stack, Typography } from "@mui/material";
+import { CardContent, CardMedia,  Paper,  Stack, Typography } from "@mui/material";
 import BGN from "./Pictures/BGN.png";
 import theme from '../../../assets/theme'
 import NyteStatus from './NyteDetailsComponents/NyteStatus'
@@ -12,7 +12,7 @@ const NyteDetails = () => {
       <CardContent
       sx={{
         height: 803,
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.dark,
         borderRadius: "15px",
       }}
     >
@@ -21,7 +21,13 @@ const NyteDetails = () => {
      
      justifyContent="center"
      alignItems="center">
-     
+     <Paper
+    sx={{
+      
+      borderRadius: "22px"
+    }}
+    elevation={4}
+  >
      <CardMedia
               component="img"
               image={BGN}
@@ -32,7 +38,7 @@ const NyteDetails = () => {
                 borderRadius: "20px"
               }}
             />
-      
+      </Paper>
       <Typography sx={{color: "#FFFFFF"}}pt={1} align="center" variant="h5">Hosted By</Typography>
       <Typography sx={{color: "#FFFFFF"}} align="center" variant="h7">Johnny Johnson</Typography>
       <NyteStatus/>

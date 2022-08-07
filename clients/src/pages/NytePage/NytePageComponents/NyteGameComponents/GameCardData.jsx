@@ -1,4 +1,4 @@
-import { Button, Card, CardMedia, Grid, Stack, Typography, Box } from "@mui/material";
+import { Button,  CardMedia, Grid, Stack, Typography, Box, Paper } from "@mui/material";
 import theme from '../../../../assets/theme'
 
 
@@ -18,6 +18,10 @@ const GameCardData = (props) => {
         backgroundColor: theme.palette.secondary.main,
         
       }}>
+        <Paper
+    
+      elevation={4}
+    >
       <CardMedia
           component="img"
          
@@ -30,6 +34,8 @@ const GameCardData = (props) => {
            
           }}
           />
+    </Paper>
+      
           </Box>
           
     </Grid>

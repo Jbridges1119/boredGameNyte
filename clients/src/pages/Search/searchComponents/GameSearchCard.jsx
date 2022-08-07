@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Accordion, AccordionSummary, Button, CardActionArea, Grid } from '@mui/material';
+import { Accordion, AccordionSummary, Button,  Grid } from '@mui/material';
 import { ArrowDownward } from '@mui/icons-material';
 import theme from '../../../assets/theme';
 

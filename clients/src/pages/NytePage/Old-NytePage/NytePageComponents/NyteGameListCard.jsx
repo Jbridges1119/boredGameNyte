@@ -1,4 +1,4 @@
-import { Card, CardContent, Paper, CardHeader, Grid, CardMedia, Typography } from "@mui/material";
+import { Card, CardContent, Paper, CardHeader, Grid,  } from "@mui/material";
 import { useState, useEffect } from "react";
 import theme from "../../../assets/theme"
 import axios from 'axios'
