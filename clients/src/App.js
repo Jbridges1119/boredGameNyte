@@ -11,7 +11,7 @@ import Layout from "./pages/Layout/Layout";
 import Search from "./pages/Search/Search";
 import NytePage from './pages/NytePage/NytePage'
 import GameNyteList from './pages/GameNyteList/GameNytesList'
-
+import GamePage from './pages/GamePage/GamePage'
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -24,6 +24,7 @@ function App() {
                       <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
                       <Route path="/create" element={<Home />} theme={theme}/>
                       <Route path="/collection" element={<GameCollection />} theme={theme}/>
+                      <Route path="/game" element={<GamePage />} theme={theme}/>
                     </Routes>
                   </Layout>
                 </BrowserRouter>

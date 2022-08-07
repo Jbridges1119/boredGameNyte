@@ -1,4 +1,4 @@
-import { Button, Card, CardMedia, Grid, Stack, Typography, Box } from "@mui/material";
+import { Button,  CardMedia, Grid, Stack, Typography, Box, Paper } from "@mui/material";
 import theme from '../../../../assets/theme'
 
 
@@ -18,6 +18,10 @@ const GameCardData = (props) => {
         backgroundColor: theme.palette.secondary.main,
         
       }}>
+        <Paper
+    
+      elevation={4}
+    >
       <CardMedia
           component="img"
          
@@ -30,6 +34,8 @@ const GameCardData = (props) => {
            
           }}
           />
+    </Paper>
+      
           </Box>
           
     </Grid>
@@ -47,7 +53,7 @@ const GameCardData = (props) => {
     alignItems:'space-between',}}
    >
 
-    <Typography sx={{color: "#FFFFFF"}} pt={1} variant="h3">{props.name}</Typography>
+    <Typography sx={{color: "#FFFFFF"}} align="center" pt={1} variant="h3">{props.name}</Typography>
     <Button  sx={{backgroundColor: theme.palette.error.main, height: 75,  fontSize: 40,textTransform: 'none', borderRadius: '20px' }} variant="contained">How To Play</Button>
     </Stack>
     </Grid>

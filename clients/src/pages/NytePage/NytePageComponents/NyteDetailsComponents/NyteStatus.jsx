@@ -16,10 +16,10 @@ const NyteStatus = () => {
           {/* <Button  sx={{backgroundColor: "darkred", height: 50,  fontSize: 20, textTransform: 'none', borderRadius: '20px',  }} variant="contained">Cancel Nyte</Button> */}
 
             {/* Confirm event - guest */}
-              <Button  sx={{backgroundColor: "green", height: 40,  fontSize: 25,  borderRadius: '20px',  }} variant="contained">Confirm</Button>
+              <Button  sx={{backgroundColor: "green", height: 45,  fontSize: 25,  borderRadius: '20px',  }} variant="contained">Confirm</Button>
 
           {/* back out of event - guest*/}
-          <Button  sx={{backgroundColor: "darkred", height: 35,  fontSize: 20,  borderRadius: '20px',  }} variant="contained">Cancel</Button>
+          <Button  sx={{backgroundColor: "darkred", height: 30,  fontSize: 20,  borderRadius: '20px',  }} variant="contained">Cancel</Button>
           </Stack>
           </Box>
    );
