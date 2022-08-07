@@ -25,7 +25,7 @@ export default function GameNyteCard(props) {
       >
         <CardMedia
           component="img"
-          height="30"
+          height="300"
           width="30"
           image="https://i.imgur.com/hHmdwtZ.png"
           alt="green iguana"

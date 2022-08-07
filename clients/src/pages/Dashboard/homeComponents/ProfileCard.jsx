@@ -32,7 +32,7 @@ export default function ProfileCard() {
             }}
             />
         </Grid>
-        <Grid item sx={8}>
+        <Grid item sx={9}>
           <CardHeader sx={{ color: "white", pb: 10 }} title=" Welcome Back Filip Fry!" />
           <Grid
             container
