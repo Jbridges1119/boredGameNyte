@@ -38,3 +38,5 @@ sx={{
 }
  
 export default GamePicture;
+
+

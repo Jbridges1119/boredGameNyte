@@ -55,7 +55,7 @@ const labelsRating = {
 
 const GameInfo = ({data}) => {
  const name = data[0] ? data[0].name : ""
- const year = data[0] ? data[0].year_published : ""
+ const age = data[0] ? data[0].min_age : ""
  const players = data[0] ? data[0].players : ""
  const playtime = data[0] ? data[0].playtime : ""
  const description = data[0] ? data[0].description : ""
@@ -97,10 +97,8 @@ const [open, setOpen] = React.useState(false);
       sx={{
         width: "100%",
   borderRadius: "20px",
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.palette.secondary.main,
   height: '475px',
-  
-    
       }}
     >
 
@@ -111,18 +109,73 @@ const [open, setOpen] = React.useState(false);
         alignItems="center"
       >
         <Grid item xs={11}>
+      <Stack container spacing={9}>
 
-      <Stack container >
-<Typography py={1.5}  variant="h2">{name}</Typography>
-<Button sx={{ color: 'white', backgroundColor: theme.palette.primary.main, height: 45,  fontSize: 18,textTransform: 'none', borderRadius: '20px', width: '160px'  }}>Official Website</Button>
+      <Grid
+        container
+        direction="row"
+        display='flex'
+        alignItems="center"
+        
+      >
+        <Grid item xs={12} sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent:"space-around"
+      }}>
+         
+<Typography pt={1.5} display="inline" variant="h2">{name}</Typography>
 
-<Typography align="center" color='white' variant="h6">Release Year: {year}</Typography>
+
+
+</Grid>
+</Grid>
+{/* middle content */}
+<Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Grid item xs={6}>
+
+<Stack spacing={1}>
+
 <Typography align="center" color='white' variant="h5">Players: {players} </Typography>
 <Typography align="center" color='white' variant="h5">Playtime: {playtime} Min</Typography>
+<Typography align="center" color='white' variant="h5">Minimum Age: {age}</Typography>
+<Box sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent:"space-around"
+      }}>
+      <Button sx={{ color: 'white', backgroundColor: theme.palette.primary.main, height: 45,  fontSize: 25,textTransform: 'none', borderRadius: '20px', width: '300px'}} onClick={handleClickOpen('paper')}>Game Description</Button>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        scroll={scroll}
+        aria-labelledby="scroll-dialog-title"
+        aria-describedby="scroll-dialog-description"
+      >
+        <DialogTitle sx={{ color: 'white', backgroundColor: theme.palette.secondary.main}} id="scroll-dialog-title">Description & FAQ</DialogTitle>
+        <DialogContent dividers={scroll === 'paper'} sx={{ color: 'white', backgroundColor: theme.palette.secondary.main}}>
+          <DialogContentText
+            id="scroll-dialog-description"
+            ref={descriptionElementRef}
+            tabIndex={-1}
+            sx={{ color: 'white', backgroundColor: theme.palette.secondary.main}}
+          >
+            <Typography  dangerouslySetInnerHTML={{__html:description}}/>
+            <Typography dangerouslySetInnerHTML={{__html:faq}}/>
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
+    </Box>
+</Stack>
+</Grid>
+<Grid item xs={6}>
 {/* Scores */}
-<Box container
-        justifyContent="center"
-        alignItems="center">
+<Stack spacing={1}>
   {/* Learing Curve */}
 <Stack  container
         justifyContent="center"
@@ -133,7 +186,8 @@ const [open, setOpen] = React.useState(false);
         width: 200,
         display: 'flex',
         alignItems: 'center',
-        mt:0
+        justifyContent: 'center',
+        
       }}
     >
       <Rating
@@ -159,6 +213,7 @@ const [open, setOpen] = React.useState(false);
         width: 200,
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <Rating
@@ -170,6 +225,7 @@ const [open, setOpen] = React.useState(false);
       />
      
     </Box>
+    
     </Stack>
 
 {/* Strat score */}
@@ -182,6 +238,7 @@ const [open, setOpen] = React.useState(false);
         width: 200,
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <Rating
@@ -194,56 +251,46 @@ const [open, setOpen] = React.useState(false);
       
     </Box>
     </Stack>
-    </Box>
-{/* End of ratings */}
 
+    </Stack>
+    </Grid>
+    </Grid>
+{/* End of ratings */}
+{/* end of middle content */}
 
 
 
 
  
 
-
+{/* Bottom buttons */}
 <Grid
         container
         direction="row"
-        justifyContent="space-between"
-        alignItems="space-between"
+        justifyContent="center"
+        alignItems="center"
       >
-        <Grid item xs={11}   sx={{
+        <Grid item xs={6}   sx={{
         
         display: 'flex',
-        alignItems: 'space-between',
-        justifyContent:"space-between"
+        alignItems: 'center',
+        justifyContent:"center"
       }}
         >
 
- {/* Dialog buttons */}
- <div>
-      <Button sx={{ color: 'white', backgroundColor: theme.palette.primary.main, height: 45,  fontSize: 25,textTransform: 'none', borderRadius: '20px', width: '300px'}} onClick={handleClickOpen('paper')}>Description</Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        scroll={scroll}
-        aria-labelledby="scroll-dialog-title"
-        aria-describedby="scroll-dialog-description"
-      >
-        <DialogTitle sx={{ color: 'white', backgroundColor: theme.palette.secondary.main}} id="scroll-dialog-title">Description & FAQ</DialogTitle>
-        <DialogContent dividers={scroll === 'paper'} sx={{ color: 'white', backgroundColor: theme.palette.secondary.main}}>
-          <DialogContentText
-            id="scroll-dialog-description"
-            ref={descriptionElementRef}
-            tabIndex={-1}
-            sx={{ color: 'white', backgroundColor: theme.palette.secondary.main}}
-          >
-            <Typography  dangerouslySetInnerHTML={{__html:description}}/>
-            <Typography dangerouslySetInnerHTML={{__html:faq}}/>
-          </DialogContentText>
-        </DialogContent>
-      </Dialog>
-    </div>
+ {/* website buttons */}
+ <Button sx={{ color: 'white', backgroundColor: theme.palette.error.main, height: 55,  fontSize: 30,textTransform: 'none', borderRadius: '20px', width: '300px' }}>Add To Collection</Button>
+
    {/* End of Dialog buttons */}
-   <Button sx={{ color: 'white', backgroundColor: theme.palette.error.main, height: 45,  fontSize: 25,textTransform: 'none', borderRadius: '20px', width: '300px' }}>Add To Collection</Button>
+   </Grid>
+   <Grid item xs={6}   sx={{
+        
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent:"center"
+      }}
+        >
+   <Button sx={{ color: 'white', backgroundColor: theme.palette.primary.main, height: 55,  fontSize: 30,textTransform: 'none', borderRadius: '20px', width: '300px' }}>Official Website</Button>
 </Grid>
 </Grid>
 
