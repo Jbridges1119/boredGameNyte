@@ -11,7 +11,7 @@ const StaticDatePicker = () => {
       <DateTimePicker
           id="datetimepicker-1"
           theme={theme}
-          label="DateTimePicker label"
+          label=""
           value={date}
           onChange={value => setDate({ value })}
           locale={'en-US'}

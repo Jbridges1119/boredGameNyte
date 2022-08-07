@@ -26,7 +26,7 @@ function App() {
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/nyte" element={<NytePage />} theme={theme}/>
                       <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
-                      <Route path="/create" element={<Home />} theme={theme}/>
+                      <Route path="/create" element={<CreateNew />} theme={theme}/>
                       <Route path="/collection" element={<GameCollection />} theme={theme}/>
                       <Route path="/game" element={<GamePage />} theme={theme}/>
                     </Routes>
