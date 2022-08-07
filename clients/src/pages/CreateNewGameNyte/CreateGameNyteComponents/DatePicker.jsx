@@ -10,10 +10,10 @@ const StaticDatePicker = () => {
     <Fragment>
       <DateTimePicker
           id="datetimepicker-1"
+          theme={theme}
           label="DateTimePicker label"
           value={date}
           onChange={value => setDate({ value })}
-          formatStyle="large"
           locale={'en-US'}
           okLabel={'Ok'}
           cancelLabel={'Cancel'}

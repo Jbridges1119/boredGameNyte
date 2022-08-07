@@ -23,10 +23,10 @@ const CreateNew = () => {
         <Stack direction="row">
           <Grid item>
             <Grid container>
-              <Stack>
+              <Stack alignContent="center">
                 <Grid item xs={12} sx={{
                   py: 6,
-                  px: 3
+                  pl: 1
                 }}>
                   <TitleBar />
                 </Grid>
