@@ -6,6 +6,7 @@ import TitleBar from "./CreateGameNyteComponents/GameNyteTitleBar";
 import FriendInviter from "./CreateGameNyteComponents/GameNyteFriendInviter";
 import GameChooser from "./CreateGameNyteComponents/GameChooser";
 import StaticDatePicker from "./CreateGameNyteComponents/DatePicker";
+import { Button } from "react-rainbow-components";
 
 
 const CreateNew = () => {
@@ -19,7 +20,7 @@ const CreateNew = () => {
         width: "100%",
         backgroundColor: theme.palette.primary.main
       }}>
-      <Grid container>
+      <Grid container justifyContent="space-evenly">
         <Stack direction="row">
           <Grid item>
             <Grid container>
@@ -41,9 +42,14 @@ const CreateNew = () => {
               </Stack>
             </Grid>
           </Grid>
+        <Stack>
           <Grid item xs={12} sx={{px:3, py:12}}>
               <GameChooser />
           </Grid>
+          <Grid item xs={12} sx={{ px:44 }}>
+              <Button>Create Game Nyte</Button>
+          </Grid>
+        </Stack>
         </Stack>
       </Grid>
     </Box>

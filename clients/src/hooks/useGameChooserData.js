@@ -53,7 +53,7 @@ const useGameChooserData = () => {
   // Will have to use setCollection with a useEffect later
   
   const [state, setState] = useState({
-    checked: [4, 0, 2],
+    checked: [4],
     friendsInvited: [],
     collection: games,
     open: false

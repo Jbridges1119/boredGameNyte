@@ -14,8 +14,9 @@ const GameChooser = (props) => {
   let game2 = state.collection[state.checked[1]]
   let game3 = state.collection[state.checked[2]]
   let chooserCardGridStyle = {
-    py: 6,
-    px: 12
+    py: 3,
+    px: 12,
+    mt: 6
   }
 
   return(
@@ -33,7 +34,6 @@ const GameChooser = (props) => {
           item 
           xs={4}
           sx={chooserCardGridStyle}>
-            <div>
               {game1 && 
               <GameChooserDisplayCard
                 id={game1.id}
@@ -43,13 +43,11 @@ const GameChooser = (props) => {
                 maxPlayers={game1.max_players}
               />}
               {!game1 && null}
-            </div>
           </Grid>
           <Grid 
           item 
           xs={4}
           sx={chooserCardGridStyle}>
-            <div>
               {game2 && 
               <GameChooserDisplayCard
                 id={game2.id}
@@ -59,13 +57,11 @@ const GameChooser = (props) => {
                 maxPlayers={game2.max_players}
               />}
               {!game2 && null}
-            </div>
           </Grid>
           <Grid 
           item 
           xs={4}
           sx={chooserCardGridStyle}>
-          <div>
               {game3 && 
               <GameChooserDisplayCard
                 id={game3.id}
@@ -75,10 +71,10 @@ const GameChooser = (props) => {
                 maxPlayers={game3.max_players}
               />}
               {!game3 && null}
-            </div>
           </Grid>
           <Grid item sx={{
-            py:2
+            py: 2,
+            pl: 35
           }}>
             {state.checked.length === 3 && null}
             {state.checked.length < 3 && 
