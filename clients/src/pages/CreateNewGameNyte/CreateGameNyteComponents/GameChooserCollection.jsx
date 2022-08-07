@@ -16,7 +16,6 @@ export default function GameChooserCollection() {
 
   const{ 
     state,
-    setState, 
     handleToggle
    } = useGameChooserData();
 

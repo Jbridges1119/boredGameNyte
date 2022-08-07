@@ -30,7 +30,7 @@ function App() {
             </Routes>
           </Layout>
         </BrowserRouter>
-        </MuiPickersUtilsProvider>
+      </MuiPickersUtilsProvider>
     </ThemeProvider>
   );
 }

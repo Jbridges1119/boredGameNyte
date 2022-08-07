@@ -27,7 +27,7 @@ const GameChooser = (props) => {
       backgroundColor: theme.palette.secondary.main,
       borderRadius: "20px"
     }}>
-      <Grid container xs={12}>
+      <Grid container>
         <Stack direction="column">
           <Grid 
           item 

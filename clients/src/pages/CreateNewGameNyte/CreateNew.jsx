@@ -15,14 +15,14 @@ const CreateNew = () => {
   return (
     <Box
       sx={{
-        height: "100%",
+        height: "100vh",
         width: "100%",
         backgroundColor: theme.palette.primary.main
       }}>
-      <Grid container justifyContent="space-evenly">
+      <Grid container>
         <Stack direction="row">
           <Grid item>
-            <Grid container alignContent="center">
+            <Grid container>
               <Stack>
                 <Grid item xs={12} sx={{
                   py: 6,
@@ -41,7 +41,7 @@ const CreateNew = () => {
               </Stack>
             </Grid>
           </Grid>
-          <Grid item alignContent="center" xs={12} sx={{px:3, py:12}}>
+          <Grid item xs={12} sx={{px:3, py:12}}>
               <GameChooser />
           </Grid>
         </Stack>

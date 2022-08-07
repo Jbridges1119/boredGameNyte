@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { DateTimePicker } from "@material-ui/pickers";
+import React, { useState, Fragment } from "react";
+import { DateTimePicker } from 'react-rainbow-components';
 import theme from "../../../assets/theme";
 
 const StaticDatePicker = () => {
@@ -7,15 +7,18 @@ const StaticDatePicker = () => {
 
   // prettier-ignore
   return (
-    <>
+    <Fragment>
       <DateTimePicker
-        value={date}
-        variant="static"
-        disablePast
-        onChange={setDate}
-        showTodayButton
+          id="datetimepicker-1"
+          label="DateTimePicker label"
+          value={date}
+          onChange={value => setDate({ value })}
+          formatStyle="large"
+          locale={'en-US'}
+          okLabel={'Ok'}
+          cancelLabel={'Cancel'}
       />
-    </>
+    </Fragment>
   );
 };
 

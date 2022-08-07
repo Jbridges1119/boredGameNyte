@@ -7,8 +7,7 @@ import theme from "../../../assets/theme";
 export default function GameDisplayCard(props) {
 
   const {
-    state,
-    toggleOff,
+    toggleOff
   } = useGameChooserData();
 
 
@@ -46,16 +45,11 @@ export default function GameDisplayCard(props) {
             </Grid>
           </Stack>
             <Grid item>
-            <IconButton
-              aria-label="close"
-              onClick={toggleOff(props.id)}
-              sx={{
-                position: 'absolute',
-                right: 8,
-                top: 8,
-              }}>
-              <Close />
-            </IconButton>
+              <IconButton
+                onClick={toggleOff(props.id)}
+                >
+                <Close />
+              </IconButton>
             </Grid>
       </Grid>
     </Paper>
