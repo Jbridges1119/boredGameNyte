@@ -24,6 +24,7 @@ const CreateNew = () => {
     handleClose,
     handleCloseSave,
     handleToggle,
+    handleFriendToggle,
     handleCompSwitch,
     toggleOff,
     printState
@@ -101,7 +102,11 @@ const CreateNew = () => {
 
 
                 <Grid item xs={12} sx={{ px: 3, py: 3 }}>
-                  <FriendInviter />
+                  <FriendInviter 
+                  state={state}
+                  setState={setState}
+                  handleFriendToggle={handleFriendToggle}
+                  />
                 </Grid>
               </Stack>
             </Grid>

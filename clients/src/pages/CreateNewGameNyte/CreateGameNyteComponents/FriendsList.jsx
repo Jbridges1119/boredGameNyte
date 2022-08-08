@@ -53,13 +53,8 @@ const friends = [
 ];
 
 
-export default function FriendsList() {
+export default function FriendsList(props) {
   
-  const {
-    state,
-    setState,
-    handleFriendToggle
-  } = useGameChooserData();
 
   const friendsList = friends.map((friend) => {
     let labelId = `checkbox-list-secondary-label-${friend.id}`;
@@ -70,8 +65,8 @@ export default function FriendsList() {
         <Checkbox
           color="error"
           edge="end"
-          onChange={handleFriendToggle(friend.id)}
-          checked={state.friendsInvited.indexOf(friend.id) !== -1}
+          onChange={props.handleFriendToggle(friend.id)}
+          checked={props.state.friendsInvited.indexOf(friend.id) !== -1}
           inputProps={{ 'aria-labelledby': labelId }}
         />
       }>

@@ -3,7 +3,7 @@ import FriendsList from "./FriendsList";
 import theme from "../../../assets/theme";
 
 
-const FriendInviter = () => {
+const FriendInviter = (props) => {
 
   return(
     <Paper elevation={8} sx={{
@@ -13,7 +13,11 @@ const FriendInviter = () => {
       height: 550,
       borderRadius: "20px"
     }}>
-      <FriendsList />
+      <FriendsList 
+      state={props.state}
+      setState={props.setState}
+      handleFriendToggle={props.handleFriendToggle}
+      />
     </Paper>
   );
 };
