@@ -10,6 +10,7 @@ import useGameChooserData from '../../../hooks/useGameChooserData'
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import { ListItemAvatar } from '@mui/material';
 import theme from '../../../assets/theme';
+import { Link } from 'react-router-dom';
 
 
 export default function GameChooserCollection() {
@@ -26,13 +27,14 @@ export default function GameChooserCollection() {
       <ListItem
         key={game.id}
         secondaryAction={
-          // Game details page link? <Link to="game.id" />
           <IconButton edge="end" aria-label="game-details">
-            <VideogameAssetIcon />
+            <Link to={`game/${game.id}`}>
+              <VideogameAssetIcon />
+            </Link>
           </IconButton>
         }
       >
-        <ListItemButton role={undefined} onClick={handleToggle(game.id)} dense>
+        <ListItemButton role={undefined} onClick={handleToggle(game.id)}>
           <ListItemIcon>
             <Checkbox
               edge="start"
