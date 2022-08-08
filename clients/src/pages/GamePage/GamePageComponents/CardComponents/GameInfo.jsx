@@ -185,6 +185,7 @@ const GameInfo = ({ gameData }) => {
                       justifyContent: "space-around",
                     }}
                   >
+                    {/* Game Description button */}
                     <Button
                       sx={{
                         color: "white",

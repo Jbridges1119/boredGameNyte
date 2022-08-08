@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {   Button,  Grid,Box,  } from '@mui/material';
+import {   Button,  Grid,Box, Stack,  } from '@mui/material';
 import { ArrowDownward } from '@mui/icons-material';
 import theme from '../../../assets/theme';
 import { Link } from 'react-router-dom';
@@ -51,7 +51,7 @@ export default function GameSearchCard(props) {
 
 
   return (
-    <Paper direction="row" sx={{
+    <Paper container direction="row" sx={{
       display: 'flex',
       backgroundColor: theme.palette.primary.main,
       color: "white",
@@ -104,19 +104,15 @@ sx={{
 </Grid>
 <Grid item xs={0.25}></Grid>
 <Grid item xs={8.25}>
-<Grid
-          container
-          direction="column"
-          justifyContent="space-between"
-          alignContent="space-between"
-        >
-          <Grid item xs={6}>
+
+
+<Stack spacing={5}>
           <Typography sx={{color: "#FFFFFF"}} align="center"  variant="h4">{props.name}</Typography>
 
- </Grid>
 
 
- <Grid item xs={6}>
+
+
           <Accordion borderTopLeftRadius="20px" sx={{
               backgroundColor: theme.palette.secondary.main,borderRadius: "20px", color:'white'
             }}>
@@ -134,7 +130,7 @@ sx={{
                 <span dangerouslySetInnerHTML={{__html:props.description}} />
               </Typography>
             </Accordion>
-            </Grid>
+            
       <Box sx={{display: 'flex', justifyContent:'space-between', width:'100%'}}container
           direction="row"
           justifyContent="space-between"
@@ -148,15 +144,15 @@ sx={{
                   }}>Add To Collection</Button>
          
      
-            <Button variant="contained" component={Link} to={'/game/' + props.id} sx={{
+            <Button variant="contained" component={Link} to={'/game/' + props.gameId} sx={{
                     backgroundColor: theme.palette.error.main,
                     height: 40,
                     fontSize: 20,
                     borderRadius: "20px",
                     color:'white'
                   }}>View More Details</Button>
-            </Box>
-            </Grid></Grid></Grid></Grid></Grid>
+            </Box></Stack>
+            </Grid></Grid></Grid></Grid>
     </Paper>
   );
 }
