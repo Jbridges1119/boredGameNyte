@@ -3,6 +3,7 @@ import React from "react";
 import { Grid, Stack, FormControlLabel, FormGroup, Switch, Typography } from "@mui/material";
 import theme from "../../assets/theme";
 import TitleBar from "./CreateGameNyteComponents/GameNyteTitleBar";
+import LocationBar from "./CreateGameNyteComponents/GameNyteLocationBar";
 import FriendInviter from "./CreateGameNyteComponents/GameNyteFriendInviter";
 import GameChooser from "./CreateGameNyteComponents/GameChooser";
 import { Button } from "@mui/material";
@@ -42,6 +43,12 @@ const CreateNew = () => {
                   pl: 1
                 }}>
                   <TitleBar />
+                </Grid>
+                <Grid item xs={12} sx={{
+                  py: 1,
+                  pl: 1
+                }}>
+                  <LocationBar />
                 </Grid>
                 <Grid item xs={12} sx={{
                   py: 3,

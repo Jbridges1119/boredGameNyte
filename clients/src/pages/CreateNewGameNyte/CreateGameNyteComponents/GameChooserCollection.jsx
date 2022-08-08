@@ -23,10 +23,8 @@ export default function GameChooserCollection(props) {
       <ListItem
         key={game.id}
         secondaryAction={
-          <IconButton edge="end" aria-label="game-details">
-            <Link to={`game/${game.id}`}>
+          <IconButton component={Link} to={'/game/' + game.id} edge="end" aria-label="game-details">
               <VideogameAssetIcon sx={{ color: 'white'}}/>
-            </Link>
           </IconButton>
         }>
         <ListItemButton role={undefined} onClick={props.handleToggle(game.id)}>

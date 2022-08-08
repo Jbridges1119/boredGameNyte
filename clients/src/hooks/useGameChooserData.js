@@ -53,11 +53,13 @@ const useGameChooserData = () => {
   // Will have to use setCollection with a useEffect later
   
   const [state, setState] = useState({
-    checked: [4, 0],
+    checked: [],
     friendsInvited: [],
     collection: games,
-    open: false,
-    competitive: false
+    competitive: false,
+    title: '',
+    date: new Date(),
+    open: false
   })
 
   // Function to set/unset checked friends in state
@@ -85,24 +87,21 @@ const useGameChooserData = () => {
   // Click "save changes" to close the dialog and set the state.checked to include the 1-3 games the host has chosen
   // for their game night.
   const handleCloseSave = () => {
-    setState(prev => ({ ...prev, open: false }));
+    let newChecked = [...state.checked,]
+    setState(prev => ({ ...prev, open: false, checked: newChecked }));
   };
 
   const handleToggle = (value) => () => {
     const currentIndex = state.checked.indexOf(value);
     const newChecked = [...state.checked];
 
-    console.log("value", value)
-    console.log("newchecked before:", newChecked)
     if (currentIndex === -1) {
       newChecked.push(value);
     } else {
       newChecked.splice(currentIndex, 1);
     }
     
-    console.log("newchecked after:", newChecked)
     setState({...state, checked: newChecked})
-    console.log("newchecked after savestate:", newChecked)
   };
 
   // From the Create page, this function should remove display cards from the game chooser component
@@ -112,12 +111,11 @@ const useGameChooserData = () => {
 
     console.log(state.checked)
 
-    if (currentIndex <= 0) {
+    if (currentIndex >= 0) {
       newChecked.splice(currentIndex, 1);
     }
     
     setState(prev => ({...prev, checked: newChecked}));
-    console.log(state.checked)
   };
 
   // This handles the state of "competitive" with the switch on the create page

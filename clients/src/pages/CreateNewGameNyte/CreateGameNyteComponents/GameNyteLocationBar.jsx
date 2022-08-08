@@ -1,10 +1,10 @@
-import { styled } from "@mui/material/styles";
-import { Box, Grid, TextField, Button, Stack } from "@mui/material";
+import { TextField } from "@mui/material";
+import styled from "@emotion/styled";
 import theme from "../../../assets/theme";
 
 
-const TitleBar = () => {
- 
+const LocationBar = () => {
+
   const CssTextField = styled(TextField)({
     "& label.Mui-focused": {
       borderBottomColor: "white",
@@ -32,8 +32,8 @@ const TitleBar = () => {
 
   return(
     <CssTextField
-      label="Name Your Game Nyte!"
-      id="title"
+      label="Where is your Game Nyte?"
+      id="location"
       InputLabelProps={{
         style: { color: "#fff" },
       }}
@@ -52,4 +52,4 @@ const TitleBar = () => {
   );
 };
 
-export default TitleBar;
+export default LocationBar;
