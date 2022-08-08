@@ -98,7 +98,7 @@ const NyteInvites = () => {
        <CardContent >
        <Grid container
           direction="row"
-          justifyContent="space-evenly"
+          justifyContent="center"
           alignItems="center" >
           <Grid item xs={12}>
            
