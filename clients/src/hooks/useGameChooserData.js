@@ -53,10 +53,11 @@ const useGameChooserData = () => {
   // Will have to use setCollection with a useEffect later
   
   const [state, setState] = useState({
-    checked: [4],
+    checked: [4, 0],
     friendsInvited: [],
     collection: games,
-    open: false
+    open: false,
+    competitive: false
   })
 
 
@@ -112,7 +113,13 @@ const useGameChooserData = () => {
     console.log(state.checked)
   };
 
-  return { state, setState, handleToggle, toggleOff, handleFriendToggle, handleClickOpen, handleClose, handleCloseSave }
+  const handleCompSwitch = () => {
+    return setState((prev) => {
+      return { ...prev, competitive: (state.competitive == false ? true : false) }
+    })
+  }
+
+  return { state, setState, handleToggle, toggleOff, handleFriendToggle, handleCompSwitch, handleClickOpen, handleClose, handleCloseSave }
 };
 
 export default useGameChooserData;

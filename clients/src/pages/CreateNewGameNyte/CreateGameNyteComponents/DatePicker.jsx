@@ -11,7 +11,7 @@ const StaticDatePicker = () => {
     <Fragment>
       <LocalizationProvider dateAdapter={AdapterMoment}>
         <DesktopDatePicker
-            label="Date desktop"
+            label="Date"
             inputFormat="MM/dd/yyyy"
             value={date}
             onChange={setDate}
