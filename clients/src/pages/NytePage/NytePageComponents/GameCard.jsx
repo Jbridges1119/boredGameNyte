@@ -31,10 +31,11 @@ const GameCard = (props) => {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid item xs={12}>
-            <GameCardData key={props.key}
-      img={props.img}
-      name={props.name}/>
+          <Grid item xs={11}>
+            <GameCardData 
+            id={props.id}
+          img={props.img}
+          name={props.name}/>
           </Grid>
 
         </Grid>

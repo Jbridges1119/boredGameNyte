@@ -1,12 +1,15 @@
-import { CardContent, CardMedia,  Paper,  Stack, Typography } from "@mui/material";
+import { CardContent, CardMedia,  Paper,  Stack } from "@mui/material";
 import BGN from "./Pictures/BGN.png";
 import theme from '../../../assets/theme'
 import NyteStatus from './NyteDetailsComponents/NyteStatus'
 import NyteInvites from './NyteDetailsComponents/NyteInvites'
+import BGNCasual from './Pictures/BGNCasual.png'
 
+const NyteDetails = (props) => {
+  const picture = props ? props.img : "";
+  //place in image when ready
+    const img = picture ? BGN : BGNCasual
 
-const NyteDetails = () => {
- 
 
     return (
       <CardContent
@@ -14,6 +17,7 @@ const NyteDetails = () => {
         height: 803,
         backgroundColor: theme.palette.primary.dark,
         borderRadius: "15px",
+        pt: 0
       }}
     >
      <Stack
@@ -31,7 +35,7 @@ const NyteDetails = () => {
      <CardMedia
               component="img"
               image={BGN}
-              alt="green iguana"
+              alt="BGN"
               sx={{
                 maxWidth: "200px",
                 maxHeight: "200px",
@@ -39,8 +43,7 @@ const NyteDetails = () => {
               }}
             />
       </Paper>
-      <Typography sx={{color: "#FFFFFF"}}pt={1} align="center" variant="h5">Hosted By</Typography>
-      <Typography sx={{color: "#FFFFFF"}} align="center" variant="h7">Johnny Johnson</Typography>
+    
       <NyteStatus/>
       <NyteInvites/>
      </Stack>

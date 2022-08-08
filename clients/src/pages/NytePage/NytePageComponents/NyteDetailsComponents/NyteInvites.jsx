@@ -2,66 +2,87 @@ import { Card, Paper, CardHeader,CardContent, ListItemAvatar, ListItem, ListItem
 import theme from "../../../../assets/theme"
 import Grid from "@mui/material/Grid";
 import Person from "@mui/icons-material/Person";
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import HelpIcon from '@mui/icons-material/Help';
-import CancelIcon from '@mui/icons-material/Cancel';
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
+import QuestionMarkOutlinedIcon from '@mui/icons-material/QuestionMarkOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 const NyteInvites = () => {
 
   const attending = [
     {
-      name: "The Professor",
+      name: "The ",
+      last: "Professor",
       email: "TheProfessor@gmail.com",
+      attend_status: null
     },
     {
       name: "Zoidberg",
+      last: "Zoidberg",
       email: "Zoidberg@gmail.com",
+      attend_status: true
     },
     {
       name: "Bender",
+      last: "Bender",
       email: "BenderIsGreat@gmail.com",
+      attend_status: false
     },
     {
-      name: "Turanga Leela",
+      name: "Turanga",
+      last: "Leela",
       email: "Oneye@gmail.com",
+      attend_status: false
     },
     {
-      name: "Amy Wong",
+      name: "Amy",
+      last: "Wong",
       email: "superrich@gmail.com",
+      attend_status: null
     },
     {
-      name: "Amy Wong",
+      name: "Amy",
+      last: "Wong",
       email: "superrich@gmail.com",
+      attend_status: null
     }, 
     {
-      name: "Amy Wong",
+      name: "Amy",
+      last: "Wong",
       email: "superrich@gmail.com",
+      attend_status: false
     }, 
     {
-      name: "Amy Wong",
+      name: "Amy",
+      last: "Wong",
       email: "superrich@gmail.com",
+      attend_status: true
     }, 
     
   ];
 
   const attendingList = attending.map((friend) => {
-    
+    const status = friend.attend_status
+
     return (
       <ListItem sx={{p:0}}
       >
-        {/* <CancelIcon sx={{ width: 26, height: 26,color: 'darkred', pr:2 }}/> */}
-          <HelpIcon sx={{ width: 26, height: 26, pr:2, color: theme.palette.error.main }}/> 
-            {/* <CheckCircleIcon sx={{ width: 26, height: 26, pr:2,color: '#00C41F' }}/>  */}
-        <ListItemAvatar>
-          <Avatar sx={{ width: 26, height: 26, pt: 0 }}>
+        
+        {status === false && <CloseOutlinedIcon sx={{ backgroundColor: 'darkred',borderRadius: '40px', width: 26, height: 26,color:'white' ,  }}/> }
+        {status === null && <QuestionMarkOutlinedIcon sx={{backgroundColor: theme.palette.error.main,borderRadius: '40px', width: 26, height: 26,  color: 'white' }}/> }
+            {status === true && <CheckOutlinedIcon sx={{backgroundColor: '#00C41F',borderRadius: '40px', width: 26, height: 26, color: 'white' }}/>  }
+        <ListItemAvatar >
+          <Avatar  sx={{ width: 26, height: 26, pt: 0, ml:1, pr:0 }}>
             <Person />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={friend.name}  />
+        <ListItemText primary={`${friend.name} ${friend.last}`}  />
       </ListItem>
     );
-        
+    
   });
+
+
+
 
 
 

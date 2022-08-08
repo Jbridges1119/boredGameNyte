@@ -1,10 +1,6 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import {
-  Box,
-  Typography,
-} from "@mui/material";
-
+import { Box, Typography } from "@mui/material";
 
 import theme from "../../../assets/theme";
 import YoutubeEmbed from "./CardComponents/YoutubeEmbed";
@@ -52,6 +48,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function VideoCard(props) {
+  console.log(props);
   const [expanded, setExpanded] = React.useState("panel1");
   //Map for How To Play videos - Feeds into embeder function
   const howTo = props.videos.map((video) => {
@@ -133,8 +130,8 @@ export default function VideoCard(props) {
                 justifyContent: "center",
                 alignContent: "center",
               }}
-            >{howTo}
-              
+            >
+              {howTo}
             </Grid>
           </Box>
         </AccordionDetails>
@@ -149,7 +146,7 @@ export default function VideoCard(props) {
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
           <Typography sx={{ color: "#FFFFFF" }} variant="h5">
-          Git Gud
+            Git Gud
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -167,7 +164,6 @@ export default function VideoCard(props) {
               alignItems="center"
             >
               {gitGud}
-              
             </Grid>
           </Box>
         </AccordionDetails>

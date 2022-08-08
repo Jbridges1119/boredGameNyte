@@ -10,6 +10,7 @@ import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
 
 const labelsStrat = {
+  0.0: `Unavailable`,
   0.5: "Blind Luck Wins",
   1.0: "Feeling Lucky",
   1.5: "Poor",
@@ -23,9 +24,10 @@ const labelsStrat = {
 };
 
 const labelsLearning = {
+  0.0: `Unavailable`,
   0.5: "Cones of Dunshire",
-  1.0: "Extreme",
-  1.5: "Hard+",
+  1.0: "Steep",
+  1.5: "Tough",
   2.0: "Hard",
   2.5: "Average",
   3.0: "Average+",
@@ -36,6 +38,7 @@ const labelsLearning = {
 };
 
 const labelsRating = {
+  0.0: `Unavailable`,
   0.5: `Don't Play This`,
   1.0: "Hard Pass",
   1.5: "Pass",
@@ -44,29 +47,49 @@ const labelsRating = {
   3.0: "Average+",
   3.5: "Good",
   4.0: "Great",
-  4.5: "Play This",
-  5.0: "Best Game",
+  4.5: "Play This Game",
+  5.0: "Best Game Ever",
 };
 
-const GameInfo = ({ data }) => {
-  const name = data[0] ? data[0].name : "";
-  const age = data[0] ? data[0].min_age : "";
-  const players = data[0] ? data[0].players : "";
-  const playtime = data[0] ? data[0].playtime : "";
-  const description = data[0] ? data[0].description : "";
-  const apirating = data[0] ? data[0].average_user_rating : "";
-  const apilearningScore = data[0] ? data[0].average_learning_complexity : "";
-  const apistrategyScore = data[0] ? data[0].average_strategy_complexity : "";
-  const faq = data[0] ? data[0].faq : "";
-  const official = data[0] ? data[0].official_url : "";
+<Button
+  sx={{
+    color: "white",
+    backgroundColor: theme.palette.error.main,
+    height: 55,
+    fontSize: 30,
+    textTransform: "none",
+    borderRadius: "20px",
+    width: "300px",
+  }}
+>
+  Add To Collection
+</Button>;
+
+const GameInfo = ({ gameData }) => {
+  const name = gameData[0] ? gameData[0].name : "";
+  const age = gameData[0] ? gameData[0].min_age : "";
+  const players = gameData[0] ? gameData[0].players : "";
+  const playtime = gameData[0] ? gameData[0].playtime : "";
+  const description = gameData[0] ? gameData[0].description : "";
+  const apirating = gameData[0] ? gameData[0].average_user_rating : "";
+  const apilearningScore = gameData[0]
+    ? gameData[0].average_learning_complexity
+    : "";
+  const apistrategyScore = gameData[0]
+    ? gameData[0].average_strategy_complexity
+    : "";
+  const faq = gameData[0] ? gameData[0].faq : "";
+  const official = gameData[0] ? gameData[0].official_url : "";
   const rating = Number((Math.round(apirating * 2) / 2).toFixed(1));
   const learningScore = Number(
     (Math.round(apilearningScore * 2) / 2).toFixed(1)
-  );
+  )
+    ? 5 - Number((Math.round(apilearningScore * 2) / 2).toFixed(1))
+    : 0;
+
   const strategyScore = Number(
     (Math.round(apistrategyScore * 2) / 2).toFixed(1)
   );
- 
 
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState("paper");
@@ -103,10 +126,25 @@ const GameInfo = ({ data }) => {
         container
         direction="row"
         justifyContent="center"
-        alignItems="center"
+        alignContent="center"
+        sx={{
+          height: "100%",
+        }}
       >
-        <Grid item xs={11}>
-          <Stack container spacing={9}>
+        <Grid
+          item
+          xs={11}
+          sx={{
+            height: "100%",
+          }}
+        >
+          <Stack
+            container
+            sx={{
+              height: "100%",
+              justifyContent: "space-between",
+            }}
+          >
             <Grid container direction="row" display="flex" alignItems="center">
               <Grid
                 item
@@ -114,10 +152,10 @@ const GameInfo = ({ data }) => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "space-around",
+                  justifyContent: "center",
                 }}
               >
-                <Typography pt={1.5} display="inline" variant="h2">
+                <Typography pt={2} pl={0} align="center" variant="h2">
                   {name}
                 </Typography>
               </Grid>
@@ -305,6 +343,7 @@ const GameInfo = ({ data }) => {
               direction="row"
               justifyContent="center"
               alignItems="center"
+              pb={2}
             >
               <Grid
                 item
@@ -315,7 +354,7 @@ const GameInfo = ({ data }) => {
                   justifyContent: "center",
                 }}
               >
-                {/* website buttons */}
+                {/* Add to collection button */}
                 <Button
                   sx={{
                     color: "white",
@@ -329,9 +368,8 @@ const GameInfo = ({ data }) => {
                 >
                   Add To Collection
                 </Button>
-
-                {/* End of Dialog buttons */}
               </Grid>
+              {/* official website button */}
               <Grid
                 item
                 xs={6}
