@@ -2,9 +2,9 @@ import { Card, Paper, CardHeader,CardContent, ListItemAvatar, ListItem, ListItem
 import theme from "../../../../assets/theme"
 import Grid from "@mui/material/Grid";
 import Person from "@mui/icons-material/Person";
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import HelpIcon from '@mui/icons-material/Help';
-import CancelIcon from '@mui/icons-material/Cancel';
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
+import QuestionMarkOutlinedIcon from '@mui/icons-material/QuestionMarkOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 const NyteInvites = () => {
 
@@ -61,23 +61,24 @@ const NyteInvites = () => {
   ];
 
   const attendingList = attending.map((friend) => {
-    if (attending) {
+    const status = friend.attend_status
+
     return (
       <ListItem sx={{p:0}}
       >
         
-        {friend.attend_status === false && <CancelIcon sx={{ width: 26, height: 26,color: 'darkred', pr:2 }}/> }
-        {friend.attend_status === null && <HelpIcon sx={{ width: 26, height: 26, pr:2, color: theme.palette.error.main }}/> }
-            {friend.attend_status === true && <CheckCircleIcon sx={{ width: 26, height: 26, pr:2,color: '#00C41F' }}/>  }
-        <ListItemAvatar>
-          <Avatar sx={{ width: 26, height: 26, pt: 0 }}>
+        {status === false && <CloseOutlinedIcon sx={{ backgroundColor: 'darkred',borderRadius: '40px', width: 26, height: 26,color:'white' ,  }}/> }
+        {status === null && <QuestionMarkOutlinedIcon sx={{backgroundColor: theme.palette.error.main,borderRadius: '40px', width: 26, height: 26,  color: 'white' }}/> }
+            {status === true && <CheckOutlinedIcon sx={{backgroundColor: '#00C41F',borderRadius: '40px', width: 26, height: 26, color: 'white' }}/>  }
+        <ListItemAvatar >
+          <Avatar  sx={{ width: 26, height: 26, pt: 0, ml:1, pr:0 }}>
             <Person />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary={`${friend.name} ${friend.last}`}  />
       </ListItem>
     );
-    }
+    
   });
 
 
