@@ -60,7 +60,7 @@ const useGameChooserData = () => {
     competitive: false
   })
 
-
+  // Function to set/unset checked friends in state
   const handleFriendToggle = (value) => () => {
     const currentIndex = state.friendsInvited.indexOf(value);
     const newChecked = [...state.friendsInvited];
@@ -72,15 +72,18 @@ const useGameChooserData = () => {
     }
 
     setState(prev => ({...prev, friendsInvited: newChecked}));
-    console.log("friendsInvited: ", state.friendsInvited)
   };
 
+  // These 4 functions handle the collection dialog, "open" in state
   const handleClickOpen = () => {
     setState(prev => ({ ...prev, open: true }));
   };
+  // Click the 'x' to close the dialog without saving state
   const handleClose = () => {
     setState(prev => ({...prev, open: false}));
   };
+  // Click "save changes" to close the dialog and set the state.checked to include the 1-3 games the host has chosen
+  // for their game night.
   const handleCloseSave = () => {
     setState(prev => ({ ...prev, open: false }));
   };
@@ -99,6 +102,7 @@ const useGameChooserData = () => {
     setState({...state, checked: newChecked})
   };
 
+  // From the Create page, this function should remove display cards from the game chooser component
   const toggleOff = (value) => () => {
     const currentIndex = state.checked.indexOf(value);
     const newChecked = [...state.checked];
@@ -113,6 +117,7 @@ const useGameChooserData = () => {
     console.log(state.checked)
   };
 
+  // This handles the state of "competitive" with the switch on the create page
   const handleCompSwitch = () => {
     return setState((prev) => {
       return { ...prev, competitive: (state.competitive === false ? true : false) }

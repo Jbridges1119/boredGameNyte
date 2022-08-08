@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers'
+import { DateTimePicker, DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import theme from "../../../assets/theme";
 import { TextField } from "@mui/material";
@@ -10,13 +10,15 @@ const StaticDatePicker = () => {
   return (
     <Fragment>
       <LocalizationProvider dateAdapter={AdapterMoment}>
-        <DesktopDatePicker
-            label="Date"
-            inputFormat="MM/dd/yyyy"
-            value={date}
-            onChange={setDate}
-            renderInput={(params) => <TextField {...params} />}
-            />
+      <DateTimePicker
+        variant="dialog"
+        renderInput={(props) => <TextField {...props} />}
+        label="DateTimePicker"
+        value={date}
+        onChange={(newValue) => {
+        setDate(newValue);
+        }}
+        />
         </LocalizationProvider>
     </Fragment>
   );
