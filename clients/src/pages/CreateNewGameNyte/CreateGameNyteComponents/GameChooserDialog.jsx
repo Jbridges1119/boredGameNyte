@@ -50,33 +50,28 @@ BootstrapDialogTitle.propTypes = {
 
 export default function GameChooserDialog(props) {
 
-  const{ 
-    state,
-    setState,
-    handleClickOpen,
-    handleClose,
-    handleCloseSave,
-    handleToggle
-    } = useGameChooserData();
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={props.handleClickOpen}>
         Choose up to 3 games!
       </Button>
       <BootstrapDialog
-        onClose={handleClose}
+        onClose={props.handleClose}
         aria-labelledby="customized-dialog-title"
-        open={state.open}
+        open={props.state.open}
         >
-        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} sx={{ backgroundColor: theme.palette.secondary.main }}>
+        <BootstrapDialogTitle id="customized-dialog-title" onClose={props.handleClose} sx={{ backgroundColor: theme.palette.secondary.main }}>
           Your Collection
         </BootstrapDialogTitle>
         <DialogContent dividers sx={{ backgroundColor: theme.palette.secondary.main }}>
-          <GameChooserCollection />
+          <GameChooserCollection 
+          state={props.state}
+          handleToggle={props.handleToggle}
+          />
         </DialogContent>
         <DialogActions sx={{ backgroundColor: theme.palette.secondary.main }}>
-          <Button autoFocus onClick={handleCloseSave} sx={{ backgroundColor: theme.palette.secondary.main }}>
+          <Button autoFocus onClick={props.handleCloseSave} sx={{ backgroundColor: theme.palette.secondary.main }}>
             Save changes
           </Button>
         </DialogActions>
@@ -84,3 +79,5 @@ export default function GameChooserDialog(props) {
     </div>
   );
 }
+
+// CreateNew => GameChooser => GameChooserDialog => GameChooserCollection

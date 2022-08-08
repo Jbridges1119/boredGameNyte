@@ -92,14 +92,17 @@ const useGameChooserData = () => {
     const currentIndex = state.checked.indexOf(value);
     const newChecked = [...state.checked];
 
-    
+    console.log("value", value)
+    console.log("newchecked before:", newChecked)
     if (currentIndex === -1) {
       newChecked.push(value);
     } else {
       newChecked.splice(currentIndex, 1);
     }
-
+    
+    console.log("newchecked after:", newChecked)
     setState({...state, checked: newChecked})
+    console.log("newchecked after savestate:", newChecked)
   };
 
   // From the Create page, this function should remove display cards from the game chooser component

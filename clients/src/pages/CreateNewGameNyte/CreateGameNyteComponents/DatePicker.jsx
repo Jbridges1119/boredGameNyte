@@ -11,9 +11,13 @@ const StaticDatePicker = () => {
     <Fragment>
       <LocalizationProvider dateAdapter={AdapterMoment}>
       <DateTimePicker
+        sx={{
+          color: "white",
+          backgroundColor: theme.palette.primary.main
+        }}
         variant="dialog"
         renderInput={(props) => <TextField {...props} />}
-        label="DateTimePicker"
+        label="When is your gamenyte?"
         value={date}
         onChange={(newValue) => {
         setDate(newValue);

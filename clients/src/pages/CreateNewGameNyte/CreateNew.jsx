@@ -8,15 +8,20 @@ import GameChooser from "./CreateGameNyteComponents/GameChooser";
 import { Button } from "@mui/material";
 import useGameChooserData from "../../hooks/useGameChooserData";
 import StaticDatePicker from "./CreateGameNyteComponents/DatePicker";
-import StaticTimePicker from "./CreateGameNyteComponents/TimePicker";
 
 
 const CreateNew = () => {
-  
-  const {
+
+  const{ 
     state,
-    handleCompSwitch
-  } = useGameChooserData();
+    setState,
+    handleClickOpen,
+    handleClose,
+    handleCloseSave,
+    handleToggle,
+    handleCompSwitch,
+    toggleOff
+    } = useGameChooserData();
 
   return (
     <Box
@@ -42,38 +47,38 @@ const CreateNew = () => {
                   py: 3,
                   pl: 12
                 }}>
-                  <StaticDatePicker 
+                  <StaticDatePicker
                     sx={{
-                      color: theme.palette.secondary.light,                      
+                      color: theme.palette.secondary.light,
                     }}
-                    />
+                  />
                 </Grid>
 
 
                 <Grid item xs={12} sx={{ px: 15 }}>
-                      <FormGroup>
-                        <Stack direction="row" alignContent="center">
-                          <Grid item>
-                            <Typography
-                              sx={{ pt: 1, color: "white"}}>
-                                Casual
-                            </Typography>
-                          </Grid>
-                          <Grid item>
-                            <Switch 
-                              checked={state.competitive}
-                              onChange={handleCompSwitch}
-                              inputProps={{ 'aria-label': 'controlled' }} 
-                              color="error"/>
-                          </Grid>
-                          <Grid item>
-                            <Typography
-                              sx={{ pt: 1, color: "white"}}>
-                                Competitive
-                            </Typography>
-                          </Grid>
-                        </Stack>
-                      </FormGroup>
+                  <FormGroup>
+                    <Stack direction="row" alignContent="center">
+                      <Grid item>
+                        <Typography
+                          sx={{ pt: 1, color: "white" }}>
+                          Casual
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Switch
+                          checked={state.competitive}
+                          onChange={handleCompSwitch}
+                          inputProps={{ 'aria-label': 'controlled' }}
+                          color="error" />
+                      </Grid>
+                      <Grid item>
+                        <Typography
+                          sx={{ pt: 1, color: "white" }}>
+                          Competitive
+                        </Typography>
+                      </Grid>
+                    </Stack>
+                  </FormGroup>
                 </Grid>
 
 
@@ -87,9 +92,17 @@ const CreateNew = () => {
 
           <Stack>
             <Grid item xs={12} sx={{ px: 6, pt: 6 }}>
-              <GameChooser />
+              <GameChooser 
+              state={state}
+              setState={setState}
+              handleClickOpen={handleClickOpen}
+              handleClose={handleClose}
+              handleCloseSave={handleCloseSave}
+              handleToggle={handleToggle}
+              toggleOff={toggleOff}
+              />
             </Grid>
-            <Grid item xs={12} sx={{ px: 32, py: 12}}>
+            <Grid item xs={12} sx={{ px: 32, py: 12 }}>
               <Button
                 sx={{
                   color: 'white',

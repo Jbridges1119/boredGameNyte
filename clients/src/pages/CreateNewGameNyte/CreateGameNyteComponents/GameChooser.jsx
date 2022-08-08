@@ -6,13 +6,10 @@ import GameChooserDisplayCard from '../CreateGameNyteComponents/GameChooserDispl
 
 const GameChooser = (props) => {
   
-  const {
-    state,
-  } = useGameChooserData();
 
-  let game1 = state.collection[state.checked[0]]
-  let game2 = state.collection[state.checked[1]]
-  let game3 = state.collection[state.checked[2]]
+  let game1 = props.state.collection[props.state.checked[0]]
+  let game2 = props.state.collection[props.state.checked[1]]
+  let game3 = props.state.collection[props.state.checked[2]]
   let chooserCardGridStyle = {
     py: 3,
     px: 12,
@@ -41,6 +38,7 @@ const GameChooser = (props) => {
                 thumbnail={game1.thumbnail}
                 minPlayers={game1.min_players}
                 maxPlayers={game1.max_players}
+                toggleOff={props.toggleOff}
               />}
               {!game1 && null}
           </Grid>
@@ -55,6 +53,7 @@ const GameChooser = (props) => {
                 thumbnail={game2.thumbnail}
                 minPlayers={game2.min_players}
                 maxPlayers={game2.max_players}
+                toggleOff={props.toggleOff}
               />}
               {!game2 && null}
           </Grid>
@@ -69,6 +68,7 @@ const GameChooser = (props) => {
                 thumbnail={game3.thumbnail}
                 minPlayers={game3.min_players}
                 maxPlayers={game3.max_players}
+                toggleOff={props.toggleOff}
               />}
               {!game3 && null}
           </Grid>
@@ -76,9 +76,14 @@ const GameChooser = (props) => {
             py: 2,
             pl: 35
           }}>
-            {state.checked.length === 3 && null}
-            {state.checked.length < 3 && 
-            <GameChooserDialog 
+            {props.state.checked.length === 3 && null}
+            {props.state.checked.length < 3 && 
+            <GameChooserDialog
+              state={props.state}
+              handleClickOpen={props.handleClickOpen}
+              handleToggle={props.handleToggle}
+              handleClose={props.handleClose}
+              handeCloseSave={props.handeCloseSave}
               sx={{
                 color: 'white',
                 height: "100%",

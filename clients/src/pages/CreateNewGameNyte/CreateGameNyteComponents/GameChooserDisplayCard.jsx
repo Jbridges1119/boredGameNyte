@@ -6,10 +6,6 @@ import theme from "../../../assets/theme";
 
 export default function GameDisplayCard(props) {
 
-  const {
-    toggleOff
-  } = useGameChooserData();
-
 
   return(
     <Paper 
@@ -46,7 +42,7 @@ export default function GameDisplayCard(props) {
           </Stack>
             <Grid item>
               <IconButton
-                onClick={toggleOff(props.id)}
+                onClick={props.toggleOff(props.id)}
                 >
                 <Close />
               </IconButton>

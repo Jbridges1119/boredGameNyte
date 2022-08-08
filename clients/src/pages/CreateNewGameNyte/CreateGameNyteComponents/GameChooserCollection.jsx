@@ -13,14 +13,10 @@ import theme from '../../../assets/theme';
 import { Link } from 'react-router-dom';
 
 
-export default function GameChooserCollection() {
+export default function GameChooserCollection(props) {
 
-  const{ 
-    state,
-    handleToggle
-   } = useGameChooserData();
 
-  const displayCollection = state.collection.map((game) => {
+  const displayCollection = props.state.collection.map((game) => {
     const labelId = `checkbox-list-label-${game.id}`;
 
     return (
@@ -32,14 +28,13 @@ export default function GameChooserCollection() {
               <VideogameAssetIcon sx={{ color: 'white'}}/>
             </Link>
           </IconButton>
-        }
-      >
-        <ListItemButton role={undefined} onClick={handleToggle(game.id)}>
+        }>
+        <ListItemButton role={undefined} onClick={props.handleToggle(game.id)}>
           <ListItemIcon>
             <Checkbox
               edge="start"
               color="error"
-              checked={state.checked.indexOf(game.id) !== -1}
+              checked={props.state.checked.indexOf(game.id) !== -1}
               tabIndex={-1}
               disableRipple
               inputProps={{ 'aria-labelledby': labelId }}
@@ -66,4 +61,4 @@ export default function GameChooserCollection() {
       {displayCollection}
     </List>
   );
-}
+};
