@@ -15,7 +15,6 @@ const CreateNew = () => {
   
   const {
     state,
-    setState,
     handleCompSwitch
   } = useGameChooserData();
 
@@ -83,7 +82,8 @@ const CreateNew = () => {
               <Button
                 sx={{
                   backgroundColor: theme.palette.secondary.light,
-                  width: 400
+                  width: 400,
+                  height: 80
                 }}
               >Create Game Nyte</Button>
             </Grid>

@@ -115,7 +115,7 @@ const useGameChooserData = () => {
 
   const handleCompSwitch = () => {
     return setState((prev) => {
-      return { ...prev, competitive: (state.competitive == false ? true : false) }
+      return { ...prev, competitive: (state.competitive === false ? true : false) }
     })
   }
 
