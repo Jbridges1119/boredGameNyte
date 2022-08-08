@@ -1,6 +1,5 @@
-import { Stack, Button, Typography } from "@mui/material";
+import { Stack,  Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import theme from "../../../../assets/theme"
 import Host from "./statusButtons/Host";
 import UserConfirmed from "./statusButtons/UserConfirmed";
 import UserDeclined from "./statusButtons/UserDeclined";
@@ -13,11 +12,13 @@ const NyteStatus = (props) => {
   const date = props.date ? props.date : "date"
   const time = props.time ? props.time : "time"
   const location = props.location ? props.location : "location"
- 
+  const host = props.host ? "Host" : ""
+  const invited = props.invited !== undefined ? props.invited : ""
   const mode = function(input) {
-
+      if(input) return "Confirmed"
+      if(input === false ) return "Declined"
+      if(input === null) return "Not Selected"
   }
-
   return ( 
 <>
   
@@ -36,10 +37,10 @@ const NyteStatus = (props) => {
             <Typography sx={{color: "#FFFFFF", fontSize: 18,lineHeight: 'normal'}}  align="center" variant="h6">{location}</Typography> 
             </Box>
             <Box sx={{display:'flex', flexDirection: 'column', height:'87px', justifyContent:'space-evenly'}}>
-            {mode === 'Host' && <Host onClick={mode} />}
-            {mode === "Confirmed" && <UserConfirmed onClick={mode} />}
-            {mode === "Declined" && <UserDeclined onClick={mode} />}
-            {mode === 'Not Selected' && <UserNotSelected onClick={mode} />}
+            {host === 'Host' && <Host onCancelEvent={mode} />}
+            {mode(invited) === "Confirmed" && <UserConfirmed onCancel={mode} />}
+            {mode(invited) === "Declined" && <UserDeclined onConfirm={mode} />}
+            {mode(invited) === 'Not Selected' && <UserNotSelected onConfirm={mode} onCancel={mode}/>}
           </Box>
           </Stack>
           </Box>

@@ -61,7 +61,7 @@ const NyteInvites = () => {
   ];
 
   const attendingList = attending.map((friend) => {
-    
+    if (attending) {
     return (
       <ListItem sx={{p:0}}
       >
@@ -77,7 +77,7 @@ const NyteInvites = () => {
         <ListItemText primary={`${friend.name} ${friend.last}`}  />
       </ListItem>
     );
-        
+    }
   });
 
 

@@ -10,7 +10,7 @@ const GamePicture = (props) => {
         borderRadius: "20px",
 
         backgroundColor: theme.palette.primary.main,
-        height: "475px",
+        height: "444px",
         display: "flex",
         justifyContent: "center",
         alignContent: "center",
