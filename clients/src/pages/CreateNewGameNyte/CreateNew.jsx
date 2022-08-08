@@ -48,16 +48,20 @@ const CreateNew = () => {
                   py: 6,
                   pl: 1
                 }}>
-                  <TitleBar 
+                  <TitleBar
+                    title={state.name} 
                     setTitle={setTitle}
+                    setState={setState}
                   />
                 </Grid>
                 <Grid item xs={12} sx={{
                   py: 1,
                   pl: 1
                 }}>
-                  <LocationBar 
+                  <LocationBar
+                    location={state.place}
                     setLocation={setLocation}
+                    setState={setState}
                   />
                 </Grid>
                 <Grid item xs={12} sx={{

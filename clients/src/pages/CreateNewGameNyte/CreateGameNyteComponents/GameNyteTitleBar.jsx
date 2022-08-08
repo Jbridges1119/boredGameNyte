@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { TextField } from "@mui/material";
 import theme from "../../../assets/theme";
-import useGameChooserData from "../../../hooks/useGameChooserData";
 
 
 const TitleBar = (props) => {
@@ -32,10 +31,18 @@ const TitleBar = (props) => {
     },
   });
 
+  const setTitle = (event) => {
+    event.preventDefault();
+    props.setState((prev) => {
+      return {...prev, 'name': event.target.value}
+    });
+  };
+  
   return(
-    <CssTextField
+    <TextField
       label="Name Your Game Nyte!"
       id="title"
+      value={props.title}
       InputLabelProps={{
         style: { color: "#fff" },
       }}
@@ -49,7 +56,7 @@ const TitleBar = (props) => {
           color: "white",
         },
       }}
-      onChange={(event) => props.setTitle(event.target.value)}
+      onChange={setTitle}
     />
   );
 };

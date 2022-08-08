@@ -70,7 +70,7 @@ export default function GameChooserDialog(props) {
           />
         </DialogContent>
         <DialogActions sx={{ backgroundColor: theme.palette.secondary.main }}>
-          <Button onClick={props.handleCloseSave} sx={{ backgroundColor: theme.palette.secondary.main }}>
+          <Button onClick={props.handleClose} sx={{ backgroundColor: theme.palette.secondary.main }}>
             Save changes
           </Button>
         </DialogActions>

@@ -1,5 +1,5 @@
-import { TextField } from "@mui/material";
 import styled from "@emotion/styled";
+import { TextField } from "@mui/material";
 import theme from "../../../assets/theme";
 
 
@@ -30,10 +30,19 @@ const LocationBar = (props) => {
     },
   });
 
+  const setLocation = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    props.setState((prev) => {
+      return {...prev, 'place': event.target.value}
+    });
+  };
+
   return(
-    <CssTextField
+    <TextField
       label="Where is your Game Nyte?"
       id="location"
+      value={props.location}
       InputLabelProps={{
         style: { color: "#fff" },
       }}
@@ -47,7 +56,7 @@ const LocationBar = (props) => {
           color: "white",
         },
       }}
-      onChange={(event) => props.setLocation(event.target.value)}
+      onChange={setLocation}
     />
   );
 };

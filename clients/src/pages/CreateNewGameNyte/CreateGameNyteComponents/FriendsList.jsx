@@ -1,13 +1,10 @@
 import * as React from 'react';
-import { useState } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Checkbox from '@mui/material/Checkbox';
 import { Person } from '@mui/icons-material';
-import theme from '../../../assets/theme';
-import useGameChooserData from '../../../hooks/useGameChooserData';
 
 const friends = [
   {

@@ -51,15 +51,14 @@ const useGameChooserData = () => {
   // This will ideally be the users collection retrieved from database
   // Currently, default state is dummy data stored above
   // Will have to use setCollection with a useEffect later
-  const [title, setTitle] = useState();
-  const [location, setLocation] = useState();
+
   const [state, setState] = useState({
     checked: [],
     friendsInvited: [],
     collection: games,
     competitive: false,
     name: '',
-    location: '',
+    place: '',
     date: new Date(),
     open: false
   })
@@ -131,10 +130,7 @@ const useGameChooserData = () => {
     console.log(state)
   }
 
-  return { title, 
-    setTitle, 
-    location, 
-    setLocation, 
+  return { 
     state, 
     setState, 
     handleToggle, 
