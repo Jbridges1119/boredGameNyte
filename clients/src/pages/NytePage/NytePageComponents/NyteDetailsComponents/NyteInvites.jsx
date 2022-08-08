@@ -10,36 +10,52 @@ const NyteInvites = () => {
 
   const attending = [
     {
-      name: "The Professor",
+      name: "The ",
+      last: "Professor",
       email: "TheProfessor@gmail.com",
+      attend_status: null
     },
     {
       name: "Zoidberg",
+      last: "Zoidberg",
       email: "Zoidberg@gmail.com",
+      attend_status: true
     },
     {
       name: "Bender",
+      last: "Bender",
       email: "BenderIsGreat@gmail.com",
+      attend_status: false
     },
     {
-      name: "Turanga Leela",
+      name: "Turanga",
+      last: "Leela",
       email: "Oneye@gmail.com",
+      attend_status: false
     },
     {
-      name: "Amy Wong",
+      name: "Amy",
+      last: "Wong",
       email: "superrich@gmail.com",
+      attend_status: null
     },
     {
-      name: "Amy Wong",
+      name: "Amy",
+      last: "Wong",
       email: "superrich@gmail.com",
+      attend_status: null
     }, 
     {
-      name: "Amy Wong",
+      name: "Amy",
+      last: "Wong",
       email: "superrich@gmail.com",
+      attend_status: false
     }, 
     {
-      name: "Amy Wong",
+      name: "Amy",
+      last: "Wong",
       email: "superrich@gmail.com",
+      attend_status: true
     }, 
     
   ];
@@ -57,7 +73,7 @@ const NyteInvites = () => {
             <Person />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={friend.name}  />
+        <ListItemText primary={`${friend.name} ${friend.last}`}  />
       </ListItem>
     );
         

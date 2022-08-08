@@ -34,9 +34,12 @@ const NytePage = () => {
 
 
   const game = data.map((game) =>{
+    console.log(game.data.games[0].id)
     return (
+     
       <GameCard 
-      key={game.data.games.id}
+      key={game.data.games[0].id}
+      id={game.data.games[0].id}
       img={game.data.games[0].images.large}
       name={game.data.games[0].name}
       />
@@ -62,8 +65,7 @@ const NytePage = () => {
 
     <Grid container
           direction="row"
-          justifyContent="center"
-          alignItems="center">
+         >
           <Grid item xs={2.5}>
             <NyteDetails/>
           </Grid>
