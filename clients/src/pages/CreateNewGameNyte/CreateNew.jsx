@@ -81,7 +81,8 @@ const CreateNew = () => {
             <Grid item xs={12} sx={{ px: 32, py: 12}}>
               <Button
                 sx={{
-                  backgroundColor: theme.palette.secondary.light,
+                  color: 'white',
+                  backgroundColor: theme.palette.error.main,
                   width: 400,
                   height: 80
                 }}
