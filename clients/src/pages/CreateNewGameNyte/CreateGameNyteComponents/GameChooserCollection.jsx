@@ -29,7 +29,7 @@ export default function GameChooserCollection() {
         secondaryAction={
           <IconButton edge="end" aria-label="game-details">
             <Link to={`game/${game.id}`}>
-              <VideogameAssetIcon />
+              <VideogameAssetIcon sx={{ color: 'white'}}/>
             </Link>
           </IconButton>
         }
