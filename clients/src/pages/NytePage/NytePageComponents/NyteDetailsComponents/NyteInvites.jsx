@@ -65,9 +65,10 @@ const NyteInvites = () => {
     return (
       <ListItem sx={{p:0}}
       >
-        {/* <CancelIcon sx={{ width: 26, height: 26,color: 'darkred', pr:2 }}/> */}
-          <HelpIcon sx={{ width: 26, height: 26, pr:2, color: theme.palette.error.main }}/> 
-            {/* <CheckCircleIcon sx={{ width: 26, height: 26, pr:2,color: '#00C41F' }}/>  */}
+        
+        {friend.attend_status === false && <CancelIcon sx={{ width: 26, height: 26,color: 'darkred', pr:2 }}/> }
+        {friend.attend_status === null && <HelpIcon sx={{ width: 26, height: 26, pr:2, color: theme.palette.error.main }}/> }
+            {friend.attend_status === true && <CheckCircleIcon sx={{ width: 26, height: 26, pr:2,color: '#00C41F' }}/>  }
         <ListItemAvatar>
           <Avatar sx={{ width: 26, height: 26, pt: 0 }}>
             <Person />
@@ -78,6 +79,9 @@ const NyteInvites = () => {
     );
         
   });
+
+
+
 
 
 

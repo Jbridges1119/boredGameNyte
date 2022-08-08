@@ -55,9 +55,9 @@ sx={{
     alignItems:'space-between',}}
    >
 
-    <Typography sx={{color: "#FFFFFF"}} align="center"  variant="h3">{props.name}</Typography>
+    <Typography sx={{color: "#FFFFFF"}} align="center"  variant="h4">{props.name}</Typography>
 
-    <Button component={Link} to={'/game/' + props.id} sx={{backgroundColor: theme.palette.error.main, height: 75,  fontSize: 40,textTransform: 'none', borderRadius: '20px' }} variant="contained">How To Play</Button>
+    <Button component={Link} to={'/game/' + props.id} sx={{backgroundColor: theme.palette.error.main, height: 60,  fontSize: 35,textTransform: 'none', borderRadius: '20px' }} variant="contained">How To Play</Button>
   
     </Stack>
     </Grid>
