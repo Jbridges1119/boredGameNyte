@@ -1,11 +1,6 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import {
- 
-  CardContent,
-  Paper,
-
-} from "@mui/material";
+import { Paper } from "@mui/material";
 import theme from "../../../assets/theme";
 
 import GamePicture from "./CardComponents/GamePicture";
@@ -20,10 +15,9 @@ const GameCard = (props) => {
           height: 490,
           backgroundColor: theme.palette.secondary.main,
           borderRadius: "20px",
-          display: 'flex',
-          justifyContent:'center',
-          alignContent:'flex-start',
-         
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "flex-start",
         }}
       >
         <Grid
@@ -39,17 +33,13 @@ const GameCard = (props) => {
               justifyContent="center"
               alignItems="center"
             >
-              
               <Grid item xs={5}>
-                <GamePicture picture={props}/>
-                </Grid>
-                <Grid item xs={0.5}>
-               
-                </Grid>
-               
-                <Grid item xs={6.5}>
-                  <GameInfo data={props.data}/>
-                
+                <GamePicture picture={props} />
+              </Grid>
+              <Grid item xs={0.5}></Grid>
+
+              <Grid item xs={6.5}>
+                <GameInfo gameData={props.gameData} />
               </Grid>
             </Grid>
           </Grid>
