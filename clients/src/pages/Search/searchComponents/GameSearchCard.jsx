@@ -51,21 +51,24 @@ export default function GameSearchCard(props) {
 
 
   return (
-    <Paper container direction="row" sx={{
-      display: 'flex',
+    
+    <Paper container direction="row"  sx={{
+      maxWidth: '100% !important',
       backgroundColor: theme.palette.primary.main,
       color: "white",
-      
+      ml: 11,
       borderRadius: "20px"
-    }}>
+      
+    }}elevation={4}>
       
 <Grid
           container
           direction="row"
           justifyContent="center"
           alignItems="center"
+          
         >
-          <Grid item xs={11.5}>
+          <Grid item xs={11.5}  >
           <Grid
           container
           direction="row"
@@ -80,7 +83,7 @@ sx={{
   width: "100%",
   borderRadius: "20px",
   backgroundColor: theme.palette.primary.dark,
-  height: '225px',
+  height: '215px',
   display: 'flex',
   justifyContent:'center',
   alignContent:'center',
@@ -95,8 +98,8 @@ sx={{
     alt=""
     sx={{
       objectFit: 'contain',
-      maxWidth: '250px',
-      maxHeight: '200px'
+      maxWidth: '200px',
+      maxHeight: '190px'
     }}
     />
 
@@ -154,5 +157,6 @@ sx={{
             </Box></Stack>
             </Grid></Grid></Grid></Grid>
     </Paper>
+  
   );
 }

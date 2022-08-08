@@ -9,6 +9,7 @@ import InputBase from "@mui/material/InputBase";
 import InputLabel from "@mui/material/InputLabel";
 
 import FormControl from "@mui/material/FormControl";
+import { Container } from "@mui/system";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -37,12 +38,16 @@ const CssTextField = styled(TextField)({
 
 const Search = () => {
   const { gameSearch, data, setInput, gameSearchResults } = useSeachData();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    gameSearch();
+  };
 
   return (
     <Box
       sx={{
         width: "100%",
-        backgroundColor: theme.palette.primary.dark,
+
         height: "100vh",
       }}
     >
@@ -53,43 +58,57 @@ const Search = () => {
         alignItems="center"
       >
         <Grid item xs={11}>
-          <Stack >
-            <Grid container justifyContent="center" alignItems="center" pt={5}>
-              <Grid item xs={6}sx={{
-  
-  display: 'flex',
-  justifyContent:'center',
-  alignContent:'center',
-  alignItems: 'center'
-  
-}}>
-                <CssTextField
-                  label="Find a game!"
-                  id="search"
-                  InputLabelProps={{
-                    style: { color: "#fff" },
-                  }}
-                  sx={{
-                    backgroundColor: theme.palette.secondary.main,
-                    borderRadius: "20px",
-                    alignContent: "center",
-                    justifyContent: "center",
-                    width: "90%",
-                    input: {
-                      color: "white",
-                    },
-                  }}
-                  onChange={(event) => setInput(event.target.value)}
-                />
+          <Stack>
+            {/* Search bar and button */}
+
+            <Grid
+              container
+              justifyContent="center"
+              alignItems="center"
+              pt={4}
+              pb={1}
+            >
+              <Grid
+                item
+                xs={6}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <form onSubmit={handleSubmit}>
+                  <CssTextField
+                    label="Find a game!"
+                    id="search"
+                    InputLabelProps={{
+                      style: { color: "#fff" },
+                    }}
+                    sx={{
+                      backgroundColor: theme.palette.secondary.main,
+                      borderRadius: "20px",
+                      alignContent: "center",
+                      justifyContent: "center",
+                      width: "100%",
+                      input: {
+                        color: "white",
+                      },
+                    }}
+                    onChange={(event) => setInput(event.target.value)}
+                  />
+                </form>
               </Grid>
-              <Grid item xs={2} sx={{
-  
-  display: 'flex',
-  justifyContent:'center',
-  alignContent:'center',
-  alignItems: 'center'
-  
-}}>
+              <Grid
+                item
+                xs={2}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <Button
                   variant="contained"
                   sx={{
@@ -105,6 +124,8 @@ const Search = () => {
                 </Button>
               </Grid>
             </Grid>
+
+            {/* End of search */}
             {gameSearchResults}
           </Stack>
         </Grid>
