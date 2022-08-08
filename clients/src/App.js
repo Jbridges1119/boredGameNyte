@@ -24,7 +24,7 @@ function App() {
                       <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
                       <Route path="/create" element={<Home />} theme={theme}/>
                       <Route path="/collection" element={<GameCollection />} theme={theme}/>
-                      <Route path="/game" element={<GamePage />} theme={theme}/>
+                      <Route path="/game/:id" element={<GamePage />} theme={theme}/>
                     </Routes>
                   </Layout>
                 </BrowserRouter>
