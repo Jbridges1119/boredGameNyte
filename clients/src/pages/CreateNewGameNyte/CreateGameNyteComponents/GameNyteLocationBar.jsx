@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import theme from "../../../assets/theme";
 
 
-const LocationBar = () => {
+const LocationBar = (props) => {
 
   const CssTextField = styled(TextField)({
     "& label.Mui-focused": {
@@ -47,7 +47,7 @@ const LocationBar = () => {
           color: "white",
         },
       }}
-      // onChange={(event) => setInput(event.target.value)}
+      onChange={(event) => props.setLocation(event.target.value)}
     />
   );
 };

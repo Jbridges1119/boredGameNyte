@@ -1,11 +1,13 @@
 import React, { useState, Fragment } from "react";
-import { DateTimePicker, DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers'
+import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import styled from "@emotion/styled";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import theme from "../../../assets/theme";
 import { TextField } from "@mui/material";
-const StaticDatePicker = () => {
-  const [date, setDate] = useState(new Date());
+
+
+const StaticDatePicker = (props) => {
+  
 
   const CssTextField = styled(TextField)({
     "& label.Mui-focused": {
@@ -49,10 +51,10 @@ const StaticDatePicker = () => {
         }}}InputLabelProps={{
           style: { color: "#fff" },
         }} {...props} />}
-        label="When is your gamenyte?"
-        value={date}
+        label="When is your Game Nyte?"
+        value={props.state.date}
         onChange={(newValue) => {
-        setDate(newValue);
+        props.setState({...props.state, date: newValue});
         }}
         />
         </LocalizationProvider>

@@ -6,7 +6,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
-import useGameChooserData from '../../../hooks/useGameChooserData'
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import { ListItemAvatar } from '@mui/material';
 import theme from '../../../assets/theme';

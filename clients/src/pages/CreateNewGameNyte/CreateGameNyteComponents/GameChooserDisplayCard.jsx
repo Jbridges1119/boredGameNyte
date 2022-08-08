@@ -1,5 +1,4 @@
 import { Grid, IconButton, Paper, Stack } from "@mui/material";
-import useGameChooserData from "../../../hooks/useGameChooserData";
 import Close from "@mui/icons-material/Close";
 import theme from "../../../assets/theme";
 

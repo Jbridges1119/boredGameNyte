@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 import React from "react";
-import { Grid, Stack, FormControlLabel, FormGroup, Switch, Typography } from "@mui/material";
+import { Grid, Stack, FormGroup, Switch, Typography } from "@mui/material";
 import theme from "../../assets/theme";
 import TitleBar from "./CreateGameNyteComponents/GameNyteTitleBar";
 import LocationBar from "./CreateGameNyteComponents/GameNyteLocationBar";
@@ -14,6 +14,10 @@ import StaticDatePicker from "./CreateGameNyteComponents/DatePicker";
 const CreateNew = () => {
 
   const{ 
+    title,
+    setTitle,
+    location,
+    setLocation,
     state,
     setState,
     handleClickOpen,
@@ -21,7 +25,8 @@ const CreateNew = () => {
     handleCloseSave,
     handleToggle,
     handleCompSwitch,
-    toggleOff
+    toggleOff,
+    printState
     } = useGameChooserData();
 
   return (
@@ -42,19 +47,25 @@ const CreateNew = () => {
                   py: 6,
                   pl: 1
                 }}>
-                  <TitleBar />
+                  <TitleBar 
+                    setTitle={setTitle}
+                  />
                 </Grid>
                 <Grid item xs={12} sx={{
                   py: 1,
                   pl: 1
                 }}>
-                  <LocationBar />
+                  <LocationBar 
+                    setLocation={setLocation}
+                  />
                 </Grid>
                 <Grid item xs={12} sx={{
                   py: 3,
                   pl: 12
                 }}>
                   <StaticDatePicker
+                    state={state}
+                    setState={setState}
                     sx={{
                       color: theme.palette.secondary.light,
                     }}
@@ -111,6 +122,8 @@ const CreateNew = () => {
             </Grid>
             <Grid item xs={12} sx={{ px: 32, py: 12 }}>
               <Button
+                type="submit"
+                onClick={printState}
                 sx={{
                   color: 'white',
                   backgroundColor: theme.palette.error.main,

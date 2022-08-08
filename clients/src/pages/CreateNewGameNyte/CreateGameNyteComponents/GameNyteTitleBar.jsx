@@ -1,10 +1,12 @@
 import { styled } from "@mui/material/styles";
-import { Box, Grid, TextField, Button, Stack } from "@mui/material";
+import { TextField } from "@mui/material";
 import theme from "../../../assets/theme";
+import useGameChooserData from "../../../hooks/useGameChooserData";
 
 
-const TitleBar = () => {
- 
+const TitleBar = (props) => {
+
+
   const CssTextField = styled(TextField)({
     "& label.Mui-focused": {
       borderBottomColor: "white",
@@ -47,7 +49,7 @@ const TitleBar = () => {
           color: "white",
         },
       }}
-      // onChange={(event) => setInput(event.target.value)}
+      onChange={(event) => props.setTitle(event.target.value)}
     />
   );
 };

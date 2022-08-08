@@ -1,12 +1,12 @@
 import { Grid, Paper, Stack } from "@mui/material";
 import theme from "../../../assets/theme";
 import GameChooserDialog from "./GameChooserDialog";
-import useGameChooserData from "../../../hooks/useGameChooserData";
 import GameChooserDisplayCard from '../CreateGameNyteComponents/GameChooserDisplayCard'
 
 const GameChooser = (props) => {
   
-
+  // Need to find a way to access the matching ID inside the props.
+  // findGameById function?
   let game1 = props.state.collection[props.state.checked[0]]
   let game2 = props.state.collection[props.state.checked[1]]
   let game3 = props.state.collection[props.state.checked[2]]
