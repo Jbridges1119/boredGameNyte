@@ -19,6 +19,7 @@ import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <BrowserRouter>
                   <Layout theme={theme}>
                     <Routes>
@@ -32,7 +33,8 @@ function App() {
                     </Routes>
                   </Layout>
                 </BrowserRouter>
-      </ThemeProvider>
+      </MuiPickersUtilsProvider>
+    </ThemeProvider>
   );
 }
 

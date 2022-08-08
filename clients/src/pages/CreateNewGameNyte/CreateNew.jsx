@@ -5,12 +5,17 @@ import theme from "../../assets/theme";
 import TitleBar from "./CreateGameNyteComponents/GameNyteTitleBar";
 import FriendInviter from "./CreateGameNyteComponents/GameNyteFriendInviter";
 import GameChooser from "./CreateGameNyteComponents/GameChooser";
-import StaticDatePicker from "./CreateGameNyteComponents/DatePicker";
 import { Button } from "react-rainbow-components";
+import useGameChooserData from "../../hooks/useGameChooserData";
+import StaticDatePicker from "./CreateGameNyteComponents/DatePicker";
+import StaticTimePicker from "./CreateGameNyteComponents/TimePicker";
 
 
 const CreateNew = () => {
-
+  const {
+    state,
+    setState
+  } = useGameChooserData();
 
 
   return (
@@ -22,7 +27,7 @@ const CreateNew = () => {
       }}>
       <Grid container justifyContent="space-evenly">
         <Stack direction="row">
-          <Grid item>
+          {/* <Grid item> */}
             <Grid container>
               <Stack alignContent="center">
                 <Grid item xs={12} sx={{
@@ -36,20 +41,25 @@ const CreateNew = () => {
                 }}>
                   <StaticDatePicker />
                 </Grid>
+                <Grid item xs={12} sx={{
+                  py: 3
+                }}>
+                  <StaticTimePicker />
+                </Grid>
                 <Grid item xs={12} sx={{ px: 3, py: 3 }}>
                   <FriendInviter />
                 </Grid>
               </Stack>
             </Grid>
-          </Grid>
-        <Stack>
-          <Grid item xs={12} sx={{px:3, py:12}}>
+          {/* </Grid> */}
+          <Stack>
+            <Grid item xs={12} sx={{ px: 3, py: 12 }}>
               <GameChooser />
-          </Grid>
-          <Grid item xs={12} sx={{ px:44 }}>
+            </Grid>
+            <Grid item xs={12} sx={{ px: 44 }}>
               <Button>Create Game Nyte</Button>
-          </Grid>
-        </Stack>
+            </Grid>
+          </Stack>
         </Stack>
       </Grid>
     </Box>
