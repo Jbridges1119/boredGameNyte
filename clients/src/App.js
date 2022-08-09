@@ -15,8 +15,27 @@ import GamePage from './pages/GamePage/GamePage'
 import CreateNew from "./pages/CreateNewGameNyte/CreateNew";
 import GameCollection from "./pages/GameCollection/GameCollection";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import useGameChooserData from "./hooks/useGameChooserData";
 
 function App() {
+
+  const{ 
+    title,
+    setTitle,
+    location,
+    setLocation,
+    state,
+    setState,
+    handleClickOpen,
+    handleClose,
+    handleCloseSave,
+    handleToggle,
+    handleFriendToggle,
+    handleCompSwitch,
+    toggleOff,
+    printState
+    } = useGameChooserData();
+
   return (
     <ThemeProvider theme={theme}>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -27,7 +46,24 @@ function App() {
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/nyte" element={<NytePage />} theme={theme}/>
                       <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
-                      <Route path="/create" element={<CreateNew />} theme={theme}/>
+                      <Route 
+                        path="/create" 
+                        element={<CreateNew 
+                                  title={title}
+                                  setTitle={setTitle}
+                                  location={location}
+                                  setLocation={setLocation}
+                                  state={state}
+                                  setState={setState}
+                                  handleClickOpen={handleClickOpen}
+                                  handleClose={handleClose}
+                                  handleToggle={handleToggle}
+                                  handleFriendToggle={handleFriendToggle}
+                                  handleCompSwitch={handleCompSwitch}
+                                  toggleOff={toggleOff}
+                                  printState={printState} 
+                                  />}
+                        theme={theme}/>
                       <Route path="/collection" element={<GameCollection />} theme={theme}/>
                       <Route path="/game/:id" element={<GamePage />} theme={theme}/>
                     </Routes>

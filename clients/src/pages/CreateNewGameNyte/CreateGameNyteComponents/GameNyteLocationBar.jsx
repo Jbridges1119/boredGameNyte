@@ -5,34 +5,8 @@ import theme from "../../../assets/theme";
 
 const LocationBar = (props) => {
 
-  const CssTextField = styled(TextField)({
-    "& label.Mui-focused": {
-      borderBottomColor: "white",
-      color: "white",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "white",
-      color: "white",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderRadius: "20px",
-        border: "2px solid white",
-      },
-      "&:hover fieldset": {
-        border: "1px solid white",
-        borderRadius: "20px",
-      },
-      "&.Mui-focused fieldset": {
-        borderRadius: "20px",
-        borderColor: "white",
-      },
-    },
-  });
-
   const setLocation = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
     props.setState((prev) => {
       return {...prev, 'place': event.target.value}
     });

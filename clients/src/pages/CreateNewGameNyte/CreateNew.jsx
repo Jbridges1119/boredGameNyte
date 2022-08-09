@@ -11,24 +11,7 @@ import useGameChooserData from "../../hooks/useGameChooserData";
 import StaticDatePicker from "./CreateGameNyteComponents/DatePicker";
 
 
-const CreateNew = () => {
-
-  const{ 
-    title,
-    setTitle,
-    location,
-    setLocation,
-    state,
-    setState,
-    handleClickOpen,
-    handleClose,
-    handleCloseSave,
-    handleToggle,
-    handleFriendToggle,
-    handleCompSwitch,
-    toggleOff,
-    printState
-    } = useGameChooserData();
+const CreateNew = (props) => {
 
   return (
     <Box
@@ -49,9 +32,9 @@ const CreateNew = () => {
                   pl: 1
                 }}>
                   <TitleBar
-                    title={state.name} 
-                    setTitle={setTitle}
-                    setState={setState}
+                    title={props.state.name} 
+                    setTitle={props.setTitle}
+                    setState={props.setState}
                   />
                 </Grid>
                 <Grid item xs={12} sx={{
@@ -59,9 +42,9 @@ const CreateNew = () => {
                   pl: 1
                 }}>
                   <LocationBar
-                    location={state.place}
-                    setLocation={setLocation}
-                    setState={setState}
+                    location={props.state.place}
+                    setLocation={props.setLocation}
+                    setState={props.setState}
                   />
                 </Grid>
                 <Grid item xs={12} sx={{
@@ -69,8 +52,8 @@ const CreateNew = () => {
                   pl: 12
                 }}>
                   <StaticDatePicker
-                    state={state}
-                    setState={setState}
+                    state={props.state}
+                    setState={props.setState}
                     sx={{
                       color: theme.palette.secondary.light,
                     }}
@@ -89,8 +72,8 @@ const CreateNew = () => {
                       </Grid>
                       <Grid item>
                         <Switch
-                          checked={state.competitive}
-                          onChange={handleCompSwitch}
+                          checked={props.state.competitive}
+                          onChange={props.handleCompSwitch}
                           inputProps={{ 'aria-label': 'controlled' }}
                           color="error" />
                       </Grid>
@@ -107,9 +90,9 @@ const CreateNew = () => {
 
                 <Grid item xs={12} sx={{ px: 3, py: 3 }}>
                   <FriendInviter 
-                  state={state}
-                  setState={setState}
-                  handleFriendToggle={handleFriendToggle}
+                  state={props.state}
+                  setState={props.setState}
+                  handleFriendToggle={props.handleFriendToggle}
                   />
                 </Grid>
               </Stack>
@@ -120,19 +103,19 @@ const CreateNew = () => {
           <Stack>
             <Grid item xs={12} sx={{ px: 6, pt: 6 }}>
               <GameChooser 
-              state={state}
-              setState={setState}
-              handleClickOpen={handleClickOpen}
-              handleClose={handleClose}
-              handleCloseSave={handleCloseSave}
-              handleToggle={handleToggle}
-              toggleOff={toggleOff}
+              state={props.state}
+              setState={props.setState}
+              handleClickOpen={props.handleClickOpen}
+              handleClose={props.handleClose}
+              handleCloseSave={props.handleCloseSave}
+              handleToggle={props.handleToggle}
+              toggleOff={props.toggleOff}
               />
             </Grid>
             <Grid item xs={12} sx={{ px: 32, py: 12 }}>
               <Button
                 type="submit"
-                onClick={printState}
+                onClick={props.printState}
                 sx={{
                   color: 'white',
                   backgroundColor: theme.palette.error.main,
