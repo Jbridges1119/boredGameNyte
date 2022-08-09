@@ -77,10 +77,7 @@ const GameNyteList = () => {
           borderRadius: "20px",
           backgroundColor: theme.palette.primary.dark,
         }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary expandIcon={<ArrowDownward sx={{
-                color: 'white', 
-                borderRadius: "20px"
-              }}/>}
+        <AccordionSummary 
               aria-controls="panel1a-content"
               id="panel1a-header" >
           <Typography sx={{ color: "#FFFFFF" }} variant="h5">Upcoming Game Nytes</Typography>

@@ -1,19 +1,22 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {   AccordionDetails, Button, CardActionArea, Grid, Paper } from '@mui/material';
+import {   AccordionDetails, Button,  Grid } from '@mui/material';
 import { ArrowDownward } from '@mui/icons-material';
 import theme from '../../../assets/theme';
 import BGN from '../../../assets/Pictures/BGN.png'
+import BGNCasual from '../../../assets/Pictures/BGNCasual.png'
 import { Box } from '@mui/system';
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
-import MuiAccordionDetails from "@mui/material/AccordionDetails";
+
 import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import GameBanner from './GameNyteCardComponents/GameBanner';
+import { Link } from 'react-router-dom';
+
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -59,7 +62,7 @@ export default function GameNyteCard(props) {
       alignContent:'center',
 
       }}>
-      <CardActionArea>
+      
       <Grid
         container
         direction="row"
@@ -106,18 +109,48 @@ sx={{
 
 </Grid>
 <Grid item xs={9.25} 
-       >
+      sx={{
+        flexDirection:'column',
+        display: 'flex',
+        justifyContent:'center',
+        alignContent:'center',
+        alignItems: 'center',
+
+        
+      }} >
+        <Box display='flex' width='100%' justifyContent='space-between'>
 <Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }} pt={2} variant="h5" >Game Nyte Title</Typography>
+<Button component={Link} to={'/nyte/'}
+                  variant="contained"
+                  sx={{
+                    backgroundColor: theme.palette.error.main,
+                    height: 40,
+                    fontSize: 25,
+                    borderRadius: "20px",
+                    textTransform: "none",
+                    pt:1.25,
+                    mt:1
+                  }}
+                  type="submit"
+             
+                >
+                  View Details
+                </Button>
+</Box>
 <Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >Hosted By Johhny Johnson At Location</Typography>
 
 
 <Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >Date Time</Typography>
 
 
-          <Accordion borderTopLeftRadius="20px" sx={{
-              backgroundColor: theme.palette.secondary.main,borderRadius: "20px", color:'white'
+          <Accordion  sx={{
+              backgroundColor: theme.palette.primary.main, borderRadius: "20px", color:'white'
             }}>
-              <AccordionSummary 
+              <AccordionSummary sx={{
+                color: 'white', 
+                borderRadius: "20px",
+                backgroundColor: theme.palette.secondary.main,
+              }}
               expandIcon={<ArrowDownward sx={{
                 color: 'white', 
                 borderRadius: "20px"
@@ -129,11 +162,11 @@ sx={{
               </AccordionSummary >
               <AccordionDetails sx={{ 
       backgroundColor: theme.palette.primary.main,
-      width: "100%",
+      width: "98%",
       borderRadius: "20px",
-      height: '210px',
+      
       display: 'flex',
-      justifyContent:'center',
+      justifyContent:'space-around',
       alignContent:'center',
 
       }}>
@@ -147,7 +180,7 @@ sx={{
             </Grid></Grid>
           </Grid>
           </Grid> 
-          </CardActionArea>
+        
     </Card>
   );
 }
