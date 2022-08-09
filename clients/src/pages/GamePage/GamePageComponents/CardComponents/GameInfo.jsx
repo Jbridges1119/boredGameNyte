@@ -195,6 +195,7 @@ const GameInfo = ({ gameData }) => {
                         textTransform: "none",
                         borderRadius: "20px",
                         width: "275px",
+                        pt:1.25
                       }}
                       onClick={handleClickOpen("paper")}
                     >
@@ -365,6 +366,7 @@ const GameInfo = ({ gameData }) => {
                     textTransform: "none",
                     borderRadius: "20px",
                     width: "275px",
+                    pt:1.25
                   }}
                 >
                   Add To Collection
@@ -390,6 +392,7 @@ const GameInfo = ({ gameData }) => {
                       textTransform: "none",
                       borderRadius: "20px",
                       width: "275px",
+                      pt:1.25
                     }}
                   >
                     Official Website

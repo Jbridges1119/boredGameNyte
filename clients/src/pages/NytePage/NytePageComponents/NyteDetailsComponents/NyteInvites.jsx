@@ -66,7 +66,6 @@ const NyteInvites = () => {
     return (
       <ListItem sx={{p:0}}
       >
-        
         {status === false && <CloseOutlinedIcon sx={{ backgroundColor: 'darkred',borderRadius: '40px', width: 26, height: 26,color:'white' ,  }}/> }
         {status === null && <QuestionMarkOutlinedIcon sx={{backgroundColor: theme.palette.error.main,borderRadius: '40px', width: 26, height: 26,  color: 'white' }}/> }
             {status === true && <CheckOutlinedIcon sx={{backgroundColor: '#00C41F',borderRadius: '40px', width: 26, height: 26, color: 'white' }}/>  }
@@ -78,7 +77,6 @@ const NyteInvites = () => {
         <ListItemText primary={`${friend.name} ${friend.last}`}  />
       </ListItem>
     );
-    
   });
 
 
@@ -105,9 +103,6 @@ const NyteInvites = () => {
              
               {attendingList}
               </Grid>
-        {/* <Grid item xs={5}>
-        {friendsList}
-        </Grid> */}
         </Grid>
         </CardContent>
       </Card>

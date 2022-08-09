@@ -11,7 +11,7 @@ export default function ProfileCard() {
   return (
     <Card
       sx={{
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.primary.main,
         height: 300,
         borderRadius: "20px",
         display: "flex",

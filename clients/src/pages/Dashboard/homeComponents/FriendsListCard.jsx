@@ -12,7 +12,7 @@ export default function FriendsListCard() {
   return (
     <Card
       sx={{
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.primary.main,
         height: 300,
         borderRadius: "20px",
       }}

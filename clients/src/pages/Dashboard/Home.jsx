@@ -6,9 +6,9 @@ import { Container, Stack, Box } from "@mui/material";
 import { useEffect } from "react";
 import ProfileCard from "./homeComponents/ProfileCard";
 import FriendsListCard from "./homeComponents/FriendsListCard";
-import GameNyteCard from "./homeComponents/GameNyteCard";
-import theme from "../../assets/theme";
 
+import theme from "../../assets/theme";
+import GameNyteCard from "../GameNyteList/gameNyteListComponents/GameNyteCard";
 export default function Home(props) {
   // // state getter and setter for game night events
   // const [events, setEvents] = useState([]);
@@ -22,7 +22,7 @@ export default function Home(props) {
       sx={{
         width: "100%",
         height: "100%",
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.dark,
       }}
     >
       <Stack
