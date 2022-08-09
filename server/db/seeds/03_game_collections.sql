@@ -5,7 +5,7 @@
 -- Sorry! - Z6h8zF22uh
 -- Clue - WVgc4bUL8N
 -- Betrayal at the House on the Hill - 3RVcHxhPEZ
--- 7 Wonders - 3RVcHxhPEZ
+-- 7 Wonders - OF145SrX44
 -- Wingspan - 5H5JS0KLzK
 -- Gloomhaven - RLlDWHh7hR
 -- Carcassonne - oGVgRSAKwX
@@ -52,7 +52,7 @@ VALUES (3, 'WVgc4bUL8N');
 INSERT INTO game_collections (user_id, bgatlas_game_id)
 VALUES (3, '3RVcHxhPEZ');
 INSERT INTO game_collections (user_id, bgatlas_game_id)
-VALUES (3, '3RVcHxhPEZ');
+VALUES (3, 'OF145SrX44');
 INSERT INTO game_collections (user_id, bgatlas_game_id)
 VALUES (3, 'oGVgRSAKwX');
 INSERT INTO game_collections (user_id, bgatlas_game_id)
