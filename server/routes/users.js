@@ -44,5 +44,19 @@ module.exports = (db) => {
         return res.json(data.rows)
       })
   })
+
+  router.get("/:id/collection", (req, res) => {
+    let user_id = req.params.id;
+    const params = [user_id];
+    const query = `
+    SELECT name, min_players, max_players, thumb_url, large_url, bgatlas_game_id as id FROM game_collections
+    WHERE user_id = $1;
+    `
+    return db.query(query, params)
+      .then((data) => {
+        console.log(data.rows)
+        return res.json(data.rows)
+      })
+  })
   return router;
 };
