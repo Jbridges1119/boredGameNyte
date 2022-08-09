@@ -28,7 +28,6 @@ function App() {
     setState,
     handleClickOpen,
     handleClose,
-    handleCloseSave,
     handleToggle,
     handleFriendToggle,
     handleCompSwitch,
@@ -64,7 +63,7 @@ function App() {
                                   printState={printState} 
                                   />}
                         theme={theme}/>
-                      <Route path="/collection" element={<GameCollection />} theme={theme}/>
+                      <Route path="/collection" element={<GameCollection state={state}/>} theme={theme}/>
                       <Route path="/game/:id" element={<GamePage />} theme={theme}/>
                     </Routes>
                   </Layout>

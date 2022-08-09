@@ -134,7 +134,6 @@ const useGameChooserData = () => {
     handleCompSwitch, 
     handleClickOpen, 
     handleClose, 
-    handleCloseSave, 
     printState }
 };
 
