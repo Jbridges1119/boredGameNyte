@@ -8,9 +8,9 @@ const GameChooser = (props) => {
   
   // Need to find a way to access the matching ID inside the props.
   // findGameById function?
-  let game1 = getGameById(props.state.collection, props.state.checked[0]);
-  let game2 = getGameById(props.state.collection, props.state.checked[1]);
-  let game3 = getGameById(props.state.collection, props.state.checked[2]);
+  let game1 = getGameById(props.state.collection, props.state.gamesChosen[0]);
+  let game2 = getGameById(props.state.collection, props.state.gamesChosen[1]);
+  let game3 = getGameById(props.state.collection, props.state.gamesChosen[2]);
   let chooserCardGridStyle = {
     py: 3,
     px: 12,
@@ -77,8 +77,8 @@ const GameChooser = (props) => {
             py: 2,
             pl: 35
           }}>
-            {props.state.checked.length === 3 && null}
-            {props.state.checked.length < 3 && 
+            {props.state.gamesChosen.length === 3 && null}
+            {props.state.gamesChosen.length < 3 && 
             <GameChooserDialog
               state={props.state}
               handleClickOpen={props.handleClickOpen}

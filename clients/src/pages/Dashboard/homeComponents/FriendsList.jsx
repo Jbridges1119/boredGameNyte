@@ -38,6 +38,7 @@ const friends = [
 const friendsList = friends.map((friend) => {
   return (
     <ListItem
+      key={friend.id}
       secondaryAction={
         <IconButton edge="end" aria-label="delete" sx={{ color: "white" }}>
           <DeleteIcon />

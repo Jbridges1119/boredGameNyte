@@ -19,27 +19,7 @@ import GameCollection from "./pages/GameCollection/GameCollection";
 import useCreateGameNyteData from "./hooks/useCreateGameNyteData";
 
 function App() {
-  const [userId, setUserId] = useState(1);
-  const [user, setUser] = useState({});
-  // const [friends, setFriends] = useState();
-  // const [collection, setCollection] = useState();
-
-  // useEffect(
-  //   axios.get(`http://localhost:3005/api/users/${userId}`)
-  //   .then((data) => {
-  //     setUser(data)
-  //     .then(() => {
-  //       console.log(user)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  // , [userId]);
-
+  
   const{
     setTitle,
     setLocation,
@@ -54,13 +34,34 @@ function App() {
     printState
     } = useCreateGameNyteData();
 
+  const [userId, setUserId] = useState(1);
+
+
+  useEffect(() => {
+    Promise.all([
+      axios.get(`http://localhost:3005/api/users/${userId}`),
+      axios.get(`http://localhost:3005/api/users/${userId}/friends`),
+      axios.get(`http://localhost:3005/api/users/${userId}/collection`)
+    ])
+    .then((all) => {
+      console.log(all)
+      setState((prev) => {
+        return {...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data}
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
+  , [userId]);
+
   return (
     <ThemeProvider theme={theme}>
       
                 <BrowserRouter>
                   <Layout theme={theme}>
                     <Routes>
-                      <Route exact path="/" element={<Home user={user}/>} theme={theme}/>
+                      <Route exact path="/" element={<Home />} theme={theme}/>
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/nyte" element={<NytePage />} theme={theme}/>
                       <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
