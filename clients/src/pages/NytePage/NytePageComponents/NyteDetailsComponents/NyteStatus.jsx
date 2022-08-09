@@ -19,7 +19,9 @@ const NyteStatus = (props) => {
       if(input === false ) return "Declined"
       if(input === null) return "Not Selected"      
   }
+  const font = {color: "#FFFFFF", fontSize: 18,lineHeight: 'normal'}
   return ( 
+
 <>
   
    <Box sx={{ maxWidth: '90%', pt: 1}}>
@@ -30,11 +32,11 @@ const NyteStatus = (props) => {
        
        <Box  sx={{display:'flex', flexDirection: 'column', height:'156px', justifyContent:'space-evenly'}}>
        <Typography sx={{color: "#FFFFFF"}} align="center" variant="h4">Hosted By</Typography>
-      <Typography sx={{color: "#FFFFFF", fontSize: 18,lineHeight: 'normal'}} align="center" variant="h6">{firstName} {lastName}</Typography>
-            <Typography sx={{color: "#FFFFFF", fontSize: 18,lineHeight: 'normal'}} align="center" variant="h6">{date}</Typography>
-            <Typography sx={{color: "#FFFFFF", fontSize: 18,lineHeight: 'normal'}}  align="center" variant="h6">{time}</Typography>    
+      <Typography sx={font} align="center" variant="h6">{firstName} {lastName}</Typography>
+            <Typography sx={font} align="center" variant="h6">{date}</Typography>
+            <Typography sx={font}  align="center" variant="h6">{time}</Typography>    
               
-            <Typography sx={{color: "#FFFFFF", fontSize: 18,lineHeight: 'normal'}}  align="center" variant="h6">{location}</Typography> 
+            <Typography sx={font}  align="center" variant="h6">{location}</Typography> 
             </Box>
             <Box sx={{display:'flex', flexDirection: 'column', height:'87px', justifyContent:'space-evenly'}}>
             {host === 'Host' && <Host onCancelEvent={mode} />}
