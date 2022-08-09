@@ -25,7 +25,9 @@ app.use(
 );
 
 // ROUTES
+
 const usersRoutes = require("./routes/users");
+
 app.use("/api/users", usersRoutes(db));
 
 // app.get("/", (req,res) => {

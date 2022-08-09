@@ -53,19 +53,18 @@ const menuItems = [{
 
 const sideBarLinks = menuItems.map((item) => {
   return(
-    <div style={{ paddingBottom: 10 }}>
-    <Link to={item.path}>
-      <ListItem
-      key={menuItems.indexOf(item)}
-      sx={sidebarButtonStyle}>
-        <ListItemButton>
-            <ListItemIcon>
-              {item.icon}
-            </ListItemIcon>
-          <ListItemText primary={item.text} />
-        </ListItemButton>
-      </ListItem>
-    </Link>
+    <div key={menuItems.indexOf(item)} style={{ paddingBottom: 10 }}>
+      <Link to={item.path}>
+        <ListItem
+        sx={sidebarButtonStyle}>
+          <ListItemButton>
+              <ListItemIcon>
+                {item.icon}
+              </ListItemIcon>
+            <ListItemText primary={item.text} />
+          </ListItemButton>
+        </ListItem>
+      </Link>
     </div>
   )
 })

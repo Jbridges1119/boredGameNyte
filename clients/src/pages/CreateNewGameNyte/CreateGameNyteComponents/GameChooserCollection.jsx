@@ -31,7 +31,7 @@ export default function GameChooserCollection(props) {
             <Checkbox
               edge="start"
               color="error"
-              checked={props.state.checked.indexOf(game.id) !== -1}
+              checked={props.state.gamesChosen.indexOf(game.id) !== -1}
               tabIndex={-1}
               disableRipple
               inputProps={{ 'aria-labelledby': labelId }}
@@ -43,7 +43,7 @@ export default function GameChooserCollection(props) {
                 height: 50,
                 width: 50
               }} 
-              src={game.thumbnail} 
+              src={game.thumb_url} 
               alt="no img"
               />
           </ListItemAvatar>

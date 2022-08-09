@@ -18,7 +18,7 @@ const GameBanner = (props) => {
   return ( 
     <>
     
-    <Grid containter 
+    <Grid container 
         direction="column"
         justifyContent="center"
         alignItems="center">
