@@ -7,7 +7,7 @@ import { Accordion, AccordionSummary, Button, CardActionArea, Grid } from '@mui/
 import { ArrowDownward } from '@mui/icons-material';
 import theme from '../../../assets/theme';
 
-export default function GameNyteCard(props) {
+function GameNyteCard(props) {
   return (
     <Card direction="row" sx={{ 
       backgroundColor: theme.palette.secondary.main,
