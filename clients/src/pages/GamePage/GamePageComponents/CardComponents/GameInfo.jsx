@@ -118,7 +118,7 @@ const GameInfo = ({ gameData }) => {
       sx={{
         width: "100%",
         borderRadius: "20px",
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.primary.main,
         height: "475px",
       }}
     >
@@ -185,15 +185,16 @@ const GameInfo = ({ gameData }) => {
                       justifyContent: "space-around",
                     }}
                   >
+                    {/* Game Description button */}
                     <Button
                       sx={{
                         color: "white",
-                        backgroundColor: theme.palette.primary.main,
+                        backgroundColor: theme.palette.secondary.main,
                         height: 45,
                         fontSize: 25,
                         textTransform: "none",
                         borderRadius: "20px",
-                        width: "300px",
+                        width: "275px",
                       }}
                       onClick={handleClickOpen("paper")}
                     >
@@ -359,11 +360,11 @@ const GameInfo = ({ gameData }) => {
                   sx={{
                     color: "white",
                     backgroundColor: theme.palette.error.main,
-                    height: 55,
-                    fontSize: 30,
+                    height: 45,
+                        fontSize: 25,
                     textTransform: "none",
                     borderRadius: "20px",
-                    width: "300px",
+                    width: "275px",
                   }}
                 >
                   Add To Collection
@@ -383,12 +384,12 @@ const GameInfo = ({ gameData }) => {
                   <Button
                     sx={{
                       color: "white",
-                      backgroundColor: theme.palette.primary.main,
-                      height: 55,
-                      fontSize: 30,
+                      backgroundColor: theme.palette.error.main,
+                      height: 45,
+                        fontSize: 25,
                       textTransform: "none",
                       borderRadius: "20px",
-                      width: "300px",
+                      width: "275px",
                     }}
                   >
                     Official Website

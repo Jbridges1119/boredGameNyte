@@ -18,7 +18,7 @@ const GameCard = (props) => {
  
         sx={{
           height: 225,
-          backgroundColor: theme.palette.secondary.main,
+          backgroundColor: theme.palette.primary.main,
           borderRadius: "15px",
           display: 'flex',
           justifyContent:'center',

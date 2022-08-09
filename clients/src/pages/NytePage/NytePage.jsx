@@ -66,7 +66,7 @@ const NytePage = () => {
           >
             <Paper
               sx={{
-                backgroundColor: theme.palette.secondary.main,
+                backgroundColor: theme.palette.primary.main,
                 borderRadius: "22px",
                 m: 1.5,
                 pt: 0.75,

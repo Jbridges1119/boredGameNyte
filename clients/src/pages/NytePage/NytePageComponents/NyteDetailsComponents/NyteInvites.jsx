@@ -90,7 +90,7 @@ const NyteInvites = () => {
   <Card
         sx={{
           height: 380,
-          backgroundColor: theme.palette.secondary.main,
+          backgroundColor: theme.palette.primary.main,
           borderRadius: '15px',
          
         }} >
@@ -98,7 +98,7 @@ const NyteInvites = () => {
        <CardContent >
        <Grid container
           direction="row"
-          justifyContent="space-evenly"
+          justifyContent="center"
           alignItems="center" >
           <Grid item xs={12}>
            

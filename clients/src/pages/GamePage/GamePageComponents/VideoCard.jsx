@@ -48,7 +48,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function VideoCard(props) {
-  console.log(props);
+
   const [expanded, setExpanded] = React.useState("panel1");
   //Map for How To Play videos - Feeds into embeder function
   const howTo = props.videos.map((video) => {
