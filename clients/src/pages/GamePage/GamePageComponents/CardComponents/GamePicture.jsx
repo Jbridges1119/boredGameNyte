@@ -4,12 +4,13 @@ import theme from "../../../../assets/theme";
 
 const GamePicture = (props) => {
   return (
+   
     <Box
       sx={{
         width: "100%",
         borderRadius: "20px",
-
-        backgroundColor: theme.palette.primary.main,
+        border:'none',
+        backgroundColor: theme.palette.primary.dark,
         height: "444px",
         display: "flex",
         justifyContent: "center",
@@ -28,9 +29,12 @@ const GamePicture = (props) => {
           objectFit: "contain",
           maxWidth: "400px",
           maxHeight: "600px",
+          borderRadius: '20px',
+          
         }}
       />
     </Box>
+       
   );
 };
 

@@ -90,7 +90,7 @@ const NyteInvites = () => {
   <Card
         sx={{
           height: 380,
-          backgroundColor: theme.palette.secondary.main,
+          backgroundColor: theme.palette.primary.main,
           borderRadius: '15px',
          
         }} >
