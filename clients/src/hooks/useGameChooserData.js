@@ -85,12 +85,6 @@ const useGameChooserData = () => {
   const handleClose = () => {
     setState(prev => ({...prev, open: false}));
   };
-  // Click "save changes" to close the dialog and set the state.checked to include the 1-3 games the host has chosen
-  // for their game night.
-  const handleCloseSave = () => {
-    let newChecked = [...state.checked,]
-    setState(prev => ({ ...prev, open: false, checked: newChecked }));
-  };
 
   const handleToggle = (value) => () => {
     const currentIndex = state.checked.indexOf(value);
@@ -127,6 +121,7 @@ const useGameChooserData = () => {
   }
 
   const printState = () => {
+    console.log(state.date._d)
     console.log(state)
   }
 
