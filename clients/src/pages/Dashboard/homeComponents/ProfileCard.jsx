@@ -12,9 +12,10 @@ export default function ProfileCard() {
   return (
     <Box
     sx={{
-      width: "100%",
-      backgroundColor: theme.palette.primary.dark,
-      height: "100vh",
+      backgroundColor: theme.palette.primary.main,
+  height: 300,
+  borderRadius: "20px",
+  display: "flex",
     }}
   >
     <Grid
@@ -31,7 +32,18 @@ export default function ProfileCard() {
       alignItems="center"
     >
       <Grid item xs={5}>
-
+      <CardMedia
+      component="img"
+      height="240"
+      width="240"
+      image="https://i.imgur.com/hHmdwtZ.png"
+      alt="Fry Profile"
+      alignContent="center"
+      sx={{
+        width: "90%",
+        height: "90%",
+      }}
+      />
       </Grid>
       <Grid item xs={5}>
 
@@ -44,52 +56,52 @@ export default function ProfileCard() {
 
 
 
-<Card
-sx={{
-  backgroundColor: theme.palette.primary.main,
-  height: 300,
-  borderRadius: "20px",
-  display: "flex",
-}}
->
-<Grid container alignItems="center" sx={{ justifyContent: "space-evenly", textAlign: "center" }}>
-  <Grid item sx={4}>
-    <CardMedia
-      component="img"
-      height="240"
-      width="240"
-      image="https://i.imgur.com/hHmdwtZ.png"
-      alt="Fry Profile"
-      alignContent="center"
-      sx={{
-        width: "90%",
-        height: "90%",
-      }}
-      />
-  </Grid>
-  <Grid item sx={9}>
-    <CardHeader sx={{ color: "white", pb: 10 }} title=" Welcome Back Filip Fry!" />
-    <Grid
-      container
-      sx={{ justifyContent: "center", textAlign: "center" }}
-      >
-      <Grid item xs={6}>
-        <Typography variant="h8" color="White">
-          NYTES HOSTED
-        </Typography>
-        <Typography sx={{ color: "white" }} variant="h5">
-          3
-        </Typography>
-      </Grid>
-      <Grid item xs={6}>
-        <Typography variant="h8" color="White">
-          NYTES ATTENDED
-        </Typography>
-        <Typography sx={{ color: "white" }} variant="h5">
-          6
-        </Typography>
-      </Grid>
-    </Grid>
-  </Grid>
-</Grid>
-</Card>
+// <Card
+// sx={{
+//   backgroundColor: theme.palette.primary.main,
+//   height: 300,
+//   borderRadius: "20px",
+//   display: "flex",
+// }}
+// >
+// <Grid container alignItems="center" sx={{ justifyContent: "space-evenly", textAlign: "center" }}>
+//   <Grid item sx={4}>
+//     <CardMedia
+//       component="img"
+//       height="240"
+//       width="240"
+//       image="https://i.imgur.com/hHmdwtZ.png"
+//       alt="Fry Profile"
+//       alignContent="center"
+//       sx={{
+//         width: "90%",
+//         height: "90%",
+//       }}
+//       />
+//   </Grid>
+//   <Grid item sx={9}>
+//     <CardHeader sx={{ color: "white", pb: 10 }} title=" Welcome Back Filip Fry!" />
+//     <Grid
+//       container
+//       sx={{ justifyContent: "center", textAlign: "center" }}
+//       >
+//       <Grid item xs={6}>
+//         <Typography variant="h8" color="White">
+//           NYTES HOSTED
+//         </Typography>
+//         <Typography sx={{ color: "white" }} variant="h5">
+//           3
+//         </Typography>
+//       </Grid>
+//       <Grid item xs={6}>
+//         <Typography variant="h8" color="White">
+//           NYTES ATTENDED
+//         </Typography>
+//         <Typography sx={{ color: "white" }} variant="h5">
+//           6
+//         </Typography>
+//       </Grid>
+//     </Grid>
+//   </Grid>
+// </Grid>
+// </Card>
