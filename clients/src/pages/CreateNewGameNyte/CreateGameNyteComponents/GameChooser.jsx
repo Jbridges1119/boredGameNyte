@@ -36,7 +36,7 @@ const GameChooser = (props) => {
               <GameChooserDisplayCard
                 id={game1.id}
                 name={game1.name}
-                thumbnail={game1.thumbnail}
+                thumbnail={game1.thumb_url}
                 minPlayers={game1.min_players}
                 maxPlayers={game1.max_players}
                 toggleOff={props.toggleOff}
@@ -51,7 +51,7 @@ const GameChooser = (props) => {
               <GameChooserDisplayCard
                 id={game2.id}
                 name={game2.name}
-                thumbnail={game2.thumbnail}
+                thumbnail={game2.thumb_url}
                 minPlayers={game2.min_players}
                 maxPlayers={game2.max_players}
                 toggleOff={props.toggleOff}
@@ -66,7 +66,7 @@ const GameChooser = (props) => {
               <GameChooserDisplayCard
                 id={game3.id}
                 name={game3.name}
-                thumbnail={game3.thumbnail}
+                thumbnail={game3.thumb_url}
                 minPlayers={game3.min_players}
                 maxPlayers={game3.max_players}
                 toggleOff={props.toggleOff}
