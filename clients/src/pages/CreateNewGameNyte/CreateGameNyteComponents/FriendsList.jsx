@@ -54,17 +54,17 @@ export default function FriendsList(props) {
   
 
   const friendsList = props.state.friendsList.map((friend) => {
-    let labelId = `checkbox-list-secondary-label-${friend.id}`;
+    let labelId = `checkbox-list-secondary-label-${friend.friend_id}`;
     let name = `${friend.first_name} ${friend.last_name}`
     return (
       <ListItem
-      key={friend.id}
+      key={friend.friend_id}
       secondaryAction={
         <Checkbox
           color="error"
           edge="end"
-          onChange={props.handleFriendToggle(friend.id)}
-          checked={props.state.friendsInvited.indexOf(friend.id) !== -1}
+          onChange={props.handleFriendToggle(friend.friend_id)}
+          checked={props.state.friendsInvited.indexOf(friend.friend_id) !== -1}
           inputProps={{ 'aria-labelledby': labelId }}
         />
       }>
