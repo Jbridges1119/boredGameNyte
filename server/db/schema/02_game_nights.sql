@@ -5,7 +5,7 @@ CREATE TABLE game_nights (
   title VARCHAR(255) NOT NULL,
   host_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   competitive BOOLEAN NOT NULL DEFAULT FALSE,
-  status BOOLEAN NOT NULL DEFAULT FALSE,
+  status VARCHAR(255),
   location VARCHAR(255),
   winner VARCHAR(255),
   journal_entry TEXT,
