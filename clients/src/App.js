@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import theme from "./assets/theme";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Home from "./pages/Dashboard/Home";
 import Layout from "./pages/Layout/Layout";
 import Search from "./pages/Search/Search";
@@ -18,15 +19,29 @@ import GameCollection from "./pages/GameCollection/GameCollection";
 import useCreateGameNyteData from "./hooks/useCreateGameNyteData";
 
 function App() {
+  const [userId, setUserId] = useState(1);
+  const [user, setUser] = useState({});
+  // const [friends, setFriends] = useState();
+  // const [collection, setCollection] = useState();
 
-  const [user, setUser] = useState();
-  const [friends, setFriends] = useState();
-  const [collection, setCollection] = useState();
+  // useEffect(
+  //   axios.get(`http://localhost:3005/api/users/${userId}`)
+  //   .then((data) => {
+  //     setUser(data)
+  //     .then(() => {
+  //       console.log(user)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+  // , [userId]);
 
-  const{ 
-    title,
+  const{
     setTitle,
-    location,
     setLocation,
     state,
     setState,
@@ -45,16 +60,14 @@ function App() {
                 <BrowserRouter>
                   <Layout theme={theme}>
                     <Routes>
-                      <Route exact path="/" element={<Home />} theme={theme}/>
+                      <Route exact path="/" element={<Home user={user}/>} theme={theme}/>
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/nyte" element={<NytePage />} theme={theme}/>
                       <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
                       <Route 
                         path="/create" 
                         element={<CreateNew 
-                                  title={title}
                                   setTitle={setTitle}
-                                  location={location}
                                   setLocation={setLocation}
                                   state={state}
                                   setState={setState}
