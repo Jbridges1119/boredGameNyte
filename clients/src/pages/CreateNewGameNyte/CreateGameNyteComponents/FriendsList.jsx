@@ -53,8 +53,9 @@ const friends = [
 export default function FriendsList(props) {
   
 
-  const friendsList = friends.map((friend) => {
+  const friendsList = props.state.friendsList.map((friend) => {
     let labelId = `checkbox-list-secondary-label-${friend.id}`;
+    let name = `${friend.first_name} ${friend.last_name}`
     return (
       <ListItem
       key={friend.id}
@@ -70,7 +71,7 @@ export default function FriendsList(props) {
         <ListItemAvatar>
           <Person />
         </ListItemAvatar>
-        <ListItemText primary={friend.name} secondary={friend.email} />
+        <ListItemText primary={name} secondary={friend.email} />
       </ListItem>
     );
   });

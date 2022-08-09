@@ -43,7 +43,7 @@ export default function GameChooserCollection(props) {
                 height: 50,
                 width: 50
               }} 
-              src={game.thumbnail} 
+              src={game.thumb_url} 
               alt="no img"
               />
           </ListItemAvatar>

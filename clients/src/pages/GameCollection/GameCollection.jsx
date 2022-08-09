@@ -16,7 +16,7 @@ const GameCollection = (props) => {
     <Grid item key={game.id} xs={11} sx={{p: 2}}>
       <GameCollectionCard
       gameId={game.id}
-      img={game.thumbnail}
+      img={game.thumb_url}
       name={game.name}
       description={game.description}
       />
