@@ -171,9 +171,9 @@ sx={{
 
       }}>
               
-              <GameBanner/>
-              <GameBanner/>
-              <GameBanner/>
+              <GameBanner img={'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324722072.jpg'}/>
+              <GameBanner img={`https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1595268779978`}/>
+              <GameBanner img={`https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254920151-51ulRXlJ7LL.jpg`}/>
               </AccordionDetails>
             </Accordion>
             

@@ -14,7 +14,7 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 
-const GameBanner = () => {
+const GameBanner = (props) => {
   return ( 
     <>
     
@@ -37,7 +37,7 @@ const GameBanner = () => {
     
     <CardMedia
         component="img"
-        image={BGN}
+        image={props.img}
         alt="BGN"
         sx={{
           objectFit: 'contain',
