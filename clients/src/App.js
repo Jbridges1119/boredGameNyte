@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import theme from "./assets/theme";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
-import DateFnsUtils from '@date-io/date-fns';
+
 import Home from "./pages/Dashboard/Home";
 import Layout from "./pages/Layout/Layout";
 import Search from "./pages/Search/Search";
@@ -14,7 +14,7 @@ import GameNyteList from './pages/GameNyteList/GameNytesList'
 import GamePage from './pages/GamePage/GamePage'
 import CreateNew from "./pages/CreateNewGameNyte/CreateNew";
 import GameCollection from "./pages/GameCollection/GameCollection";
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+
 import useGameChooserData from "./hooks/useGameChooserData";
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      
                 <BrowserRouter>
                   <Layout theme={theme}>
                     <Routes>
@@ -69,7 +69,7 @@ function App() {
                     </Routes>
                   </Layout>
                 </BrowserRouter>
-      </MuiPickersUtilsProvider>
+      
     </ThemeProvider>
   );
 }
