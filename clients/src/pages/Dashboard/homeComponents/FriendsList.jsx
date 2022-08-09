@@ -55,7 +55,6 @@ const friendsList = friends.map((friend) => {
 });
 
 export default function FriendsList(props) {
-  console.log(friendsList);
   return (
     <Grid item xs={12}>
       <List

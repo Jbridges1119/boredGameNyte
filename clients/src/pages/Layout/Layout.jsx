@@ -5,7 +5,6 @@ import {
   Search,
 } from "@mui/icons-material";
 import {
-  Avatar,
   Box,
   Divider,
   Drawer,
@@ -57,7 +56,7 @@ const sideBarLinks = menuItems.map((item) => {
     <div style={{ paddingBottom: 10 }}>
     <Link to={item.path}>
       <ListItem
-      key={item.text}
+      key={menuItems.indexOf(item)}
       sx={sidebarButtonStyle}>
         <ListItemButton>
             <ListItemIcon>
@@ -96,7 +95,7 @@ const Layout = (props) => {
         <List>
           {/* CTA Button */}
         <Link to="/create">
-          <ListItem sx={{ pt: 4, pl: 0, pr: 0, pb: 4}}>
+          <ListItem key='15' sx={{ pt: 4, pl: 0, pr: 0, pb: 4}}>
             <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main }}>
               <ListItemText primary="Create your Game Nyte!" />
             </ListItemButton>
