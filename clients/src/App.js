@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import theme from "./assets/theme";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Home from "./pages/Dashboard/Home";
 import Layout from "./pages/Layout/Layout";
 import Search from "./pages/Search/Search";
@@ -15,14 +16,12 @@ import GamePage from './pages/GamePage/GamePage'
 import CreateNew from "./pages/CreateNewGameNyte/CreateNew";
 import GameCollection from "./pages/GameCollection/GameCollection";
 
-import useGameChooserData from "./hooks/useGameChooserData";
+import useCreateGameNyteData from "./hooks/useCreateGameNyteData";
 
 function App() {
-
-  const{ 
-    title,
+  
+  const{
     setTitle,
-    location,
     setLocation,
     state,
     setState,
@@ -33,7 +32,28 @@ function App() {
     handleCompSwitch,
     toggleOff,
     printState
-    } = useGameChooserData();
+    } = useCreateGameNyteData();
+
+  const [userId, setUserId] = useState(1);
+
+
+  useEffect(() => {
+    Promise.all([
+      axios.get(`http://localhost:3005/api/users/${userId}`),
+      axios.get(`http://localhost:3005/api/users/${userId}/friends`),
+      axios.get(`http://localhost:3005/api/users/${userId}/collection`)
+    ])
+    .then((all) => {
+      console.log(all)
+      setState((prev) => {
+        return {...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data}
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
+  , [userId]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -48,9 +68,7 @@ function App() {
                       <Route 
                         path="/create" 
                         element={<CreateNew 
-                                  title={title}
                                   setTitle={setTitle}
-                                  location={location}
                                   setLocation={setLocation}
                                   state={state}
                                   setState={setState}

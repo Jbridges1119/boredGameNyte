@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const games = [
   {
@@ -45,23 +46,43 @@ const games = [
   }
 ]
 
-const useGameChooserData = () => {
+const useCreateGameNyteData = () => {
 
   
   // This will ideally be the users collection retrieved from database
   // Currently, default state is dummy data stored above
   // Will have to use setCollection with a useEffect later
 
+  const [userId, setUserId] = useState(1);
   const [state, setState] = useState({
-    checked: [],
-    friendsInvited: [],
+    user: {},
+    friendsList: [],
     collection: games,
+    gamesChosen: [],
+    friendsInvited: [],
     competitive: false,
     name: '',
     place: '',
     date: new Date(),
     open: false
   })
+
+  // useEffect(
+  //   Promise.all([
+  //     axios.get(`http://localhost:3005/api/users/${userId}`),
+  //     axios.get(`http://localhost:3005/api/users/${userId}/friends`),
+  //     axios.get(`http://localhost:3005/api/users/${userId}/collection`)
+  //   ])
+  //   .then((all) => {
+  //     console.log(all)
+  //     setState((prev) => {
+  //       return {...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data}
+  //     })
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   })
+  //   , [userId]);
 
   // Function to set/unset checked friends in state
   const handleFriendToggle = (value) => () => {
@@ -87,8 +108,8 @@ const useGameChooserData = () => {
   };
 
   const handleToggle = (value) => () => {
-    const currentIndex = state.checked.indexOf(value);
-    const newChecked = [...state.checked];
+    const currentIndex = state.gamesChosen.indexOf(value);
+    const newChecked = [...state.gamesChosen];
 
     if (currentIndex === -1) {
       newChecked.push(value);
@@ -96,21 +117,21 @@ const useGameChooserData = () => {
       newChecked.splice(currentIndex, 1);
     }
     
-    setState({...state, checked: newChecked})
+    setState({...state, gamesChosen: newChecked})
   };
 
   // From the Create page, this function should remove display cards from the game chooser component
   const toggleOff = (value) => () => {
-    const currentIndex = state.checked.indexOf(value);
-    const newChecked = [...state.checked];
+    const currentIndex = state.gamesChosen.indexOf(value);
+    const newChecked = [...state.gamesChosen];
 
-    console.log(state.checked)
+
 
     if (currentIndex >= 0) {
       newChecked.splice(currentIndex, 1);
     }
     
-    setState(prev => ({...prev, checked: newChecked}));
+    setState(prev => ({...prev, gamesChosen: newChecked}));
   };
 
   // This handles the state of "competitive" with the switch on the create page
@@ -137,4 +158,4 @@ const useGameChooserData = () => {
     printState }
 };
 
-export default useGameChooserData;
+export default useCreateGameNyteData;
