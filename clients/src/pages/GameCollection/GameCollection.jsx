@@ -13,11 +13,10 @@ const GameCollection = (props) => {
 
   let gameCollectionResults = props.state.collection.map((game) => {
     return(
-    <Grid item xs={11} sx={{p: 2}}>
+    <Grid item key={game.id} xs={11} sx={{p: 2}}>
       <GameCollectionCard
-      key={game.id}
       gameId={game.id}
-      img={game.thumbnail}
+      img={game.thumb_url}
       name={game.name}
       description={game.description}
       />

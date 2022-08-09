@@ -8,9 +8,9 @@ const GameChooser = (props) => {
   
   // Need to find a way to access the matching ID inside the props.
   // findGameById function?
-  let game1 = getGameById(props.state.collection, props.state.checked[0]);
-  let game2 = getGameById(props.state.collection, props.state.checked[1]);
-  let game3 = getGameById(props.state.collection, props.state.checked[2]);
+  let game1 = getGameById(props.state.collection, props.state.gamesChosen[0]);
+  let game2 = getGameById(props.state.collection, props.state.gamesChosen[1]);
+  let game3 = getGameById(props.state.collection, props.state.gamesChosen[2]);
   let chooserCardGridStyle = {
     py: 3,
     px: 12,
@@ -36,7 +36,7 @@ const GameChooser = (props) => {
               <GameChooserDisplayCard
                 id={game1.id}
                 name={game1.name}
-                thumbnail={game1.thumbnail}
+                thumbnail={game1.thumb_url}
                 minPlayers={game1.min_players}
                 maxPlayers={game1.max_players}
                 toggleOff={props.toggleOff}
@@ -51,7 +51,7 @@ const GameChooser = (props) => {
               <GameChooserDisplayCard
                 id={game2.id}
                 name={game2.name}
-                thumbnail={game2.thumbnail}
+                thumbnail={game2.thumb_url}
                 minPlayers={game2.min_players}
                 maxPlayers={game2.max_players}
                 toggleOff={props.toggleOff}
@@ -66,7 +66,7 @@ const GameChooser = (props) => {
               <GameChooserDisplayCard
                 id={game3.id}
                 name={game3.name}
-                thumbnail={game3.thumbnail}
+                thumbnail={game3.thumb_url}
                 minPlayers={game3.min_players}
                 maxPlayers={game3.max_players}
                 toggleOff={props.toggleOff}
@@ -77,8 +77,8 @@ const GameChooser = (props) => {
             py: 2,
             pl: 35
           }}>
-            {props.state.checked.length === 3 && null}
-            {props.state.checked.length < 3 && 
+            {props.state.gamesChosen.length === 3 && null}
+            {props.state.gamesChosen.length < 3 && 
             <GameChooserDialog
               state={props.state}
               handleClickOpen={props.handleClickOpen}

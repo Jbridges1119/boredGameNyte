@@ -51,7 +51,7 @@ export default function GameCollectionCard(props) {
 
   return (
     
-    <Paper container direction="row"  sx={{
+    <Paper direction="row"  sx={{
       maxWidth: '100% !important',
       backgroundColor: theme.palette.primary.main,
       color: "white",
