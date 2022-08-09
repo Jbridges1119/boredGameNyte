@@ -14,7 +14,7 @@ export default function useSeachData() {
 
     for (let c of string) {
       if (c === " ") {
-        encode += ""
+        encode += "%20"
       } else {
         encode += c
       }
@@ -46,6 +46,8 @@ export default function useSeachData() {
     )
   });
 
+
+  
   return {
     gameSearch,
     data,
