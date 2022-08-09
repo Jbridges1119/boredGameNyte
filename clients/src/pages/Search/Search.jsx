@@ -116,6 +116,7 @@ const Search = () => {
                     height: 50,
                     fontSize: 25,
                     borderRadius: "20px",
+                    pt:1.25
                   }}
                   type="submit"
                   onClick={gameSearch}

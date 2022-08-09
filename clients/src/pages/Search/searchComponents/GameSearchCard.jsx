@@ -143,7 +143,8 @@ sx={{
                     height: 40,
                     fontSize: 20,
                     borderRadius: "20px",
-                    color:'white'
+                    color:'white',
+                    pt:1.25
                   }}>Add To Collection</Button>
          
      
@@ -152,7 +153,8 @@ sx={{
                     height: 40,
                     fontSize: 20,
                     borderRadius: "20px",
-                    color:'white'
+                    color:'white',
+                    pt:1.25
                   }}>View More Details</Button>
             </Box></Stack>
             </Grid></Grid></Grid></Grid>
