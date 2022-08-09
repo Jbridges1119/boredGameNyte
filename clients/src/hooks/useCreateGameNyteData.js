@@ -53,9 +53,11 @@ const useCreateGameNyteData = () => {
   // Will have to use setCollection with a useEffect later
 
   const [state, setState] = useState({
-    checked: [],
-    friendsInvited: [],
+    user: {},
+    friendsList: [],
     collection: games,
+    gamesChosen: [],
+    friendsInvited: [],
     competitive: false,
     name: '',
     place: '',
@@ -87,8 +89,8 @@ const useCreateGameNyteData = () => {
   };
 
   const handleToggle = (value) => () => {
-    const currentIndex = state.checked.indexOf(value);
-    const newChecked = [...state.checked];
+    const currentIndex = state.gamesChosen.indexOf(value);
+    const newChecked = [...state.gamesChosen];
 
     if (currentIndex === -1) {
       newChecked.push(value);
@@ -96,21 +98,21 @@ const useCreateGameNyteData = () => {
       newChecked.splice(currentIndex, 1);
     }
     
-    setState({...state, checked: newChecked})
+    setState({...state, gamesChosen: newChecked})
   };
 
   // From the Create page, this function should remove display cards from the game chooser component
   const toggleOff = (value) => () => {
-    const currentIndex = state.checked.indexOf(value);
-    const newChecked = [...state.checked];
+    const currentIndex = state.gamesChosen.indexOf(value);
+    const newChecked = [...state.gamesChosen];
 
-    console.log(state.checked)
+
 
     if (currentIndex >= 0) {
       newChecked.splice(currentIndex, 1);
     }
     
-    setState(prev => ({...prev, checked: newChecked}));
+    setState(prev => ({...prev, gamesChosen: newChecked}));
   };
 
   // This handles the state of "competitive" with the switch on the create page
