@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { Box, Grid, TextField } from "@mui/material";
+import { Box, Grid, Paper, TextField, Typography } from "@mui/material";
 import theme from "../../assets/theme";
 import '../../styles/Search.css'
 import GameCollectionCard from "./GameCollectionComponents/GameCollectionCard";
@@ -9,30 +9,15 @@ const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 
 // *** REPLACE HARDCODED API SEARCH WITH COLLECTION DATA FROM SERVER ***
 
-const GameCollection = () => {
-  const [data, setData] = useState([])
-  // const [videos, setVideos] = useState([])
+const GameCollection = (props) => {
 
-  useEffect(() => {
-    Promise.all([
-      axios.get(`https://api.boardgameatlas.com/api/search?name=risk&fuzzy_match=true&limit=10&client_id=${BGA_CLIENT_ID}`),
-      // axios.get(`${youtubeApiUrl}?q=risk%20how%20to%20play&key=${apiKey}`)
-    ])
-        .then((all) => {
-          setData(all[0].data.games)
-          // setVideos(all[1].data.items)
-        })
-  }, []);
-
-  console.log('data:', data);
-  // console.log('videos:', videos);
-  let gameCollectionResults = data.map((game) => {
+  let gameCollectionResults = props.state.collection.map((game) => {
     return(
     <Grid item xs={11} sx={{p: 2}}>
       <GameCollectionCard
       key={game.id}
       gameId={game.id}
-      img={game.images.small}
+      img={game.thumbnail}
       name={game.name}
       description={game.description}
       />
@@ -40,17 +25,32 @@ const GameCollection = () => {
     )
   });
 
-  // let youtubeSearchResults = videos.map((video) => {
-  //   return(
-  //   <YoutubeEmbed
-  //   key={video.id.videoId}
-  //   embedId={video.id.videoId}
-  //   />
-  //   )
-  // });
-
   return ( 
-    <Grid container justifyContent="center" alignItems="center" sx={{ pt: 8, backgroundColor: theme.palette.primary.dark }}>
+    <Grid container justifyContent="center" alignItems="center" sx={{ pt: 2, backgroundColor: theme.palette.primary.dark }}>
+        <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Paper
+              sx={{
+                backgroundColor: theme.palette.primary.main,
+                borderRadius: "22px",
+                m: 1.5,
+                pt: 0.75,
+                px: 5,
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+              }}
+              elevation={4}
+            >
+              <Typography pl={0} variant="h2">
+                Your Game Collection!
+              </Typography>
+            </Paper>
+          </Box>
         {gameCollectionResults}
     </Grid>
    );
