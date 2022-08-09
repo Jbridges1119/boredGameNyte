@@ -9,5 +9,5 @@ CREATE TABLE game_nights (
   location VARCHAR(255),
   winner VARCHAR(255),
   journal_entry TEXT,
-  date DATE NOT NULL
+  date VARCHAR(255) NOT NULL
 );
