@@ -18,5 +18,7 @@ INSERT INTO users (first_name, last_name, email, password, city)
 VALUES ('Amy', 'Wong', 'wong@me.com', 'password123', 'Calgary');
 INSERT INTO users (first_name, last_name, email, password, city)
 VALUES ('Hermes', 'Conrad', 'conrad@me.com', 'password123', 'Vancouver');
-
-
+INSERT INTO users (first_name, last_name, email, password, city)
+VALUES ('Kif', 'Kroker', 'kroker@me.com', 'password123', 'lethbridge');
+INSERT INTO users (first_name, last_name, email, password, city)
+VALUES ('Zapp', 'Brannigan', 'brannigan@me.com', 'password123', 'Vancouver');
