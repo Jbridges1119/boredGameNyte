@@ -7,7 +7,6 @@ import LocationBar from "./CreateGameNyteComponents/GameNyteLocationBar";
 import FriendInviter from "./CreateGameNyteComponents/GameNyteFriendInviter";
 import GameChooser from "./CreateGameNyteComponents/GameChooser";
 import { Button } from "@mui/material";
-import useGameChooserData from "../../hooks/useGameChooserData";
 import StaticDatePicker from "./CreateGameNyteComponents/DatePicker";
 
 

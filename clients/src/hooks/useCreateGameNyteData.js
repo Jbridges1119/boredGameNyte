@@ -45,7 +45,7 @@ const games = [
   }
 ]
 
-const useGameChooserData = () => {
+const useCreateGameNyteData = () => {
 
   
   // This will ideally be the users collection retrieved from database
@@ -137,4 +137,4 @@ const useGameChooserData = () => {
     printState }
 };
 
-export default useGameChooserData;
+export default useCreateGameNyteData;

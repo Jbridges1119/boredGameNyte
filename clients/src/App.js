@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import theme from "./assets/theme";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
-
+import { useState } from "react";
 import Home from "./pages/Dashboard/Home";
 import Layout from "./pages/Layout/Layout";
 import Search from "./pages/Search/Search";
@@ -15,9 +15,13 @@ import GamePage from './pages/GamePage/GamePage'
 import CreateNew from "./pages/CreateNewGameNyte/CreateNew";
 import GameCollection from "./pages/GameCollection/GameCollection";
 
-import useGameChooserData from "./hooks/useGameChooserData";
+import useCreateGameNyteData from "./hooks/useCreateGameNyteData";
 
 function App() {
+
+  const [user, setUser] = useState();
+  const [friends, setFriends] = useState();
+  const [collection, setCollection] = useState();
 
   const{ 
     title,
@@ -33,7 +37,7 @@ function App() {
     handleCompSwitch,
     toggleOff,
     printState
-    } = useGameChooserData();
+    } = useCreateGameNyteData();
 
   return (
     <ThemeProvider theme={theme}>
