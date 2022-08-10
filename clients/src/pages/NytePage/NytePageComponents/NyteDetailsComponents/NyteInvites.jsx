@@ -64,7 +64,7 @@ const NyteInvites = () => {
     const status = friend.attend_status
 
     return (
-      <ListItem sx={{p:0}} key={attending.id}
+      <ListItem sx={{p:0}} key={friend.id}
       >
         {status === false && <CloseOutlinedIcon sx={{ backgroundColor: 'darkred',borderRadius: '40px', width: 26, height: 26,color:'white' ,  }}/> }
         {status === null && <QuestionMarkOutlinedIcon sx={{backgroundColor: theme.palette.error.main,borderRadius: '40px', width: 26, height: 26,  color: 'white' }}/> }
