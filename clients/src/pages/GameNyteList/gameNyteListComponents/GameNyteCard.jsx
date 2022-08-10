@@ -162,7 +162,7 @@ sx={{
               </AccordionSummary >
               <AccordionDetails sx={{ 
       backgroundColor: theme.palette.primary.main,
-      width: "98%",
+      width: "95%",
       borderRadius: "20px",
       
       display: 'flex',
