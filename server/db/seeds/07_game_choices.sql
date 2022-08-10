@@ -9,7 +9,7 @@ VALUES (4, 'OIXt3DmJU0', 'axOr9uuOwN',  'i5Oqu5VZgP');
 INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
 VALUES (5, 'EL3YmDLY6W', '3RVcHxhPEZ', '5H5JS0KLzK');
 INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
-VALUES (6, '5H5JS0KLzK', 'axOr9uuOwN', )'OIXt3DmJU0';
+VALUES (6, '5H5JS0KLzK', 'axOr9uuOwN', 'OIXt3DmJU0');
 INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
 VALUES (7, 'EL3YmDLY6W', 'OIXt3DmJU0', '3RVcHxhPEZ');
 INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
