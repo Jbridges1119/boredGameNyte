@@ -65,7 +65,7 @@ export default function Home(props) {
                 <Grid item xs={0.5}>
                 
                 </Grid>
-                <Grid items xs={5.75}>
+                <Grid item xs={5.75}>
                   <FriendsListCard state={props.state.friendsList}/>
                 </Grid>
               </Grid>

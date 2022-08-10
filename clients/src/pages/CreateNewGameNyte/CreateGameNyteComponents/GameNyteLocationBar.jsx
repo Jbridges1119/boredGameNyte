@@ -2,17 +2,15 @@ import styled from "@emotion/styled";
 import { TextField } from "@mui/material";
 import theme from "../../../assets/theme";
 
-
 const LocationBar = (props) => {
-
   const setLocation = (event) => {
     event.preventDefault();
     props.setState((prev) => {
-      return {...prev, 'place': event.target.value}
+      return { ...prev, place: event.target.value };
     });
   };
 
-  return(
+  return (
     <TextField
       label="Where is your Game Nyte?"
       id="location"
@@ -25,10 +23,19 @@ const LocationBar = (props) => {
         borderRadius: "20px",
         alignContent: "center",
         justifyContent: "center",
-        width: "90%",
+        "& .MuiOutlinedInput-root:hover": {
+          "& > fieldset": {
+            border: "1px solid white",
+          },
+        },
+        "& .MuiOutlinedInput-root": {
+          "& > fieldset": { borderRadius: "20px", border: "2px solid white" },
+        },
+        width: "100%",
         input: {
           color: "white",
         },
+        my: 1,
       }}
       onChange={setLocation}
     />
