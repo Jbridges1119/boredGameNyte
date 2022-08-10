@@ -46,14 +46,7 @@ const games = [
   }
 ]
 
-<<<<<<< HEAD:clients/src/hooks/useGameChooserData.js
-
-
-
-const useGameChooserData = () => {
-=======
 const useCreateGameNyteData = () => {
->>>>>>> 228443f93c81c594d5c1ae00c3516ebc289f9796:clients/src/hooks/useCreateGameNyteData.js
 
   
   // This will ideally be the users collection retrieved from database
