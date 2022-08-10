@@ -59,7 +59,7 @@ export default function GameSearchCard(props) {
       ml: 11,
       borderRadius: "20px"
       
-    }}elevation={4}>
+    }}elevation={8}>
       
 <Grid
           container
