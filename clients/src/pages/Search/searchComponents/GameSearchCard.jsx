@@ -52,7 +52,7 @@ export default function GameSearchCard(props) {
 
   return (
     
-    <Paper container direction="row"  sx={{
+    <Paper  direction="row"  sx={{
       maxWidth: '100% !important',
       backgroundColor: theme.palette.primary.main,
       color: "white",
@@ -116,7 +116,7 @@ sx={{
 
 
 
-          <Accordion borderTopLeftRadius="20px" sx={{
+          <Accordion  sx={{
               backgroundColor: theme.palette.secondary.main,borderRadius: "20px", color:'white'
             }}>
               <AccordionSummary 

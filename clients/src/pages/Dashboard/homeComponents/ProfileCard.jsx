@@ -1,8 +1,5 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import theme from "../../../assets/theme";
