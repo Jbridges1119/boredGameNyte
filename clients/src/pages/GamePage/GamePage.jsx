@@ -57,7 +57,7 @@ const GamePage = (props) => {
         alignItems="center"
       >
         <Grid item xs={11}>
-          <Stack container spacing={4} mt={5}>
+          <Stack  spacing={4} mt={5}>
             <GameCard gameData={gameData} />
             <VideoCard videos={videos[0]} videos2={videos[1]} />
           </Stack>

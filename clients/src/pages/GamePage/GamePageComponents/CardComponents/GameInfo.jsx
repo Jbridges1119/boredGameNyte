@@ -139,7 +139,7 @@ const GameInfo = ({ gameData }) => {
           }}
         >
           <Stack
-            container
+           
             sx={{
               height: "100%",
               justifyContent: "space-between",
@@ -249,7 +249,7 @@ const GameInfo = ({ gameData }) => {
                 {/* Scores */}
                 <Stack spacing={1}>
                   {/* Rating score */}
-                  <Stack container justifyContent="center" alignItems="center">
+                  <Stack  justifyContent="center" alignItems="center">
                     <Typography
                       sx={{ fontSize: "20px" }}
                       color="white"
@@ -277,7 +277,7 @@ const GameInfo = ({ gameData }) => {
                     </Box>
                   </Stack>
                   {/* Learing Curve */}
-                  <Stack container justifyContent="center" alignItems="center">
+                  <Stack  justifyContent="center" alignItems="center">
                     <Typography
                       sx={{ fontSize: "20px" }}
                       color="white"
@@ -306,7 +306,7 @@ const GameInfo = ({ gameData }) => {
                   </Stack>
 
                   {/* Strat score */}
-                  <Stack container justifyContent="center" alignItems="center">
+                  <Stack  justifyContent="center" alignItems="center">
                     <Typography
                       sx={{ fontSize: "20px" }}
                       color="white"
