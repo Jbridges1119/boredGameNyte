@@ -6,7 +6,7 @@ function getGameById(arr, id)  {
       return g
     }
   };
-  return {name: '?', thumb_url: '?'}
+  return null;
 };
 
 function formatDate(datestring) {
