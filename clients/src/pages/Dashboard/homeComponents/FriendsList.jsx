@@ -15,7 +15,11 @@ import Person from "@mui/icons-material/Person";
 
 const FriendList = styled(ListItemText)({
   '& .MuiListItemText-secondary': {
-    color:'white'
+    color:'white',
+    fontSize: '13px'
+  },'& .MuiListItemText-primary': {
+    color:'white',
+    fontSize: '15px'
   },
 });
 

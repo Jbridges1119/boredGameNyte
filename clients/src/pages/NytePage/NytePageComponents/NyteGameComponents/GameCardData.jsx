@@ -57,7 +57,7 @@ sx={{
 
     <Typography sx={{color: "#FFFFFF"}} align="center"  variant="h4">{props.name}</Typography>
 
-    <Button component={Link} to={'/game/' + props.id} sx={{backgroundColor: theme.palette.error.main, height: 60,  fontSize: 35,textTransform: 'none', borderRadius: '20px' }} variant="contained">How To Play</Button>
+    <Button component={Link} to={'/game/' + props.id} sx={{backgroundColor: theme.palette.error.main, height: 60,  fontSize: 35,textTransform: 'none', borderRadius: '20px',pt: 1.25 }} variant="contained">How To Play</Button>
   
     </Stack>
     </Grid>

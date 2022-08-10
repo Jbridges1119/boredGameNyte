@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {   AccordionDetails, Button,  Grid } from '@mui/material';
+import {   AccordionDetails, Button,  Grid, Paper } from '@mui/material';
 import { ArrowDownward } from '@mui/icons-material';
 import theme from '../../../assets/theme';
 import BGN from '../../../assets/Pictures/BGN.png'
@@ -52,6 +52,14 @@ export default function GameNyteCard(props) {
   
 
   return (
+    <Paper 
+      elevation={8}
+      sx={{
+    
+      backgroundColor: theme.palette.secondary.main,
+      borderRadius: "20px",
+      width:'100%'
+    }}>
     <Card direction="row" sx={{ 
       backgroundColor: theme.palette.primary.main,
       width: "100%",
@@ -181,7 +189,7 @@ sx={{
           </Grid>
           </Grid> 
         
-    </Card>
+    </Card></Paper>
   );
 }
 
