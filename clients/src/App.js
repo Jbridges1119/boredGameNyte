@@ -35,8 +35,34 @@ function App() {
     } = useCreateGameNyteData();
 
   const [userId, setUserId] = useState(1);
+  const [gameNytes, setGameNytes] = useState({
+    nytes: [],
+    games: [],
+  });
 
+  useEffect(()=> {
+    axios.get(`http://localhost:3005/api/gamenytes/host/${userId}`)
+    .then((data) => {
+        setGameNytes((prev) => {
+          return { ...prev, nytes: data.data }
+        })
+      })
+      .then(() => {
+        for (let nyte of gameNytes.nytes) {
+          axios.get(`http://localhost:3005/api/gamenytes/${nyte.id}/games`)
+          .then((data) => {
+            setGameNytes((prev) => {
+              return { ...prev, games: [...prev.games, data.rows] }
+            })
+            console.log("gamenytes:", gameNytes)
+          })
+        }
+      }
+      )
+    }, []);
 
+    console.log("gamenytes:", gameNytes)
+  // user data useEffect
   useEffect(() => {
     Promise.all([
       axios.get(`http://localhost:3005/api/users/${userId}`),
@@ -44,7 +70,6 @@ function App() {
       axios.get(`http://localhost:3005/api/users/${userId}/collection`)
     ])
     .then((all) => {
-      console.log(all)
       setState((prev) => {
         return {...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data}
       })
@@ -65,6 +90,7 @@ function App() {
                         exact path="/" 
                         element={<Home 
                           state={state}
+                          gameNytes={gameNytes.nytes}
                         />} theme={theme}/>
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/nyte" element={<NytePage />} theme={theme}/>

@@ -1,9 +1,10 @@
 
 import React from "react";
 import Grid from "@mui/material/Grid";
-import {  Stack, Box } from "@mui/material";
+import { Stack, Box } from "@mui/material";
 import ProfileCard from "./homeComponents/ProfileCard";
 import FriendsListCard from "./homeComponents/FriendsListCard";
+import { formatDate, formatTime } from '../../helperFunctions/helperFunctions'
 
 import theme from "../../assets/theme";
 import GameNyteCard from "../GameNyteList/gameNyteListComponents/GameNyteCard";
@@ -15,6 +16,24 @@ export default function Home(props) {
   // useEffect(() => {
   //   // retrieve past & future game night events
   // })
+  
+  const gameNytesHosted = props.gameNytes.map((nyte) => {
+    // const date = formatDate(nyte.date)
+    // const time = formatTime(nyte.date)
+    return(
+    <GameNyteCard
+      key={nyte.id}
+      first_name={nyte.first_name}
+      last_name={nyte.last_name}
+      title={nyte.title}
+      comp={nyte.competitive}
+      status={nyte.status}
+      location={nyte.location}
+      date={nyte.date}
+      // time={time}
+    />
+    )
+  });
 
   return (
     <Box
@@ -59,11 +78,7 @@ export default function Home(props) {
                 <Grid container justifyContent="center">
                   <Grid item xs={10.25} py={1}>
                     <Stack spacing={1}>
-                      <GameNyteCard />
-                   
-                      <GameNyteCard />
-                   
-                      <GameNyteCard />
+                      {gameNytesHosted}
                       </Stack>
                   </Grid>
                 </Grid>

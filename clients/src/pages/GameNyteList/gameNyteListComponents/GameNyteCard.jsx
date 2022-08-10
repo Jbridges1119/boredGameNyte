@@ -100,7 +100,7 @@ sx={{
 
 <CardMedia
     component="img"
-    image={BGN}
+    image={props.comp ? BGN : BGNCasual}
     alt="BGN"
     sx={{
       objectFit: 'contain',
@@ -125,7 +125,7 @@ sx={{
         
       }} >
         <Box display='flex' width='100%' justifyContent='space-between'>
-<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }} pt={2} variant="h5" >Game Nyte Title</Typography>
+<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }} pt={2} variant="h5" >{props.title}</Typography>
 <Button component={Link} to={'/nyte/'}
                   variant="contained"
                   sx={{
@@ -143,10 +143,10 @@ sx={{
                   View Details
                 </Button>
 </Box>
-<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >Hosted By Johhny Johnson At Location</Typography>
+<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >Hosted By {props.first_name} {props.last_name} At {props.location}</Typography>
 
 
-<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >Date Time</Typography>
+<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >{props.date} Time</Typography>
 
 
           <Accordion  sx={{
@@ -190,21 +190,3 @@ sx={{
     </Card></Paper>
   );
 }
-
-
-{/* <Accordion sx={{
-          borderRadius: "20px",
-          backgroundColor: theme.palette.secondary.main,
-        }}>
-              <AccordionSummary
-              expandIcon={<ArrowDownward />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-             
-              >
-                <Typography sx={{ color: "#FFFFFF" }} variant="h5">Hosted Games</Typography>
-              </AccordionSummary>
-              <Typography variant="h5" sx={{ color: "#FFFFFF" }}>
-                This is where we will see what games were played at this game nyte!
-              </Typography>
-            </Accordion> */}
