@@ -92,7 +92,7 @@ const NyteAttendees = () => {
         }} >
           <CardHeader  title="Friends List" />
        <CardContent >
-       <Grid container
+       <Grid 
           direction="row"
           justifyContent="space-evenly"
           alignItems="center" >

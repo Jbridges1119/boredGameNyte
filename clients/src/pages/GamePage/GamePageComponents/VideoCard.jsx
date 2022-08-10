@@ -55,6 +55,7 @@ export default function VideoCard(props) {
     return (
       <Grid
         item
+        key={video.id.videoId}
         xs={4}
         sx={{
           display: "flex",
@@ -63,7 +64,7 @@ export default function VideoCard(props) {
         }}
       >
         <YoutubeEmbed
-          key={video.id.videoId}
+          
           id={video.id.videoId}
           embedId="nJ-ehbVQYxI"
         />
@@ -75,6 +76,7 @@ export default function VideoCard(props) {
   const gitGud = props.videos2.map((video) => {
     return (
       <Grid
+      key={video.id.videoId}
         item
         xs={4}
         sx={{
@@ -84,7 +86,7 @@ export default function VideoCard(props) {
         }}
       >
         <YoutubeEmbed
-          key={video.id.videoId}
+          
           id={video.id.videoId}
           embedId="nJ-ehbVQYxI"
         />
@@ -119,9 +121,9 @@ export default function VideoCard(props) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ borderRadius: "20px" }}>
-          <Box container>
+          <Box >
             <Grid
-              container
+             container
               direction="row"
               sx={{
                 backgroundColor: theme.palette.primary.main,
@@ -157,11 +159,15 @@ export default function VideoCard(props) {
             }}
           >
             <Grid
-              container
+             container
               direction="row"
-              justifyContent="center"
-              alignContent={"center"}
-              alignItems="center"
+              sx={{
+                backgroundColor: theme.palette.primary.main,
+                borderRadius: "15px",
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+              }}
             >
               {gitGud}
             </Grid>

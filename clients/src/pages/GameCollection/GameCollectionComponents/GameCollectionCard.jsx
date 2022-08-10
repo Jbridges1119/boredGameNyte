@@ -130,7 +130,7 @@ sx={{
                     fontSize: 20,
                     borderRadius: "20px",
                     color:'white'
-                  }}>View More Details</Button>
+                  }}>View Details</Button>
             </Box></Stack>
             </Grid></Grid></Grid></Grid>
     </Paper>

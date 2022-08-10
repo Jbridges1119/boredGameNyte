@@ -14,45 +14,46 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 
-const GameBanner = () => {
+const GameBanner = (props) => {
   return ( 
     <>
+    <Stack>
     
-    <Grid container 
-        direction="column"
-        justifyContent="center"
-        alignItems="center">
-          <Grid item xs={8}>
-    <Box
+
+          <Box
+sx={{
+  width: "200px",
+  borderRadius: "20px",
+  backgroundColor: theme.palette.primary.main,
+  height: '125px',
+  display: 'flex',
+  justifyContent:'center',
+  alignContent:'center',
+  alignItems: 'center',
+  my:1.5
+  
+}}
+> 
+
+<CardMedia
+    component="img"
+    image={props.img}
+    alt=""
     sx={{
-      maxWidth: '250px',
-      borderRadius: "20px",
-      backgroundColor: theme.palette.primary.main,
-     
-      display: 'flex',
-      justifyContent:'center',
-      alignContent:'center',
+      objectFit: 'contain',
+      maxWidth: '125px',
+      maxHeight: '125px'
     }}
-    > 
+    />
+
+
+    </Box> 
     
-    <CardMedia
-        component="img"
-        image={BGN}
-        alt="BGN"
-        sx={{
-          objectFit: 'contain',
-          maxWidth: '125px',
-          maxHeight: '125px'
-        }}
-        />
-    
-    </Box>
-    </Grid>
-    <Grid item xs={4}>
-    <Typography variant="body2" align='center' sx={{mt:1,fontSize: '18px', color: "#FFFFFF",borderRadius: "20px", maxWidth: '200px' }} >
-          Game Name with long name
+
+    <Typography variant="body2" align='center' sx={{fontSize: '18px', color: "#FFFFFF",borderRadius: "20px", maxWidth: '200px' }} >
+          Game Name 
     </Typography>
-    </Grid></Grid>
+    </Stack>
     </>
    );
 }

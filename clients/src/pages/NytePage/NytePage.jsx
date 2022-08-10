@@ -32,7 +32,7 @@ const NytePage = () => {
   }, []);
 
   const game = data.map((game) => {
-    console.log(game.data.games[0].id);
+  
     return (
       <GameCard
         key={game.data.games[0].id}
