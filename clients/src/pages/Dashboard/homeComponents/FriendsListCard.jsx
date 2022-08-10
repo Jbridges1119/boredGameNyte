@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import FriendsList from "./FriendsList";
 import theme from "../../../assets/theme";
 
-export default function FriendsListCard() {
+export default function FriendsListCard(props) {
   return (
     <Card
       sx={{
@@ -23,7 +23,7 @@ export default function FriendsListCard() {
           <Grid container sx={{ justifyContent: "center" }}>
             <Grid item xs={11}>
               <Typography sx={{ color: "white" }} variant="h6" color="textSecondary">
-                <FriendsList />
+                <FriendsList state={props.state}/>
               </Typography>
             </Grid>
           </Grid>
