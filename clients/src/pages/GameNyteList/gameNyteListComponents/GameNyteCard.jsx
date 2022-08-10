@@ -143,7 +143,7 @@ sx={{
                   View Details
                 </Button>
 </Box>
-<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >Hosted By Johhny Johnson At {props.location}</Typography>
+<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >Hosted By {props.first_name} {props.last_name} At {props.location}</Typography>
 
 
 <Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >{props.date} Time</Typography>

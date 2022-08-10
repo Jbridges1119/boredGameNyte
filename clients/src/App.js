@@ -45,11 +45,23 @@ function App() {
     .then((data) => {
         setGameNytes((prev) => {
           return { ...prev, nytes: data.data }
-        }) 
+        })
       })
+      .then(() => {
+        for (let nyte of gameNytes.nytes) {
+          axios.get(`http://localhost:3005/api/gamenytes/${nyte.id}/games`)
+          .then((data) => {
+            setGameNytes((prev) => {
+              return { ...prev, games: [...prev.games, data.rows] }
+            })
+            console.log("gamenytes:", gameNytes)
+          })
+        }
+      }
+      )
     }, []);
 
-
+    console.log("gamenytes:", gameNytes)
   // user data useEffect
   useEffect(() => {
     Promise.all([

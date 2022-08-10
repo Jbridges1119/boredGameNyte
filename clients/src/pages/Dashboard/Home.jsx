@@ -18,15 +18,19 @@ export default function Home(props) {
   // })
   
   const gameNytesHosted = props.gameNytes.map((nyte) => {
-    const date = formatDate(nyte.date)
+    // const date = formatDate(nyte.date)
+    // const time = formatTime(nyte.date)
     return(
     <GameNyteCard
       key={nyte.id}
+      first_name={nyte.first_name}
+      last_name={nyte.last_name}
       title={nyte.title}
       comp={nyte.competitive}
       status={nyte.status}
       location={nyte.location}
-      date={date}
+      date={nyte.date}
+      // time={time}
     />
     )
   });

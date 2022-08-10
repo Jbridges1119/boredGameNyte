@@ -52,7 +52,7 @@ export default function FriendsList(props) {
 
     return (
       <ListItem
-        key={friend.id}
+        key={friend.friend_id}
         secondaryAction={
           <IconButton size='large' edge="end" aria-label="delete" sx={{ color: "white" }}>
             <DeleteIcon />

@@ -21,8 +21,10 @@ module.exports = (db) => {
     let user_id = req.params.id;
     const params = [user_id];
     const query = `
-    SELECT * FROM game_nights
-    WHERE host_id = $1;
+    SELECT game_nights.id as id, first_name, last_name, game_nights.title, game_nights.host_id, game_nights.competitive, game_nights.status, game_nights.location, game_nights.date FROM users
+    JOIN game_nights ON users.id = game_nights.host_id
+    WHERE host_id = $1
+    LIMIT 3;
     `;
     return db.query(query, params)
       .then((data) => {
