@@ -10,8 +10,7 @@ module.exports = (db) => {
     `;
     return db.query(query, params)
       .then((data) => {
-        const users = data.rows;
-        return res.json({ users });
+        return res.json(data.rows);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -27,8 +26,7 @@ module.exports = (db) => {
     `;
     return db.query(query, params)
       .then((data) => {
-        const users = data.rows;
-        return res.json({ users });
+        return res.json(data.rows);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -45,8 +43,7 @@ module.exports = (db) => {
     `;
     return db.query(query, params)
       .then((data) => {
-        const users = data.rows;
-        return res.json({ users });
+        return res.json(data.rows);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -62,8 +59,7 @@ module.exports = (db) => {
     `;
     return db.query(query, params)
       .then((data) => {
-        const users = data.rows;
-        return res.json({ users });
+        return res.json(data.rows);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -80,8 +76,7 @@ module.exports = (db) => {
     `;
     return db.query(query, params)
       .then((data) => {
-        const users = data.rows;
-        return res.json({ users });
+        return res.json(data.rows);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -98,8 +93,7 @@ module.exports = (db) => {
     `;
     return db.query(query, params)
       .then((data) => {
-        const users = data.rows;
-        return res.json({ users });
+        return res.json(data.rows);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
