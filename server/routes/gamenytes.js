@@ -21,8 +21,20 @@ module.exports = (db) => {
     let user_id = req.params.id;
     const params = [user_id];
     const query = `
-    SELECT game_nights.id as id, first_name, last_name, game_nights.title, game_nights.host_id, game_nights.competitive, game_nights.status, game_nights.location, game_nights.date FROM users
+    SELECT game_nights.id, 
+    first_name, 
+    last_name, 
+    game_nights.title, 
+    game_nights.host_id, 
+    game_nights.competitive, 
+    game_nights.status, 
+    game_nights.location, 
+    game_nights.date, 
+    game_choices.bgatlas_game_1, 
+    game_choices.bgatlas_game_2, 
+    game_choices.bgatlas_game_3 FROM users
     JOIN game_nights ON users.id = game_nights.host_id
+    JOIN game_choices ON game_nights.id = game_choices.game_night_id
     WHERE host_id = $1
     LIMIT 3;
     `;

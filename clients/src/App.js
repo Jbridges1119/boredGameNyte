@@ -35,33 +35,17 @@ function App() {
     } = useCreateGameNyteData();
 
   const [userId, setUserId] = useState(1);
-  const [gameNytes, setGameNytes] = useState({
-    nytes: [],
-    games: [],
-  });
+  const [gameNytes, setGameNytes] = useState([]);
 
   useEffect(()=> {
     axios.get(`http://localhost:3005/api/gamenytes/host/${userId}`)
     .then((data) => {
-        setGameNytes((prev) => {
-          return { ...prev, nytes: data.data }
-        })
-      })
-      .then(() => {
-        for (let nyte of gameNytes.nytes) {
-          axios.get(`http://localhost:3005/api/gamenytes/${nyte.id}/games`)
-          .then((data) => {
-            setGameNytes((prev) => {
-              return { ...prev, games: [...prev.games, data.rows] }
-            })
-            console.log("gamenytes:", gameNytes)
-          })
-        }
-      }
-      )
-    }, []);
+      console.log("data:", data)
+      setGameNytes(data.data) 
+    }) 
+  }, [])
 
-    console.log("gamenytes:", gameNytes)
+  console.log("gamenytes:", gameNytes)
   // user data useEffect
   useEffect(() => {
     Promise.all([
@@ -90,7 +74,7 @@ function App() {
                         exact path="/" 
                         element={<Home 
                           state={state}
-                          gameNytes={gameNytes.nytes}
+                          gameNytes={gameNytes}
                         />} theme={theme}/>
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/nyte" element={<NytePage />} theme={theme}/>
