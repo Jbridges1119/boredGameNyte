@@ -146,7 +146,7 @@ sx={{
 <Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >Hosted By {props.first_name} {props.last_name} At {props.location}</Typography>
 
 
-<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >{props.date} Time</Typography>
+<Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }}  variant="h6" >{props.date} {props.time}</Typography>
 
 
           <Accordion  sx={{

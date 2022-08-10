@@ -8,21 +8,21 @@ function getGameById(arr, id)  {
 };
 
 function formatDate(datestring) {
-  let date = ''
   let split = datestring.split(' ');
-  for (let i = 0; i = 4; i++) {
-    date += split[i]
-  }
-  return date;
+  let date = split.slice(0,-5)
+  return date.join(' ');
 };
 
 function formatTime(datestring) {
-  let timestring = ""
-  let split = datestring.split(' ');
-  for(let i = 3; i = split.length; i++) {
-    timestring += split[i];
-  }
-  return timestring;
+  let ampm = 'AM'
+  let min = '0'
+  let hr = ''
+  let split = datestring.split(' ')[4].split(':');
+  min = split[1]
+  if (split[0] >= 12) ampm = 'PM'
+  if (split[0] > 12) hr = split[0] - 12
+  if (split[0] <10) hr = split[0][1]
+    return `${hr}:${min} ${ampm}`
 };
 
 module.exports = {
