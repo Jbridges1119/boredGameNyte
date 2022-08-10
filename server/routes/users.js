@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-  const params = [];
-  const query = `SELECT * FROM users;`;
+  
   router.get("/", (req, res) => {
+    const params = [];
+    const query = `SELECT * FROM users;`;
     db.query(query, params)
       .then((data) => {
         const users = data.rows;

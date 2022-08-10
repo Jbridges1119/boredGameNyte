@@ -61,7 +61,11 @@ function App() {
                 <BrowserRouter>
                   <Layout theme={theme}>
                     <Routes>
-                      <Route exact path="/" element={<Home />} theme={theme}/>
+                      <Route 
+                        exact path="/" 
+                        element={<Home 
+                          state={state}
+                        />} theme={theme}/>
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/nyte" element={<NytePage />} theme={theme}/>
                       <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>

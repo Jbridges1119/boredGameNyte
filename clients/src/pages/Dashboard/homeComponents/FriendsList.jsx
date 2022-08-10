@@ -42,27 +42,31 @@ const friends = [
   },
 ];
 
-const friendsList = friends.map((friend) => {
-  return (
-    <ListItem
-      key={friend.id}
-      secondaryAction={
-        <IconButton size='large' edge="end" aria-label="delete" sx={{ color: "white" }}>
-          <DeleteIcon />
-        </IconButton>
-      }
-    >
-      <ListItemAvatar>
-        <Avatar>
-          <Person />
-        </Avatar>
-      </ListItemAvatar>
-      <FriendList primary={friend.name} secondary={friend.email} />
-    </ListItem>
-  );
-});
-
 export default function FriendsList(props) {
+
+  const friendsList = props.state.map((friend) => {
+
+    let name = `${friend.first_name} ${friend.last_name}`
+
+    return (
+      <ListItem
+        key={friend.id}
+        secondaryAction={
+          <IconButton size='large' edge="end" aria-label="delete" sx={{ color: "white" }}>
+            <DeleteIcon />
+          </IconButton>
+        }
+      >
+        <ListItemAvatar>
+          <Avatar>
+            <Person />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={name} secondary={friend.email} />
+      </ListItem>
+    );
+  });
+
   return (
     <Grid item xs={12}>
       <List

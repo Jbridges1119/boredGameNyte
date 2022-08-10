@@ -39,7 +39,7 @@ const AddTextField = styled(TextField)({
 });
 
 
-export default function FriendsListCard() {
+export default function FriendsListCard(props) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -170,7 +170,7 @@ export default function FriendsListCard() {
               </Button> */}
             </Grid>
           </Grid>
-          <FriendsList />
+          <FriendsList state={props.state}/>
         </Grid>
       </Grid>
     </Card>

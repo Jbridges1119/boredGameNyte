@@ -8,7 +8,10 @@ import Typography from "@mui/material/Typography";
 import theme from "../../../assets/theme";
 import { Box, Stack } from "@mui/material";
 
-export default function ProfileCard() {
+export default function ProfileCard(props) {
+
+  let greeting = `Welcome Back ${props.state.first_name} ${props.state.last_name}!`
+
   return (
   <Box
     sx={{
@@ -66,7 +69,7 @@ sx={{
 <Grid item xs={6}>
   <Stack spacing={1}>
 <Typography variant="h4" color="White" >
-Welcome Back Filip Fry!
+{greeting}
         </Typography>
 <Box>
 <Typography variant="h6" color="White">
