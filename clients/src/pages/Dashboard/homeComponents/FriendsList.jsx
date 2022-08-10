@@ -62,7 +62,7 @@ export default function FriendsList(props) {
             <Person />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={name} secondary={friend.email} />
+        <FriendList primary={name} secondary={friend.email} />
       </ListItem>
     );
   });
