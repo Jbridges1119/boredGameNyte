@@ -68,19 +68,21 @@ const GameNyteList = (props) => {
   });
 
   useEffect(() => {
+      if (!props.state.user) {
+        return  
+      }
       let user_id = props.state.user.id;
+      console.log("props:", props)
       Promise.all([
         axios.get(`http://localhost:3005/api/gamenytes/host/${user_id}/all`),
-        axios.get(`http://localhost:3005/api/gamenytes/invited/${user_id}/`),
-        axios.get(`http://localhost:3005/api/users/2/collection`),
-        axios.get(`http://localhost:3005/api/users/3/collection`)
+        axios.get(`http://localhost:3005/api/gamenytes/invited/${user_id}/`)
       ])
       .then((all) => {
         setGameNytes((prev) => {
-          return { ...prev, hosted: all[0].data, invited: all[1].data, collection: (all[2].data, all[3].data) }
+          return { ...prev, hosted: all[0].data, invited: all[1].data }
         })
       })
-    }, [props.state.user.id]);
+    }, [props.state.user]);
 
 
   return ( 
@@ -121,6 +123,7 @@ const GameNyteList = (props) => {
         {/* upcoming */}
         {gameNytes.invited.map((nyte) => {
           if (nyte.status === 'Scheduled') {
+        
             const date = formatDate(nyte.date)
             const time = formatTime(nyte.date)
             return (
@@ -136,9 +139,9 @@ const GameNyteList = (props) => {
                   location={nyte.location}
                   date={date}
                   time={time}
-                  game1={getGameById(gameNytes.collection, nyte.bgatlas_game_1)}
-                  game2={getGameById(gameNytes.collection, nyte.bgatlas_game_2)}
-                  game3={getGameById(gameNytes.collection, nyte.bgatlas_game_3)}
+                  game1={getGameById(props.state.globalCollection, nyte.bgatlas_game_1)}
+                  game2={getGameById(props.state.globalCollection, nyte.bgatlas_game_2)}
+                  game3={getGameById(props.state.globalCollection, nyte.bgatlas_game_3)}
                 />
               </ListItem>
             )
@@ -177,6 +180,7 @@ const GameNyteList = (props) => {
         
         {/* Hosted */}
         {gameNytes.hosted.map((nyte) => {
+          
             const date = formatDate(nyte.date)
             const time = formatTime(nyte.date)
             return(
@@ -192,9 +196,9 @@ const GameNyteList = (props) => {
                   location={nyte.location}
                   date={date}
                   time={time}
-                  game1={getGameById(gameNytes.collection, nyte.bgatlas_game_1)}
-                  game2={getGameById(gameNytes.collection, nyte.bgatlas_game_2)}
-                  game3={getGameById(gameNytes.collection, nyte.bgatlas_game_3)}
+                  game1={getGameById(props.state.globalCollection, nyte.bgatlas_game_1)}
+                  game2={getGameById(props.state.globalCollection, nyte.bgatlas_game_2)}
+                  game3={getGameById(props.state.globalCollection, nyte.bgatlas_game_3)}
                 />
               </ListItem>
             )
@@ -228,9 +232,7 @@ const GameNyteList = (props) => {
       {/* invited */}
       {gameNytes.invited.map((nyte) => {
           if (nyte.status === 'complete') {
-            console.log("game1: ",getGameById(gameNytes.collection, nyte.bgatlas_game_1))
-            console.log("game1 array:", gameNytes.collection)
-            console.log("game1:", gameNytes.invited[0].bgatlas_game_1)
+            
             const date = formatDate(nyte.date)
             const time = formatTime(nyte.date)
             return(
@@ -246,9 +248,9 @@ const GameNyteList = (props) => {
                   location={nyte.location}
                   date={date}
                   time={time}
-                  game1={getGameById(gameNytes.collection, nyte.bgatlas_game_1)}
-                  game2={getGameById(gameNytes.collection, nyte.bgatlas_game_2)}
-                  game3={getGameById(gameNytes.collection, nyte.bgatlas_game_3)}
+                  game1={getGameById(props.state.globalCollection, nyte.bgatlas_game_1)}
+                  game2={getGameById(props.state.globalCollection, nyte.bgatlas_game_2)}
+                  game3={getGameById(props.state.globalCollection, nyte.bgatlas_game_3)}
                 />
               </ListItem>
             )

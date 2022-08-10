@@ -67,7 +67,7 @@ export default function Home(props) {
               >
                 <Grid item xs={5.75}>
                   
-                  <ProfileCard state={props.state.user}/>
+                  {props.state.user && <ProfileCard state={props.state.user}/>}
                 </Grid>
                 <Grid item xs={0.5}>
                 

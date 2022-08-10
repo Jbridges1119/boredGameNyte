@@ -50,11 +50,12 @@ function App() {
     Promise.all([
       axios.get(`http://localhost:3005/api/users/${userId}`),
       axios.get(`http://localhost:3005/api/users/${userId}/friends`),
-      axios.get(`http://localhost:3005/api/users/${userId}/collection`)
+      axios.get(`http://localhost:3005/api/users/${userId}/collection`),
+      axios.get(`http://localhost:3005/api/gamecollection`)
     ])
     .then((all) => {
       setState((prev) => {
-        return {...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data}
+        return {...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data, globalCollection: all[3].data}
       })
     })
     .catch((err) => {

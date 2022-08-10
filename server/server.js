@@ -28,9 +28,11 @@ app.use(
 
 const usersRoutes = require("./routes/users");
 const gameNyteRoutes = require("./routes/gamenytes");
+const gameCollectionRoutes = require("./routes/gamecollection");
 
 app.use("/api/users", usersRoutes(db));
 app.use("/api/gamenytes", gameNyteRoutes(db));
+app.use("/api/gamecollection", gameCollectionRoutes(db));
 
 // app.get("/", (req,res) => {
 //   db.query("SELECT * FROM users")
