@@ -177,9 +177,9 @@ sx={{
 
       }}>
               
-              <GameBanner name={props.game1.name ? props.game1.name : ''} img={props.game1.thumb_url}/>
-              <GameBanner name={props.game2.name ? props.game2.name : ''} img={props.game2.thumb_url}/>
-              <GameBanner name={props.game3.name ? props.game3.name : ''} img={props.game3.thumb_url}/>
+              <GameBanner name={props.game1.name ? props.game1.name : ''} img={props.game1.thumb_url ? props.game1.thumb_url : "No img"}/>
+              <GameBanner name={props.game2.name ? props.game2.name : ''} img={props.game2.thumb_url ? props.game2.thumb_url : "No img"}/>
+              <GameBanner name={props.game3.name ? props.game3.name : ''} img={props.game3.thumb_url ? props.game3.thumb_url : "No img"}/>
               </AccordionDetails>
             </Accordion>
             

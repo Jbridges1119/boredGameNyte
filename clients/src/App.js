@@ -40,12 +40,11 @@ function App() {
   useEffect(()=> {
     axios.get(`http://localhost:3005/api/gamenytes/host/${userId}`)
     .then((data) => {
-      console.log("data:", data)
       setGameNytes(data.data) 
     }) 
   }, [])
 
-  console.log("gamenytes:", gameNytes)
+  
   // user data useEffect
   useEffect(() => {
     Promise.all([
@@ -78,7 +77,12 @@ function App() {
                         />} theme={theme}/>
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/nyte" element={<NytePage />} theme={theme}/>
-                      <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
+                      <Route 
+                        path="/gamenytes" 
+                        element={<GameNyteList 
+                                  state={state}
+                                />} 
+                        theme={theme}/>
                       <Route 
                         path="/create" 
                         element={<CreateNew 
