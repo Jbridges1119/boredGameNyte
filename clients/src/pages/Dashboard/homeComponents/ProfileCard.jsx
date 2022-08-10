@@ -7,7 +7,10 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import theme from "../../../assets/theme";
 
-export default function ProfileCard() {
+export default function ProfileCard(props) {
+
+  let greeting = `Welcome Back ${props.state.first_name} ${props.state.last_name}!`
+
   return (
     <Card
       sx={{
@@ -33,7 +36,7 @@ export default function ProfileCard() {
             />
         </Grid>
         <Grid item sx={9}>
-          <CardHeader sx={{ color: "white", pb: 10 }} title=" Welcome Back Filip Fry!" />
+          <CardHeader sx={{ color: "white", pb: 10 }} title= {greeting}/>
           <Grid
             container
             sx={{ justifyContent: "center", textAlign: "center" }}

@@ -9,6 +9,7 @@ import FriendsListCard from "./homeComponents/FriendsListCard";
 
 import theme from "../../assets/theme";
 import GameNyteCard from "../GameNyteList/gameNyteListComponents/GameNyteCard";
+
 export default function Home(props) {
   // // state getter and setter for game night events
   // const [events, setEvents] = useState([]);
@@ -45,10 +46,10 @@ export default function Home(props) {
               alignItems="center"
             >
               <Grid item xs={5.5}>
-                <ProfileCard />
+                <ProfileCard state={props.state.user}/>
               </Grid>
               <Grid items xs={5.5}>
-                <FriendsListCard />
+                <FriendsListCard state={props.state.friendsList}/>
               </Grid>
             </Grid>
             {/* Follow GameNyteCards to be replaced with mapped cards with data */}
