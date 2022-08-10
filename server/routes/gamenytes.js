@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-
+  // /api/gamenytes
   router.get("/", (req, res) => {
     const params = [];
     const query = `
