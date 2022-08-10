@@ -175,11 +175,11 @@ sx={{
       justifyContent:'space-around',
       alignContent:'center',
 
-      }}>
+    }}>
               
-              <GameBanner img={'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324722072.jpg'}/>
-              <GameBanner img={`https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1595268779978`}/>
-              <GameBanner img={`https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254920151-51ulRXlJ7LL.jpg`}/>
+              <GameBanner name={props.game1 && props.game1.name ? props.game1.name : ''} img={props.game1 && props.game1.thumb_url ? props.game1.thumb_url : "No img"}/>
+              <GameBanner name={props.game2 && props.game2.name ? props.game2.name : ''} img={props.game2 && props.game2.thumb_url ? props.game2.thumb_url : "No img"}/>
+              <GameBanner name={props.game3 && props.game3.name ? props.game3.name : ''} img={props.game3 && props.game3.thumb_url ? props.game3.thumb_url : "No img"}/>
               </AccordionDetails>
             </Accordion>
             

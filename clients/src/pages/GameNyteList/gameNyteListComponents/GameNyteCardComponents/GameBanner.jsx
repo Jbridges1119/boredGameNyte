@@ -51,7 +51,7 @@ sx={{
     
 
     <Typography variant="body2" align='center' sx={{fontSize: '18px', color: "#FFFFFF",borderRadius: "20px", maxWidth: '200px' }} >
-          Game Name 
+          {props.name} 
     </Typography>
     </Stack>
     </>

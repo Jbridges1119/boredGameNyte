@@ -55,9 +55,10 @@ const useCreateGameNyteData = () => {
 
   const [userId, setUserId] = useState(1);
   const [state, setState] = useState({
-    user: {},
+    user: null,
     friendsList: [],
     collection: games,
+    globalCollection: [],
     gamesChosen: [],
     friendsInvited: [],
     competitive: false,

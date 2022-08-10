@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import { Stack, Box } from "@mui/material";
 import ProfileCard from "./homeComponents/ProfileCard";
 import FriendsListCard from "./homeComponents/FriendsListCard";
-import { formatDate, formatTime } from '../../helperFunctions/helperFunctions'
+import { formatDate, formatTime, getGameById } from '../../helperFunctions/helperFunctions'
 
 import theme from "../../assets/theme";
 import GameNyteCard from "../GameNyteList/gameNyteListComponents/GameNyteCard";
@@ -31,6 +31,9 @@ export default function Home(props) {
       location={nyte.location}
       date={date}
       time={time}
+      game1={getGameById(props.state.collection, nyte.bgatlas_game_1)}
+      game2={getGameById(props.state.collection, nyte.bgatlas_game_2) || null}
+      game3={getGameById(props.state.collection, nyte.bgatlas_game_3) || null}
     />
     )
   });
@@ -64,7 +67,7 @@ export default function Home(props) {
               >
                 <Grid item xs={5.75}>
                   
-                  <ProfileCard state={props.state.user}/>
+                  {props.state.user && <ProfileCard state={props.state.user}/>}
                 </Grid>
                 <Grid item xs={0.5}>
                 

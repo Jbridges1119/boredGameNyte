@@ -21,10 +21,51 @@ module.exports = (db) => {
     let user_id = req.params.id;
     const params = [user_id];
     const query = `
-    SELECT game_nights.id as id, first_name, last_name, game_nights.title, game_nights.host_id, game_nights.competitive, game_nights.status, game_nights.location, game_nights.date FROM users
+    SELECT game_nights.id, 
+    first_name, 
+    last_name, 
+    game_nights.title, 
+    game_nights.host_id, 
+    game_nights.competitive, 
+    game_nights.status, 
+    game_nights.location, 
+    game_nights.date, 
+    game_choices.bgatlas_game_1, 
+    game_choices.bgatlas_game_2, 
+    game_choices.bgatlas_game_3 FROM users
     JOIN game_nights ON users.id = game_nights.host_id
+    JOIN game_choices ON game_nights.id = game_choices.game_night_id
     WHERE host_id = $1
     LIMIT 3;
+    `;
+    return db.query(query, params)
+      .then((data) => {
+        return res.json(data.rows);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  })
+  // Get game nights hosted by :id
+  router.get("/host/:id/all", (req, res) => {
+    let user_id = req.params.id;
+    const params = [user_id];
+    const query = `
+    SELECT game_nights.id, 
+    first_name, 
+    last_name, 
+    game_nights.title, 
+    game_nights.host_id, 
+    game_nights.competitive, 
+    game_nights.status, 
+    game_nights.location, 
+    game_nights.date, 
+    game_choices.bgatlas_game_1, 
+    game_choices.bgatlas_game_2, 
+    game_choices.bgatlas_game_3 FROM users
+    JOIN game_nights ON users.id = game_nights.host_id
+    JOIN game_choices ON game_nights.id = game_choices.game_night_id
+    WHERE host_id = $1;
     `;
     return db.query(query, params)
       .then((data) => {
@@ -41,6 +82,8 @@ module.exports = (db) => {
     const query = `
     SELECT * FROM attendees
     JOIN game_nights ON id = attendees.game_night_id
+    JOIN users ON game_nights.host_id = users.id
+    JOIN game_choices ON game_choices.game_night_id = attendees.game_night_id
     WHERE attendee_id = $1;
     `;
     return db.query(query, params)
@@ -89,8 +132,14 @@ module.exports = (db) => {
     let gn_id = req.params.id
     const params = [gn_id];
     const query = `
-    SELECT DISTINCT game_night_id, game_choices.bgatlas_game_id, name, min_players, max_players, thumb_url, large_url FROM game_choices
-    JOIN game_collections ON game_collections.bgatlas_game_id = game_choices.bgatlas_game_id
+    SELECT game_nights.id,
+    game_nights.title,
+    game_nights.host_id, 
+    game_choices.bgatlas_game_1, 
+    game_choices.bgatlas_game_2, 
+    game_choices.bgatlas_game_3 FROM users
+    JOIN game_nights ON users.id = game_nights.host_id
+    JOIN game_choices ON game_nights.id = game_choices.game_night_id
     WHERE game_night_id = $1;
     `;
     return db.query(query, params)

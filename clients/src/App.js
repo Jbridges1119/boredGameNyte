@@ -35,43 +35,27 @@ function App() {
     } = useCreateGameNyteData();
 
   const [userId, setUserId] = useState(1);
-  const [gameNytes, setGameNytes] = useState({
-    nytes: [],
-    games: [],
-  });
+  const [gameNytes, setGameNytes] = useState([]);
 
   useEffect(()=> {
     axios.get(`http://localhost:3005/api/gamenytes/host/${userId}`)
     .then((data) => {
-        setGameNytes((prev) => {
-          return { ...prev, nytes: data.data }
-        })
-      })
-      .then(() => {
-        for (let nyte of gameNytes.nytes) {
-          axios.get(`http://localhost:3005/api/gamenytes/${nyte.id}/games`)
-          .then((data) => {
-            setGameNytes((prev) => {
-              return { ...prev, games: [...prev.games, data.rows] }
-            })
-            console.log("gamenytes:", gameNytes)
-          })
-        }
-      }
-      )
-    }, []);
+      setGameNytes(data.data) 
+    }) 
+  }, [])
 
-    console.log("gamenytes:", gameNytes)
+  
   // user data useEffect
   useEffect(() => {
     Promise.all([
       axios.get(`http://localhost:3005/api/users/${userId}`),
       axios.get(`http://localhost:3005/api/users/${userId}/friends`),
-      axios.get(`http://localhost:3005/api/users/${userId}/collection`)
+      axios.get(`http://localhost:3005/api/users/${userId}/collection`),
+      axios.get(`http://localhost:3005/api/gamecollection`)
     ])
     .then((all) => {
       setState((prev) => {
-        return {...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data}
+        return {...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data, globalCollection: all[3].data}
       })
     })
     .catch((err) => {
@@ -90,11 +74,16 @@ function App() {
                         exact path="/" 
                         element={<Home 
                           state={state}
-                          gameNytes={gameNytes.nytes}
+                          gameNytes={gameNytes}
                         />} theme={theme}/>
                       <Route path="/search" element={<Search />} theme={theme}/>
                       <Route path="/nyte" element={<NytePage />} theme={theme}/>
-                      <Route path="/gamenytes" element={<GameNyteList />} theme={theme}/>
+                      <Route 
+                        path="/gamenytes" 
+                        element={<GameNyteList 
+                                  state={state}
+                                />} 
+                        theme={theme}/>
                       <Route 
                         path="/create" 
                         element={<CreateNew 

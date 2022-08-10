@@ -12,7 +12,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import { ArrowDownward } from "@mui/icons-material";
+import { getGameById, formatDate, formatTime } from "../../helperFunctions/helperFunctions"
 
 
 
@@ -54,12 +54,36 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   border: "none",
 }));
 
-const GameNyteList = () => {
-  const [expanded, setExpanded] = React.useState('panel1');
-
+const GameNyteList = (props) => {
+  const [expanded, setExpanded] = useState('panel1');
+  
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
+
+  const [gameNytes, setGameNytes] = useState({
+    hosted: [],
+    invited: [],
+    collection: []
+  });
+
+  useEffect(() => {
+      if (!props.state.user) {
+        return  
+      }
+      let user_id = props.state.user.id;
+      console.log("props:", props)
+      Promise.all([
+        axios.get(`http://localhost:3005/api/gamenytes/host/${user_id}/all`),
+        axios.get(`http://localhost:3005/api/gamenytes/invited/${user_id}/`)
+      ])
+      .then((all) => {
+        setGameNytes((prev) => {
+          return { ...prev, hosted: all[0].data, invited: all[1].data }
+        })
+      })
+    }, [props.state.user]);
+
 
   return ( 
     <Box sx={{
@@ -96,19 +120,35 @@ const GameNyteList = () => {
  
         }}
       >
-      
-      <ListItem>
-        <GameNyteCard/>
-        </ListItem>
-        <ListItem>
-        <GameNyteCard/>
-        </ListItem>
-        <ListItem>
-        <GameNyteCard/>
-        </ListItem>
-        <ListItem>
-        <GameNyteCard/>
-        </ListItem>
+        {/* upcoming */}
+        {gameNytes.invited.map((nyte) => {
+          if (nyte.status === 'Scheduled') {
+        
+            const date = formatDate(nyte.date)
+            const time = formatTime(nyte.date)
+            return (
+              <ListItem
+                key={nyte.id}
+              >
+                <GameNyteCard
+                  first_name={nyte.first_name}
+                  last_name={nyte.last_name}
+                  title={nyte.title}
+                  comp={nyte.competitive}
+                  status={nyte.status}
+                  location={nyte.location}
+                  date={date}
+                  time={time}
+                  game1={getGameById(props.state.globalCollection, nyte.bgatlas_game_1)}
+                  game2={getGameById(props.state.globalCollection, nyte.bgatlas_game_2)}
+                  game3={getGameById(props.state.globalCollection, nyte.bgatlas_game_3)}
+                />
+              </ListItem>
+            )
+          }
+          return null;
+        })}
+        
       </List>
           
         </AccordionDetails>
@@ -138,19 +178,31 @@ const GameNyteList = () => {
       >
         
         
-        
-        <ListItem>
-        <GameNyteCard/>
-        </ListItem>
-        <ListItem>
-        <GameNyteCard/>
-        </ListItem>
-        <ListItem>
-        <GameNyteCard/>
-        </ListItem>
-        <ListItem>
-        <GameNyteCard/>
-        </ListItem>
+        {/* Hosted */}
+        {gameNytes.hosted.map((nyte) => {
+          
+            const date = formatDate(nyte.date)
+            const time = formatTime(nyte.date)
+            return(
+              <ListItem
+                key={nyte.id}
+              >
+                <GameNyteCard
+                  first_name={nyte.first_name}
+                  last_name={nyte.last_name}
+                  title={nyte.title}
+                  comp={nyte.competitive}
+                  status={nyte.status}
+                  location={nyte.location}
+                  date={date}
+                  time={time}
+                  game1={getGameById(props.state.globalCollection, nyte.bgatlas_game_1)}
+                  game2={getGameById(props.state.globalCollection, nyte.bgatlas_game_2)}
+                  game3={getGameById(props.state.globalCollection, nyte.bgatlas_game_3)}
+                />
+              </ListItem>
+            )
+        })}
         
       </List>
       
@@ -177,13 +229,34 @@ const GameNyteList = () => {
  
         }}
       >
-        <ListItem>
-        <GameNyteCard/>
-        </ListItem>
-        <ListItem>
-        <GameNyteCard/>
-        </ListItem>
-   
+      {/* invited */}
+      {gameNytes.invited.map((nyte) => {
+          if (nyte.status === 'complete') {
+            
+            const date = formatDate(nyte.date)
+            const time = formatTime(nyte.date)
+            return(
+              <ListItem
+                key={nyte.id}
+              >
+                <GameNyteCard
+                  first_name={nyte.first_name}
+                  last_name={nyte.last_name}
+                  title={nyte.title}
+                  comp={nyte.competitive}
+                  status={nyte.status}
+                  location={nyte.location}
+                  date={date}
+                  time={time}
+                  game1={getGameById(props.state.globalCollection, nyte.bgatlas_game_1)}
+                  game2={getGameById(props.state.globalCollection, nyte.bgatlas_game_2)}
+                  game3={getGameById(props.state.globalCollection, nyte.bgatlas_game_3)}
+                />
+              </ListItem>
+            )
+          }
+          return null;
+        })}
         
       </List>
         </AccordionDetails>
