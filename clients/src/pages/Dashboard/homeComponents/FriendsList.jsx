@@ -1,6 +1,5 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -8,14 +7,17 @@ import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Person from "@mui/icons-material/Person";
 
 
 const FriendList = styled(ListItemText)({
   '& .MuiListItemText-secondary': {
-    color:'white'
+    color:'white',
+    fontSize: '13px'
+  },'& .MuiListItemText-primary': {
+    color:'white',
+    fontSize: '15px'
   },
 });
 

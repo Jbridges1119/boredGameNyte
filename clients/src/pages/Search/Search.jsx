@@ -12,27 +12,13 @@ import FormControl from "@mui/material/FormControl";
 import { Container } from "@mui/system";
 
 const CssTextField = styled(TextField)({
-  "& label.Mui-focused": {
-    borderBottomColor: "white",
-    color: "white",
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "white",
-    color: "white",
+  "& .MuiOutlinedInput-root:hover": {
+    "& > fieldset": {
+      border: '1px solid white'
+    }
   },
   "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderRadius: "20px",
-      border: "2px solid white",
-    },
-    "&:hover fieldset": {
-      border: "1px solid white",
-      borderRadius: "20px",
-    },
-    "&.Mui-focused fieldset": {
-      borderRadius: "20px",
-      borderColor: "white",
-    },
+    "& > fieldset": { borderRadius:'20px', border: '2px solid white' },
   },
 });
 

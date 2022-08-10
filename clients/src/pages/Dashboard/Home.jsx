@@ -1,10 +1,7 @@
 
 import React from "react";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Card from "@mui/material/Card";
-import { Container, Stack, Box } from "@mui/material";
-import { useEffect } from "react";
+import {  Stack, Box } from "@mui/material";
 import ProfileCard from "./homeComponents/ProfileCard";
 import FriendsListCard from "./homeComponents/FriendsListCard";
 
@@ -53,7 +50,7 @@ export default function Home(props) {
                 <Grid item xs={0.5}>
                 
                 </Grid>
-                <Grid items xs={5.75}>
+                <Grid item xs={5.75}>
                   <FriendsListCard state={props.state.friendsList}/>
                 </Grid>
               </Grid>

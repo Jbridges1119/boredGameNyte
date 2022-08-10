@@ -8,48 +8,55 @@ import FriendInviter from "./CreateGameNyteComponents/GameNyteFriendInviter";
 import GameChooser from "./CreateGameNyteComponents/GameChooser";
 import { Button } from "@mui/material";
 import StaticDatePicker from "./CreateGameNyteComponents/DatePicker";
-
+import CompPicture from "./CreateGameNyteComponents/CompPicture";
+import { useEffect, useState } from "react";
+import BGN from "../../assets/Pictures/BGN.png";
+import BGNCasual from "../../assets/Pictures/BGNCasual.png";
 
 const CreateNew = (props) => {
+  const [casualPicture, setCasualPicture] = useState();
+
+  useEffect(() => {
+    if (props.state.competitive) setCasualPicture(BGN);
+    if (!props.state.competitive) setCasualPicture(BGNCasual);
+  }, [props.state.competitive]);
 
   return (
     <Box
       sx={{
         height: "100%",
         width: "100%",
-        backgroundColor: theme.palette.primary.main
-      }}>
-
-      <Grid container justifyContent="space-evenly">
-        <Stack direction="row">
-
-          <Grid item>
-            <Grid container>
-              <Stack alignContent="center">
-                <Grid item xs={12} sx={{
-                  py: 6,
-                  pl: 1
-                }}>
+        backgroundColor: theme.palette.primary.dark,
+      }}
+    >
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Grid item xs={11}>
+          <Stack mt={5}>
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid item xs={3.5}>
+                <Stack>
                   <TitleBar
-                    title={props.state.name} 
+                    title={props.state.name}
                     setTitle={props.setTitle}
                     setState={props.setState}
                   />
-                </Grid>
-                <Grid item xs={12} sx={{
-                  py: 1,
-                  pl: 1
-                }}>
+
                   <LocationBar
                     location={props.state.place}
                     setLocation={props.setLocation}
                     setState={props.setState}
                   />
-                </Grid>
-                <Grid item xs={12} sx={{
-                  py: 3,
-                  pl: 12
-                }}>
+
                   <StaticDatePicker
                     state={props.state}
                     setState={props.setState}
@@ -57,74 +64,87 @@ const CreateNew = (props) => {
                       color: theme.palette.secondary.light,
                     }}
                   />
-                </Grid>
 
-
-                <Grid item xs={12} sx={{ px: 15 }}>
+                  <CompPicture image={casualPicture} />
                   <FormGroup>
-                    <Stack direction="row" alignContent="center">
-                      <Grid item>
-                        <Typography
-                          sx={{ pt: 1, color: "white" }}>
+                    <Grid
+                      container
+                      direction="row"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <Grid
+                        item
+                        xs={5}
+                        justifyContent="center"
+                        alignItems="center"
+                        sx={{ display: "flex", mb: 3 }}
+                      >
+                        {/* <Typography
+                          sx={{ pt: 0.5, color: "white",display:'flex' }}>
                           Casual
-                        </Typography>
-                      </Grid>
-                      <Grid item>
+                        </Typography> */}
+
                         <Switch
                           checked={props.state.competitive}
                           onChange={props.handleCompSwitch}
-                          inputProps={{ 'aria-label': 'controlled' }}
-                          color="error" />
-                      </Grid>
-                      <Grid item>
-                        <Typography
-                          sx={{ pt: 1, color: "white" }}>
+                          inputProps={{ "aria-label": "controlled" }}
+                          color="error"
+                        />
+
+                        {/* <Typography
+                          sx={{ pt: 0.5, color: "white",display:'flex' }}>
                           Competitive
-                        </Typography>
-                      </Grid>
-                    </Stack>
+                        </Typography> */}
+                      </Grid>{" "}
+                    </Grid>
                   </FormGroup>
-                </Grid>
 
-
-                <Grid item xs={12} sx={{ px: 3, py: 3 }}>
-                  <FriendInviter 
-                  state={props.state}
-                  setState={props.setState}
-                  handleFriendToggle={props.handleFriendToggle}
+                  <FriendInviter
+                    state={props.state}
+                    setState={props.setState}
+                    handleFriendToggle={props.handleFriendToggle}
                   />
-                </Grid>
-              </Stack>
-            </Grid>
-          </Grid>
+                </Stack>
+              </Grid>
+              <Grid item xs={1.25}></Grid>
+              {/* Game list */}
 
-
-          <Stack>
-            <Grid item xs={12} sx={{ px: 6, pt: 6 }}>
-              <GameChooser 
-              state={props.state}
-              setState={props.setState}
-              handleClickOpen={props.handleClickOpen}
-              handleClose={props.handleClose}
-              handleCloseSave={props.handleCloseSave}
-              handleToggle={props.handleToggle}
-              toggleOff={props.toggleOff}
-              />
-            </Grid>
-            <Grid item xs={12} sx={{ px: 32, py: 12 }}>
-              <Button
-                type="submit"
-                onClick={props.printState}
-                sx={{
-                  color: 'white',
-                  backgroundColor: theme.palette.error.main,
-                  width: 400,
-                  height: 80
-                }}
-              >Create Game Nyte</Button>
-            </Grid>
+              <Grid item xs={5.25}>
+                <Stack sx={{ alignItems: "center" }}>
+                  <GameChooser
+                    state={props.state}
+                    setState={props.setState}
+                    handleClickOpen={props.handleClickOpen}
+                    handleClose={props.handleClose}
+                    handleCloseSave={props.handleCloseSave}
+                    handleToggle={props.handleToggle}
+                    toggleOff={props.toggleOff}
+                  />
+                  {/* <Button component={Link} to={'/game/' + props.id} sx={{width: 400,backgroundColor: theme.palette.error.main, height: 60,  fontSize: 35,textTransform: 'none', borderRadius: '20px' }} variant="contained">How To Play</Button> */}
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    onClick={props.printState}
+                    sx={{
+                      width: 500,
+                      backgroundColor: theme.palette.error.main,
+                      height: 75,
+                      fontSize: 35,
+                      textTransform: "none",
+                      borderRadius: "20px",
+                      pt: 1.25,
+                      mt: 5,
+                      mb: 2,
+                    }}
+                  >
+                    Create Game Nyte
+                  </Button>
+                </Stack>
+              </Grid>
+            </Grid>{" "}
           </Stack>
-        </Stack>
+        </Grid>
       </Grid>
     </Box>
   );
