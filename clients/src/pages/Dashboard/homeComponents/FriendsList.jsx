@@ -12,6 +12,13 @@ import Typography from "@mui/material/Typography";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Person from "@mui/icons-material/Person";
 
+
+const FriendList = styled(ListItemText)({
+  '& .MuiListItemText-secondary': {
+    color:'white'
+  },
+});
+
 const friends = [
   {
     name: "The Professor",
@@ -40,7 +47,7 @@ const friendsList = friends.map((friend) => {
     <ListItem
       key={friend.id}
       secondaryAction={
-        <IconButton edge="end" aria-label="delete" sx={{ color: "white" }}>
+        <IconButton size='large' edge="end" aria-label="delete" sx={{ color: "white" }}>
           <DeleteIcon />
         </IconButton>
       }
@@ -50,7 +57,7 @@ const friendsList = friends.map((friend) => {
           <Person />
         </Avatar>
       </ListItemAvatar>
-      <ListItemText primary={friend.name} secondary={friend.email} />
+      <FriendList primary={friend.name} secondary={friend.email} />
     </ListItem>
   );
 });

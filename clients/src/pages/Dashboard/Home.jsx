@@ -44,6 +44,7 @@ export default function Home(props) {
                 container
                 direction="row"
                 justifyContent="center"
+         
               
               >
                 <Grid item xs={5.75}>
