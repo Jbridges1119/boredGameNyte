@@ -2,18 +2,15 @@ import { styled } from "@mui/material/styles";
 import { TextField } from "@mui/material";
 import theme from "../../../assets/theme";
 
-
 const TitleBar = (props) => {
-
-
   const setTitle = (event) => {
     event.preventDefault();
     props.setState((prev) => {
-      return {...prev, 'name': event.target.value}
+      return { ...prev, name: event.target.value };
     });
   };
-  
-  return(
+
+  return (
     <TextField
       label="Name Your Game Nyte!"
       id="title"
@@ -26,10 +23,21 @@ const TitleBar = (props) => {
         borderRadius: "20px",
         alignContent: "center",
         justifyContent: "center",
-        width: "90%",
+        "& .MuiOutlinedInput-root:hover": {
+          "& > fieldset": {
+            border: "1px solid white",
+          },
+        },
+        "& .MuiOutlinedInput-root": {
+          "& > fieldset": { borderRadius: "20px", border: "2px solid white" },
+        },
+        width: "100%",
+        outline: { color: "white" },
         input: {
           color: "white",
+          border: "white",
         },
+        my: 1,
       }}
       onChange={setTitle}
     />
