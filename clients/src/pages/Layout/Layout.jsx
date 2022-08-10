@@ -13,6 +13,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Paper,
   Toolbar
 } from "@mui/material";
 import theme from "../../assets/theme";
@@ -31,22 +32,22 @@ const sidebarButtonStyle = {
 
 const menuItems = [{
     text: "Profile",
-    icon: <Person />,
+    icon: <Person  sx={{ color: "white" }}/>,
     path: "/"
 },
 {
     text: "Your Game Nytes",
-    icon: <CalendarMonth />,
+    icon: <CalendarMonth sx={{ color: "white" }}/>,
     path: "/gamenytes"
 },
 {
     text: "Game Search",
-    icon: <Search />,
+    icon: <Search sx={{ color: "white" }}/>,
     path: "/search"
 },
 {
     text: "Game Collection",
-    icon: <Casino />,
+    icon: <Casino sx={{ color: "white" }}/>,
     path: "/collection"
 }
 ]
@@ -57,11 +58,11 @@ const sideBarLinks = menuItems.map((item) => {
       <Link to={item.path}>
         <ListItem
         sx={sidebarButtonStyle}>
-          <ListItemButton>
+          <ListItemButton sx={{  height:'60px', fontSize:'45px' }}>
               <ListItemIcon>
                 {item.icon}
               </ListItemIcon>
-            <ListItemText primary={item.text} />
+            <ListItemText primary={item.text} primaryTypographyProps={{fontSize: '20px', pt:0.6}}/>
           </ListItemButton>
         </ListItem>
       </Link>
@@ -87,17 +88,20 @@ const Layout = (props) => {
         variant="permanent"
         anchor="left"
       >
-        <Toolbar sx={{ p: 0, alignContent: "left"}}>
-          <img src="https://i.imgur.com/9fxI7kC.jpg" width="300" height="200" alt="THIS IS GONNA BE A LOGO SOMEDAY"/>
+        <Toolbar sx={{ p: 0,pr:0}} >
+          <img src="https://i.imgur.com/9fxI7kC.jpg" width="300"  alt="THIS IS GONNA BE A LOGO SOMEDAY"/>
         </Toolbar>
         <Divider />
         <List>
           {/* CTA Button */}
         <Link to="/create">
-          <ListItem key='15' sx={{ pt: 4, pl: 0, pr: 0, pb: 4}}>
-            <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main }}>
-              <ListItemText primary="Create your Game Nyte!" />
+          <ListItem key='15' sx={{ mt: 3, pl: 0, pr: 0, mb: 4}}>
+          <Paper elevation={8} sx={{width:'100%'}}>
+            <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main, height:'70px' }}>
+              
+              <ListItemText primary="Create your Game Nyte!" primaryTypographyProps={{fontSize: '26px', pt:0.6}}/>
             </ListItemButton>
+            </Paper>
           </ListItem>
        </Link>
         {/* List links */}

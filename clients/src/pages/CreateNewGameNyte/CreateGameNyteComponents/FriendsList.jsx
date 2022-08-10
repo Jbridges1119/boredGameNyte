@@ -80,9 +80,10 @@ export default function FriendsList(props) {
     let labelId = `checkbox-list-secondary-label-${friend.friend_id}`;
     let name = `${friend.first_name} ${friend.last_name}`;
     return (
-      <ListItemButton role={undefined} onClick={props.handleFriendToggle(friend.friend_id)}>
+      <ListItemButton role={undefined} onClick={props.handleFriendToggle(friend.friend_id)}key={friend.friend_id}>
+        
       <ListItem
-        key={friend.friend_id}
+        
         secondaryAction={
           <Checkbox
             sx={{ color: "white" }}
