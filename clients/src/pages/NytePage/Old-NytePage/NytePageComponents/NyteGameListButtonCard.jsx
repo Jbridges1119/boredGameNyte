@@ -16,7 +16,7 @@ const NyteGameListButtonCard = () => {
           borderRadius: '15px' 
         }}
       >
-        <Grid container direction="row" justifyContent="center" alignItems="center">
+        <Grid  direction="row" justifyContent="center" alignItems="center">
       <Grid item xs={11}>
         <Stack spacing={2}>
           <Button  sx={{backgroundColor: theme.palette.primary.main, height: 75,  fontSize: 45,textTransform: 'none', borderRadius: '20px' }} variant="contained">How To Play Gloomhaven</Button>
@@ -37,4 +37,3 @@ const NyteGameListButtonCard = () => {
   );
 };
 
-export default NyteGameListButtonCard;

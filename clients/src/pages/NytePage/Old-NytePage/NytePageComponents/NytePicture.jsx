@@ -2,11 +2,12 @@ import * as React from 'react';
 
 import { Paper,  } from "@mui/material";
 import theme from "../../../assets/theme"
-import myImage from './Pictures/BGN.png'
+import BGN from '../../../../assets/Pictures/BGN.png'
+import BGNCasual from '../../../../assets/Pictures/BGNCasual.png'
 
 export default function NytePicture() {
 
-  const card = <img src={myImage} width="265" height="265"  alt="Competitive"/>
+  const card = <img src={BGN} width="265" height="265"  alt="Competitive"/>
 
 
   return (

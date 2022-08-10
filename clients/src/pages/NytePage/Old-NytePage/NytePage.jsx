@@ -26,17 +26,17 @@ const NytePage = () => {
         spacing={2}
       >
         <Grid 
-          container
+          
           direction="row"
           justifyContent="center"
           alignItems="center"
         >
           <Grid item xs={11}>
             {/* First Container Grid */}
-            <Stack container spacing={2}>
+            <Stack  spacing={2}>
             <Grid
             
-              container
+             
               direction="row"
               justifyContent="center"
               alignItems="center"
@@ -62,7 +62,7 @@ const NytePage = () => {
             </Grid>
  {/* Second Container Grid */}
             <Grid
-              container
+              
               direction="row"
               justifyContent="center"
               alignItems="center"
@@ -90,7 +90,7 @@ const NytePage = () => {
         </Grid>
          {/* Bottom Container Grid */}
         <Grid
-          container
+        
           direction="row"
           justifyContent="center"
           alignItems="center"

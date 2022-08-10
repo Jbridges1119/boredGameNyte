@@ -25,7 +25,7 @@ const NyteStatus = (props) => {
 <>
   
    <Box sx={{ maxWidth: '90%', pt: 1}}>
-    <Stack container
+    <Stack 
      justifyContent="center"
      alignItems="center" 
      spacing={0}>

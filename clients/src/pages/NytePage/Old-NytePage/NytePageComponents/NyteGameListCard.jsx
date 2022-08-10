@@ -22,7 +22,7 @@ const NyteGameListCard = () => {
 
 
 
-console.log(data)
+
 
 
 
@@ -53,9 +53,9 @@ const game = data.map((game) =>{
         }} >
         <CardHeader sx={{ }} title="Game List" />
         <CardContent>
-          <Grid container >
+         
             {game}
-          </Grid>
+          
         </CardContent>
       </Card>
   </>;

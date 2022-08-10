@@ -21,7 +21,7 @@ const NyteDetails = (props) => {
       }}
     >
      <Stack
-     container
+     
      
      justifyContent="center"
      alignItems="center">
