@@ -7,7 +7,5 @@ CREATE TABLE game_nights (
   competitive BOOLEAN NOT NULL DEFAULT FALSE,
   status VARCHAR(255),
   location VARCHAR(255),
-  winner VARCHAR(255),
-  journal_entry TEXT,
   date VARCHAR(255) NOT NULL
 );
