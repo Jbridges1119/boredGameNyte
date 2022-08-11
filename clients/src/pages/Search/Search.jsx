@@ -3,13 +3,7 @@ import theme from "../../assets/theme";
 import "../../styles/Search.css";
 import useSearchData from "../../hooks/useSearchData";
 import * as React from "react";
-import { alpha, styled } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
-// import LoadingButton from '@mui/lab/LoadingButton';
-import InputLabel from "@mui/material/InputLabel";
-
-import FormControl from "@mui/material/FormControl";
-import { Container } from "@mui/system";
+import { styled } from "@mui/material/styles";
 
 const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root:hover": {

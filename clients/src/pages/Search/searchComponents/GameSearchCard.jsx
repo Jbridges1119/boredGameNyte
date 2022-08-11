@@ -12,6 +12,7 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
+import { getGameById } from '../../../helperFunctions/helperFunctions';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -138,6 +139,7 @@ sx={{
           direction="row"
           justifyContent="space-between"
           alignItems="center">
+            {!getGameById(props.state.collection, props.gameId) && 
             <Button 
               onClick={props.addGame}
               variant="contained" 
@@ -148,7 +150,18 @@ sx={{
                     borderRadius: "20px",
                     color:'white',
                     pt:1.25
-                  }}>Add To Collection</Button>
+                  }}>Add To Collection</Button>}
+            {getGameById(props.state.collection, props.gameId) && 
+            <Button 
+              onClick={props.removeGame}
+              variant="contained" 
+              sx={{
+                backgroundColor: theme.palette.error.main,
+                height: 40,
+                fontSize: 20,
+                borderRadius: "20px",
+                color:'error'
+              }}>Remove From Collection</Button>}
          
      
             <Button variant="contained" component={Link} to={'/game/' + props.gameId} sx={{

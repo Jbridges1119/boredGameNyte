@@ -42,8 +42,9 @@ export default function useSearchData(props) {
           max_players={game.max_players}
           name={game.name}
           description={game.description}
+          state={props.state}
           addGame={() => props.addGame(props.state.user.id, game.id, game)}
-          removeGame={() => props.removeGame(props.user.id, game.id)}
+          removeGame={() => props.removeGame(props.state.user.id, game.id)}
         />
       </Grid>
     )
