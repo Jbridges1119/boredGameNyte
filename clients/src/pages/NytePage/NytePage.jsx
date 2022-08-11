@@ -1,6 +1,6 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-
+import { useParams } from "react-router-dom";
 import { Box, Paper, Stack, Typography } from "@mui/material";
 
 import NyteDetails from "./NytePageComponents/NyteDetails";
@@ -8,40 +8,45 @@ import GameCard from "./NytePageComponents/GameCard";
 import theme from "../../assets/theme";
 import { useState } from "react";
 import { useEffect } from "react";
+import { getGameById } from "../../helperFunctions/helperFunctions";
 import axios from "axios";
 
-const NytePage = () => {
+const NytePage = (props) => {
+  const nightId = useParams().id;
+  console.log("nightId:", nightId);
   const [data, setData] = useState([]);
-  // const [videos, setVideos] = useState([])
-  const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
+  const [hostData, setHostData] = useState([]);
+
   useEffect(() => {
-    Promise.all([
-      axios.get(
-        `https://api.boardgameatlas.com/api/search?ids=TAAifFP590,OIXt3DmJU0&pretty=true&client_id=JLBr5npPhV`
-      ),
-      axios.get(
-        `https://api.boardgameatlas.com/api/search?ids=Dm71eMcqrp&pretty=true&client_id=${BGA_CLIENT_ID}`
-      ),
-      axios.get(
-        `https://api.boardgameatlas.com/api/search?name=Catan&client_id=JLBr5npPhV`
-      ),
-    ]).then((all) => {
-      setData(all);
-      // setVideos(all[1].data.items)
+    axios
+      .get(`http://localhost:3005/api/gamenytes/${nightId}`)
+      .then((data) => {
+      setData(data.data);
+      axios
+        .get(`http://localhost:3005/api/users/${data.data[0].host_id}`)
+        .then((host) => {
+          setHostData(host.data);
+    
+        });
     });
   }, []);
-
-  const game = data.map((game) => {
+  console.log("DATA", data[0]);
+  console.log("globalgamecollection", props.state.globalCollection);
+  const game1 = data[0] && getGameById(props.state.globalCollection, data[0] ? data[0].game_1 :'');
+  const game2 = data[0] && getGameById(props.state.globalCollection, data[0] ? data[0].game_2 : '');
+  const game3 = getGameById(props.state.globalCollection, data[0] ? data[0].game_3 : '');
   
-    return (
-      <GameCard
-        key={game.data.games[0].id}
-        id={game.data.games[0].id}
-        img={game.data.games[0].images.large}
-        name={game.data.games[0].name}
-      />
-    );
-  });
+  // const gameCards = games.map((game) => {
+
+  //   return (
+  //     <GameCard
+  //       key={data[0] ? game.id : ''}
+  //       id={data[0] ? game.id : ''}
+  //       img={data[0] ? game.thumb_url : ''}
+  //       name={data[0] ? game.name : ''}
+  //     />
+  //   );
+  // });
 
   return (
     <Box
@@ -78,18 +83,47 @@ const NytePage = () => {
               elevation={4}
             >
               <Typography pl={0} variant="h2">
-                Super Serious Game Night
+                {data[0] && data[0].title}
               </Typography>
             </Paper>
           </Box>
 
           <Grid container direction="row">
             <Grid item xs={2.5}>
-              <NyteDetails />
+              <NyteDetails
+                data={data}
+                hostData={hostData}
+                user={props.state.user}
+              />
             </Grid>
             <Grid item xs={0.5}></Grid>
             <Grid item xs={9}>
-              <Stack spacing={3}>{game}</Stack>
+              <Stack spacing={3}>
+                {data[0] && (
+                  <GameCard
+                    game={getGameById(props.state.globalCollection, data[0] ? data[0].game_1 : '')}
+                    // key={game1 ? game1.id : ""}
+                  />
+                )}
+                {data[0] && (
+                  <GameCard
+                    game={getGameById(props.state.globalCollection, data[0] ? data[0].game_2 : '')}
+                    // key={game2 ? game2.id : ""}
+                    // id={game2 ? game2.id : ""}
+                    // img={game2 ? game2.thumb_url : ""}
+                    // name={game2 ? game2.name : ""}
+                  />
+                )}
+                {data[0] && (
+                  <GameCard
+                    game={getGameById(props.state.globalCollection, data[0] ? data[0].game_3 : '')}
+                    key={data[0] ? data[0].game_3 : ''}
+                    // id={game3 ? game3.id : ""}
+                    // img={game3 ? game3.thumb_url : ""}
+                    // name={game3 ? game3.name : ""}
+                  />
+                )}
+              </Stack>
             </Grid>
           </Grid>
         </Grid>
