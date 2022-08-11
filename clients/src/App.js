@@ -35,7 +35,7 @@ function App() {
     printState
   } = useApplicationData();
 
-  const [userId, setUserId] = useState(3);
+  const [userId, setUserId] = useState(1);
   const [gameNytes, setGameNytes] = useState([]);
   const [gameNytesHosted, setGameNytesHosted] = useState([]);
   const [gameNytesAttended, setGameNytesAttended] = useState([]);
@@ -100,6 +100,8 @@ function App() {
               <Home
                 state={state}
                 gameNytes={gameNytes}
+                gameNytesAttended={gameNytesAttended}
+                gameNytesHosted={gameNytesHosted}
               />} 
               theme={theme} />
             <Route 
