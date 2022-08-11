@@ -47,7 +47,7 @@ export default function useSeachData() {
   });
 
 
-  
+
   return {
     gameSearch,
     data,

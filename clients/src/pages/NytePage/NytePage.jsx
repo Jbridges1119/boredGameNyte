@@ -13,40 +13,20 @@ import axios from "axios";
 
 const NytePage = (props) => {
   const nightId = useParams().id;
-  console.log("nightId:", nightId);
+
   const [data, setData] = useState([]);
   const [hostData, setHostData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3005/api/gamenytes/${nightId}`)
-      .then((data) => {
+    axios.get(`http://localhost:3005/api/gamenytes/${nightId}`).then((data) => {
       setData(data.data);
       axios
         .get(`http://localhost:3005/api/users/${data.data[0].host_id}`)
         .then((host) => {
           setHostData(host.data);
-    
         });
     });
   }, []);
-  console.log("DATA", data[0]);
-  console.log("globalgamecollection", props.state.globalCollection);
-  const game1 = data[0] && getGameById(props.state.globalCollection, data[0] ? data[0].game_1 :'');
-  const game2 = data[0] && getGameById(props.state.globalCollection, data[0] ? data[0].game_2 : '');
-  const game3 = getGameById(props.state.globalCollection, data[0] ? data[0].game_3 : '');
-  
-  // const gameCards = games.map((game) => {
-
-  //   return (
-  //     <GameCard
-  //       key={data[0] ? game.id : ''}
-  //       id={data[0] ? game.id : ''}
-  //       img={data[0] ? game.thumb_url : ''}
-  //       name={data[0] ? game.name : ''}
-  //     />
-  //   );
-  // });
 
   return (
     <Box
@@ -101,13 +81,19 @@ const NytePage = (props) => {
               <Stack spacing={3}>
                 {data[0] && (
                   <GameCard
-                    game={getGameById(props.state.globalCollection, data[0] ? data[0].game_1 : '')}
+                    game={getGameById(
+                      props.state.globalCollection,
+                      data[0] ? data[0].game_1 : ""
+                    )}
                     // key={game1 ? game1.id : ""}
                   />
                 )}
                 {data[0] && (
                   <GameCard
-                    game={getGameById(props.state.globalCollection, data[0] ? data[0].game_2 : '')}
+                    game={getGameById(
+                      props.state.globalCollection,
+                      data[0] ? data[0].game_2 : ""
+                    )}
                     // key={game2 ? game2.id : ""}
                     // id={game2 ? game2.id : ""}
                     // img={game2 ? game2.thumb_url : ""}
@@ -116,8 +102,11 @@ const NytePage = (props) => {
                 )}
                 {data[0] && (
                   <GameCard
-                    game={getGameById(props.state.globalCollection, data[0] ? data[0].game_3 : '')}
-                    key={data[0] ? data[0].game_3 : ''}
+                    game={getGameById(
+                      props.state.globalCollection,
+                      data[0] ? data[0].game_3 : ""
+                    )}
+                    key={data[0] ? data[0].game_3 : ""}
                     // id={game3 ? game3.id : ""}
                     // img={game3 ? game3.thumb_url : ""}
                     // name={game3 ? game3.name : ""}

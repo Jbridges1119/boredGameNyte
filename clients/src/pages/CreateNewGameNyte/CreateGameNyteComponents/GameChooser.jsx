@@ -13,7 +13,7 @@ const GameChooser = (props) => {
   let game1 = getGameById(props.state.collection, props.state.gamesChosen[0]);
   let game2 = getGameById(props.state.collection, props.state.gamesChosen[1]);
   let game3 = getGameById(props.state.collection, props.state.gamesChosen[2]);
- 
+
   useEffect(() => {
     if (props.state.gamesChosen.length > 0) setAddButton(8);
     if (props.state.gamesChosen.length === 0) setAddButton(35.7);

@@ -1,7 +1,6 @@
 // import React from "react";
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
-import { motion } from "framer-motion";
 import theme from "./assets/theme";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
@@ -47,11 +46,11 @@ function App() {
 
   useEffect(() => {
     axios.get(`http://localhost:3005/api/gamecollection`)
-    .then((data) => {
-      setState((prev) => {
-        return { ...prev, globalCollection: data.data }
+      .then((data) => {
+        setState((prev) => {
+          return { ...prev, globalCollection: data.data }
+        })
       })
-    })
   }, [])
 
   // user data useEffect
