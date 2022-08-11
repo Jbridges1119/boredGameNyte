@@ -5,7 +5,7 @@ import GameSearchCard from "../pages/Search/searchComponents/GameSearchCard";
 
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 
-export default function useSeachData() {
+export default function useSearchData() {
   const [data, setData] = useState([])
   const [input, setInput] = useState("")
 

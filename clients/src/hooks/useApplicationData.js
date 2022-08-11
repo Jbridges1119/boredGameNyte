@@ -131,19 +131,29 @@ const useApplicationData = () => {
   }
 
   const deleteGameFromCollection = (user, gameId) => {
-    const currentIndex = state.collection.indexOf(state.collection.gameId);
+
+    let gameObj = {}
+    for (let g of state.collection) {
+      if (g.id === gameId) {
+        gameObj = g
+      }
+    }
+
+    const currentIndex = state.collection.indexOf(gameObj);
     const newUserCollection = [...state.collection];
 
+    if (currentIndex >= 0) {
+      newUserCollection.splice(currentIndex, 1);
+    }
     
     return axios.delete(`http://localhost:3005/api/gamecollection/${user}/${gameId}`)
     .then(() => {
-      if (currentIndex >= 0) {
-        newUserCollection.splice(currentIndex, 1);
-        setState((prev) => {
-          return { ...prev, collection: newUserCollection }
-        })
-      }
+        setState({ ...state, collection: newUserCollection })
     })
+  };
+
+  const addGameToCollection = (user, gameId) => {
+
   };
 
   return { 

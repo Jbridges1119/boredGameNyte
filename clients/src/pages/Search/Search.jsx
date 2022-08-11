@@ -1,7 +1,7 @@
 import { Box, Grid, TextField, Button, Stack } from "@mui/material";
 import theme from "../../assets/theme";
 import "../../styles/Search.css";
-import useSeachData from "../../hooks/useSearchData";
+import useSearchData from "../../hooks/useSearchData";
 import * as React from "react";
 import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
@@ -24,7 +24,7 @@ const CssTextField = styled(TextField)({
 
 const Search = () => {
   const [loading, setLoading] = React.useState(true);
-  const { gameSearch, data, setInput, gameSearchResults } = useSeachData();
+  const { gameSearch, data, setInput, gameSearchResults } = useSearchData();
   const handleSubmit = (e) => {
     e.preventDefault();
     gameSearch();
