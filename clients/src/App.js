@@ -15,7 +15,7 @@ import GamePage from './pages/GamePage/GamePage'
 import CreateNew from "./pages/CreateNewGameNyte/CreateNew";
 import GameCollection from "./pages/GameCollection/GameCollection";
 
-import useCreateGameNyteData from "./hooks/useCreateGameNyteData";
+import useApplicationData from "./hooks/useApplicationData";
 
 function App() {
 
@@ -31,7 +31,7 @@ function App() {
     handleCompSwitch,
     toggleOff,
     printState
-  } = useCreateGameNyteData();
+  } = useApplicationData();
 
   const [userId, setUserId] = useState(3);
   const [gameNytes, setGameNytes] = useState([]);

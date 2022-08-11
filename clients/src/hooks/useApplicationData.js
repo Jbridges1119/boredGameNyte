@@ -46,7 +46,7 @@ const games = [
   }
 ]
 
-const useCreateGameNyteData = () => {
+const useApplicationData = () => {
 
 
   // This will ideally be the users collection retrieved from database
@@ -160,4 +160,4 @@ const useCreateGameNyteData = () => {
   }
 };
 
-export default useCreateGameNyteData;
+export default useApplicationData;
