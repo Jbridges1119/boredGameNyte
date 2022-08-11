@@ -30,7 +30,7 @@ const GamePage = (props) => {
         `https://api.boardgameatlas.com/api/search?ids=${atlasGame}&pretty=true&client_id=${BGA_CLIENT_ID}`
       )
       .then((all) => {
-        setGameData(all.data.games);
+        setGameData(all.data.games[0]);
         //   const youTubeGame = (all.data.games[0].name).replace(/ /g,'%20').replace(/&/g,'%20')
         //   Promise.all([
         //     axios.get(`${youtubeApiUrl}?q=${youTubeGame}%20how%20to%20play%20game&maxResults=3&key=${apiKey}`),
@@ -41,7 +41,7 @@ const GamePage = (props) => {
         //   })
       });
   }, []);
-
+  
   return (
     <Box
       sx={{
@@ -58,7 +58,12 @@ const GamePage = (props) => {
       >
         <Grid item xs={11}>
           <Stack  spacing={4} mt={5}>
-            <GameCard gameData={gameData} />
+            <GameCard 
+              gameData={gameData} 
+              state={props.state}
+              addGame={props.addGame}
+              removeGame={props.removeGame}  
+            />
             <VideoCard videos={videos[0]} videos2={videos[1]} />
           </Stack>
         </Grid>
@@ -66,5 +71,4 @@ const GamePage = (props) => {
     </Box>
   );
 };
-
 export default GamePage;
