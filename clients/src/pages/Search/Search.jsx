@@ -3,22 +3,17 @@ import theme from "../../assets/theme";
 import "../../styles/Search.css";
 import useSeachData from "../../hooks/useSearchData";
 import * as React from "react";
-import { alpha, styled } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
+import { styled } from "@mui/material/styles";
 // import LoadingButton from '@mui/lab/LoadingButton';
-import InputLabel from "@mui/material/InputLabel";
-
-import FormControl from "@mui/material/FormControl";
-import { Container } from "@mui/system";
 
 const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root:hover": {
     "& > fieldset": {
-      border: '1px solid white'
-    }
+      border: "1px solid white",
+    },
   },
   "& .MuiOutlinedInput-root": {
-    "& > fieldset": { borderRadius:'20px', border: '2px solid white' },
+    "& > fieldset": { borderRadius: "20px", border: "2px solid white" },
   },
 });
 
@@ -103,7 +98,7 @@ const Search = () => {
                     height: 50,
                     fontSize: 25,
                     borderRadius: "20px",
-                    pt:1.25
+                    pt: 1.25,
                   }}
                   type="submit"
                   onClick={gameSearch}
