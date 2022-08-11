@@ -131,6 +131,7 @@ const GameNyteList = (props) => {
                 key={nyte.id}
               >
                 <GameNyteCard
+                  id={nyte.id}
                   first_name={nyte.first_name}
                   last_name={nyte.last_name}
                   title={nyte.title}
@@ -188,6 +189,7 @@ const GameNyteList = (props) => {
                 key={nyte.id}
               >
                 <GameNyteCard
+                  id={nyte.id}
                   first_name={nyte.first_name}
                   last_name={nyte.last_name}
                   title={nyte.title}
@@ -240,6 +242,7 @@ const GameNyteList = (props) => {
                 key={nyte.id}
               >
                 <GameNyteCard
+                  id={nyte.id}
                   first_name={nyte.first_name}
                   last_name={nyte.last_name}
                   title={nyte.title}
