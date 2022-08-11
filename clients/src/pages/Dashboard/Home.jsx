@@ -56,7 +56,13 @@ export default function Home(props) {
           <Grid item xs={11}>
             <Grid container direction="row" justifyContent="center">
               <Grid item xs={5.75}>
-                {props.state.user && <ProfileCard state={props.state.user} />}
+                {props.state.user && (
+                  <ProfileCard
+                    state={props.state.user}
+                    gameNytesHosted={props.gameNytesHosted}
+                    gameNytesAttended={props.gameNytesAttended}
+                  />
+                )}
               </Grid>
               <Grid item xs={0.5}></Grid>
               <Grid item xs={5.75}>

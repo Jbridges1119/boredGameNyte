@@ -33,8 +33,10 @@ function App() {
     printState
   } = useCreateGameNyteData();
 
-  const [userId, setUserId] = useState(1);
+  const [userId, setUserId] = useState(3);
   const [gameNytes, setGameNytes] = useState([]);
+  const [gameNytesHosted, setGameNytesHosted] = useState([]);
+  const [gameNytesAttended, setGameNytesAttended] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:3005/api/gamenytes/host/${userId}`)
@@ -43,6 +45,19 @@ function App() {
       })
   }, [userId])
 
+  useEffect(() => {
+    axios.get(`http://localhost:3005/api/gamenytes/host/${userId}/all`)
+      .then((data) => {
+        setGameNytesHosted(data.data)
+      })
+  }, [userId])
+
+  useEffect(() => {
+    axios.get(`http://localhost:3005/api/gamenytes/attended/${userId}`)
+      .then((data) => {
+        setGameNytesAttended(data.data)
+      })
+  }, [userId])
 
   useEffect(() => {
     axios.get(`http://localhost:3005/api/gamecollection`)
@@ -82,6 +97,8 @@ function App() {
               element={<Home
                 state={state}
                 gameNytes={gameNytes}
+                gameNytesHosted={gameNytesHosted}
+                gameNytesAttended={gameNytesAttended}
               />} theme={theme} />
             <Route path="/search" element={<Search />} theme={theme} />
             <Route path="/nyte/:id" element={<NytePage

@@ -8,6 +8,9 @@ import { Box, Stack } from "@mui/material";
 export default function ProfileCard(props) {
   let greeting = `Welcome Back ${props.state.first_name} ${props.state.last_name}!`;
 
+  const totalGameNytesHosted = props.gameNytesHosted.length;
+  const totalGameNytesAtteneded = props.gameNytesAttended.length;
+
   return (
     <Box
       sx={{
@@ -66,7 +69,7 @@ export default function ProfileCard(props) {
                     Nytes Hosted
                   </Typography>
                   <Typography sx={{ color: "white" }} variant="h5">
-                    3
+                    {totalGameNytesHosted}
                   </Typography>
                 </Box>
                 <Box>
@@ -74,7 +77,7 @@ export default function ProfileCard(props) {
                     Nytes Attended
                   </Typography>
                   <Typography sx={{ color: "white" }} variant="h5">
-                    6
+                    {totalGameNytesAtteneded}
                   </Typography>
                 </Box>
               </Stack>
