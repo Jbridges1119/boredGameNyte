@@ -4,16 +4,30 @@ import Host from "./statusButtons/Host";
 import UserConfirmed from "./statusButtons/UserConfirmed";
 import UserDeclined from "./statusButtons/UserDeclined";
 import UserNotSelected from "./statusButtons/UserNotSelected";
+import { formatDate, formatTime } from "../../../../helperFunctions/helperFunctions"
 
 
 const NyteStatus = (props) => {
-  const firstName = props.first ? props.first : "First "
-  const lastName = props.last ? props.last : "Last "
-  const date = props.date ? props.date : "Date"
-  const time = props.time ? props.time : "time"
-  const location = props.location ? props.location : "location"
-  const host = props.host === props.user ? "Host" : ""
-    const invited = props.invited === undefined ? "" : props.invited
+  const firstName = props.hostData ? props.hostData.first_name : "First "
+  const lastName = props.hostData ? props.hostData.last_name : "Last "
+  const date = props.data[0] ? formatDate(props.data[0].date) : "Date"
+  const time = props.data[0] ? formatTime(props.data[0].date) : "time"
+  const location = props.data[0] ? props.data[0].location : "location"
+  const host = (props.user && props.hostData) && props.hostData.id === props.user.id ? "Host" : ""
+
+  const status = () => { 
+    for (let key of props.data) {
+      console.log('key1:', key)
+      console.log("data:", props.data)
+      if (key.attendee_id === (props.user ? props.user.id : "" )) {
+        console.log('key2:', key.attend_status)
+        return key.attend_status
+      }
+  }}
+  
+  const invited = props.data[0] === undefined ? "" : status()
+console.log('user and data',props.user)
+  
   const mode = function(input) {
       if(input) return "Confirmed"
       if(input === false ) return "Declined"

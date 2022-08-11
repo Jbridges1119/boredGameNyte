@@ -6,7 +6,7 @@ import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import QuestionMarkOutlinedIcon from '@mui/icons-material/QuestionMarkOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
-const NyteInvites = () => {
+const NyteInvites = (props) => {
 
   const attending = [
     {id: 1,
@@ -60,21 +60,21 @@ const NyteInvites = () => {
     
   ];
 
-  const attendingList = attending.map((friend) => {
+  const attendingList = props.data.map((friend) => {
     const status = friend.attend_status
-
+console.log('friendlist',friend.attend_status)
     return (
       <ListItem sx={{p:0}} key={friend.id}
       >
         {status === false && <CloseOutlinedIcon sx={{ backgroundColor: 'darkred',borderRadius: '40px', width: 26, height: 26,color:'white' ,  }}/> }
+        {status === true && <CheckOutlinedIcon sx={{backgroundColor: '#00C41F',borderRadius: '40px', width: 26, height: 26, color: 'white' }}/>  }
         {status === null && <QuestionMarkOutlinedIcon sx={{backgroundColor: theme.palette.error.main,borderRadius: '40px', width: 26, height: 26,  color: 'white' }}/> }
-            {status === true && <CheckOutlinedIcon sx={{backgroundColor: '#00C41F',borderRadius: '40px', width: 26, height: 26, color: 'white' }}/>  }
         <ListItemAvatar >
           <Avatar  sx={{ width: 26, height: 26, pt: 0, ml:1, pr:0 }}>
             <Person />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={`${friend.name} ${friend.last}`}  />
+        <ListItemText primary={`${friend.first_name} ${friend.last_name}`}  />
       </ListItem>
     );
   });

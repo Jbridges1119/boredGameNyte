@@ -126,7 +126,7 @@ sx={{
       }} >
         <Box display='flex' width='100%' justifyContent='space-between'>
 <Typography sx={{ color: "#FFFFFF",borderRadius: "20px" }} pt={2} variant="h5" >{props.title}</Typography>
-<Button component={Link} to={'/nyte/'}
+<Button component={Link} to={'/nyte/' + props.id}
                   variant="contained"
                   sx={{
                     backgroundColor: theme.palette.error.main,
