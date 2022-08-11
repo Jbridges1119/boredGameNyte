@@ -1,7 +1,6 @@
 // import React from "react";
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
-import { motion } from "framer-motion";
 import theme from "./assets/theme";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
@@ -36,8 +35,10 @@ function App() {
     printState
   } = useApplicationData();
 
-  const [userId, setUserId] = useState(1);
+  const [userId, setUserId] = useState(3);
   const [gameNytes, setGameNytes] = useState([]);
+  const [gameNytesHosted, setGameNytesHosted] = useState([]);
+  const [gameNytesAttended, setGameNytesAttended] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:3005/api/gamenytes/host/${userId}`)
@@ -46,14 +47,27 @@ function App() {
       })
   }, [userId])
 
+  useEffect(() => {
+    axios.get(`http://localhost:3005/api/gamenytes/host/${userId}/all`)
+      .then((data) => {
+        setGameNytesHosted(data.data)
+      })
+  }, [userId])
+
+  useEffect(() => {
+    axios.get(`http://localhost:3005/api/gamenytes/attended/${userId}`)
+      .then((data) => {
+        setGameNytesAttended(data.data)
+      })
+  }, [userId])
 
   useEffect(() => {
     axios.get(`http://localhost:3005/api/gamecollection`)
-    .then((data) => {
-      setState((prev) => {
-        return { ...prev, globalCollection: data.data }
+      .then((data) => {
+        setState((prev) => {
+          return { ...prev, globalCollection: data.data }
+        })
       })
-    })
   }, [])
 
   // user data useEffect

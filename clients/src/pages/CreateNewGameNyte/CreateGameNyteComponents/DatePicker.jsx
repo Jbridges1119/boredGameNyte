@@ -1,6 +1,5 @@
-import React, { useState, Fragment } from "react";
+import React from "react";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import styled from "@emotion/styled";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import theme from "../../../assets/theme";
 import { Box, TextField } from "@mui/material";
@@ -54,13 +53,17 @@ const StaticDatePicker = (props) => {
                 },
                 input: {
                   color: "white",
-                },"& .MuiOutlinedInput-root:hover": {
+                },
+                "& .MuiOutlinedInput-root:hover": {
                   "& > fieldset": {
                     border: "1px solid white",
                   },
                 },
                 "& .MuiOutlinedInput-root": {
-                  "& > fieldset": { borderRadius: "20px", border: "2px solid white" },
+                  "& > fieldset": {
+                    borderRadius: "20px",
+                    border: "2px solid white",
+                  },
                 },
               }}
               InputLabelProps={{

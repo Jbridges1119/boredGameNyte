@@ -51,7 +51,7 @@ export default function useSearchData(props) {
   });
 
 
-  
+
   return {
     gameSearch,
     data,

@@ -48,7 +48,7 @@ const games = [
 
 const useApplicationData = () => {
 
-  
+
   // This will ideally be the users collection retrieved from database
   // Currently, default state is dummy data stored above
   // Will have to use setCollection with a useEffect later
@@ -79,7 +79,7 @@ const useApplicationData = () => {
       newChecked.splice(currentIndex, 1);
     }
 
-    setState(prev => ({...prev, friendsInvited: newChecked}));
+    setState(prev => ({ ...prev, friendsInvited: newChecked }));
   };
 
   // These 4 functions handle the collection dialog, "open" in state
@@ -88,7 +88,7 @@ const useApplicationData = () => {
   };
   // Click the 'x' to close the dialog without saving state
   const handleClose = () => {
-    setState(prev => ({...prev, open: false}));
+    setState(prev => ({ ...prev, open: false }));
   };
 
   const handleToggle = (value) => () => {
@@ -100,8 +100,8 @@ const useApplicationData = () => {
     } else {
       newChecked.splice(currentIndex, 1);
     }
-    
-    setState({...state, gamesChosen: newChecked})
+
+    setState({ ...state, gamesChosen: newChecked })
   };
 
   // From the Create page, this function should remove display cards from the game chooser component
@@ -114,8 +114,8 @@ const useApplicationData = () => {
     if (currentIndex >= 0) {
       newChecked.splice(currentIndex, 1);
     }
-    
-    setState(prev => ({...prev, gamesChosen: newChecked}));
+
+    setState(prev => ({ ...prev, gamesChosen: newChecked }));
   };
 
   // This handles the state of "competitive" with the switch on the create page
