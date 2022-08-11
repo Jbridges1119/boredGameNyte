@@ -1,4 +1,4 @@
-function getGameById(arr, id)  {
+function getGameById(arr, id) {
   for (let g of arr) {
     if (g.id === id) {
       return g
@@ -9,7 +9,7 @@ function getGameById(arr, id)  {
 
 function formatDate(datestring) {
   let split = datestring.split(' ');
-  let date = split.slice(0,-5)
+  let date = split.slice(0, -5)
   return date.join(' ');
 };
 
@@ -21,8 +21,8 @@ function formatTime(datestring) {
   min = split[1]
   if (split[0] >= 12) ampm = 'PM'
   if (split[0] > 12) hr = split[0] - 12
-  if (split[0] <10) hr = split[0][1]
-    return `${hr}:${min} ${ampm}`
+  if (split[0] < 10) hr = split[0][1]
+  return `${hr}:${min} ${ampm}`
 };
 
 module.exports = {
