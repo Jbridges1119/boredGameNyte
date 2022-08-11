@@ -161,7 +161,7 @@ const useApplicationData = () => {
       max_players: game.max_players,
       thumb_url: game.thumb_url,
       large_url: game.thumb_url,
-      id: game.id,
+      id: gameId,
       user: user
     }
     console.log(newGame)

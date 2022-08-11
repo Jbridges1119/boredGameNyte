@@ -136,7 +136,15 @@ function App() {
                   deleteGame={deleteGameFromCollection}
                 />} 
               theme={theme} />
-            <Route path="/game/:id" element={<GamePage />} theme={theme} />
+            <Route 
+              path="/game/:id" 
+              element={
+              <GamePage 
+                state={state}
+                addGame={addGameToCollection}
+                removeGame={deleteGameFromCollection}
+              />} 
+              theme={theme} />
           </Routes>
         </Layout>
       </BrowserRouter>

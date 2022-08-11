@@ -8,6 +8,7 @@ import GameInfo from "./CardComponents/GameInfo";
 import { Box } from "@mui/system";
 
 const GameCard = (props) => {
+  console.log("gameData: ", props.gameData)
   const card = (
     <React.Fragment>
       <Box
@@ -39,7 +40,12 @@ const GameCard = (props) => {
               <Grid item xs={0.5}></Grid>
 
               <Grid item xs={6.5}>
-                <GameInfo gameData={props.gameData} />
+                <GameInfo 
+                  state={props.state}
+                  addGame={() => props.addGame(props.state.user.id, props.gameData.id, props.gameData)}
+                  removeGame={() => props.removeGame(props.state.user.id, props.gameData.id)}
+                  gameData={props.gameData} 
+                />
               </Grid>
             </Grid>
           </Grid>
