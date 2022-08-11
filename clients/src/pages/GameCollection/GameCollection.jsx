@@ -15,10 +15,12 @@ const GameCollection = (props) => {
     return(
     <Grid item key={game.id} xs={11} sx={{p: 2}}>
       <GameCollectionCard
+      user={props.state.user}
       gameId={game.id}
       img={game.thumb_url}
       name={game.name}
       description={game.description}
+      deleteGame={props.deleteGame}
       />
     </Grid>
     )

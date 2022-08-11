@@ -115,13 +115,16 @@ sx={{
           direction="row"
           justifyContent="space-between"
           alignItems="center">
-            <Button variant="contained" sx={{
-                    backgroundColor: theme.palette.error.main,
-                    height: 40,
-                    fontSize: 20,
-                    borderRadius: "20px",
-                    color:'error'
-                  }}>Remove From Collection</Button>
+            <Button 
+            onClick={() => {props.deleteGame(props.user.id, props.gameId)}}
+            variant="contained" 
+            sx={{
+              backgroundColor: theme.palette.error.main,
+              height: 40,
+              fontSize: 20,
+              borderRadius: "20px",
+              color:'error'
+            }}>Remove From Collection</Button>
          
      
             <Button variant="contained" component={Link} to={'/game/' + props.gameId} sx={{

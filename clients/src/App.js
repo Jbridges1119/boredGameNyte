@@ -16,7 +16,7 @@ import GamePage from './pages/GamePage/GamePage'
 import CreateNew from "./pages/CreateNewGameNyte/CreateNew";
 import GameCollection from "./pages/GameCollection/GameCollection";
 
-import useCreateGameNyteData from "./hooks/useCreateGameNyteData";
+import useApplicationData from "./hooks/useApplicationData";
 
 function App() {
 
@@ -31,8 +31,9 @@ function App() {
     handleFriendToggle,
     handleCompSwitch,
     toggleOff,
+    deleteGameFromCollection,
     printState
-  } = useCreateGameNyteData();
+  } = useApplicationData();
 
   const [userId, setUserId] = useState(1);
   const [gameNytes, setGameNytes] = useState([]);
@@ -80,23 +81,34 @@ function App() {
           <Routes>
             <Route
               exact path="/"
-              element={<Home
+              element={
+              <Home
                 state={state}
                 gameNytes={gameNytes}
-              />} theme={theme} />
-            <Route path="/search" element={<Search />} theme={theme} />
-            <Route path="/nyte/:id" element={<NytePage
-              state={state}
-            />} theme={theme} />
+              />} 
+              theme={theme} />
+            <Route 
+              path="/search" 
+              element={<Search />} 
+              theme={theme} />
+            <Route 
+              path="/nyte/:id" 
+              element={
+              <NytePage
+                state={state}
+              />} 
+              theme={theme} />
             <Route
               path="/gamenytes"
-              element={<GameNyteList
+              element={
+              <GameNyteList
                 state={state}
               />}
               theme={theme} />
             <Route
               path="/create"
-              element={<CreateNew
+              element={
+              <CreateNew
                 setTitle={setTitle}
                 setLocation={setLocation}
                 state={state}
@@ -110,7 +122,14 @@ function App() {
                 printState={printState}
               />}
               theme={theme} />
-            <Route path="/collection" element={<GameCollection state={state} />} theme={theme} />
+            <Route 
+              path="/collection" 
+              element={
+                <GameCollection 
+                  state={state}
+                  deleteGame={deleteGameFromCollection}
+                />} 
+              theme={theme} />
             <Route path="/game/:id" element={<GamePage />} theme={theme} />
           </Routes>
         </Layout>

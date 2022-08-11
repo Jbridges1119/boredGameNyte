@@ -13,13 +13,12 @@ module.exports = (db) => {
     })
   });
 
-  router.get("/:userId/:gameId", (req, res) => {
+  router.get("/:userId", (req, res) => {
     let userId = req.params.userId;
-    let game = req.params.gameId;
-    let params = [userId, game];
+    let params = [userId];
     let query = `
-    SELECT DISTINCT * FROM game_collections
-    WHERE user_id = $1 AND bgatlas_game_id = $2;
+    SELECT * FROM game_collections
+    WHERE user_id = $1;
     `
     return db.query(query, params)
     .then((data) => {
