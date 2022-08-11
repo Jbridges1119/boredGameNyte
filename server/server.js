@@ -14,6 +14,7 @@ app.use(cors());
 app.use(morgan("common"));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(
   cookieSession({
     name: "session",

@@ -154,14 +154,27 @@ const useApplicationData = () => {
 
   const addGameToCollection = (user, gameId, game) => {
     console.log("BEEP BOOP", user, gameId)
+    console.log("game obj", game)
     let newGame = {
       name: game.name,
       min_players: game.min_players,
       max_players: game.max_players,
       thumb_url: game.thumb_url,
-      large_url: game.large_url,
-      id: game.id
+      large_url: game.thumb_url,
+      id: game.id,
+      user: user
     }
+    console.log(newGame)
+
+    return axios.post(`http://localhost:3005/api/users/${user}/collection`, newGame )
+    .then(() => {
+      setState((prev) => {
+        return {...prev, collection: [...state.collection, newGame]}
+      })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   };
 
   return { 
