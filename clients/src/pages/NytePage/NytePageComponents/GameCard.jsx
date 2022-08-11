@@ -33,9 +33,9 @@ const GameCard = (props) => {
         >
           <Grid item xs={11}>
             <GameCardData 
-            id={props.id}
-          img={props.img}
-          name={props.name}/>
+            id={props.game && props.game.id ? props.game.id : "No img"}
+            img={props.game && props.game.thumb_url ? props.game.thumb_url : "No img"}
+            name={props.game && props.game.name ? props.game.name : ''}/>
           </Grid>
 
         </Grid>
