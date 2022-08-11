@@ -23,6 +23,7 @@ export default function Home(props) {
     return(
     <GameNyteCard
       key={nyte.id}
+      id={nyte.id}
       first_name={nyte.first_name}
       last_name={nyte.last_name}
       title={nyte.title}
