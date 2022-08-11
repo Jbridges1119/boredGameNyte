@@ -67,7 +67,7 @@ const useApplicationData = () => {
     date: new Date(),
     open: false
   })
-
+  
   // Function to set/unset checked friends in state
   const handleFriendToggle = (value) => () => {
     const currentIndex = state.friendsInvited.indexOf(value);
@@ -129,7 +129,6 @@ const useApplicationData = () => {
     console.log(state.date._d)
     console.log(state)
   }
-
   const deleteGameFromCollection = (user, gameId) => {
 
     let gameObj = {}
