@@ -3,12 +3,12 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 
 import { styled } from "@mui/material/styles";
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 import FriendsList from "./FriendsList";
 import theme from "../../../assets/theme";
 import { Button, Typography } from "@mui/material";
@@ -37,7 +37,6 @@ const AddTextField = styled(TextField)({
     },
   },
 });
-
 
 export default function FriendsListCard(props) {
   const [open, setOpen] = React.useState(false);
@@ -93,66 +92,86 @@ export default function FriendsListCard(props) {
                 justifyContent: "flex-end",
               }}
             >
-
-<div>
-      <Button  sx={{
-                  backgroundColor: theme.palette.error.main,
-                  height: 40,
-                  fontSize: 25,
-                  borderRadius: "20px",
-                  textTransform: "none",
-                  pt: 1.25,
-                  m: 1.
-                }} variant="contained" onClick={handleClickOpen}>
-        Add Friend
-      </Button>
-      <Dialog open={open} onClose={handleClose} >
-        <DialogTitle sx={{
+              <div>
+                <Button
+                  sx={{
+                    backgroundColor: theme.palette.error.main,
+                    height: 40,
+                    fontSize: 25,
+                    borderRadius: "20px",
+                    textTransform: "none",
+                    pt: 1.25,
+                    m: 1,
+                  }}
+                  variant="contained"
+                  onClick={handleClickOpen}
+                >
+                  Add Friend
+                </Button>
+                <Dialog open={open} onClose={handleClose}>
+                  <DialogTitle
+                    sx={{
+                      color: "white",
+                      backgroundColor: theme.palette.secondary.main,
+                    }}
+                  >
+                    Add Friend
+                  </DialogTitle>
+                  <DialogContent
+                    sx={{
+                      backgroundColor: theme.palette.secondary.main,
+                    }}
+                  >
+                    <DialogContentText
+                      sx={{
+                        color: "white",
+                      }}
+                    >
+                      Please Enter Users Email
+                    </DialogContentText>
+                    <AddTextField
+                      sx={{
+                        input: {
                           color: "white",
-                          backgroundColor: theme.palette.secondary.main,
-                        }}>Add Friend</DialogTitle>
-        <DialogContent sx={{
-                          
-                          backgroundColor: theme.palette.secondary.main,
-                        }}>
-          <DialogContentText sx={{
-                          color: "white",
-                          
-                        }}>
-            Please Enter Users Email
-          </DialogContentText>
-          <AddTextField sx={{
-                          input: {
-                            color: "white",
-                          }
-                          ,borderColor: "white",
-                        }}
-                        InputLabelProps={{
-                          style: { color: "#fff" }}}
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
-        </DialogContent>
-        <DialogActions sx={{
-                         
-                          backgroundColor: theme.palette.secondary.main,
-                        }}>
-          <Button sx={{
-                          color: "white",
-                       
-                        }}onClick={handleClose}>Cancel</Button>
-          <Button sx={{
-                          color: "white",
-                        
-                        }}onClick={handleClose}>Add</Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+                        },
+                        borderColor: "white",
+                      }}
+                      InputLabelProps={{
+                        style: { color: "#fff" },
+                      }}
+                      autoFocus
+                      margin="dense"
+                      id="name"
+                      label="Email Address"
+                      type="email"
+                      fullWidth
+                      variant="standard"
+                    />
+                  </DialogContent>
+                  <DialogActions
+                    sx={{
+                      backgroundColor: theme.palette.secondary.main,
+                    }}
+                  >
+                    <Button
+                      sx={{
+                        color: "white",
+                      }}
+                      onClick={handleClose}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      sx={{
+                        color: "white",
+                      }}
+                      onClick={handleClose}
+                    >
+                      Add
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+              </div>
               {/* <Button
                 variant="contained"
                 sx={{
@@ -170,7 +189,7 @@ export default function FriendsListCard(props) {
               </Button> */}
             </Grid>
           </Grid>
-          <FriendsList state={props.state}/>
+          <FriendsList state={props.state} />
         </Grid>
       </Grid>
     </Card>
