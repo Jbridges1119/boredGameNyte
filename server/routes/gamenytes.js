@@ -99,7 +99,26 @@ module.exports = (db) => {
     let gn_id = req.params.id
     const params = [gn_id];
     const query = `
-    SELECT * FROM game_nights
+    SELECT DISTINCT
+    title,
+    host_id,
+    competitive,
+    status,
+    location,
+    date,
+    attendees.attendee_id,
+    attendees.attend_status,
+    users.first_name,
+    users.last_name,
+    users.email,
+    game_choices.bgatlas_game_1 as game_1,
+    game_choices.bgatlas_game_2 as game_2,
+    game_choices.bgatlas_game_3 as game_3
+    FROM game_nights
+    JOIN attendees ON game_nights.id = attendees.game_night_id
+    JOIN users ON users.id = attendees.attendee_id
+    JOIN game_choices ON game_choices.game_night_id = game_nights.id
+    JOIN game_collections ON host_id = game_collections.user_id
     WHERE game_nights.id = $1;
     `;
     return db.query(query, params)
