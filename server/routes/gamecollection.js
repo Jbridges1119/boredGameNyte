@@ -12,5 +12,34 @@ module.exports = (db) => {
       return res.json(data.rows)
     })
   });
+
+  router.get("/:userId/:gameId", (req, res) => {
+    let userId = req.params.userId;
+    let game = req.params.gameId;
+    let params = [userId, game];
+    let query = `
+    SELECT DISTINCT * FROM game_collections
+    WHERE user_id = $1 AND bgatlas_game_id = $2;
+    `
+    return db.query(query, params)
+    .then((data) => {
+      return res.json(data.rows)
+    })
+  });
+
+  router.delete("/:userId/:gameId", (req, res) => {
+    let userId = req.params.userId;
+    let game = req.params.gameId;
+    let params = [userId, game];
+    let query = `
+    DELETE FROM game_collections
+    WHERE user_id = $1 AND bgatlas_game_id = $2;
+    `
+    return db.query(query, params)
+    .then((data) => {
+      return res.json(data.rows)
+    })
+  });
+
   return router
 };
