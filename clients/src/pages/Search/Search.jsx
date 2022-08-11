@@ -96,7 +96,7 @@ const Search = () => {
                   alignItems: "center",
                 }}
               >
-                <LoadingButton
+                <Button
                   variant="contained"
                   sx={{
                     backgroundColor: theme.palette.error.main,
@@ -111,7 +111,7 @@ const Search = () => {
                   // loading={true}
                 >
                   Search
-                </LoadingButton>
+                </Button>
               </Grid>
             </Grid>
 
