@@ -20,8 +20,8 @@ const GamePicture = (props) => {
       <CardMedia
         component="img"
         image={
-          props.picture.gameData[0]
-            ? props.picture.gameData[0].images.large
+          props.picture.gameData
+            ? props.picture.gameData.thumb_url
             : ""
         }
         alt=""

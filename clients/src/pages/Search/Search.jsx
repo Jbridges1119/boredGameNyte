@@ -1,10 +1,9 @@
 import { Box, Grid, TextField, Button, Stack } from "@mui/material";
 import theme from "../../assets/theme";
 import "../../styles/Search.css";
-import useSeachData from "../../hooks/useSearchData";
+import useSearchData from "../../hooks/useSearchData";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-// import LoadingButton from '@mui/lab/LoadingButton';
 
 const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root:hover": {
@@ -17,9 +16,9 @@ const CssTextField = styled(TextField)({
   },
 });
 
-const Search = () => {
+const Search = (props) => {
   const [loading, setLoading] = React.useState(true);
-  const { gameSearch, data, setInput, gameSearchResults } = useSeachData();
+  const { gameSearch, data, setInput, gameSearchResults } = useSearchData(props);
   const handleSubmit = (e) => {
     e.preventDefault();
     gameSearch();

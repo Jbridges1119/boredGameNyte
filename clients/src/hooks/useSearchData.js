@@ -5,7 +5,7 @@ import GameSearchCard from "../pages/Search/searchComponents/GameSearchCard";
 
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 
-export default function useSeachData() {
+export default function useSearchData(props) {
   const [data, setData] = useState([])
   const [input, setInput] = useState("")
 
@@ -34,13 +34,17 @@ export default function useSeachData() {
 
   let gameSearchResults = data.map((game) => {
     return (
-      <Grid item xs={11} sx={{ p: 2 }}>
+      <Grid key={game.id} item xs={11} sx={{ p: 2 }}>
         <GameSearchCard
-          key={game.id}
           gameId={game.id}
-          img={game.images.small}
+          img={game.images.large}
+          min_players={game.min_players}
+          max_players={game.max_players}
           name={game.name}
           description={game.description}
+          state={props.state}
+          addGame={() => props.addGame(props.state.user.id, game.id, game)}
+          removeGame={() => props.removeGame(props.state.user.id, game.id)}
         />
       </Grid>
     )
