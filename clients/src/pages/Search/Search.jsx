@@ -22,9 +22,9 @@ const CssTextField = styled(TextField)({
   },
 });
 
-const Search = () => {
+const Search = (props) => {
   const [loading, setLoading] = React.useState(true);
-  const { gameSearch, data, setInput, gameSearchResults } = useSearchData();
+  const { gameSearch, data, setInput, gameSearchResults } = useSearchData(props);
   const handleSubmit = (e) => {
     e.preventDefault();
     gameSearch();

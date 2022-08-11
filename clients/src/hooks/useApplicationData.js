@@ -152,8 +152,16 @@ const useApplicationData = () => {
     })
   };
 
-  const addGameToCollection = (user, gameId) => {
-
+  const addGameToCollection = (user, gameId, game) => {
+    console.log("BEEP BOOP", user, gameId)
+    let newGame = {
+      name: game.name,
+      min_players: game.min_players,
+      max_players: game.max_players,
+      thumb_url: game.thumb_url,
+      large_url: game.large_url,
+      id: game.id
+    }
   };
 
   return { 
@@ -166,6 +174,7 @@ const useApplicationData = () => {
     handleClickOpen, 
     handleClose, 
     deleteGameFromCollection,
+    addGameToCollection,
     printState }
 };
 

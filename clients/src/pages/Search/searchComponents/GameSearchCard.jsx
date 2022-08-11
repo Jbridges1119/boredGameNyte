@@ -138,7 +138,10 @@ sx={{
           direction="row"
           justifyContent="space-between"
           alignItems="center">
-            <Button variant="contained" sx={{
+            <Button 
+              onClick={props.addGame}
+              variant="contained" 
+              sx={{
                     backgroundColor: theme.palette.error.main,
                     height: 40,
                     fontSize: 20,

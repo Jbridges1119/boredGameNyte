@@ -32,6 +32,7 @@ function App() {
     handleCompSwitch,
     toggleOff,
     deleteGameFromCollection,
+    addGameToCollection,
     printState
   } = useApplicationData();
 
@@ -89,7 +90,12 @@ function App() {
               theme={theme} />
             <Route 
               path="/search" 
-              element={<Search />} 
+              element={
+              <Search
+                state={state}
+                addGame={addGameToCollection}
+                removeGame={deleteGameFromCollection}
+              />} 
               theme={theme} />
             <Route 
               path="/nyte/:id" 
