@@ -1,6 +1,4 @@
 function getGameById(arr, id)  {
-  console.log('arr:', arr)
-  console.log('id:', id)
   for (let g of arr) {
     if (g.id === id) {
       return g
