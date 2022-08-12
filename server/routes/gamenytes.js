@@ -75,6 +75,22 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   })
+  // Get game nights hosted by :id
+  router.get("/hosted/:id/", (req, res) => {
+    let user_id = req.params.id;
+    const params = [user_id];
+    const query = `
+      SELECT * FROM game_nights 
+      WHERE status = 'complete' and host_id = $1;
+      `;
+    return db.query(query, params)
+      .then((data) => {
+        return res.json(data.rows);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  })
   // Get game nights invited to by :id
   router.get("/invited/:id", (req, res) => {
     let user_id = req.params.id;
@@ -186,12 +202,12 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   })
-//Set invited attending_status
+  //Set invited attending_status
   router.put("/invited/:status/:userId/:nyteId", (req, res) => {
     let user_id = req.params.userId;
     let user_status = req.params.status;
     let nyte_id = req.params.nyteId;
-    
+
     const params = [user_status, user_id, nyte_id];
     const query = `
     UPDATE attendees
@@ -207,10 +223,10 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   })
-//Cancel Game nyte
+  //Cancel Game nyte
   router.delete("/cancel/:nyteId", (req, res) => {
     let nyte_id = req.params.nyteId;
-    
+
     const params = [nyte_id];
     const query = `
     DELETE FROM game_nights WHERE game_nights.id = $1;
