@@ -75,7 +75,7 @@ export default function GameChooserDialog(props) {
       <BootstrapDialog
         onClose={props.handleClose}
         aria-labelledby="customized-dialog-title"
-        open={props.state.open}
+        open={props.newGameNyte.open}
       >
         <BootstrapDialogTitle
           id="customized-dialog-title"
@@ -90,6 +90,8 @@ export default function GameChooserDialog(props) {
         >
           <GameChooserCollection
             state={props.state}
+            newGameNyte={props.newGameNyte}
+            setNewGameNyte={props.setNewGameNyte}
             handleToggle={props.handleToggle}
           />
         </DialogContent>

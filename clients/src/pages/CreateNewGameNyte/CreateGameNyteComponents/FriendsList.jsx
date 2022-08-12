@@ -20,6 +20,7 @@ const FriendList = styled(ListItemText)({
 });
 
 export default function FriendsList(props) {
+  
   const friendsList = props.state.friendsList.map((friend) => {
     let labelId = `checkbox-list-secondary-label-${friend.friend_id}`;
     let name = `${friend.first_name} ${friend.last_name}`;
@@ -36,9 +37,7 @@ export default function FriendsList(props) {
               color="error"
               edge="end"
               onChange={props.handleFriendToggle(friend.friend_id)}
-              checked={
-                props.state.friendsInvited.indexOf(friend.friend_id) !== -1
-              }
+              checked={props.newGameNyte.friendsInvited.indexOf(friend.friend_id) !== -1}
               inputProps={{ "aria-labelledby": labelId }}
             />
           }

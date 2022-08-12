@@ -24,6 +24,8 @@ function App() {
     setLocation,
     state,
     setState,
+    newGameNyte,
+    setNewGameNyte,
     handleClickOpen,
     handleClose,
     handleToggle,
@@ -135,6 +137,8 @@ function App() {
                 setLocation={setLocation}
                 state={state}
                 setState={setState}
+                newGameNyte={newGameNyte}
+                setNewGameNyte={setNewGameNyte}
                 handleClickOpen={handleClickOpen}
                 handleClose={handleClose}
                 handleToggle={handleToggle}

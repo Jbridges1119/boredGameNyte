@@ -18,6 +18,8 @@ const FriendInviter = (props) => {
       <FriendsList
         state={props.state}
         setState={props.setState}
+        newGameNyte={props.newGameNyte}
+        setNewGameNyte={props.setNewGameNyte}
         handleFriendToggle={props.handleFriendToggle}
       />
     </Paper>
