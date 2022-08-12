@@ -27,7 +27,7 @@ const NyteStatus = (props) => {
 
   //Sets which buttons to render based on invited 
   const mode = function(input, gameStatus, host) {
-      if(gameStatus === "completed") return "Completed"
+      // if(gameStatus === "complete") return "Completed"
       if(host) return "Host"
       if(input) return "Confirmed"
       if(input === false ) return "Declined"
