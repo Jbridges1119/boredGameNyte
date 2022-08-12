@@ -14,11 +14,14 @@ import GameNyteList from './pages/GameNyteList/GameNytesList'
 import GamePage from './pages/GamePage/GamePage'
 import CreateNew from "./pages/CreateNewGameNyte/CreateNew";
 import GameCollection from "./pages/GameCollection/GameCollection";
-
+import Login from "./pages/Login/Login";
 import useApplicationData from "./hooks/useApplicationData";
+import { useContext } from 'react';
+// import { authContext } from 'providers/AuthProvider';
+
 
 function App() {
-
+  // const { auth } = useContext(authContext);
   const {
     setTitle,
     setLocation,
@@ -96,7 +99,8 @@ function App() {
     <ThemeProvider theme={theme}>
 
       <BrowserRouter>
-        <Layout theme={theme}>
+      {!userId && <Login theme={theme} />}
+       {userId && <Layout theme={theme}>
           <Routes>
             <Route
               exact path="/"
@@ -168,7 +172,7 @@ function App() {
               />} 
               theme={theme} />
           </Routes>
-        </Layout>
+        </Layout>}
       </BrowserRouter>
 
     </ThemeProvider>
