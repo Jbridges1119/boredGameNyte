@@ -5,37 +5,37 @@ import UserConfirmed from "./statusButtons/UserConfirmed";
 import UserDeclined from "./statusButtons/UserDeclined";
 import UserNotSelected from "./statusButtons/UserNotSelected";
 import { formatDate, formatTime } from "../../../../helperFunctions/helperFunctions"
-
+import Finished from './statusButtons/Finished'
 
 const NyteStatus = (props) => {
-  const firstName = props.hostData ? props.hostData.first_name : "First "
-  const lastName = props.hostData ? props.hostData.last_name : "Last "
-  const date = props.data[0] ? formatDate(props.data[0].date) : "Date"
-  const time = props.data[0] ? formatTime(props.data[0].date) : "time"
-  const location = props.data[0] ? props.data[0].location : "location"
-  const host = (props.user && props.hostData) && props.hostData.id === props.user.id ? "Host" : ""
+  const firstName = props.hostData ? props.hostData.first_name : ""
+  const lastName = props.hostData ? props.hostData.last_name : ""
+  const date = props.data[0] ? formatDate(props.data[0].date) : ""
+  const time = props.data[0] ? formatTime(props.data[0].date) : ""
+  const location = props.data[0] ? props.data[0].location : ""
+  const host = (props.user && props.hostData) && props.hostData.id === props.user.id ? true : false
+  const gameStatus = props.data[0] ? props.data[0].status : "completed"
 
+  //Checks the status of an invited
   const status = () => { 
     for (let key of props.data) {
-      console.log('key1:', key)
-      console.log("data:", props.data)
       if (key.attendee_id === (props.user ? props.user.id : "" )) {
-        console.log('key2:', key.attend_status)
         return key.attend_status
       }
   }}
-  
   const invited = props.data[0] === undefined ? "" : status()
-console.log('user and data',props.user)
-  
-  const mode = function(input) {
+
+  //Sets which buttons to render based on invited 
+  const mode = function(input, gameStatus, host) {
+      if(gameStatus === "completed") return "Completed"
+      if(host) return "Host"
       if(input) return "Confirmed"
       if(input === false ) return "Declined"
       if(input === null) return "Not Selected"      
   }
   const font = {color: "#FFFFFF", fontSize: 18,lineHeight: 'normal'}
   return ( 
-
+// 'complete'
 <>
   
    <Box sx={{ maxWidth: '90%', pt: 1}}>
@@ -53,11 +53,12 @@ console.log('user and data',props.user)
             <Typography sx={font}  align="center" variant="h6">{location}</Typography> 
             </Box>
             <Box sx={{display:'flex', flexDirection: 'column', height:'87px', justifyContent:'space-evenly'}}>
-            {host === 'Host' && <Host onCancelEvent={mode} />}
 
-            {host ? "": mode(invited) === "Confirmed" && <UserConfirmed onCancel={mode} />}
-            {host ? "": mode(invited) === "Declined" && <UserDeclined onConfirm={mode} />}
-            {host ? "": mode(invited) === 'Not Selected' && <UserNotSelected onConfirm={mode} onCancel={mode}/>}
+            {mode(invited, gameStatus, host) === "Completed" && <Finished />}
+            {mode(invited, gameStatus, host) === "Host" && <Host onCancelNyte={props.onCancelNyte} />}
+            {mode(invited, gameStatus, host) === "Confirmed" && <UserConfirmed  onCancel={props.onCancel}/>}
+            {mode(invited, gameStatus, host) === "Declined" && <UserDeclined onConfirm={props.onConfirm} />}
+            {mode(invited, gameStatus, host) === 'Not Selected' && <UserNotSelected onConfirm={props.onConfirm} onCancel={props.onCancel}/>}
           </Box>
           </Stack>
           </Box>

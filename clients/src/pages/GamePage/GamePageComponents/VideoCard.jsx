@@ -51,11 +51,14 @@ export default function VideoCard(props) {
 
   const [expanded, setExpanded] = React.useState("panel1");
   //Map for How To Play videos - Feeds into embeder function
+  let count = 500
   const howTo = props.videos.map((video) => {
+    
+    count++
     return (
       <Grid
         item
-        key={video.id.videoId}
+        key={count}
         xs={4}
         sx={{
           display: "flex",
@@ -73,10 +76,14 @@ export default function VideoCard(props) {
   });
 
   //Map for Tips and tricks videos - Feeds into embeder function
+  let countGitGud = 1000
   const gitGud = props.videos2.map((video) => {
+    
+    countGitGud++
     return (
+      
       <Grid
-      key={video.id.videoId}
+      key={countGitGud}
         item
         xs={4}
         sx={{

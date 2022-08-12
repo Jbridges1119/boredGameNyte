@@ -8,61 +8,61 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 const NyteInvites = (props) => {
 
-  const attending = [
-    {id: 1,
-      name: "The ",
-      last: "Professor",
-      email: "TheProfessor@gmail.com",
-      attend_status: null
-    },
-    {id: 2,
-      name: "Zoidberg",
-      last: "Zoidberg",
-      email: "Zoidberg@gmail.com",
-      attend_status: true
-    },
-    {id: 3,
-      name: "Bender",
-      last: "Bender",
-      email: "BenderIsGreat@gmail.com",
-      attend_status: false
-    },
-    {id: 4,
-      name: "Turanga",
-      last: "Leela",
-      email: "Oneye@gmail.com",
-      attend_status: false
-    },
-    {id: 5,
-      name: "Amy",
-      last: "Wong",
-      email: "superrich@gmail.com",
-      attend_status: null
-    },
-    {id: 6,
-      name: "Amy",
-      last: "Wong",
-      email: "superrich@gmail.com",
-      attend_status: null
-    }, 
-    {id: 7,
-      name: "Amy",
-      last: "Wong",
-      email: "superrich@gmail.com",
-      attend_status: false
-    }, 
-    {id: 8,
-      name: "Amy",
-      last: "Wong",
-      email: "superrich@gmail.com",
-      attend_status: true
-    }, 
+  // const attending = [
+  //   {id: 1,
+  //     name: "The ",
+  //     last: "Professor",
+  //     email: "TheProfessor@gmail.com",
+  //     attend_status: null
+  //   },
+  //   {id: 2,
+  //     name: "Zoidberg",
+  //     last: "Zoidberg",
+  //     email: "Zoidberg@gmail.com",
+  //     attend_status: true
+  //   },
+  //   {id: 3,
+  //     name: "Bender",
+  //     last: "Bender",
+  //     email: "BenderIsGreat@gmail.com",
+  //     attend_status: false
+  //   },
+  //   {id: 4,
+  //     name: "Turanga",
+  //     last: "Leela",
+  //     email: "Oneye@gmail.com",
+  //     attend_status: false
+  //   },
+  //   {id: 5,
+  //     name: "Amy",
+  //     last: "Wong",
+  //     email: "superrich@gmail.com",
+  //     attend_status: null
+  //   },
+  //   {id: 6,
+  //     name: "Amy",
+  //     last: "Wong",
+  //     email: "superrich@gmail.com",
+  //     attend_status: null
+  //   }, 
+  //   {id: 7,
+  //     name: "Amy",
+  //     last: "Wong",
+  //     email: "superrich@gmail.com",
+  //     attend_status: false
+  //   }, 
+  //   {id: 8,
+  //     name: "Amy",
+  //     last: "Wong",
+  //     email: "superrich@gmail.com",
+  //     attend_status: true
+  //   }, 
     
-  ];
+  // ];
 
   const attendingList = props.data.map((friend) => {
     const status = friend.attend_status
-console.log('friendlist',friend.attend_status)
+
     return (
       <ListItem sx={{p:0}} key={friend.id}
       >

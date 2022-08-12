@@ -13,7 +13,6 @@ import axios from "axios";
 
 const NytePage = (props) => {
   const nightId = useParams().id;
-  console.log("nightId:", nightId);
   const [data, setData] = useState([]);
   const [hostData, setHostData] = useState([]);
 
@@ -30,23 +29,49 @@ const NytePage = (props) => {
         });
     });
   }, []);
-  console.log("DATA", data[0]);
-  console.log("globalgamecollection", props.state.globalCollection);
-  const game1 = data[0] && getGameById(props.state.globalCollection, data[0] ? data[0].game_1 :'');
-  const game2 = data[0] && getGameById(props.state.globalCollection, data[0] ? data[0].game_2 : '');
-  const game3 = getGameById(props.state.globalCollection, data[0] ? data[0].game_3 : '');
-  
-  // const gameCards = games.map((game) => {
+ 
+const onCancelNyte = (nyteId) => {
+//   let newData = [...data]
+// let newUser = {}
+// let userIndex = -1
+// for (let user of data) {
+//   userIndex++
+// if(user.attendee_id === userId){
+//   newUser = {...user}
+//   newUser.attend_status = status
+//   newData[userIndex] = newUser
+// }
+// } 
 
-  //   return (
-  //     <GameCard
-  //       key={data[0] ? game.id : ''}
-  //       id={data[0] ? game.id : ''}
-  //       img={data[0] ? game.thumb_url : ''}
-  //       name={data[0] ? game.name : ''}
-  //     />
-  //   );
-  // });
+  return axios.put(`http://localhost:3005/api/gamenytes/host/cancel/${nyteId}`, { }).then(() => {
+    // setData(newData
+
+    // );
+  });
+}
+
+console.log('state', data)
+
+const onStatusChange = (status, userId, nyteId) =>{
+  let newData = [...data]
+let newUser = {}
+let userIndex = -1
+for (let user of data) {
+  userIndex++
+if(user.attendee_id === userId){
+  newUser = {...user}
+  newUser.attend_status = status
+  newData[userIndex] = newUser
+}
+} 
+
+  return axios.put(`http://localhost:3005/api/gamenytes/invited/${status}/${userId}/${nyteId}`, { }).then(() => {
+    setData(newData
+
+    );
+  });
+}
+
 
   return (
     <Box
@@ -71,7 +96,7 @@ const NytePage = (props) => {
           >
             <Paper
               sx={{
-                backgroundColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.secondary.main,
                 borderRadius: "22px",
                 m: 1.5,
                 pt: 0.75,
@@ -94,6 +119,10 @@ const NytePage = (props) => {
                 data={data}
                 hostData={hostData}
                 user={props.state.user}
+                // onCancelEvent={onCancelEvent}
+                onConfirm={() => onStatusChange(true , props.state.user.id, nightId)}
+                onCancel={() => onStatusChange(false , props.state.user.id, nightId)}
+                onCancelNyte={() => onCancelNyte()}
               />
             </Grid>
             <Grid item xs={0.5}></Grid>
@@ -102,25 +131,17 @@ const NytePage = (props) => {
                 {data[0] && (
                   <GameCard
                     game={getGameById(props.state.globalCollection, data[0] ? data[0].game_1 : '')}
-                    // key={game1 ? game1.id : ""}
                   />
                 )}
                 {data[0] && (
-                  <GameCard
+                  <GameCard 
                     game={getGameById(props.state.globalCollection, data[0] ? data[0].game_2 : '')}
-                    // key={game2 ? game2.id : ""}
-                    // id={game2 ? game2.id : ""}
-                    // img={game2 ? game2.thumb_url : ""}
-                    // name={game2 ? game2.name : ""}
                   />
                 )}
                 {data[0] && (
                   <GameCard
                     game={getGameById(props.state.globalCollection, data[0] ? data[0].game_3 : '')}
                     key={data[0] ? data[0].game_3 : ''}
-                    // id={game3 ? game3.id : ""}
-                    // img={game3 ? game3.thumb_url : ""}
-                    // name={game3 ? game3.name : ""}
                   />
                 )}
               </Stack>

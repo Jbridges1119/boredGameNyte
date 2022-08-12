@@ -5,7 +5,7 @@ import useSeachData from "../../hooks/useSearchData";
 import * as React from "react";
 import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
-// import LoadingButton from '@mui/lab/LoadingButton';
+import LoadingButton from '@mui/lab/LoadingButton';
 import InputLabel from "@mui/material/InputLabel";
 
 import FormControl from "@mui/material/FormControl";
@@ -23,10 +23,11 @@ const CssTextField = styled(TextField)({
 });
 
 const Search = () => {
-  const [loading, setLoading] = React.useState(true);
-  const { gameSearch, data, setInput, gameSearchResults } = useSeachData();
+  
+  const { gameSearch, data, setInput, gameSearchResults, loading } = useSeachData();
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     gameSearch();
   };
 
@@ -96,7 +97,7 @@ const Search = () => {
                   alignItems: "center",
                 }}
               >
-                <Button
+                <LoadingButton
                   variant="contained"
                   sx={{
                     backgroundColor: theme.palette.error.main,
@@ -107,11 +108,10 @@ const Search = () => {
                   }}
                   type="submit"
                   onClick={gameSearch}
-                  // loadingPosition="end"
-                  // loading={true}
+                  loading={loading}
                 >
                   Search
-                </Button>
+                </LoadingButton>
               </Grid>
             </Grid>
 

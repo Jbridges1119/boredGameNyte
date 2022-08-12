@@ -37,7 +37,6 @@ const GameCard = (props) => {
             img={props.game && props.game.thumb_url ? props.game.thumb_url : "No img"}
             name={props.game && props.game.name ? props.game.name : ''}/>
           </Grid>
-
         </Grid>
       </CardContent>
     </>

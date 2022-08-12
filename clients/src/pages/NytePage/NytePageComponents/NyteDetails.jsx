@@ -47,6 +47,9 @@ const NyteDetails = (props) => {
         data={props.data}
         user={props.user}
         hostData={props.hostData}
+        onConfirm={props.onConfirm}
+        onCancel={props.onCancel}
+        onCancelNyte={props.onCancelNyte}
       />
       <NyteInvites
         data={props.data}
