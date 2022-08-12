@@ -8,7 +8,7 @@ import { Box, Stack } from "@mui/material";
 export default function ProfileCard(props) {
   let greeting = `Welcome Back ${props.state.first_name} ${props.state.last_name}!`;
 
-  const totalGameNytesHosted = props.gameNytesHosted.length;
+  const totalGameNytesHosted = props.completeGameNytesHosted.length;
   const totalGameNytesAtteneded = props.gameNytesAttended.length;
 
   return (
