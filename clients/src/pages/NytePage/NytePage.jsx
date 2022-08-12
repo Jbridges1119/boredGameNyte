@@ -1,3 +1,6 @@
+
+// const mailgun = require('mailgun-js');
+
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import { useParams } from "react-router-dom";
@@ -12,7 +15,7 @@ import { getGameById } from "../../helperFunctions/helperFunctions";
 import axios from "axios";
 
 const NytePage = (props) => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const nightId = useParams().id;
 
   const [data, setData] = useState([]);
@@ -28,42 +31,61 @@ const NytePage = (props) => {
         });
     });
   }, []);
- 
-const onCancelNyte = (nyteId) => {
- 
-console.log('cancel', nyteId)
-  return axios.delete(`http://localhost:3005/api/gamenytes/cancel/${nyteId}`, { }).then(()=>{
-      navigate('/') //use this  instead of history.push
-}
-  )
-  .catch((error)=>{
-    console.log(error)
-})
-}
 
-console.log('state', props.state)
+  const onCancelNyte = (nyteId) => {
 
-const onStatusChange = (status, userId, nyteId) =>{
-let newData = [...data]
-let newUser = {}
-let userIndex = -1
-for (let user of data) {
-  userIndex++
-if(user.attendee_id === userId){
-  newUser = {...user}
-  newUser.attend_status = status
-  newData[userIndex] = newUser
-}
-} 
+    console.log("hostData:", hostData);
+    console.log("hostEmail:", hostData.email)
+    console.log("data:", data);
+    const inviteesEmails = [];
+    for (let d of data) {
+      inviteesEmails.push(d.email);
+    };
 
-  return axios.put(`http://localhost:3005/api/gamenytes/invited/${status}/${userId}/${nyteId}`, { }).then(() => {
-    setData(newData)
-  })  
-  .catch((error)=>{
-    console.log(error)
-})
-}
+    const mailgunInfo = {
+      hostEmail: hostData.email,
+      hostName: hostData.first_name,
+      title: data[0].title,
+      date: data[0].date,
+      location: data[0].date,
+      inviteesEmails
+    }
 
+    // return axios
+    //   .delete(`http://localhost:3005/api/gamenytes/cancel/${nyteId}`, mailgunInfo)
+    //   .then(() => {
+    //     navigate("/"); //use this  instead of history.push
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+  };
+
+  const onStatusChange = (status, userId, nyteId) => {
+    let newData = [...data];
+    let newUser = {};
+    let userIndex = -1;
+    for (let user of data) {
+      userIndex++;
+      if (user.attendee_id === userId) {
+        newUser = { ...user };
+        newUser.attend_status = status;
+        newData[userIndex] = newUser;
+      }
+    }
+
+    return axios
+      .put(
+        `http://localhost:3005/api/gamenytes/invited/${status}/${userId}/${nyteId}`,
+        {}
+      )
+      .then(() => {
+        setData(newData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <Box
@@ -111,8 +133,12 @@ if(user.attendee_id === userId){
                 data={data}
                 hostData={hostData}
                 user={props.state.user}
-                onConfirm={() => onStatusChange(true , props.state.user.id, nightId)}
-                onCancel={() => onStatusChange(false , props.state.user.id, nightId)}
+                onConfirm={() =>
+                  onStatusChange(true, props.state.user.id, nightId)
+                }
+                onCancel={() =>
+                  onStatusChange(false, props.state.user.id, nightId)
+                }
                 onCancelNyte={() => onCancelNyte(nightId)}
               />
             </Grid>
