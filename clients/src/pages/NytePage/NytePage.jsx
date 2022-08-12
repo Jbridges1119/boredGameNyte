@@ -2,7 +2,7 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import { useParams } from "react-router-dom";
 import { Box, Paper, Stack, Typography } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 import NyteDetails from "./NytePageComponents/NyteDetails";
 import GameCard from "./NytePageComponents/GameCard";
 import theme from "../../assets/theme";
@@ -12,6 +12,7 @@ import { getGameById } from "../../helperFunctions/helperFunctions";
 import axios from "axios";
 
 const NytePage = (props) => {
+  const navigate=useNavigate()
   const nightId = useParams().id;
 
   const [data, setData] = useState([]);
@@ -43,7 +44,7 @@ const onCancelNyte = (nyteId) => {
 console.log('cancel', nyteId)
   return axios.put(`http://localhost:3005/api/gamenytes/host/cancel/${nyteId}`, { }).then(() => {
     // setData(newData
-
+  navigate('/home');
     // );
   });
 }

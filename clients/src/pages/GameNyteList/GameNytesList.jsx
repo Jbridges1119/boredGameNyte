@@ -121,6 +121,7 @@ const GameNyteList = (props) => {
                   borderRadius: "20px",
                 }}
               >
+              
                 {/* upcoming */}
                 {gameNytes.invited.map((nyte) => {
                   if (nyte.status === "Scheduled") {
@@ -184,7 +185,7 @@ const GameNyteList = (props) => {
                   overflow: "auto",
                   borderRadius: "20px",
                 }}
-              >
+              >  { console.log(gameNytes.hosted) }
                 {/* Hosted */}
                 {gameNytes.hosted.map((nyte) => {
                   const date = formatDate(nyte.date);
