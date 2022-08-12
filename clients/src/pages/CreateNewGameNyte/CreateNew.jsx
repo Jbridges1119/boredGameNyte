@@ -21,9 +21,14 @@ const CreateNew = (props) => {
 
   const createGameNyte = () => {
     console.log(props.newGameNyte)
+    if (props.newGameNyte.name === '') {return alert('Please name your game nyte!')}
+    if (props.newGameNyte.place === '') {return alert('Please give your game nyte a location!')}
+    if (props.newGameNyte.friendsInvited.length === 0) {return alert('Please invite some friends!')}
+    if (props.newGameNyte.gamesChosen.length < 1) {return alert('Please choose at least one game for your game nyte!')}
     return axios.post(`http://localhost:3005/api/gamenytes/createnew`, props.newGameNyte)
     .then((data) => {
       let nyteId = data.data;
+      console.log(nyteId)
       navigate(`/nyte/${nyteId}`);
     })
   }
