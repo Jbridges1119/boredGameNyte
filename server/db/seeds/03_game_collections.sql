@@ -8,7 +8,7 @@
 -- 7 Wonders - OF145SrX44
 -- Wingspan - 5H5JS0KLzK
 -- Gloomhaven - RLlDWHh7hR
--- Carcassonne - oGVgRSAKwX
+-- Sushi Go! - 61SwzHG7fB
 -- UNO - Ad9NDUFxmt
 
 INSERT INTO game_collections (user_id, name, thumb_url, large_url, min_players, max_players, bgatlas_game_id)
@@ -20,7 +20,7 @@ VALUES (1, 'UNO','https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1
 INSERT INTO game_collections (user_id, name, thumb_url, large_url, min_players, max_players, bgatlas_game_id)
 VALUES (1, 'Betrayal at House on the Hill', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1595268779978', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1595268779978', 3, 6, '3RVcHxhPEZ');
 INSERT INTO game_collections (user_id, name, thumb_url, large_url, min_players, max_players, bgatlas_game_id)
-VALUES (1, 'Carcasonne', 'https://cdn.shopify.com/s/files/1/0513/4077/1515/products/carcassonne-board-game.jpg?v=1609629064', 'https://cdn.shopify.com/s/files/1/0513/4077/1515/products/carcassonne-board-game.jpg?v=1609629064', 2, 5, 'oGVgRSAKwX');
+VALUES (1, 'Sushi Go!', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1632756769364', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1632756769364', 2, 5, '61SwzHG7fB');
 INSERT INTO game_collections (user_id, name, thumb_url, large_url, min_players, max_players, bgatlas_game_id)
 VALUES (1, 'Gloomhaven', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254920151-51ulRXlJ7LL.jpg', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254920151-51ulRXlJ7LL.jpg', 1, 4,'RLlDWHh7hR');
 INSERT INTO game_collections (user_id, name, thumb_url, large_url, min_players, max_players, bgatlas_game_id)
@@ -54,6 +54,6 @@ VALUES (3, 'Betrayal at House on the Hill', 'https://s3-us-west-1.amazonaws.com/
 INSERT INTO game_collections (user_id, name, thumb_url, large_url, min_players, max_players, bgatlas_game_id)
 VALUES (3, '7 Wonders', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559253945470-61dlm9QcXpL.jpg', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559253945470-61dlm9QcXpL.jpg', 2, 7, 'OF145SrX44');
 INSERT INTO game_collections (user_id, name, thumb_url, large_url, min_players, max_players, bgatlas_game_id)
-VALUES (3, 'Carcasonne', 'https://cdn.shopify.com/s/files/1/0513/4077/1515/products/carcassonne-board-game.jpg?v=1609629064', 'https://cdn.shopify.com/s/files/1/0513/4077/1515/products/carcassonne-board-game.jpg?v=1609629064', 2, 5, 'oGVgRSAKwX');
+VALUES (3, 'Sushi Go!', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1632756769364', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1632756769364', 2, 5, '61SwzHG7fB');
 INSERT INTO game_collections (user_id, name, thumb_url, large_url, min_players, max_players, bgatlas_game_id)
 VALUES (3, 'UNO','https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731709416', 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1596731709416', 2, 10, 'Ad9NDUFxmt');

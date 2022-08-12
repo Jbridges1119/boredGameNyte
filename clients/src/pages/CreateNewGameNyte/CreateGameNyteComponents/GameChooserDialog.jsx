@@ -58,7 +58,7 @@ export default function GameChooserDialog(props) {
         height: 150,
       }}
     >
-      <Button 
+      <Button
         variant="outlined"
         onClick={props.handleClickOpen}
         sx={{
@@ -67,7 +67,7 @@ export default function GameChooserDialog(props) {
           height: 150,
           borderRadius: "20px",
           fontSize: 35,
-          pt:2
+          pt: 2,
         }}
       >
         Choose up to 3 games!

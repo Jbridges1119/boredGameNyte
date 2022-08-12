@@ -8,6 +8,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
+import { getGameById } from "../../../../helperFunctions/helperFunctions";
 
 const labelsStrat = {
   0.0: `Unavailable`,
@@ -64,22 +65,23 @@ const labelsRating = {
 >
   Add To Collection
 </Button>;
-
-const GameInfo = ({ gameData }) => {
-  const name = gameData[0] ? gameData[0].name : "";
-  const age = gameData[0] ? gameData[0].min_age : "";
-  const players = gameData[0] ? gameData[0].players : "";
-  const playtime = gameData[0] ? gameData[0].playtime : "";
-  const description = gameData[0] ? gameData[0].description : "";
-  const apirating = gameData[0] ? gameData[0].average_user_rating : "";
-  const apilearningScore = gameData[0]
-    ? gameData[0].average_learning_complexity
+const GameInfo = (props) => {
+  
+  console.log("Button stuff", props.state.collection, props.gameData)
+  const name = props.gameData ? props.gameData.name : "";
+  const age = props.gameData ? props.gameData.min_age : "";
+  const players = props.gameData ? props.gameData.players : "";
+  const playtime = props.gameData ? props.gameData.playtime : "";
+  const description = props.gameData ? props.gameData.description : "";
+  const apirating = props.gameData ? props.gameData.average_user_rating : "";
+  const apilearningScore = props.gameData
+    ? props.gameData.average_learning_complexity
     : "";
-  const apistrategyScore = gameData[0]
-    ? gameData[0].average_strategy_complexity
+  const apistrategyScore = props.gameData
+    ? props.gameData.average_strategy_complexity
     : "";
-  const faq = gameData[0] ? gameData[0].faq : "";
-  const official = gameData[0] ? gameData[0].official_url : "";
+  const faq = props.gameData ? props.gameData.faq : "";
+  const official = props.gameData ? props.gameData.official_url : "";
   const rating = Number((Math.round(apirating * 2) / 2).toFixed(1));
   const learningScore = Number(
     (Math.round(apilearningScore * 2) / 2).toFixed(1)
@@ -338,7 +340,7 @@ const GameInfo = ({ gameData }) => {
             </Grid>
             {/* End of ratings */}
             {/* end of middle content */}
-
+            
             {/* Bottom buttons */}
             <Grid
               container
@@ -356,21 +358,34 @@ const GameInfo = ({ gameData }) => {
                   justifyContent: "center",
                 }}
               >
-                {/* Add to collection button */}
-                <Button
-                  sx={{
-                    color: "white",
+              {/* Add to collection button */}
+
+              {!getGameById(props.state.collection, props.gameData.id) && 
+              <Button 
+                onClick={props.addGame}
+                variant="contained" 
+                sx={{
                     backgroundColor: theme.palette.error.main,
-                    height: 45,
-                        fontSize: 25,
-                    textTransform: "none",
+                    height: 40,
+                    fontSize: 20,
                     borderRadius: "20px",
-                    width: "275px",
+                    color:'white',
                     pt:1.25
-                  }}
-                >
-                  Add To Collection
-                </Button>
+                  }}>Add To Collection
+              </Button>}
+              
+              {getGameById(props.state.collection, props.gameData.id) && 
+              <Button 
+                onClick={props.removeGame}
+                variant="contained" 
+                sx={{
+                  backgroundColor: theme.palette.error.main,
+                  height: 45,
+                  fontSize: 16,
+                  borderRadius: "20px",
+                  color:'error'
+                }}>Remove From Collection</Button>}
+
               </Grid>
               {/* official website button */}
               <Grid

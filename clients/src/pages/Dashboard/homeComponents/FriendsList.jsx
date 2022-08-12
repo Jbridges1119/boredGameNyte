@@ -10,51 +10,31 @@ import Grid from "@mui/material/Grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Person from "@mui/icons-material/Person";
 
-
 const FriendList = styled(ListItemText)({
-  '& .MuiListItemText-secondary': {
-    color:'white',
-    fontSize: '13px'
-  },'& .MuiListItemText-primary': {
-    color:'white',
-    fontSize: '15px'
+  "& .MuiListItemText-secondary": {
+    color: "white",
+    fontSize: "13px",
+  },
+  "& .MuiListItemText-primary": {
+    color: "white",
+    fontSize: "15px",
   },
 });
 
-const friends = [
-  {
-    name: "The Professor",
-    email: "TheProfessor@gmail.com",
-  },
-  {
-    name: "Zoidberg",
-    email: "Zoidberg@gmail.com",
-  },
-  {
-    name: "Bender",
-    email: "BenderIsGreat@gmail.com",
-  },
-  {
-    name: "Turanga Leela",
-    email: "Oneye@gmail.com",
-  },
-  {
-    name: "Amy Wong",
-    email: "superrich@gmail.com",
-  },
-];
-
 export default function FriendsList(props) {
-
   const friendsList = props.state.map((friend) => {
-
-    let name = `${friend.first_name} ${friend.last_name}`
+    let name = `${friend.first_name} ${friend.last_name}`;
 
     return (
       <ListItem
         key={friend.friend_id}
         secondaryAction={
-          <IconButton size='large' edge="end" aria-label="delete" sx={{ color: "white" }}>
+          <IconButton
+            size="large"
+            edge="end"
+            aria-label="delete"
+            sx={{ color: "white" }}
+          >
             <DeleteIcon />
           </IconButton>
         }

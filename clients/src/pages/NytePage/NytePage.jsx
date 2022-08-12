@@ -13,19 +13,17 @@ import axios from "axios";
 
 const NytePage = (props) => {
   const nightId = useParams().id;
+
   const [data, setData] = useState([]);
   const [hostData, setHostData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3005/api/gamenytes/${nightId}`)
-      .then((data) => {
+    axios.get(`http://localhost:3005/api/gamenytes/${nightId}`).then((data) => {
       setData(data.data);
       axios
         .get(`http://localhost:3005/api/users/${data.data[0].host_id}`)
         .then((host) => {
           setHostData(host.data);
-    
         });
     });
   }, []);
@@ -129,18 +127,35 @@ if(user.attendee_id === userId){
               <Stack spacing={3}>
                 {data[0] && (
                   <GameCard
-                    game={getGameById(props.state.globalCollection, data[0] ? data[0].game_1 : '')}
-                  />
-                )}
-                {data[0] && (
-                  <GameCard 
-                    game={getGameById(props.state.globalCollection, data[0] ? data[0].game_2 : '')}
+                    game={getGameById(
+                      props.state.globalCollection,
+                      data[0] ? data[0].game_1 : ""
+                    )}
+                    // key={game1 ? game1.id : ""}
                   />
                 )}
                 {data[0] && (
                   <GameCard
-                    game={getGameById(props.state.globalCollection, data[0] ? data[0].game_3 : '')}
-                    key={data[0] ? data[0].game_3 : ''}
+                    game={getGameById(
+                      props.state.globalCollection,
+                      data[0] ? data[0].game_2 : ""
+                    )}
+                    // key={game2 ? game2.id : ""}
+                    // id={game2 ? game2.id : ""}
+                    // img={game2 ? game2.thumb_url : ""}
+                    // name={game2 ? game2.name : ""}
+                  />
+                )}
+                {data[0] && (
+                  <GameCard
+                    game={getGameById(
+                      props.state.globalCollection,
+                      data[0] ? data[0].game_3 : ""
+                    )}
+                    key={data[0] ? data[0].game_3 : ""}
+                    // id={game3 ? game3.id : ""}
+                    // img={game3 ? game3.thumb_url : ""}
+                    // name={game3 ? game3.name : ""}
                   />
                 )}
               </Stack>

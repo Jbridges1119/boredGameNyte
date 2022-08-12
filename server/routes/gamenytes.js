@@ -94,6 +94,23 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   })
+  // Get 'completed' game nights attended by :id
+  router.get("/attended/:id", (req, res) => {
+    let user_id = req.params.id;
+    const params = [user_id];
+    const query = `
+    SELECT * FROM attendees 
+    JOIN game_nights ON id = attendees.game_night_id 
+    WHERE game_nights.status = 'complete' and attendees.attend_status = 't' and attendees.attendee_id = $1 ;
+    `;
+    return db.query(query, params)
+      .then((data) => {
+        return res.json(data.rows);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  })
   // easy way to get gameNyte info (except BGA game id's)
   router.get("/:id", (req, res) => {
     let gn_id = req.params.id

@@ -1,22 +1,21 @@
-import { CardContent, CardMedia,  Paper,  Stack } from "@mui/material";
-import theme from '../../../assets/theme'
-import NyteStatus from './NyteDetailsComponents/NyteStatus'
-import NyteInvites from './NyteDetailsComponents/NyteInvites'
+import { CardContent, CardMedia, Paper, Stack } from "@mui/material";
+import theme from "../../../assets/theme";
+import NyteStatus from "./NyteDetailsComponents/NyteStatus";
+import NyteInvites from "./NyteDetailsComponents/NyteInvites";
 import BGN from "./Pictures/BGN.png";
-import BGNCasual from './Pictures/BGNCasual.png'
+import BGNCasual from "./Pictures/BGNCasual.png";
 
 const NyteDetails = (props) => {
   const picture = props.data[0] ? props.data[0].competitive : "";
-    const img = picture ? BGN : BGNCasual
+  const img = picture ? BGN : BGNCasual;
 
-
-    return (
-      <CardContent
+  return (
+    <CardContent
       sx={{
         height: 803,
         backgroundColor: theme.palette.primary.dark,
         borderRadius: "15px",
-        pt: 0
+        pt: 0,
       }}
     >
      <Stack
@@ -57,7 +56,7 @@ const NyteDetails = (props) => {
       />
      </Stack>
     </CardContent>
-    );
-  };
+  );
+};
 
 export default NyteDetails;

@@ -46,9 +46,9 @@ const games = [
   }
 ]
 
-const useCreateGameNyteData = () => {
+const useApplicationData = () => {
 
-  
+
   // This will ideally be the users collection retrieved from database
   // Currently, default state is dummy data stored above
   // Will have to use setCollection with a useEffect later
@@ -67,24 +67,7 @@ const useCreateGameNyteData = () => {
     date: new Date(),
     open: false
   })
-
-  // useEffect(
-  //   Promise.all([
-  //     axios.get(`http://localhost:3005/api/users/${userId}`),
-  //     axios.get(`http://localhost:3005/api/users/${userId}/friends`),
-  //     axios.get(`http://localhost:3005/api/users/${userId}/collection`)
-  //   ])
-  //   .then((all) => {
-  //     console.log(all)
-  //     setState((prev) => {
-  //       return {...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data}
-  //     })
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   })
-  //   , [userId]);
-
+  
   // Function to set/unset checked friends in state
   const handleFriendToggle = (value) => () => {
     const currentIndex = state.friendsInvited.indexOf(value);
@@ -96,7 +79,7 @@ const useCreateGameNyteData = () => {
       newChecked.splice(currentIndex, 1);
     }
 
-    setState(prev => ({...prev, friendsInvited: newChecked}));
+    setState(prev => ({ ...prev, friendsInvited: newChecked }));
   };
 
   // These 4 functions handle the collection dialog, "open" in state
@@ -105,7 +88,7 @@ const useCreateGameNyteData = () => {
   };
   // Click the 'x' to close the dialog without saving state
   const handleClose = () => {
-    setState(prev => ({...prev, open: false}));
+    setState(prev => ({ ...prev, open: false }));
   };
 
   const handleToggle = (value) => () => {
@@ -117,8 +100,8 @@ const useCreateGameNyteData = () => {
     } else {
       newChecked.splice(currentIndex, 1);
     }
-    
-    setState({...state, gamesChosen: newChecked})
+
+    setState({ ...state, gamesChosen: newChecked })
   };
 
   // From the Create page, this function should remove display cards from the game chooser component
@@ -131,8 +114,8 @@ const useCreateGameNyteData = () => {
     if (currentIndex >= 0) {
       newChecked.splice(currentIndex, 1);
     }
-    
-    setState(prev => ({...prev, gamesChosen: newChecked}));
+
+    setState(prev => ({ ...prev, gamesChosen: newChecked }));
   };
 
   // This handles the state of "competitive" with the switch on the create page
@@ -146,6 +129,52 @@ const useCreateGameNyteData = () => {
     console.log(state.date._d)
     console.log(state)
   }
+  const deleteGameFromCollection = (user, gameId) => {
+
+    let gameObj = {}
+    for (let g of state.collection) {
+      if (g.id === gameId) {
+        gameObj = g
+      }
+    }
+
+    const currentIndex = state.collection.indexOf(gameObj);
+    const newUserCollection = [...state.collection];
+
+    if (currentIndex >= 0) {
+      newUserCollection.splice(currentIndex, 1);
+    }
+    
+    return axios.delete(`http://localhost:3005/api/gamecollection/${user}/${gameId}`)
+    .then(() => {
+        setState({ ...state, collection: newUserCollection })
+    })
+  };
+
+  const addGameToCollection = (user, gameId, game) => {
+    console.log("BEEP BOOP", user, gameId)
+    console.log("game obj", game)
+    let newGame = {
+      name: game.name,
+      min_players: game.min_players,
+      max_players: game.max_players,
+      thumb_url: game.thumb_url,
+      large_url: game.thumb_url,
+      id: gameId,
+      user: user
+    }
+    console.log(newGame)
+
+    return axios.post(`http://localhost:3005/api/users/${user}/collection`, newGame )
+    .then(() => {
+      setState((prev) => {
+        return {...prev, collection: [...state.collection, newGame]}
+      })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  };
 
   return { 
     state, 
@@ -156,7 +185,9 @@ const useCreateGameNyteData = () => {
     handleCompSwitch, 
     handleClickOpen, 
     handleClose, 
+    deleteGameFromCollection,
+    addGameToCollection,
     printState }
 };
 
-export default useCreateGameNyteData;
+export default useApplicationData;
