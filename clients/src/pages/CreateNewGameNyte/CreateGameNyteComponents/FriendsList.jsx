@@ -61,7 +61,7 @@ export default function FriendsList(props) {
         maxWidth: 800,
         position: "relative",
         overflow: "auto",
-        maxHeight: 335,
+        maxHeight: 340,
       }}
     >
       {friendsList}

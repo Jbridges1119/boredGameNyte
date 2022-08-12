@@ -59,7 +59,7 @@ export default function GameDisplayCard(props) {
           </Grid>
 
           <Grid item xs={8}>
-            <Stack spacing={5} mt={4.5}>
+            <Stack spacing={3.5} mt={3.5}>
               <Typography
                 sx={{ color: "#FFFFFF" }}
                 align="center"

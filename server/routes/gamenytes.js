@@ -186,5 +186,43 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   })
+//Set invited attending_status
+  router.put("/invited/:status/:userId/:nyteId", (req, res) => {
+    let user_id = req.params.userId;
+    let user_status = req.params.status;
+    let nyte_id = req.params.nyteId;
+    
+    const params = [user_status, user_id, nyte_id];
+    const query = `
+    UPDATE attendees
+    SET attend_status = $1
+    WHERE attendee_id = $2 AND game_night_id = $3;
+    `;
+    // console.log('params', params)
+    return db.query(query, params)
+      .then((data) => {
+        return res.json(data.rows);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  })
+//Cancel Game nyte
+  router.delete("/cancel/:nyteId", (req, res) => {
+    let nyte_id = req.params.nyteId;
+    
+    const params = [nyte_id];
+    const query = `
+    DELETE FROM game_nights WHERE game_nights.id = $1;
+    `;
+    // console.log('params', params)
+    return db.query(query, params)
+      .then((data) => {
+        return res.json(data.rows);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  })
   return router;
 };

@@ -25,7 +25,7 @@ module.exports = (db) => {
     `
     return db.query(query, params)
       .then((data) => {
-        console.log(data.rows)
+       
         return res.json(data.rows[0])
       })
   })
@@ -41,7 +41,7 @@ module.exports = (db) => {
     `
     return db.query(query, params)
       .then((data) => {
-        console.log(data.rows)
+        // console.log(data.rows)
         return res.json(data.rows)
       })
   })
@@ -55,7 +55,7 @@ module.exports = (db) => {
     `
     return db.query(query, params)
       .then((data) => {
-        console.log(data.rows)
+        // console.log(data.rows)
         return res.json(data.rows)
       })
   })

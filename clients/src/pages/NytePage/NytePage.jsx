@@ -27,6 +27,49 @@ const NytePage = (props) => {
         });
     });
   }, []);
+ 
+const onCancelNyte = (nyteId) => {
+//   let newData = [...data]
+// let newUser = {}
+// let userIndex = -1
+// for (let user of data) {
+//   userIndex++
+// if(user.attendee_id === userId){
+//   newUser = {...user}
+//   newUser.attend_status = status
+//   newData[userIndex] = newUser
+// }
+// } 
+console.log('cancel', nyteId)
+  return axios.put(`http://localhost:3005/api/gamenytes/host/cancel/${nyteId}`, { }).then(() => {
+    // setData(newData
+
+    // );
+  });
+}
+
+console.log('state', props.state)
+
+const onStatusChange = (status, userId, nyteId) =>{
+let newData = [...data]
+let newUser = {}
+let userIndex = -1
+for (let user of data) {
+  userIndex++
+if(user.attendee_id === userId){
+  newUser = {...user}
+  newUser.attend_status = status
+  newData[userIndex] = newUser
+}
+} 
+
+  return axios.put(`http://localhost:3005/api/gamenytes/invited/${status}/${userId}/${nyteId}`, { }).then(() => {
+    setData(newData
+
+    );
+  });
+}
+
 
   return (
     <Box
@@ -51,7 +94,7 @@ const NytePage = (props) => {
           >
             <Paper
               sx={{
-                backgroundColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.secondary.main,
                 borderRadius: "22px",
                 m: 1.5,
                 pt: 0.75,
@@ -74,6 +117,9 @@ const NytePage = (props) => {
                 data={data}
                 hostData={hostData}
                 user={props.state.user}
+                onConfirm={() => onStatusChange(true , props.state.user.id, nightId)}
+                onCancel={() => onStatusChange(false , props.state.user.id, nightId)}
+                onCancelNyte={() => onCancelNyte(nightId)}
               />
             </Grid>
             <Grid item xs={0.5}></Grid>

@@ -4,7 +4,7 @@ import "../../styles/Search.css";
 import useSearchData from "../../hooks/useSearchData";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-
+import LoadingButton from '@mui/lab/LoadingButton';
 const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root:hover": {
     "& > fieldset": {
@@ -17,8 +17,8 @@ const CssTextField = styled(TextField)({
 });
 
 const Search = (props) => {
-  const [loading, setLoading] = React.useState(true);
-  const { gameSearch, data, setInput, gameSearchResults } = useSearchData(props);
+  // const [loading, setLoading] = React.useState(true);
+  const { gameSearch, data, setInput, gameSearchResults, loading } = useSearchData(props);
   const handleSubmit = (e) => {
     e.preventDefault();
     gameSearch();
@@ -90,7 +90,7 @@ const Search = (props) => {
                   alignItems: "center",
                 }}
               >
-                <Button
+                <LoadingButton
                   variant="contained"
                   sx={{
                     backgroundColor: theme.palette.error.main,
@@ -101,11 +101,10 @@ const Search = (props) => {
                   }}
                   type="submit"
                   onClick={gameSearch}
-                  // loadingPosition="end"
-                  // loading={true}
+                  loading={loading}
                 >
                   Search
-                </Button>
+                </LoadingButton>
               </Grid>
             </Grid>
 

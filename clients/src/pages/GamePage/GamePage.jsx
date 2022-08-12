@@ -31,14 +31,14 @@ const GamePage = (props) => {
       )
       .then((all) => {
         setGameData(all.data.games[0]);
-        //   const youTubeGame = (all.data.games[0].name).replace(/ /g,'%20').replace(/&/g,'%20')
-        //   Promise.all([
-        //     axios.get(`${youtubeApiUrl}?q=${youTubeGame}%20how%20to%20play%20game&maxResults=3&key=${apiKey}`),
-        // axios.get(`${youtubeApiUrl}?q=${youTubeGame}%20trips%20and%20tricks%20game&maxResults=3&key=${apiKey}`)
-        //   ]).then((all) => {
-        //     console.log('all', all)
-        //     setVideos([all[0].data.items,all[1].data.items])
-        //   })
+          const youTubeGame = (all.data.games[0].name).replace(/ /g,'%20').replace(/&/g,'%20')
+          Promise.all([
+            axios.get(`${youtubeApiUrl}?q=${youTubeGame}%20how%20to%20play%20game&maxResults=3&key=${apiKey}`),
+        axios.get(`${youtubeApiUrl}?q=${youTubeGame}%20trips%20and%20tricks%20game&maxResults=3&key=${apiKey}`)
+          ]).then((all) => {
+            console.log('all', all)
+            setVideos([all[0].data.items,all[1].data.items])
+          })
       });
   }, []);
   

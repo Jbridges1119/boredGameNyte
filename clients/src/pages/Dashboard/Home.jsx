@@ -8,17 +8,18 @@ import {
   formatTime,
   getGameById,
 } from "../../helperFunctions/helperFunctions";
-
+import { useEffect, useState } from "react";
 import theme from "../../assets/theme";
 import GameNyteCard from "../GameNyteList/gameNyteListComponents/GameNyteCard";
-
+import axios from 'axios'
 export default function Home(props) {
-  // // state getter and setter for game night events
-  // const [events, setEvents] = useState([]);
-
-  // useEffect(() => {
-  //   // retrieve past & future game night events
-  // })
+  const [gameNytesAttendedCount, setGameNytesAttendedCount] = useState([]);
+  useEffect(() => {
+    axios.get(`http://localhost:3005/api/gamenytes/attended/${props.userId}`)
+      .then((data) => {
+        setGameNytesAttendedCount(data.data)
+      })
+  }, [])
 
   const gameNytesHosted = props.gameNytes.map((nyte) => {
     const date = formatDate(nyte.date);
@@ -60,7 +61,7 @@ export default function Home(props) {
                   <ProfileCard
                     state={props.state.user}
                     gameNytesHosted={props.gameNytesHosted}
-                    gameNytesAttended={props.gameNytesAttended}
+                    gameNytesAttended={gameNytesAttendedCount}
                   />
                 )}
               </Grid>

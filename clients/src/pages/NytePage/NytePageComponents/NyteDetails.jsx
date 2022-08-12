@@ -18,32 +18,43 @@ const NyteDetails = (props) => {
         pt: 0,
       }}
     >
-      <Stack justifyContent="center" alignItems="center">
-        <Paper
-          sx={{
-            borderRadius: "22px",
-          }}
-          elevation={4}
-        >
-          <CardMedia
-            component="img"
-            image={img}
-            alt="BGN"
-            sx={{
-              maxWidth: "200px",
-              maxHeight: "200px",
-              borderRadius: "20px",
-            }}
-          />
-        </Paper>
-
-        <NyteStatus
-          data={props.data}
-          user={props.user}
-          hostData={props.hostData}
-        />
-        <NyteInvites data={props.data} hostData={props.hostData} />
-      </Stack>
+     <Stack
+     
+     
+     justifyContent="center"
+     alignItems="center">
+     <Paper
+    sx={{
+      
+      borderRadius: "22px"
+    }}
+    elevation={4}
+  >
+     <CardMedia
+              component="img"
+              image={img}
+              alt="BGN"
+              sx={{
+                maxWidth: "200px",
+                maxHeight: "200px",
+                borderRadius: "20px"
+              }}
+            />
+      </Paper>
+    
+      <NyteStatus 
+        data={props.data}
+        user={props.user}
+        hostData={props.hostData}
+        onConfirm={props.onConfirm}
+        onCancel={props.onCancel}
+        onCancelNyte={props.onCancelNyte}
+      />
+      <NyteInvites
+        data={props.data}
+        hostData={props.hostData}
+      />
+     </Stack>
     </CardContent>
   );
 };
