@@ -5,7 +5,7 @@ import theme from "../../../assets/theme";
 const LocationBar = (props) => {
   const setLocation = (event) => {
     event.preventDefault();
-    props.setState((prev) => {
+    props.setNewGameNyte((prev) => {
       return { ...prev, place: event.target.value };
     });
   };

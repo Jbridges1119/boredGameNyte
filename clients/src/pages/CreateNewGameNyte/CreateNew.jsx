@@ -17,9 +17,9 @@ const CreateNew = (props) => {
   const [casualPicture, setCasualPicture] = useState();
 
   useEffect(() => {
-    if (props.state.competitive) setCasualPicture(BGN);
-    if (!props.state.competitive) setCasualPicture(BGNCasual);
-  }, [props.state.competitive]);
+    if (props.newGameNyte.competitive) setCasualPicture(BGN);
+    if (!props.newGameNyte.competitive) setCasualPicture(BGNCasual);
+  }, [props.newGameNyte.competitive]);
 
   return (
     <Box
@@ -46,20 +46,20 @@ const CreateNew = (props) => {
               <Grid item xs={3.5}>
                 <Stack>
                   <TitleBar
-                    title={props.state.name}
+                    title={props.newGameNyte.name}
                     setTitle={props.setTitle}
-                    setState={props.setState}
+                    setNewGameNyte={props.setNewGameNyte}
                   />
 
                   <LocationBar
-                    location={props.state.place}
+                    location={props.newGameNyte.place}
                     setLocation={props.setLocation}
-                    setState={props.setState}
+                    setNewGameNyte={props.setNewGameNyte}
                   />
 
                   <StaticDatePicker
-                    state={props.state}
-                    setState={props.setState}
+                    newGameNyte={props.newGameNyte}
+                    setNewGameNyte={props.setNewGameNyte}
                     sx={{
                       color: theme.palette.secondary.light,
                     }}
@@ -86,7 +86,7 @@ const CreateNew = (props) => {
                         </Typography> */}
 
                         <Switch
-                          checked={props.state.competitive}
+                          checked={props.newGameNyte.competitive}
                           onChange={props.handleCompSwitch}
                           inputProps={{ "aria-label": "controlled" }}
                           color="error"
@@ -103,6 +103,8 @@ const CreateNew = (props) => {
                   <FriendInviter
                     state={props.state}
                     setState={props.setState}
+                    newGameNyte={props.newGameNyte}
+                    setNewGameNyte={props.setNewGameNyte}
                     handleFriendToggle={props.handleFriendToggle}
                   />
                 </Stack>
@@ -115,6 +117,8 @@ const CreateNew = (props) => {
                   <GameChooser
                     state={props.state}
                     setState={props.setState}
+                    newGameNyte={props.newGameNyte}
+                    setNewGameNyte={props.setNewGameNyte}
                     handleClickOpen={props.handleClickOpen}
                     handleClose={props.handleClose}
                     handleCloseSave={props.handleCloseSave}

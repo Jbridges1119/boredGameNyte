@@ -73,9 +73,9 @@ const StaticDatePicker = (props) => {
             />
           )}
           label="When is your Game Nyte?"
-          value={props.state.date}
+          value={props.newGameNyte.date}
           onChange={(newValue) => {
-            props.setState({ ...props.state, date: newValue });
+            props.setNewGameNyte({ ...props.newGameNyte, date: newValue });
           }}
         />
       </LocalizationProvider>

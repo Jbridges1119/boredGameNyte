@@ -45,7 +45,7 @@ export default function GameChooserCollection(props) {
               sx={{ color: "white" }}
               edge="start"
               color="error"
-              checked={props.state.gamesChosen.indexOf(game.id) !== -1}
+              checked={props.newGameNyte.gamesChosen.indexOf(game.id) !== -1}
               tabIndex={-1}
               disableRipple
               inputProps={{ "aria-labelledby": labelId }}
