@@ -17,11 +17,11 @@ import GameCollection from "./pages/GameCollection/GameCollection";
 import Login from "./pages/Login/Login";
 import useApplicationData from "./hooks/useApplicationData";
 import { useContext } from 'react';
-// import { authContext } from 'providers/AuthProvider';
+import { authContext } from './pages/Login/Auth';
 
 
 function App() {
-  // const { auth } = useContext(authContext);
+  const { auth } = useContext(authContext);
   const {
     setTitle,
     setLocation,
