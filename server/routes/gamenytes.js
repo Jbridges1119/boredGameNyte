@@ -227,7 +227,7 @@ module.exports = (db) => {
 
   router.post('/createnew', (req, res) => {
     const gameNyte = req.body;
-    console.log(gameNyte);
+    let newgameNyteId = ''
     let params = [gameNyte.name, gameNyte.host, gameNyte.competitive, 'scheduled', gameNyte.place, gameNyte.date];
     let query=`
     INSERT INTO game_nights (title, host_id, competitive, status, location, date)
@@ -246,10 +246,31 @@ module.exports = (db) => {
         `
         return db.query(query, params)
           .then((data) => {
-            let newgameNyteId = data.rows[data.rows.length - 1]
-
-            let params = [gameNyte.name, gameNyte.host, gameNyte.competitive, gameNyte.place, gameNyte.date];
-          })
+            newgameNyteId = data.rows[data.rows.length - 1].id;
+            for (let f of gameNyte.friendsInvited) {
+              let params = [newgameNyteId, f];
+              let query = `
+              INSERT INTO attendees (game_night_id, attendee_id, attend_status)
+              VALUES ($1, $2, null);
+              `
+              db.query(query, params)
+            }
+          }).then((data) => {
+              let params = [
+                newgameNyteId, 
+                gameNyte.gamesChosen[0] ? gameNyte.gamesChosen[0] : null, 
+                gameNyte.gamesChosen[1] ? gameNyte.gamesChosen[1] : null,
+                gameNyte.gamesChosen[2] ? gameNyte.gamesChosen[2] : null
+              ];
+              let query = `
+              INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
+              VALUES ($1, $2, $3, $4);
+              `
+              return db.query(query, params)
+              .then(() => {
+                res.send("Success")
+              })
+            })
       })
 
 
