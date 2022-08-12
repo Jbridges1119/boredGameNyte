@@ -16,17 +16,26 @@ export default function Home(props) {
 
   const [gameNytes, setGameNytes] = useState([]);
   const [gameNytesAttendedCount, setGameNytesAttendedCount] = useState([]);
+  const [completeGameNytesHosted, setCompleteGameNytesHosted] = useState([]);
+  // query to get game nights attented 
   useEffect(() => {
     axios.get(`http://localhost:3005/api/gamenytes/attended/${props.userId}`)
       .then((data) => {
         setGameNytesAttendedCount(data.data)
       })
   }, [])
-
+  // query to get game nights for gameNytesCard
   useEffect(() => {
     axios.get(`http://localhost:3005/api/gamenytes/host/${props.userId}`)
       .then((data) => {
         setGameNytes(data.data)
+      })
+  }, [])
+  // query to get game nights hosted for profile card
+  useEffect(() => {
+    axios.get(`http://localhost:3005/api/gamenytes/hosted/${props.userId}`)
+      .then((data) => {
+        setCompleteGameNytesHosted(data.data)
       })
   }, [])
 
@@ -69,7 +78,7 @@ export default function Home(props) {
                 {props.state.user && (
                   <ProfileCard
                     state={props.state.user}
-                    gameNytesHosted={0}
+                    completeGameNytesHosted={completeGameNytesHosted}
                     gameNytesAttended={gameNytesAttendedCount}
                   />
                 )}
