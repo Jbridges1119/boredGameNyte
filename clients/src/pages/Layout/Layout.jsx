@@ -49,6 +49,11 @@ const menuItems = [{
     text: "Game Collection",
     icon: <Casino sx={{ color: "white" }}/>,
     path: "/collection"
+},
+{
+    text: "Logout",
+    icon: <Casino sx={{ color: "white" }}/>,
+    path: "/"
 }
 ]
 
