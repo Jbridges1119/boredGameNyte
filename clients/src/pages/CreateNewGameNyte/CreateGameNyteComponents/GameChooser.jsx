@@ -10,13 +10,13 @@ const GameChooser = (props) => {
 
   // Need to find a way to access the matching ID inside the props.
   // findGameById function?
-  let game1 = getGameById(props.state.collection, props.state.gamesChosen[0]);
-  let game2 = getGameById(props.state.collection, props.state.gamesChosen[1]);
-  let game3 = getGameById(props.state.collection, props.state.gamesChosen[2]);
+  let game1 = getGameById(props.state.collection, props.newGameNyte.gamesChosen[0]);
+  let game2 = getGameById(props.state.collection, props.newGameNyte.gamesChosen[1]);
+  let game3 = getGameById(props.state.collection, props.newGameNyte.gamesChosen[2]);
 
   useEffect(() => {
-    if (props.state.gamesChosen.length > 0) setAddButton(8);
-    if (props.state.gamesChosen.length === 0) setAddButton(35.7);
+    if (props.newGameNyte.gamesChosen.length > 0) setAddButton(8);
+    if (props.newGameNyte.gamesChosen.length === 0) setAddButton(35.7);
   }, [game1]);
 
   return (
@@ -83,11 +83,13 @@ const GameChooser = (props) => {
             )}
             {!game3 && null}
 
-            {props.state.gamesChosen.length === 3 && null}
-            {props.state.gamesChosen.length < 3 && (
+            {props.newGameNyte.gamesChosen.length === 3 && null}
+            {props.newGameNyte.gamesChosen.length < 3 && (
               <GameChooserDialog
                 state={props.state}
                 handleClickOpen={props.handleClickOpen}
+                newGameNyte={props.newGameNyte}
+                setNewGameNyte={props.setNewGameNyte}
                 handleToggle={props.handleToggle}
                 handleClose={props.handleClose}
                 handeCloseSave={props.handeCloseSave}

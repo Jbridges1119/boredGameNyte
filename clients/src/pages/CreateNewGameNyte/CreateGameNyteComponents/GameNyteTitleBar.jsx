@@ -5,7 +5,7 @@ import theme from "../../../assets/theme";
 const TitleBar = (props) => {
   const setTitle = (event) => {
     event.preventDefault();
-    props.setState((prev) => {
+    props.setNewGameNyte((prev) => {
       return { ...prev, name: event.target.value };
     });
   };

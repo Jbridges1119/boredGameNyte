@@ -58,7 +58,9 @@ const useApplicationData = () => {
     user: null,
     friendsList: [],
     collection: games,
-    globalCollection: [],
+    globalCollection: []
+  })
+  const [newGameNyte, setNewGameNyte] = useState({
     gamesChosen: [],
     friendsInvited: [],
     competitive: false,
@@ -70,8 +72,8 @@ const useApplicationData = () => {
   
   // Function to set/unset checked friends in state
   const handleFriendToggle = (value) => () => {
-    const currentIndex = state.friendsInvited.indexOf(value);
-    const newChecked = [...state.friendsInvited];
+    const currentIndex = newGameNyte.friendsInvited.indexOf(value);
+    const newChecked = [...newGameNyte.friendsInvited];
 
     if (currentIndex === -1) {
       newChecked.push(value);
@@ -79,21 +81,21 @@ const useApplicationData = () => {
       newChecked.splice(currentIndex, 1);
     }
 
-    setState(prev => ({ ...prev, friendsInvited: newChecked }));
+    setNewGameNyte(prev => ({ ...prev, friendsInvited: newChecked }));
   };
 
   // These 4 functions handle the collection dialog, "open" in state
   const handleClickOpen = () => {
-    setState(prev => ({ ...prev, open: true }));
+    setNewGameNyte(prev => ({ ...prev, open: true }));
   };
   // Click the 'x' to close the dialog without saving state
   const handleClose = () => {
-    setState(prev => ({ ...prev, open: false }));
+    setNewGameNyte(prev => ({ ...prev, open: false }));
   };
 
   const handleToggle = (value) => () => {
-    const currentIndex = state.gamesChosen.indexOf(value);
-    const newChecked = [...state.gamesChosen];
+    const currentIndex = newGameNyte.gamesChosen.indexOf(value);
+    const newChecked = [...newGameNyte.gamesChosen];
 
     if (currentIndex === -1) {
       newChecked.push(value);
@@ -101,13 +103,13 @@ const useApplicationData = () => {
       newChecked.splice(currentIndex, 1);
     }
 
-    setState({ ...state, gamesChosen: newChecked })
+    setNewGameNyte({ ...newGameNyte, gamesChosen: newChecked })
   };
 
   // From the Create page, this function should remove display cards from the game chooser component
   const toggleOff = (value) => () => {
-    const currentIndex = state.gamesChosen.indexOf(value);
-    const newChecked = [...state.gamesChosen];
+    const currentIndex = newGameNyte.gamesChosen.indexOf(value);
+    const newChecked = [...newGameNyte.gamesChosen];
 
 
 
@@ -115,19 +117,18 @@ const useApplicationData = () => {
       newChecked.splice(currentIndex, 1);
     }
 
-    setState(prev => ({ ...prev, gamesChosen: newChecked }));
+    setNewGameNyte(prev => ({ ...prev, gamesChosen: newChecked }));
   };
 
   // This handles the state of "competitive" with the switch on the create page
   const handleCompSwitch = () => {
-    return setState((prev) => {
-      return { ...prev, competitive: (state.competitive === false ? true : false) }
+    return setNewGameNyte((prev) => {
+      return { ...prev, competitive: (newGameNyte.competitive === false ? true : false) }
     })
   }
 
   const printState = () => {
-    console.log(state.date._d)
-    console.log(state)
+    console.log(newGameNyte)
   }
   const deleteGameFromCollection = (user, gameId) => {
 
@@ -147,7 +148,9 @@ const useApplicationData = () => {
     
     return axios.delete(`http://localhost:3005/api/gamecollection/${user}/${gameId}`)
     .then(() => {
-        setState({ ...state, collection: newUserCollection })
+      setState((prev) => {
+        return {...prev, collection: newUserCollection}
+      })
     })
   };
 
@@ -178,7 +181,9 @@ const useApplicationData = () => {
 
   return { 
     state, 
-    setState, 
+    setState,
+    newGameNyte,
+    setNewGameNyte, 
     handleToggle, 
     toggleOff, 
     handleFriendToggle, 
