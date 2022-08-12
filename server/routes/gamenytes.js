@@ -224,5 +224,35 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   })
+
+  router.post('/createnew', (req, res) => {
+    const gameNyte = req.body;
+    console.log(gameNyte);
+    let params = [gameNyte.name, gameNyte.host, gameNyte.competitive, 'scheduled', gameNyte.place, gameNyte.date];
+    let query=`
+    INSERT INTO game_nights (title, host_id, competitive, status, location, date)
+    VALUES ($1, $2, $3, $4, $5, $6);
+    `
+    return db.query(query, params)
+      .then((data) => {
+        let params = [gameNyte.name, gameNyte.host, gameNyte.competitive, gameNyte.place, gameNyte.date];
+        let query = `
+        SELECT DISTINCT id FROM game_nights
+        WHERE title = $1 
+        AND host_id = $2 
+        AND competitive = $3 
+        AND location = $4 
+        AND date = $5;
+        `
+        return db.query(query, params)
+          .then((data) => {
+            let newgameNyteId = data.rows[data.rows.length - 1]
+
+            let params = [gameNyte.name, gameNyte.host, gameNyte.competitive, gameNyte.place, gameNyte.date];
+          })
+      })
+
+
+  });
   return router;
 };

@@ -61,6 +61,7 @@ const useApplicationData = () => {
     globalCollection: []
   })
   const [newGameNyte, setNewGameNyte] = useState({
+    host: state.user ? state.user.id : '',
     gamesChosen: [],
     friendsInvited: [],
     competitive: false,
@@ -129,7 +130,10 @@ const useApplicationData = () => {
 
   const printState = () => {
     console.log(newGameNyte)
+    return axios.post(`http://localhost:3005/api/gamenytes/createnew`, newGameNyte)
+    .then()
   }
+
   const deleteGameFromCollection = (user, gameId) => {
 
     let gameObj = {}

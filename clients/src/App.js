@@ -83,6 +83,9 @@ function App() {
         setState((prev) => {
           return { ...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data }
         })
+        setNewGameNyte((prev) => {
+          return {...prev, host: userId}
+        })
       })
       .catch((err) => {
         console.log(err);
