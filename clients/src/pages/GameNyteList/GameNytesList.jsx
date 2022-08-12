@@ -185,7 +185,7 @@ const GameNyteList = (props) => {
                   overflow: "auto",
                   borderRadius: "20px",
                 }}
-              >  { console.log(gameNytes.hosted) }
+              >  
                 {/* Hosted */}
                 {gameNytes.hosted.map((nyte) => {
                   const date = formatDate(nyte.date);
