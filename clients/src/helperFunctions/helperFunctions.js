@@ -8,21 +8,24 @@ function getGameById(arr, id) {
 };
 
 function formatDate(datestring) {
-  let split = datestring.split(' ');
-  let date = split.slice(0, -5)
-  return date.join(' ');
+  const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+  let date = datestring.split('T')[0];
+  let days = date.split('-');
+  days[1] = month[days[1] -1]
+  let formatDate = `${days[1]} ${days[2]} ${days[0]}`
+  return formatDate
 };
-
 function formatTime(datestring) {
+  let date = datestring.split('T')[1];
   let ampm = 'AM'
   let min = '0'
   let hr = ''
-  let split = datestring.split(' ')[4].split(':');
-  min = split[1]
-  if (split[0] >= 12) ampm = 'PM'
-  if (split[0] > 12) hr = split[0] - 12
-  if (split[0] < 10) hr = split[0][1]
-  return `${hr}:${min} ${ampm}`
+  let time = date.split(':').slice(0,-1);
+  min = time[1]
+  if (time[0] >= 12) ampm = 'PM'
+  if (time[0] > 12) hr = time[0] - 12
+  if (time[0] <10) hr = time[0][1]
+    return `${hr}:${min} ${ampm}`
 };
 
 module.exports = {
