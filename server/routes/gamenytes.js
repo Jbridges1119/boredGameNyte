@@ -36,6 +36,7 @@ module.exports = (db) => {
     JOIN game_nights ON users.id = game_nights.host_id
     JOIN game_choices ON game_nights.id = game_choices.game_night_id
     WHERE host_id = $1
+    ORDER BY date DESC
     LIMIT 3;
     `;
     return db.query(query, params)
@@ -65,7 +66,8 @@ module.exports = (db) => {
     game_choices.bgatlas_game_3 FROM users
     JOIN game_nights ON users.id = game_nights.host_id
     JOIN game_choices ON game_nights.id = game_choices.game_night_id
-    WHERE host_id = $1;
+    WHERE host_id = $1
+    ORDER BY date DESC;
     `;
     return db.query(query, params)
       .then((data) => {
@@ -81,7 +83,8 @@ module.exports = (db) => {
     const params = [user_id];
     const query = `
       SELECT * FROM game_nights 
-      WHERE status = 'complete' and host_id = $1;
+      WHERE status = 'complete' and host_id = $1
+      ORDER BY date DESC;
       `;
     return db.query(query, params)
       .then((data) => {
@@ -100,7 +103,8 @@ module.exports = (db) => {
     JOIN game_nights ON id = attendees.game_night_id
     JOIN users ON game_nights.host_id = users.id
     JOIN game_choices ON game_choices.game_night_id = attendees.game_night_id
-    WHERE attendee_id = $1;
+    WHERE attendee_id = $1
+    ORDER BY date DESC;
     `;
     return db.query(query, params)
       .then((data) => {
