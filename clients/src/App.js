@@ -14,11 +14,14 @@ import GameNyteList from './pages/GameNyteList/GameNytesList'
 import GamePage from './pages/GamePage/GamePage'
 import CreateNew from "./pages/CreateNewGameNyte/CreateNew";
 import GameCollection from "./pages/GameCollection/GameCollection";
-
+import Login from "./pages/Login/Login";
 import useApplicationData from "./hooks/useApplicationData";
+import { useContext } from 'react';
+// import { authContext } from 'providers/AuthProvider';
+
 
 function App() {
-
+  // const { auth } = useContext(authContext);
   const {
     setTitle,
     setLocation,
@@ -33,8 +36,7 @@ function App() {
     handleCompSwitch,
     toggleOff,
     deleteGameFromCollection,
-    addGameToCollection,
-    printState
+    addGameToCollection
   } = useApplicationData();
 
   const [userId, setUserId] = useState(1);
@@ -83,6 +85,9 @@ function App() {
         setState((prev) => {
           return { ...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data }
         })
+        setNewGameNyte((prev) => {
+          return {...prev, host: userId}
+        })
       })
       .catch((err) => {
         console.log(err);
@@ -94,7 +99,8 @@ function App() {
     <ThemeProvider theme={theme}>
 
       <BrowserRouter>
-        <Layout theme={theme}>
+      {!userId && <Login theme={theme} />}
+       {userId && <Layout theme={theme}>
           <Routes>
             <Route
               exact path="/"
@@ -146,7 +152,6 @@ function App() {
                 handleFriendToggle={handleFriendToggle}
                 handleCompSwitch={handleCompSwitch}
                 toggleOff={toggleOff}
-                printState={printState}
               />}
               theme={theme} />
             <Route 
@@ -167,7 +172,7 @@ function App() {
               />} 
               theme={theme} />
           </Routes>
-        </Layout>
+        </Layout>}
       </BrowserRouter>
 
     </ThemeProvider>
