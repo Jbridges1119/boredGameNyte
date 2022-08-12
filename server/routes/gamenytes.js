@@ -268,7 +268,7 @@ module.exports = (db) => {
               `
               return db.query(query, params)
               .then(() => {
-                res.send("Success")
+                return res.json(newgameNyteId);
               })
             })
       })

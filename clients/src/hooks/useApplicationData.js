@@ -128,11 +128,14 @@ const useApplicationData = () => {
     })
   }
 
-  const printState = () => {
-    console.log(newGameNyte)
-    return axios.post(`http://localhost:3005/api/gamenytes/createnew`, newGameNyte)
-    .then()
-  }
+  // const printState = () => {
+  //   console.log(newGameNyte)
+  //   return axios.post(`http://localhost:3005/api/gamenytes/createnew`, newGameNyte)
+  //   .then((data) => {
+  //     let nyteId = data.data;
+  //     navigate(`/nyte/${nyteId}`);
+  //   })
+  // }
 
   const deleteGameFromCollection = (user, gameId) => {
 
@@ -196,7 +199,7 @@ const useApplicationData = () => {
     handleClose, 
     deleteGameFromCollection,
     addGameToCollection,
-    printState }
+    }
 };
 
 export default useApplicationData;

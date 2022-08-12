@@ -33,8 +33,7 @@ function App() {
     handleCompSwitch,
     toggleOff,
     deleteGameFromCollection,
-    addGameToCollection,
-    printState
+    addGameToCollection
   } = useApplicationData();
 
   const [userId, setUserId] = useState(1);
@@ -149,7 +148,6 @@ function App() {
                 handleFriendToggle={handleFriendToggle}
                 handleCompSwitch={handleCompSwitch}
                 toggleOff={toggleOff}
-                printState={printState}
               />}
               theme={theme} />
             <Route 
