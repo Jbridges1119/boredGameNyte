@@ -9,11 +9,12 @@ function getGameById(arr, id) {
 
 function formatDate(datestring) {
   const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+  let day = '0'
   let date = datestring.split('T')[0];
   let days = date.split('-');
   days[1] = month[days[1] -1]
-  let formatDate = `${days[1]} ${days[2]} ${days[0]}`
-  return formatDate
+  if (days[2] < 10) day = days[2][1] 
+  return `${days[1]} ${day} ${days[0]}`
 };
 function formatTime(datestring) {
   let date = datestring.split('T')[1];
