@@ -190,6 +190,10 @@ const GameInfo = (props) => {
                     {/* Game Description button */}
                     <Button
                       sx={{
+                        ':hover': {
+                          bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                          boxShadow:24
+                        },
                         color: "white",
                         backgroundColor: theme.palette.secondary.main,
                         height: 45,
