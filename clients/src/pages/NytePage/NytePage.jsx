@@ -30,23 +30,15 @@ const NytePage = (props) => {
   }, []);
  
 const onCancelNyte = (nyteId) => {
-//   let newData = [...data]
-// let newUser = {}
-// let userIndex = -1
-// for (let user of data) {
-//   userIndex++
-// if(user.attendee_id === userId){
-//   newUser = {...user}
-//   newUser.attend_status = status
-//   newData[userIndex] = newUser
-// }
-// } 
+ 
 console.log('cancel', nyteId)
-  return axios.put(`http://localhost:3005/api/gamenytes/host/cancel/${nyteId}`, { }).then(() => {
-    // setData(newData
-  navigate('/home');
-    // );
-  });
+  return axios.delete(`http://localhost:3005/api/gamenytes/cancel/${nyteId}`, { }).then(()=>{
+      navigate('/') //use this  instead of history.push
+}
+  )
+  .catch((error)=>{
+    console.log(error)
+})
 }
 
 console.log('state', props.state)
@@ -65,10 +57,11 @@ if(user.attendee_id === userId){
 } 
 
   return axios.put(`http://localhost:3005/api/gamenytes/invited/${status}/${userId}/${nyteId}`, { }).then(() => {
-    setData(newData
-
-    );
-  });
+    setData(newData)
+  })  
+  .catch((error)=>{
+    console.log(error)
+})
 }
 
 
