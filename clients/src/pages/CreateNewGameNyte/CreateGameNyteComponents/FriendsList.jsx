@@ -8,62 +8,62 @@ import { Person } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { ListItemButton } from "@mui/material";
 
-const friends = [
-  {
-    name: "The Professor",
-    email: "TheProfessor@gmail.com",
-    id: 0,
-  },
-  {
-    name: "Zoidberg",
-    email: "Zoidberg@gmail.com",
-    id: 1,
-  },
-  {
-    name: "Bender",
-    email: "BenderIsGreat@gmail.com",
-    id: 2,
-  },
-  {
-    name: "Turanga Leela",
-    email: "Oneye@gmail.com",
-    id: 3,
-  },
-  {
-    name: "Amy Wong",
-    email: "superrich@gmail.com",
-    id: 4,
-  },
-  {
-    name: "Scruffy",
-    email: "scruffythejanitor@gmail.com",
-    id: 5,
-  },
-  {
-    name: "Zapp Brannigan",
-    email: "sexyspacecommander@gmail.com",
-    id: 6,
-  },
-  {
-    name: "Kif Kroaker",
-    email: "ltkif@gmail.com",
-    id: 7,
-  }, {
-    name: "Scruffy",
-    email: "scruffythejanitor@gmail.com",
-    id: 8,
-  },
-  {
-    name: "Zapp Brannigan",
-    email: "sexyspacecommander@gmail.com",
-    id: 9,
-  },
-  {
-    name: "Kif Kroaker",
-    email: "ltkif@gmail.com",
-    id: 10,
-  },
-];
+// const friends = [
+//   {
+//     name: "The Professor",
+//     email: "TheProfessor@gmail.com",
+//     id: 0,
+//   },
+//   {
+//     name: "Zoidberg",
+//     email: "Zoidberg@gmail.com",
+//     id: 1,
+//   },
+//   {
+//     name: "Bender",
+//     email: "BenderIsGreat@gmail.com",
+//     id: 2,
+//   },
+//   {
+//     name: "Turanga Leela",
+//     email: "Oneye@gmail.com",
+//     id: 3,
+//   },
+//   {
+//     name: "Amy Wong",
+//     email: "superrich@gmail.com",
+//     id: 4,
+//   },
+//   {
+//     name: "Scruffy",
+//     email: "scruffythejanitor@gmail.com",
+//     id: 5,
+//   },
+//   {
+//     name: "Zapp Brannigan",
+//     email: "sexyspacecommander@gmail.com",
+//     id: 6,
+//   },
+//   {
+//     name: "Kif Kroaker",
+//     email: "ltkif@gmail.com",
+//     id: 7,
+//   }, {
+//     name: "Scruffy",
+//     email: "scruffythejanitor@gmail.com",
+//     id: 8,
+//   },
+//   {
+//     name: "Zapp Brannigan",
+//     email: "sexyspacecommander@gmail.com",
+//     id: 9,
+//   },
+//   {
+//     name: "Kif Kroaker",
+//     email: "ltkif@gmail.com",
+//     id: 10,
+//   },
+// ];
 const FriendList = styled(ListItemText)({
   "& .MuiListItemText-secondary": {
     color: "white",
@@ -116,7 +116,7 @@ export default function FriendsList(props) {
         maxWidth: 800,
         position: "relative",
         overflow: "auto",
-        maxHeight: 335,
+        maxHeight: 340,
       }}
     >
       {friendsList}
