@@ -12,9 +12,26 @@ import CompPicture from "./CreateGameNyteComponents/CompPicture";
 import { useEffect, useState } from "react";
 import BGN from "../../assets/Pictures/BGN.png";
 import BGNCasual from "../../assets/Pictures/BGNCasual.png";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const CreateNew = (props) => {
+  const navigate = useNavigate();
   const [casualPicture, setCasualPicture] = useState();
+
+  const createGameNyte = () => {
+    console.log(props.newGameNyte)
+    if (props.newGameNyte.name === '') {return alert('Please name your game nyte!')}
+    if (props.newGameNyte.place === '') {return alert('Please give your game nyte a location!')}
+    if (props.newGameNyte.friendsInvited.length === 0) {return alert('Please invite some friends!')}
+    if (props.newGameNyte.gamesChosen.length < 1) {return alert('Please choose at least one game for your game nyte!')}
+    return axios.post(`http://localhost:3005/api/gamenytes/createnew`, props.newGameNyte)
+    .then((data) => {
+      let nyteId = data.data;
+      console.log(nyteId)
+      navigate(`/nyte/${nyteId}`);
+    })
+  }
 
   useEffect(() => {
     if (props.newGameNyte.competitive) setCasualPicture(BGN);
@@ -129,7 +146,7 @@ const CreateNew = (props) => {
                   <Button
                     variant="contained"
                     type="submit"
-                    onClick={props.printState}
+                    onClick={createGameNyte}
                     sx={{
                       width: 500,
                       backgroundColor: theme.palette.error.main,

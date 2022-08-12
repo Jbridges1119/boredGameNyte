@@ -33,8 +33,7 @@ function App() {
     handleCompSwitch,
     toggleOff,
     deleteGameFromCollection,
-    addGameToCollection,
-    printState
+    addGameToCollection
   } = useApplicationData();
 
   const [userId, setUserId] = useState(1);
@@ -82,6 +81,9 @@ function App() {
       .then((all) => {
         setState((prev) => {
           return { ...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data }
+        })
+        setNewGameNyte((prev) => {
+          return {...prev, host: userId}
         })
       })
       .catch((err) => {
@@ -146,7 +148,6 @@ function App() {
                 handleFriendToggle={handleFriendToggle}
                 handleCompSwitch={handleCompSwitch}
                 toggleOff={toggleOff}
-                printState={printState}
               />}
               theme={theme} />
             <Route 
