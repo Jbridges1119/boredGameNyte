@@ -58,7 +58,9 @@ const useApplicationData = () => {
     user: null,
     friendsList: [],
     collection: games,
-    globalCollection: [],
+    globalCollection: []
+  })
+  const [newGameNyte, setNewGameNyte] = useState({
     gamesChosen: [],
     friendsInvited: [],
     competitive: false,
