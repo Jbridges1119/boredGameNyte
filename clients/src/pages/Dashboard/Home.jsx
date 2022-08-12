@@ -13,6 +13,8 @@ import theme from "../../assets/theme";
 import GameNyteCard from "../GameNyteList/gameNyteListComponents/GameNyteCard";
 import axios from 'axios'
 export default function Home(props) {
+
+  const [gameNytes, setGameNytes] = useState([]);
   const [gameNytesAttendedCount, setGameNytesAttendedCount] = useState([]);
   useEffect(() => {
     axios.get(`http://localhost:3005/api/gamenytes/attended/${props.userId}`)
@@ -21,7 +23,14 @@ export default function Home(props) {
       })
   }, [])
 
-  const gameNytesHosted = props.gameNytes.map((nyte) => {
+  useEffect(() => {
+    axios.get(`http://localhost:3005/api/gamenytes/host/${props.userId}`)
+      .then((data) => {
+        setGameNytes(data.data)
+      })
+  }, [])
+
+  const gameNytesHosted = gameNytes.map((nyte) => {
     const date = formatDate(nyte.date);
     const time = formatTime(nyte.date);
     return (
@@ -60,7 +69,7 @@ export default function Home(props) {
                 {props.state.user && (
                   <ProfileCard
                     state={props.state.user}
-                    gameNytesHosted={props.gameNytesHosted}
+                    gameNytesHosted={0}
                     gameNytesAttended={gameNytesAttendedCount}
                   />
                 )}
