@@ -3,6 +3,7 @@ import {
   Casino,
   Person,
   Search,
+  Logout
 } from "@mui/icons-material";
 import {
   Box,
@@ -49,6 +50,11 @@ const menuItems = [{
     text: "Game Collection",
     icon: <Casino sx={{ color: "white" }}/>,
     path: "/collection"
+},
+{
+    text: "Logout",
+    icon: <Logout sx={{ color: "white" }}/>,
+    path: "/"
 }
 ]
 
