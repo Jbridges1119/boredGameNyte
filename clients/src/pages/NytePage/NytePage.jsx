@@ -41,11 +41,11 @@ const onCancelNyte = (nyteId) => {
 // }
 // } 
 console.log('cancel', nyteId)
-  // return axios.put(`http://localhost:3005/api/gamenytes/host/cancel/${nyteId}`, { }).then(() => {
-  //   // setData(newData
+  return axios.put(`http://localhost:3005/api/gamenytes/host/cancel/${nyteId}`, { }).then(() => {
+    // setData(newData
 
-  //   // );
-  // });
+    // );
+  });
 }
 
 console.log('state', props.state)
