@@ -9,7 +9,7 @@ VALUES (E'Game Night at Jesse\'s', 3, FALSE, 'complete', E'Jesse\'s house', '202
 INSERT INTO game_nights (title, host_id, competitive, status, location, date)
 VALUES ('Lords of Waterdeep Game Night', 3, TRUE, 'complete', E'The Ogre\'s Den', '2022-08-13T08:00:53.000Z');
 INSERT INTO game_nights (title, host_id, competitive, status, location, date)
-VALUES (E'What\'s Canadas Favorite board game? Sorry!', 3, FALSE, 'complete', '2022-06-02T14:00:53.000Z');
+VALUES (E'What\'s Canadas Favorite board game? Sorry!', 3, FALSE, 'complete', 'The Sentry Box', '2022-06-02T14:00:53.000Z');
 INSERT INTO game_nights (title, host_id, competitive, status, location, date)
 VALUES ('A Host with no Clue!', 3, TRUE, 'Scheduled', 'a location TBD', '2022-07-20T08:45:53.000Z');
 INSERT INTO game_nights (title, host_id, competitive, status, location, date)
