@@ -1,9 +1,9 @@
 INSERT INTO game_nights (title, host_id, competitive, status, location, date)
-VALUES (E'Game Night at Jeff\'s', 1, FALSE, 'complete', E'Jeff\'s backyard', '2022-08-25T14:30:53.000Z');
+VALUES (E'Game Night at Jeff\'s', 1, FALSE, 'Scheduled', E'Jeff\'s backyard', '2022-08-25T14:30:53.000Z');
 INSERT INTO game_nights (title, host_id, competitive, status, location, date)
-VALUES (E'Catan Night at Jeff\'s', 1, TRUE, 'complete', E'Jeff\'s livingroom', '2022-06-16T22:00:53.000Z');
+VALUES (E'Catan Night at Jeff\'s', 1, TRUE, 'complete', E'Jeff\'s livingroom', '2022-06-19T22:00:53.000Z');
 INSERT INTO game_nights (title, host_id, competitive, status, location, date)
-VALUES (E'Newbie Night at Jeff\'s', 1, FALSE, 'complete', E'Jeff\'s kitchen', '2022-08-18T08:45:53.000Z');
+VALUES (E'Newbie Night at Jeff\'s', 1, FALSE, 'Scheduled', E'Jeff\'s kitchen', '2022-08-19T08:45:53.000Z');
 INSERT INTO game_nights (title, host_id, competitive, status, location, date)
 VALUES (E'Game Night at Jesse\'s', 3, FALSE, 'complete', E'Jesse\'s house', '2022-08-10T011:00:53.000Z');
 INSERT INTO game_nights (title, host_id, competitive, status, location, date)

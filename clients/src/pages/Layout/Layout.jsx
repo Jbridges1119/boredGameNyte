@@ -22,6 +22,8 @@ import React from "react";
 import '../../styles/Sidebar.css'
 import { Link } from "react-router-dom";
 import { ClassNames } from "@emotion/react";
+import { useContext } from 'react';
+import { authContext } from '../Login/Auth';
 
 const drawerWidth = 360;
 const sidebarButtonStyle = {
@@ -50,11 +52,6 @@ const menuItems = [{
     text: "Game Collection",
     icon: <Casino sx={{ color: "white" }}/>,
     path: "/collection"
-},
-{
-    text: "Logout",
-    icon: <Logout sx={{ color: "white" }}/>,
-    path: "/"
 }
 ]
 
@@ -77,7 +74,7 @@ const sideBarLinks = menuItems.map((item) => {
 })
 
 const Layout = (props) => {
-
+  const { userId, state, setState, logout, login  } = useContext(authContext);
   return (
     <Box component="div" sx={{ display: 'flex' }}>
       <Drawer
@@ -112,7 +109,19 @@ const Layout = (props) => {
        </Link>
         {/* List links */}
         {sideBarLinks}
-        
+          <div style={{ paddingBottom: 10 }}>
+            <Link to='/'>
+              <ListItem
+              sx={sidebarButtonStyle}>
+                <ListItemButton onClick={() => logout()} sx={{  height:'60px', fontSize:'45px' }}>
+                    <ListItemIcon>
+                      <Logout sx={{ color: "white" }}/>
+                    </ListItemIcon>
+                  <ListItemText primary="Logout" primaryTypographyProps={{fontSize: '20px', pt:0.6}}/>
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          </div>
         </List>
       </Drawer>
     
