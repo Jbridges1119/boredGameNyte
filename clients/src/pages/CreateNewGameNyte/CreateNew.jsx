@@ -20,7 +20,6 @@ const CreateNew = (props) => {
   const [casualPicture, setCasualPicture] = useState();
 
   const createGameNyte = () => {
-    console.log(props.newGameNyte)
     if (props.newGameNyte.name === '') {return alert('Please name your game nyte!')}
     if (props.newGameNyte.place === '') {return alert('Please give your game nyte a location!')}
     if (props.newGameNyte.friendsInvited.length === 0) {return alert('Please invite some friends!')}
@@ -28,7 +27,6 @@ const CreateNew = (props) => {
     return axios.post(`http://localhost:3005/api/gamenytes/createnew`, props.newGameNyte)
     .then((data) => {
       let nyteId = data.data;
-      console.log(nyteId)
       navigate(`/nyte/${nyteId}`);
     })
   }
@@ -148,6 +146,10 @@ const CreateNew = (props) => {
                     type="submit"
                     onClick={createGameNyte}
                     sx={{
+                      ':hover': {
+                        bgcolor: theme.palette.error.light,
+                        boxShadow:24
+                      },
                       width: 500,
                       backgroundColor: theme.palette.error.main,
                       height: 75,

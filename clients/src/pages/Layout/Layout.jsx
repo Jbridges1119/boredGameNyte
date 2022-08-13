@@ -22,9 +22,15 @@ import React from "react";
 import '../../styles/Sidebar.css'
 import { Link } from "react-router-dom";
 import { ClassNames } from "@emotion/react";
+import { useContext } from 'react';
+import { authContext } from '../Login/Auth';
 
 const drawerWidth = 360;
 const sidebarButtonStyle = {
+  ':hover': {
+    bgcolor: theme.palette.error.light,
+    boxShadow:24
+  },
   backgroundColor: theme.palette.secondary.main,
   p: 0,
   boxShadow: theme.shadows,
@@ -50,11 +56,6 @@ const menuItems = [{
     text: "Game Collection",
     icon: <Casino sx={{ color: "white" }}/>,
     path: "/collection"
-},
-{
-    text: "Logout",
-    icon: <Logout sx={{ color: "white" }}/>,
-    path: "/"
 }
 ]
 
@@ -64,7 +65,9 @@ const sideBarLinks = menuItems.map((item) => {
       <Link to={item.path}>
         <ListItem
         sx={sidebarButtonStyle}>
-          <ListItemButton sx={{  height:'60px', fontSize:'45px' }}>
+          <ListItemButton sx={{ 
+            height:'60px', 
+            fontSize:'45px' }}>
               <ListItemIcon>
                 {item.icon}
               </ListItemIcon>
@@ -77,7 +80,7 @@ const sideBarLinks = menuItems.map((item) => {
 })
 
 const Layout = (props) => {
-
+  const { userId, state, setState, logout, login  } = useContext(authContext);
   return (
     <Box component="div" sx={{ display: 'flex' }}>
       <Drawer
@@ -101,9 +104,13 @@ const Layout = (props) => {
         <List>
           {/* CTA Button */}
         <Link to="/create">
-          <ListItem key='15' sx={{ mt: 3, pl: 0, pr: 0, mb: 4}}>
+          <ListItem 
+            key='15' sx={{ mt: 3, pl: 0, pr: 0, mb: 4}}>
           <Paper elevation={8} sx={{width:'100%'}}>
-            <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main, height:'70px' }}>
+            <ListItemButton sx={{ ':hover': {
+                    bgcolor: theme.palette.error.light,
+                    boxShadow:24
+                  }, textAlign: "center", backgroundColor: theme.palette.error.main, height:'70px' }}>
               
               <ListItemText primary="Create your Game Nyte!" primaryTypographyProps={{fontSize: '26px', pt:0.6}}/>
             </ListItemButton>
@@ -112,7 +119,19 @@ const Layout = (props) => {
        </Link>
         {/* List links */}
         {sideBarLinks}
-        
+          <div style={{ paddingBottom: 10 }}>
+            <Link to='/'>
+              <ListItem
+              sx={sidebarButtonStyle}>
+                <ListItemButton onClick={() => logout()} sx={{  height:'60px', fontSize:'45px' }}>
+                    <ListItemIcon>
+                      <Logout sx={{ color: "white" }}/>
+                    </ListItemIcon>
+                  <ListItemText primary="Logout" primaryTypographyProps={{fontSize: '20px', pt:0.6}}/>
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          </div>
         </List>
       </Drawer>
     

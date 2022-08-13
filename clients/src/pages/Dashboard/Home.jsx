@@ -7,6 +7,7 @@ import {
   formatDate,
   formatTime,
   getGameById,
+  fixDate
 } from "../../helperFunctions/helperFunctions";
 import { useEffect, useState } from "react";
 import theme from "../../assets/theme";
@@ -38,10 +39,11 @@ export default function Home(props) {
         setCompleteGameNytesHosted(data.data)
       })
   }, [])
-
-  const gameNytesHosted = gameNytes.map((nyte) => {
-    const date = formatDate(nyte.date);
-    const time = formatTime(nyte.date);
+  
+  
+  let gameNytesHosted = gameNytes.map((nyte) => {
+    const date = formatDate(fixDate(nyte.date));
+    const time = formatTime(fixDate(nyte.date));
     return (
       <GameNyteCard
         key={nyte.id}
@@ -60,7 +62,7 @@ export default function Home(props) {
       />
     );
   });
-
+  
   return (
     <Box
       sx={{
@@ -75,17 +77,16 @@ export default function Home(props) {
           <Grid item xs={11}>
             <Grid container direction="row" justifyContent="center">
               <Grid item xs={5.75}>
-                {props.state.user && (
+                {props.state.user && 
                   <ProfileCard
                     state={props.state.user}
                     completeGameNytesHosted={completeGameNytesHosted}
                     gameNytesAttended={gameNytesAttendedCount}
-                  />
-                )}
+                  />}
               </Grid>
               <Grid item xs={0.5}></Grid>
               <Grid item xs={5.75}>
-                <FriendsListCard state={props.state.friendsList} />
+                {props.state.user && <FriendsListCard state={props.state.friendsList} />}
               </Grid>
             </Grid>
             {/* Follow GameNyteCards to be replaced with mapped cards with data */}

@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useContext } from 'react';
+import { authContext } from '../pages/Login/Auth';
+import Cookies from 'js-cookie'
 
 const games = [
   {
@@ -47,21 +50,14 @@ const games = [
 ]
 
 const useApplicationData = () => {
-
+  const { userId, state, setState, logout, login, gameNytesHosted  } = useContext(authContext);
 
   // This will ideally be the users collection retrieved from database
   // Currently, default state is dummy data stored above
   // Will have to use setCollection with a useEffect later
 
-  const [userId, setUserId] = useState(1);
-  const [state, setState] = useState({
-    user: null,
-    friendsList: [],
-    collection: games,
-    globalCollection: []
-  })
   const [newGameNyte, setNewGameNyte] = useState({
-    host: state.user ? state.user.id : '',
+    host: Cookies.get('userId'),
     gamesChosen: [],
     friendsInvited: [],
     competitive: false,
@@ -128,15 +124,6 @@ const useApplicationData = () => {
     })
   }
 
-  // const printState = () => {
-  //   console.log(newGameNyte)
-  //   return axios.post(`http://localhost:3005/api/gamenytes/createnew`, newGameNyte)
-  //   .then((data) => {
-  //     let nyteId = data.data;
-  //     navigate(`/nyte/${nyteId}`);
-  //   })
-  // }
-
   const deleteGameFromCollection = (user, gameId) => {
 
     let gameObj = {}
@@ -162,8 +149,6 @@ const useApplicationData = () => {
   };
 
   const addGameToCollection = (user, gameId, game) => {
-    console.log("BEEP BOOP", user, gameId)
-    console.log("game obj", game)
     let newGame = {
       name: game.name,
       min_players: game.min_players,
@@ -173,7 +158,6 @@ const useApplicationData = () => {
       id: gameId,
       user: user
     }
-    console.log(newGame)
 
     return axios.post(`http://localhost:3005/api/users/${user}/collection`, newGame )
     .then(() => {

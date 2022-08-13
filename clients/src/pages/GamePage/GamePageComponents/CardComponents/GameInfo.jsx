@@ -67,7 +67,6 @@ const labelsRating = {
 </Button>;
 const GameInfo = (props) => {
   
-  console.log("Button stuff", props.state.collection, props.gameData)
   const name = props.gameData ? props.gameData.name : "";
   const age = props.gameData ? props.gameData.min_age : "";
   const players = props.gameData ? props.gameData.players : "";
@@ -369,6 +368,10 @@ const GameInfo = (props) => {
                 onClick={props.addGame}
                 variant="contained" 
                 sx={{
+                    ':hover': {
+                    bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                    boxShadow:24
+                    },
                     backgroundColor: theme.palette.error.main,
                     height: 40,
                     fontSize: 20,
@@ -383,6 +386,10 @@ const GameInfo = (props) => {
                 onClick={props.removeGame}
                 variant="contained" 
                 sx={{
+                  ':hover': {
+                    bgcolor: theme.palette.error.light,
+                    boxShadow:24
+                  },
                   backgroundColor: theme.palette.error.main,
                   height: 45,
                   fontSize: 16,
@@ -404,6 +411,10 @@ const GameInfo = (props) => {
                 <a href={official} target="_blank" rel="noreferrer">
                   <Button
                     sx={{
+                      ':hover': {
+                        bgcolor: theme.palette.error.light,
+                        boxShadow:24
+                      },
                       color: "white",
                       backgroundColor: theme.palette.error.main,
                       height: 45,

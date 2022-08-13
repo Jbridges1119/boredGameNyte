@@ -4,14 +4,15 @@ import Host from "./statusButtons/Host";
 import UserConfirmed from "./statusButtons/UserConfirmed";
 import UserDeclined from "./statusButtons/UserDeclined";
 import UserNotSelected from "./statusButtons/UserNotSelected";
-import { formatDate, formatTime } from "../../../../helperFunctions/helperFunctions"
+import { formatDate, formatTime, fixDate } from "../../../../helperFunctions/helperFunctions"
 import Finished from './statusButtons/Finished'
 
 const NyteStatus = (props) => {
+  const newDate = props.data[0] ? fixDate(props.data[0].date) : ""
   const firstName = props.hostData ? props.hostData.first_name : ""
   const lastName = props.hostData ? props.hostData.last_name : ""
-  const date = props.data[0] ? formatDate(props.data[0].date) : ""
-  const time = props.data[0] ? formatTime(props.data[0].date) : ""
+  const date = props.data[0] ? formatDate(newDate) : ""
+  const time = props.data[0] ? formatTime(newDate) : ""
   const location = props.data[0] ? props.data[0].location : ""
   const host = (props.user && props.hostData) && props.hostData.id === props.user.id ? true : false
   const gameStatus = props.data[0] ? props.data[0].status : "completed"

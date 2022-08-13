@@ -6,7 +6,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const params = [];
     const query = `SELECT * FROM users;`;
-    db.query(query, params)
+    db.query(query)
       .then((data) => {
         const users = data.rows;
         res.json({ users });
@@ -41,7 +41,6 @@ module.exports = (db) => {
     `
     return db.query(query, params)
       .then((data) => {
-        // console.log(data.rows)
         return res.json(data.rows)
       })
   })
@@ -55,7 +54,6 @@ module.exports = (db) => {
     `
     return db.query(query, params)
       .then((data) => {
-        // console.log(data.rows)
         return res.json(data.rows)
       })
   })
