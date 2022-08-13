@@ -7,6 +7,7 @@ import {
   formatDate,
   formatTime,
   getGameById,
+  fixDate
 } from "../../helperFunctions/helperFunctions";
 import { useEffect, useState } from "react";
 import theme from "../../assets/theme";
@@ -41,8 +42,8 @@ export default function Home(props) {
   
   
   let gameNytesHosted = gameNytes.map((nyte) => {
-    const date = formatDate(nyte.date);
-    const time = formatTime(nyte.date);
+    const date = formatDate(fixDate(nyte.date));
+    const time = formatTime(fixDate(nyte.date));
     return (
       <GameNyteCard
         key={nyte.id}

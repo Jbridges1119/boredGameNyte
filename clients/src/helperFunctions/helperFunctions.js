@@ -68,5 +68,6 @@ const fixDate = function(datestring) {
 module.exports = {
   getGameById,
   formatDate,
-  formatTime
+  formatTime,
+  fixDate
 }
