@@ -21,12 +21,10 @@ import { authContext } from './pages/Login/Auth';
 
 
 function App() {
-  const { auth } = useContext(authContext);
+  const { userId, state, setState, logout, login, gameNytesHosted  } = useContext(authContext);
   const {
     setTitle,
     setLocation,
-    state,
-    setState,
     newGameNyte,
     setNewGameNyte,
     handleClickOpen,
@@ -38,77 +36,19 @@ function App() {
     deleteGameFromCollection,
     addGameToCollection
   } = useApplicationData();
-
-  const [userId, setUserId] = useState(1);
-  // const [gameNytes, setGameNytes] = useState([]);
-  const [gameNytesHosted, setGameNytesHosted] = useState([]);
-  // const [gameNytesAttended, setGameNytesAttended] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get(`http://localhost:3005/api/gamenytes/host/${userId}`)
-  //     .then((data) => {
-  //       setGameNytes(data.data)
-  //     })
-  // }, [userId])
-
-  useEffect(() => {
-    axios.get(`http://localhost:3005/api/gamenytes/host/${userId}/all`)
-      .then((data) => {
-        setGameNytesHosted(data.data)
-      })
-  }, [userId])
-
-  // useEffect(() => {
-  //   axios.get(`http://localhost:3005/api/gamenytes/attended/${userId}`)
-  //     .then((data) => {
-  //       setGameNytesAttended(data.data)
-  //     })
-  // }, [userId])
-
-  useEffect(() => {
-    axios.get(`http://localhost:3005/api/gamecollection`)
-      .then((data) => {
-        setState((prev) => {
-          return { ...prev, globalCollection: data.data }
-        })
-      })
-  }, [])
-
-  // user data useEffect
-  useEffect(() => {
-    Promise.all([
-      axios.get(`http://localhost:3005/api/users/${userId}`),
-      axios.get(`http://localhost:3005/api/users/${userId}/friends`),
-      axios.get(`http://localhost:3005/api/users/${userId}/collection`)
-    ])
-      .then((all) => {
-        setState((prev) => {
-          return { ...prev, user: all[0].data, friendsList: all[1].data, collection: all[2].data }
-        })
-        setNewGameNyte((prev) => {
-          return {...prev, host: userId}
-        })
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }
-    , [userId]);
-
+  console.log("user: ", userId)
   return (
     <ThemeProvider theme={theme}>
 
       <BrowserRouter>
       {!userId && <Login theme={theme} />}
-       {userId && <Layout theme={theme}>
+       {userId && <Layout logout={logout} theme={theme}>
           <Routes>
             <Route
               exact path="/"
               element={
               <Home
                 state={state}
-                // gameNytes={gameNytes}
-                // gameNytesAttended={gameNytesAttended}
                 gameNytesHosted={gameNytesHosted}
                 userId={userId}
               />} 
