@@ -1,4 +1,4 @@
-import { Box, Grid, TextField, Button, Stack } from "@mui/material";
+import { Box, Grid, TextField, Button, Stack, CardMedia } from "@mui/material";
 import theme from "../../assets/theme";
 import "../../styles/Search.css";
 import useSearchData from "../../hooks/useSearchData";
@@ -9,17 +9,17 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { useState } from 'react';
 import { authContext } from './Auth';
 import { useContext } from 'react';
-
-// const CssTextField = styled(TextField)({
-//   "& .MuiOutlinedInput-root:hover": {
-//     "& > fieldset": {
-//       border: "1px solid white",
-//     },
-//   },
-//   "& .MuiOutlinedInput-root": {
-//     "& > fieldset": { borderRadius: "20px", border: "2px solid white" },
-//   },
-// });
+import BGNLogo from '../../assets/BGN-logo-dark.png'
+const CssTextField = styled(TextField)({
+  "& .MuiOutlinedInput-root:hover": {
+    "& > fieldset": {
+      border: "1px solid white",
+    },
+  },
+  "& .MuiOutlinedInput-root": {
+    "& > fieldset": { borderRadius: "20px", border: "2px solid white" },
+  },
+});
 
 
 
@@ -33,85 +33,154 @@ const Login = (props) => {
     email && login(email, password);
   };
 
-
+  const {  loading } = useSearchData(props);
   return ( 
-    <div className="login">
-    <form onSubmit={onSubmit}>
-      <p>
-        <input type="text" name="username"
-          value={email} placeholder="Enter Username or email"
-          onChange={event => setEmail(event.target.value)} />
-      </p>
-      <p>
-        <input type="password" name="password"
-          value={password} placeholder="Password"
-          onChange={event => setPassword(event.target.value)} />
-      </p>
-      <p className="submit">
-        <button type="submit" name="commit">Login</button>
-      </p>
-    </form>
 
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Box
+sx={{
+  width: "100%",
+
+  height: "100vh",
+}}
+>
+<Grid
+  container
+  direction="row"
+  justifyContent="center"
+  alignItems="center"
+>
+  <Grid item xs={8}>
+
+  </Grid>
+  <Grid item xs={4}>
+  <Box
+sx={{
+  width: "350px",
+  borderRadius: "20px",
+  backgroundColor: theme.palette.primary.main,
+  height: '350px',
+  display: 'flex',
+  justifyContent:'center',
+  alignContent:'center',
+  alignItems: 'center',
+  my:1.5
+  
+}}
+> 
+
+<CardMedia
+    
+    component="img"
+    image={BGNLogo}
+    alt=""
+    sx={{
+      
+      maxWidth: '350px',
+      maxHeight: '200px',
+      
+    }}
+    />
+
+
+    </Box> 
+<form onSubmit={onSubmit}>
+<TextField
+      label="Email"
+      id="email"
+      value={email}
+      InputLabelProps={{
+        style: { color: "#fff" },
+      }}
+      sx={{
+        backgroundColor: theme.palette.secondary.main,
+        borderRadius: "20px",
+        alignContent: "center",
+        justifyContent: "center",
+        "& .MuiOutlinedInput-root:hover": {
+          "& > fieldset": {
+            border: "1px solid white",
+          },
+        },
+        "& .MuiOutlinedInput-root": {
+          "& > fieldset": { borderRadius: "20px", border: "2px solid white" },
+        },
+        width: "100%",
+        outline: { color: "white" },
+        input: {
+          color: "white",
+          border: "white",
+        },
+        my: 1,
+      }}
+      onChange={event => setEmail(event.target.value)}
+    />
+           <TextField
+           type="password"
+      label="Password"
+      id="title"
+      value={password}
+      InputLabelProps={{
+        style: { color: "#fff" },
+      }}
+      sx={{
+        backgroundColor: theme.palette.secondary.main,
+        borderRadius: "20px",
+        alignContent: "center",
+        justifyContent: "center",
+        "& .MuiOutlinedInput-root:hover": {
+          "& > fieldset": {
+            border: "1px solid white",
+          },
+        },
+        "& .MuiOutlinedInput-root": {
+          "& > fieldset": { borderRadius: "20px", border: "2px solid white" },
+        },
+        width: "100%",
+        outline: { color: "white" },
+        input: {
+          color: "white",
+          border: "white",
+        },
+        my: 1,
+      }}
+      onChange={event => setPassword(event.target.value)}
+    />        
+            <LoadingButton
+                  variant="contained"
+                  sx={{
+                    backgroundColor: theme.palette.error.main,
+                    height: 50,
+                    fontSize: 25,
+                    borderRadius: "20px",
+                    pt: 1.25,
+                  }}
+                  type="submit"
+                  
+                  
+                  loading={loading}
+                >
+                  Login
+                </LoadingButton>
+          </form>
+  </Grid>
+  </Grid>
+
+</Box>
    );
 }
  
 export default Login;
 
-
-
-
-
-// const { gameSearch, data, setInput, gameSearchResults, loading } = useSearchData(props);
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   gameSearch();
-// };
-
-
-
-
-// <Box
-// sx={{
-//   width: "100%",
-
-//   height: "100vh",
-// }}
-// >
-// <Grid
-//   container
-//   direction="row"
-//   justifyContent="center"
-//   alignItems="center"
-// >
-//   <Grid item xs={8}>
-
-//   </Grid>
-//   <Grid item xs={4}>
-
-// <form onSubmit={handleSubmit}>
-//             <CssTextField
-//               label="Email Address"
-//               id="search"
-//               InputLabelProps={{
-//                 style: { color: "#fff" },
-//               }}
-//               sx={{
-//                 backgroundColor: theme.palette.secondary.main,
-//                 borderRadius: "20px",
-//                 alignContent: "center",
-//                 justifyContent: "center",
-//                 width: "100%",
-//                 input: {
-//                   color: "white",
-//                 },
-//               }}
-//               onChange={(event) => setInput(event.target.value)}
-//             />
-//           </form>
-
-
-//   </Grid>
-//   </Grid>
-
-// </Box>
