@@ -6,6 +6,7 @@ import theme from "../../../assets/theme";
 import { Box, Stack } from "@mui/material";
 
 export default function ProfileCard(props) {
+  console.log(props)
   let greeting = `Welcome Back ${props.state.first_name} ${props.state.last_name}!`;
 
   const totalGameNytesHosted = props.completeGameNytesHosted.length;

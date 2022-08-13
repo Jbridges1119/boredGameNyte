@@ -38,8 +38,9 @@ export default function Home(props) {
         setCompleteGameNytesHosted(data.data)
       })
   }, [])
-
-  const gameNytesHosted = gameNytes.map((nyte) => {
+  
+  
+  let gameNytesHosted = gameNytes.map((nyte) => {
     const date = formatDate(nyte.date);
     const time = formatTime(nyte.date);
     return (
@@ -60,7 +61,7 @@ export default function Home(props) {
       />
     );
   });
-
+  
   return (
     <Box
       sx={{
@@ -75,17 +76,16 @@ export default function Home(props) {
           <Grid item xs={11}>
             <Grid container direction="row" justifyContent="center">
               <Grid item xs={5.75}>
-                {props.state && (
+                {props.state.user && 
                   <ProfileCard
                     state={props.state.user}
                     completeGameNytesHosted={completeGameNytesHosted}
                     gameNytesAttended={gameNytesAttendedCount}
-                  />
-                )}
+                  />}
               </Grid>
               <Grid item xs={0.5}></Grid>
               <Grid item xs={5.75}>
-                {props.state && <FriendsListCard state={props.state.friendsList} />}
+                {props.state.user && <FriendsListCard state={props.state.friendsList} />}
               </Grid>
             </Grid>
             {/* Follow GameNyteCards to be replaced with mapped cards with data */}
