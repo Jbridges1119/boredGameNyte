@@ -146,6 +146,10 @@ const CreateNew = (props) => {
                     type="submit"
                     onClick={createGameNyte}
                     sx={{
+                      ':hover': {
+                        bgcolor: theme.palette.error.light,
+                        boxShadow:24
+                      },
                       width: 500,
                       backgroundColor: theme.palette.error.main,
                       height: 75,

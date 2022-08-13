@@ -93,6 +93,10 @@ const Search = (props) => {
                 <LoadingButton
                   variant="contained"
                   sx={{
+                    ':hover': {
+                      bgcolor: theme.palette.error.light,
+                      boxShadow:24
+                    },
                     backgroundColor: theme.palette.error.main,
                     height: 50,
                     fontSize: 25,

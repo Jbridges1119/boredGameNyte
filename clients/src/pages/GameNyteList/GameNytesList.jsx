@@ -16,6 +16,7 @@ import {
   getGameById,
   formatDate,
   formatTime,
+  fixDate
 } from "../../helperFunctions/helperFunctions";
 
 const Accordion = styled((props) => (
@@ -125,8 +126,8 @@ const GameNyteList = (props) => {
                 {/* upcoming */}
                 {gameNytes.invited.map((nyte) => {
                   if (nyte.status === "Scheduled") {
-                    const date = formatDate(nyte.date);
-                    const time = formatTime(nyte.date);
+                    const date = formatDate(fixDate(nyte.date));
+                    const time = formatTime(fixDate(nyte.date));
                     return (
                       <ListItem key={nyte.id}>
                         <GameNyteCard
