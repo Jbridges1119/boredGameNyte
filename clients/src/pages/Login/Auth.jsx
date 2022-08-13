@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useEffect } from 'react';
 import { createContext, useState } from 'react';
 
 export const authContext = createContext();
@@ -52,9 +53,30 @@ export default function AuthProvider(props) {
     setState((prev) => {
       return { ...prev, user: null }
     })
-
-
   };
+
+useEffect(()=> {
+  if(!userId) {
+  const user = window.localStorage.getItem("SuperSecretUserId")
+   setUserId(JSON.parse(user))
+  }
+},[])
+
+useEffect(() => {
+  window.localStorage.setItem("SuperSecretUserId", JSON.stringify(userId) )
+}, [userId])
+
+useEffect(()=> {
+ 
+  if(state.user === null) {
+  const data = window.localStorage.getItem("SuperSecretData")
+  setState(JSON.parse(data))
+  }
+},[])
+
+useEffect(() => {
+  window.localStorage.setItem("SuperSecretData", JSON.stringify(state) )
+}, [state])
 
   // authContext will expose these items
   const userData = { userId, state, setState, login, logout, gameNytesHosted };
