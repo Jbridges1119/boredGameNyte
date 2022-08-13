@@ -75,7 +75,7 @@ export default function Home(props) {
           <Grid item xs={11}>
             <Grid container direction="row" justifyContent="center">
               <Grid item xs={5.75}>
-                {props.state.user && (
+                {props.state && (
                   <ProfileCard
                     state={props.state.user}
                     completeGameNytesHosted={completeGameNytesHosted}
@@ -85,7 +85,7 @@ export default function Home(props) {
               </Grid>
               <Grid item xs={0.5}></Grid>
               <Grid item xs={5.75}>
-                <FriendsListCard state={props.state.friendsList} />
+                {props.state && <FriendsListCard state={props.state.friendsList} />}
               </Grid>
             </Grid>
             {/* Follow GameNyteCards to be replaced with mapped cards with data */}
