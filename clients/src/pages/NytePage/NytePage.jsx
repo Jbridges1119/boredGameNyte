@@ -31,7 +31,6 @@ const NytePage = (props) => {
  
 const onCancelNyte = (nyteId) => {
  
-console.log('cancel', nyteId)
   return axios.delete(`http://localhost:3005/api/gamenytes/cancel/${nyteId}`, { }).then(()=>{
       navigate('/') //use this  instead of history.push
 }
@@ -40,8 +39,6 @@ console.log('cancel', nyteId)
     console.log(error)
 })
 }
-
-console.log('state', props.state)
 
 const onStatusChange = (status, userId, nyteId) =>{
 let newData = [...data]
@@ -125,7 +122,6 @@ if(user.attendee_id === userId){
                       props.state.globalCollection,
                       data[0] ? data[0].game_1 : ""
                     )}
-                    // key={game1 ? game1.id : ""}
                   />
                 )}
                 {data[0] && (
@@ -134,10 +130,6 @@ if(user.attendee_id === userId){
                       props.state.globalCollection,
                       data[0] ? data[0].game_2 : ""
                     )}
-                    // key={game2 ? game2.id : ""}
-                    // id={game2 ? game2.id : ""}
-                    // img={game2 ? game2.thumb_url : ""}
-                    // name={game2 ? game2.name : ""}
                   />
                 )}
                 {data[0] && (
@@ -147,9 +139,6 @@ if(user.attendee_id === userId){
                       data[0] ? data[0].game_3 : ""
                     )}
                     key={data[0] ? data[0].game_3 : ""}
-                    // id={game3 ? game3.id : ""}
-                    // img={game3 ? game3.thumb_url : ""}
-                    // name={game3 ? game3.name : ""}
                   />
                 )}
               </Stack>

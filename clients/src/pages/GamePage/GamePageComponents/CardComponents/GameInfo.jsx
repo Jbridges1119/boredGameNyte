@@ -67,7 +67,6 @@ const labelsRating = {
 </Button>;
 const GameInfo = (props) => {
   
-  console.log("Button stuff", props.state.collection, props.gameData)
   const name = props.gameData ? props.gameData.name : "";
   const age = props.gameData ? props.gameData.min_age : "";
   const players = props.gameData ? props.gameData.players : "";

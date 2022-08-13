@@ -60,7 +60,6 @@ export default function AuthProvider(props) {
   };
 
   const logout = function() {
-    console.log("LOGGED OUT")
     setUserId(null);
     setState((prev) => {
       return { ...prev, user: null }
@@ -95,7 +94,7 @@ useEffect(() => {
 
   // authContext will expose these items
   const userData = { userId, state, setState, login, logout, gameNytesHosted, newGameNyte, setNewGameNyte };
-  console.log('userData:', userData);
+  
   // We can use this component to wrap any content we want to share this context
   return (
     <authContext.Provider value={userData}>

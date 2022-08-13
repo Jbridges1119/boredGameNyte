@@ -19,13 +19,20 @@ function formatDate(datestring) {
 function formatTime(datestring) {
   let date = datestring.split('T')[1];
   let ampm = 'AM'
-  let min = '0'
-  let hr = ''
+  let min = '00'
   let time = date.split(':').slice(0,-1);
   min = time[1]
+  let hr = time[0]
   if (time[0] >= 12) ampm = 'PM'
   if (time[0] > 12) hr = time[0] - 12
-  if (time[0] <10) hr = time[0][1]
+  if (time[0] <10) {
+    console.log(time[0][0] === '0')
+    if (time[0][0]  === '0' && time[0][1] === '0'){
+      hr = 12
+    } else{
+      hr = time[0][1]
+    }
+  }
     return `${hr}:${min} ${ampm}`
 };
 

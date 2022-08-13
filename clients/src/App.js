@@ -36,7 +36,7 @@ function App() {
     deleteGameFromCollection,
     addGameToCollection
   } = useApplicationData();
-  console.log("user: ", userId)
+  
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>

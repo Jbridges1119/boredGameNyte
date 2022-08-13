@@ -218,7 +218,6 @@ module.exports = (db) => {
     SET attend_status = $1
     WHERE attendee_id = $2 AND game_night_id = $3;
     `;
-    // console.log('params', params)
     return db.query(query, params)
       .then((data) => {
         return res.json(data.rows);
@@ -235,7 +234,6 @@ module.exports = (db) => {
     const query = `
     DELETE FROM game_nights WHERE game_nights.id = $1;
     `;
-    // console.log('params', params)
     return db.query(query, params)
       .then((data) => {
         return res.json(data.rows);
