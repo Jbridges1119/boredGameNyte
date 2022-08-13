@@ -27,6 +27,10 @@ import { authContext } from '../Login/Auth';
 
 const drawerWidth = 360;
 const sidebarButtonStyle = {
+  ':hover': {
+    bgcolor: theme.palette.error.light,
+    boxShadow:24
+  },
   backgroundColor: theme.palette.secondary.main,
   p: 0,
   boxShadow: theme.shadows,
@@ -61,7 +65,9 @@ const sideBarLinks = menuItems.map((item) => {
       <Link to={item.path}>
         <ListItem
         sx={sidebarButtonStyle}>
-          <ListItemButton sx={{  height:'60px', fontSize:'45px' }}>
+          <ListItemButton sx={{ 
+            height:'60px', 
+            fontSize:'45px' }}>
               <ListItemIcon>
                 {item.icon}
               </ListItemIcon>
@@ -98,9 +104,13 @@ const Layout = (props) => {
         <List>
           {/* CTA Button */}
         <Link to="/create">
-          <ListItem key='15' sx={{ mt: 3, pl: 0, pr: 0, mb: 4}}>
+          <ListItem 
+            key='15' sx={{ mt: 3, pl: 0, pr: 0, mb: 4}}>
           <Paper elevation={8} sx={{width:'100%'}}>
-            <ListItemButton sx={{ textAlign: "center", backgroundColor: theme.palette.error.main, height:'70px' }}>
+            <ListItemButton sx={{ ':hover': {
+                    bgcolor: theme.palette.error.light,
+                    boxShadow:24
+                  }, textAlign: "center", backgroundColor: theme.palette.error.main, height:'70px' }}>
               
               <ListItemText primary="Create your Game Nyte!" primaryTypographyProps={{fontSize: '26px', pt:0.6}}/>
             </ListItemButton>

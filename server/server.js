@@ -35,13 +35,6 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/gamenytes", gameNyteRoutes(db));
 app.use("/api/gamecollection", gameCollectionRoutes(db));
 
-// app.get("/", (req,res) => {
-//   db.query("SELECT * FROM users")
-//   .then((data) =>{
-//     console.log(data.rows)
-//   })
-// })
-
 //SERVER CONNECTION
 const port = process.env.PORT || 3005;
 app.listen(port, () => {

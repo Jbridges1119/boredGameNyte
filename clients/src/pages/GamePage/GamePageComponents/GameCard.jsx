@@ -8,7 +8,7 @@ import GameInfo from "./CardComponents/GameInfo";
 import { Box } from "@mui/system";
 
 const GameCard = (props) => {
-  console.log("gameData: ", props.gameData)
+  
   const card = (
     <React.Fragment>
       <Box
