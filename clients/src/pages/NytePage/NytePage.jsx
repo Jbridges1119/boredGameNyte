@@ -1,6 +1,3 @@
-
-// const mailgun = require('mailgun-js');
-
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import { useParams } from "react-router-dom";
@@ -33,32 +30,30 @@ const NytePage = (props) => {
   }, []);
 
   const onCancelNyte = (nyteId) => {
-
-    console.log("hostData:", hostData);
-    console.log("hostEmail:", hostData.email)
     console.log("data:", data);
-    const inviteesEmails = [];
+    let inviteesEmails = [];
     for (let d of data) {
+      console.log("d.email:", d.email);
       inviteesEmails.push(d.email);
     };
-
+    console.log("inviteesEmails:", inviteesEmails);
     const mailgunInfo = {
-      hostEmail: hostData.email,
       hostName: hostData.first_name,
       title: data[0].title,
       date: data[0].date,
       location: data[0].date,
-      inviteesEmails
+      inviteesEmails: inviteesEmails,
     }
 
-    // return axios
-    //   .delete(`http://localhost:3005/api/gamenytes/cancel/${nyteId}`, mailgunInfo)
-    //   .then(() => {
-    //     navigate("/"); //use this  instead of history.push
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    Promise.all([
+      axios.post(`http://localhost:3005/api/gamenytes/cancel/email/${nyteId}`, mailgunInfo),
+      axios.delete(`http://localhost:3005/api/gamenytes/cancel/${nyteId}`).then(() => {
+        navigate("/"); //use this  instead of history.push
+      })
+    ])
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const onStatusChange = (status, userId, nyteId) => {
