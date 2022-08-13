@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { createContext, useState } from 'react';
-
+import Cookies from 'js-cookie'
 export const authContext = createContext();
 
 export default function AuthProvider(props) {
@@ -13,6 +13,17 @@ export default function AuthProvider(props) {
     globalCollection: [],
     gameNytesHosted: []
   })
+
+  const [newGameNyte, setNewGameNyte] = useState({
+    host: state.user ? state.user.id : '',
+    gamesChosen: [],
+    friendsInvited: [],
+    competitive: false,
+    name: '',
+    place: '',
+    date: new Date(),
+    open: false
+  })
   const [gameNytesHosted, setGameNytesHosted] = useState([]);
   // Perform login process for the user & save authID, etc
   const login = function(email, password) {
@@ -22,6 +33,7 @@ export default function AuthProvider(props) {
         let users = data.data.users;
         for (let u of users) {
           if (u.email === email && u.password === password) {
+            Cookies.set('userId', u.id, { expires: 7 })
             Promise.all([
               axios.get(`http://localhost:3005/api/users/${u.id}/friends`),
               axios.get(`http://localhost:3005/api/users/${u.id}/collection`),
@@ -53,6 +65,9 @@ export default function AuthProvider(props) {
     setState((prev) => {
       return { ...prev, user: null }
     })
+    Cookies.remove('userId')
+    window.localStorage.removeItem("SuperSecretUserId")
+    window.localStorage.removeItem("SuperSecretData")
   };
 
 useEffect(()=> {
@@ -79,7 +94,7 @@ useEffect(() => {
 }, [state])
 
   // authContext will expose these items
-  const userData = { userId, state, setState, login, logout, gameNytesHosted };
+  const userData = { userId, state, setState, login, logout, gameNytesHosted, newGameNyte, setNewGameNyte };
   console.log('userData:', userData);
   // We can use this component to wrap any content we want to share this context
   return (

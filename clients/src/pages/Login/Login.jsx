@@ -5,7 +5,7 @@ import useSearchData from "../../hooks/useSearchData";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import LoadingButton from '@mui/lab/LoadingButton';
-
+import TypeWriter from './LoginComponents/LoginTypwriter'
 import { useState } from 'react';
 import { authContext } from './Auth';
 import { useContext } from 'react';
@@ -63,7 +63,7 @@ sx={{
   alignItems="center"
 >
   <Grid item xs={8}>
-
+  {TypeWriter}
   </Grid>
   <Grid item xs={4}>
   <Box
