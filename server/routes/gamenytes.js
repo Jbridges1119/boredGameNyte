@@ -1,5 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
+const sendEmail = require("../sendEmail");
 
 module.exports = (db) => {
   // /api/gamenytes
@@ -15,7 +17,8 @@ module.exports = (db) => {
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-  })
+  });
+
   // Get game nights hosted by :id
   router.get("/host/:id", (req, res) => {
     let user_id = req.params.id;
@@ -46,7 +49,8 @@ module.exports = (db) => {
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-  })
+  });
+
   // Get game nights hosted by :id
   router.get("/host/:id/all", (req, res) => {
     let user_id = req.params.id;
@@ -113,7 +117,8 @@ module.exports = (db) => {
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-  })
+  });
+
   // Get 'completed' game nights attended by :id
   router.get("/attended/:id", (req, res) => {
     let user_id = req.params.id;
@@ -130,7 +135,8 @@ module.exports = (db) => {
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-  })
+  });
+
   // easy way to get gameNyte info (except BGA game id's)
   router.get("/:id", (req, res) => {
     let gn_id = req.params.id
@@ -166,7 +172,7 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   })
-  // easy way to get attendee info
+  // easy way to get attendee data
   router.get("/:id/attendees", (req, res) => {
     let gn_id = req.params.id
     const params = [gn_id];
@@ -226,14 +232,30 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   })
+
+  // Send email to GameNyte invitees upon cancellation of GameNyte
+  router.post("/cancel/email/:nyteId", async (req, res) => {
+    const { hostName, title, date, location, inviteesEmails } = req.body;
+    let toEmails = ""
+    for (let email of inviteesEmails) {
+      toEmails += `${email}; `
+    }
+    const emailBody = `We regret to inform you that ${hostName} has cancelled the "${title}" GameNyte scheduled for ${date} at ${location}. Hopefully you can get another GameNyte organized soon. Happy Gaming!`;
+    const emailSubject = 'GameNyte Cancelled';
+    // sendEmail function calls mailgun API and uses provided data
+    const emailResponse = await sendEmail({ subject: emailSubject, message: emailBody, email: toEmails });
+    console.log(emailResponse); // confirms email was sent successfully
+
+  });
+
   //Cancel Game nyte
   router.delete("/cancel/:nyteId", (req, res) => {
     let nyte_id = req.params.nyteId;
 
     const params = [nyte_id];
     const query = `
-    DELETE FROM game_nights WHERE game_nights.id = $1;
-    `;
+  DELETE FROM game_nights WHERE game_nights.id = $1;
+  `;
     return db.query(query, params)
       .then((data) => {
         return res.json(data.rows);
@@ -247,7 +269,7 @@ module.exports = (db) => {
     const gameNyte = req.body;
     let newgameNyteId = ''
     let params = [gameNyte.name, gameNyte.host, gameNyte.competitive, 'scheduled', gameNyte.place, gameNyte.date];
-    let query=`
+    let query = `
     INSERT INTO game_nights (title, host_id, competitive, status, location, date)
     VALUES ($1, $2, $3, $4, $5, $6);
     `
@@ -274,24 +296,24 @@ module.exports = (db) => {
               db.query(query, params)
             }
           }).then((data) => {
-              let params = [
-                newgameNyteId, 
-                gameNyte.gamesChosen[0] ? gameNyte.gamesChosen[0] : null, 
-                gameNyte.gamesChosen[1] ? gameNyte.gamesChosen[1] : null,
-                gameNyte.gamesChosen[2] ? gameNyte.gamesChosen[2] : null
-              ];
-              let query = `
+            let params = [
+              newgameNyteId,
+              gameNyte.gamesChosen[0] ? gameNyte.gamesChosen[0] : null,
+              gameNyte.gamesChosen[1] ? gameNyte.gamesChosen[1] : null,
+              gameNyte.gamesChosen[2] ? gameNyte.gamesChosen[2] : null
+            ];
+            let query = `
               INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
               VALUES ($1, $2, $3, $4);
               `
-              return db.query(query, params)
+            return db.query(query, params)
               .then(() => {
                 return res.json(newgameNyteId);
               })
-            })
+          })
       })
-
-
   });
+
   return router;
+
 };
