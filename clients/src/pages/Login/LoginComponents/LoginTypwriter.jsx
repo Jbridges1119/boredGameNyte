@@ -23,9 +23,9 @@ const Writer = (props) => {
   }}
       onInit={(typewriter) => {
         typewriter.typeString('<strong>Bored?</strong>')
-        .pauseFor(1500)
+        .pauseFor(1250)
         .deleteAll()
-        .typeString('Choose 3 <strong>Games</strong>').pauseFor(500)
+        .typeString('Choose 3 <strong>Games</strong>')
        
         .pauseFor(1000)
         .deleteAll()

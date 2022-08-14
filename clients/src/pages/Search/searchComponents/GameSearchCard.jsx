@@ -146,13 +146,17 @@ sx={{
               sx={{ ':hover': {
                     bgcolor: theme.palette.error.light,
                     boxShadow:24
+                    },':active': {
+                      bgcolor: theme.palette.error.light,
+                      boxShadow:8
+                      
                     },
                     backgroundColor: theme.palette.error.main,
                     height: 40,
                     fontSize: 20,
                     borderRadius: "20px",
                     color:'white',
-                    pt:1.25
+                    pt:0.9
                   }}>Add To Collection</Button>}
             {getGameById(props.state.collection, props.gameId) && 
             <Button 
@@ -162,6 +166,10 @@ sx={{
                 ':hover': {
                   bgcolor: theme.palette.error.light,
                   boxShadow:24
+                },':active': {
+                  bgcolor: theme.palette.error.light,
+                  boxShadow:8
+                  
                 },
                 backgroundColor: theme.palette.error.main,
                 height: 40,
@@ -175,13 +183,17 @@ sx={{
             sx={{  ':hover': {
                   bgcolor: theme.palette.error.light,
                   boxShadow:24
+                  },':active': {
+                    bgcolor: theme.palette.error.light,
+                    boxShadow:8
+                    
                   },
                   backgroundColor: theme.palette.error.main,
                   height: 40,
                   fontSize: 20,
                   borderRadius: "20px",
                   color:'white',
-                  pt:1.25
+                  pt:0.9
                   }}>View More Details</Button>
             </Box></Stack>
             </Grid></Grid></Grid></Grid>

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, Grid, Box, Stack } from '@mui/material';
@@ -118,7 +117,15 @@ sx={{
             <Button 
             onClick={() => {props.deleteGame(props.user.id, props.gameId)}}
             variant="contained" 
-            sx={{
+            sx={{ ':hover': {
+              bgcolor: theme.palette.error.light,
+              boxShadow:24,
+              transform: 'translate(0px ,-1px) ',
+              },':active': {
+                bgcolor: theme.palette.error.light,
+                boxShadow:8
+                
+              },
               backgroundColor: theme.palette.error.main,
               height: 40,
               fontSize: 20,
@@ -127,7 +134,16 @@ sx={{
             }}>Remove From Collection</Button>
          
      
-            <Button variant="contained" component={Link} to={'/game/' + props.gameId} sx={{
+            <Button variant="contained" component={Link} to={'/game/' + props.gameId} sx={{ ':hover': {
+                  bgcolor: theme.palette.error.light,
+                  boxShadow:24,
+                  transform: 'translate(0px ,-1px) ',
+                  },':active': {
+                    bgcolor: theme.palette.error.light,
+                    boxShadow:8
+                    
+                  },
+                
                     backgroundColor: theme.palette.error.main,
                     height: 40,
                     fontSize: 20,

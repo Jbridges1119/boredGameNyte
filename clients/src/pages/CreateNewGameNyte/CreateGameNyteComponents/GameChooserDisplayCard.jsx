@@ -77,7 +77,10 @@ export default function GameDisplayCard(props) {
 
           <Grid item xs={1}>
             <IconButton
-              sx={{ color: "white" }}
+              sx={{ color: "white" ,  ':hover': {
+                color: 'red',
+                
+              }}}
               onClick={props.toggleOff(props.id)}
             >
               <Close />

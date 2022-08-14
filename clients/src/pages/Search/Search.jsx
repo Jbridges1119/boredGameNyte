@@ -102,12 +102,18 @@ const Search = (props) => {
                     ':hover': {
                       bgcolor: theme.palette.error.light,
                       boxShadow:24
+                      
+                    },':active': {
+                      bgcolor: theme.palette.error.light,
+                      boxShadow:8
+                      
                     },
+                    
                     backgroundColor: theme.palette.error.main,
                     height: 50,
                     fontSize: 25,
                     borderRadius: "20px",
-                    pt: 1.25,
+                    pt: 0.9,
                   }}
                   type="submit"
                   onClick={gameSearch}

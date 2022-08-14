@@ -132,13 +132,17 @@ sx={{
                     ':hover': {
                       bgcolor: theme.palette.error.light,
                       boxShadow:24
+                    },':active': {
+                      bgcolor: theme.palette.error.light,
+                      boxShadow:8
+                      
                     },
                     backgroundColor: theme.palette.error.main,
                     height: 40,
-                    fontSize: 25,
+                    fontSize: 22,
                     borderRadius: "20px",
                     textTransform: "none",
-                    pt:1.25,
+                    pt:1,
                     mt:1
                   }}
                   type="submit"

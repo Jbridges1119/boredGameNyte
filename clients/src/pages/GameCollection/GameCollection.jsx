@@ -36,7 +36,7 @@ const GameCollection = (props) => {
           >
             <Paper
               sx={{
-                backgroundColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.secondary.main,
                 borderRadius: "22px",
                 m: 1.5,
                 pt: 0.75,

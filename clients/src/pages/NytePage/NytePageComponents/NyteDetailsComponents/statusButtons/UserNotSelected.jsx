@@ -10,6 +10,11 @@ const UserNotSelected = (props) => {
   ':hover': {
     bgcolor: 'lightgreen',
     boxShadow:24
+    
+  },':active': {
+    bgcolor: theme.palette.error.light,
+    boxShadow:8
+    
   },
   backgroundColor: "green", 
   height: 45, 
@@ -18,7 +23,7 @@ const UserNotSelected = (props) => {
   borderRadius: '20px',
   mt: 0.5,
   textTransform: "none",  
-  pt:1.25 }} variant="contained">I'll Be There</Button>
+  pt:0.9 }} variant="contained">I'll Be There</Button>
 
 
  <Button  
@@ -27,6 +32,11 @@ const UserNotSelected = (props) => {
   ':hover': {
     bgcolor: theme.palette.warning.main,
     boxShadow:24
+    ,transform: 'translate(0px ,-1px) ',
+  },':active': {
+    bgcolor: theme.palette.error.light,
+    boxShadow:8
+    
   },
   backgroundColor: "darkred", 
   height: 30, 
@@ -35,7 +45,7 @@ const UserNotSelected = (props) => {
   borderRadius: '20px', 
   mt: 1,
   textTransform: "none",  
-  pt:1.25 }} variant="contained">Can't Make It</Button>
+  pt:0.9 }} variant="contained">Can't Make It</Button>
  </>
    );
 }
