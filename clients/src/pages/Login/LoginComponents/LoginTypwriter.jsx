@@ -4,7 +4,8 @@ import theme from '../../../assets/theme'
 import { Typography } from '@mui/material';
 
 
-const Writer = () => {
+const Writer = (props) => {
+
   return ( 
     <Box
       sx={{
@@ -18,21 +19,24 @@ const Writer = () => {
      <TypeWriter options={{
     autoStart: true,
     loop: true,
+   
   }}
       onInit={(typewriter) => {
-        typewriter.typeString('Bored?')
+        typewriter.typeString('<strong>Bored?</strong>')
         .pauseFor(1500)
         .deleteAll()
-        .typeString('Pick The Nyte!')
-        .pauseFor(1500)
+        .typeString('Choose 3 <strong>Games</strong>').pauseFor(500)
+       
+        .pauseFor(1000)
         .deleteAll()
-        .typeString('Invite Your Friends').pauseFor(500)
+         .typeString('Pick A <strong>Nyte</strong>!')
+         .pauseFor(1000)
         .deleteAll()
-        .typeString('Choose 3 Games').pauseFor(500)
+        .typeString('Invite Your Friends').pauseFor(1000)
         .deleteAll()
-        .typeString('Make It A Bored?GameNyte!')
-        .pauseFor(5000)
-        .deleteAll()
+        .typeString('Make It A<br><strong>Bored?GameNyte!</strong>').callFunction(()=> props.classChange('button'))
+        .pauseFor(6000)
+        .deleteAll().callFunction(()=> props.classChange('button1'))
         
         .start()
       }}
