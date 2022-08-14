@@ -57,7 +57,7 @@ const useApplicationData = () => {
   // Will have to use setCollection with a useEffect later
 
   const [newGameNyte, setNewGameNyte] = useState({
-    host: Cookies.get('userId'),
+    host: state.user ? state.user.id : Cookies.get('userId'),
     gamesChosen: [],
     friendsInvited: [],
     competitive: false,
@@ -163,7 +163,7 @@ const useApplicationData = () => {
     return axios.post(`http://localhost:3005/api/users/${user}/collection`, newGame )
     .then(() => {
       setState((prev) => {
-        return {...prev, collection: [...state.collection, newGame], globalCollection: [...state.globalCollection, newGame]}
+        return {...prev, collection: [...prev.collection, newGame], globalCollection: [...prev.globalCollection, newGame]}
       })
     })
     .catch((err) => {

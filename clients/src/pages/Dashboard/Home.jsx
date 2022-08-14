@@ -60,9 +60,9 @@ export default function Home(props) {
         location={nyte.location}
         date={date}
         time={time}
-        game1={getGameById(props.state.collection, nyte.bgatlas_game_1)}
-        game2={getGameById(props.state.collection, nyte.bgatlas_game_2) || null}
-        game3={getGameById(props.state.collection, nyte.bgatlas_game_3) || null}
+        game1={getGameById(props.state.globalCollection, nyte.bgatlas_game_1)}
+        game2={getGameById(props.state.globalCollection, nyte.bgatlas_game_2) || null}
+        game3={getGameById(props.state.globalCollection, nyte.bgatlas_game_3) || null}
       />
     );
   });
