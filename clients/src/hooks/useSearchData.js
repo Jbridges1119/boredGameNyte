@@ -50,7 +50,7 @@ export default function useSearchData(props) {
           addGame={() => props.addGame(props.state.user.id, game.id, game)}
           removeGame={() => props.removeGame(props.state.user.id, game.id)}
         />
-      </Grid>
+      </Grid>  
     )
   });
 

@@ -10,6 +10,8 @@ import VideoCard from "./GamePageComponents/VideoCard";
 import { useParams } from "react-router-dom";
 import GameInfo from "./GamePageComponents/CardComponents/GameInfo";
 import { urlRewrite } from "../../helperFunctions/helperFunctions";
+import {motion} from 'framer-motion'
+
 
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 const apiKey = process.env.REACT_APP_YOUTUBE_APIKEY;
@@ -49,6 +51,7 @@ const GamePage = (props) => {
   }, []);
 
   return (
+    // <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         width: "100%",
@@ -75,6 +78,7 @@ const GamePage = (props) => {
         </Grid>
       </Grid>
     </Box>
+    // </motion.div>
   );
 };
 export default GamePage;

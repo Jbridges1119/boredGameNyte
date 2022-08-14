@@ -13,6 +13,10 @@ import { useEffect, useState } from "react";
 import theme from "../../assets/theme";
 import GameNyteCard from "../GameNyteList/gameNyteListComponents/GameNyteCard";
 import axios from 'axios'
+import {motion} from 'framer-motion'
+
+
+
 export default function Home(props) {
 
   const [gameNytes, setGameNytes] = useState([]);
@@ -64,7 +68,8 @@ export default function Home(props) {
   });
   
   return (
-    <Box
+    <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}} >
+    <Box 
       sx={{
         mt: 2,
         width: "100%",
@@ -100,5 +105,6 @@ export default function Home(props) {
         </Grid>
       </Stack>
     </Box>
+    </motion.div>
   );
 }

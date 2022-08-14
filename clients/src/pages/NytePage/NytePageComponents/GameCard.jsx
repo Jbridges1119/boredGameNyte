@@ -1,6 +1,6 @@
 import { CardContent, Grid, Paper } from "@mui/material";
 import theme from "../../../assets/theme";
-
+import {motion} from 'framer-motion'
 import GameCardData from "./NyteGameComponents/GameCardData";
 
 const GameCard = (props) => {
@@ -37,6 +37,7 @@ const GameCard = (props) => {
     </>
   );
   return (
+    <motion.div exitBeforeEnter={true} className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
     <Paper
       sx={{
         borderRadius: "20px",
@@ -46,6 +47,7 @@ const GameCard = (props) => {
     >
       {card}
     </Paper>
+    </motion.div>
   );
 };
 

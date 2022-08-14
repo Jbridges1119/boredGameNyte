@@ -36,7 +36,7 @@ export default function FriendsList(props) {
             sx={{ color: "white",
               ':hover': {
                 color: 'red',
-                boxShadow:24
+               
               }}}
           >
             <DeleteIcon />

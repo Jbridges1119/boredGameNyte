@@ -14,7 +14,7 @@ import BGN from "../../assets/Pictures/BGN.png";
 import BGNCasual from "../../assets/Pictures/BGNCasual.png";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-
+import {motion} from 'framer-motion'
 const CreateNew = (props) => {
   const navigate = useNavigate();
   const [casualPicture, setCasualPicture] = useState();
@@ -37,6 +37,7 @@ const CreateNew = (props) => {
   }, [props.newGameNyte.competitive]);
 
   return (
+    // <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         height: "100%",
@@ -174,6 +175,7 @@ const CreateNew = (props) => {
         </Grid>
       </Grid>
     </Box>
+
   );
 };
 

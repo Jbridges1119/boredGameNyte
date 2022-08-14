@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getGameById } from "../../helperFunctions/helperFunctions";
 import axios from "axios";
-
+import {motion} from 'framer-motion'
 const NytePage = (props) => {
   const navigate=useNavigate()
   const nightId = useParams().id;
@@ -63,6 +63,7 @@ if(user.attendee_id === userId){
 
 
   return (
+    <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         width: "100%",
@@ -147,6 +148,7 @@ if(user.attendee_id === userId){
         </Grid>
       </Grid>
     </Box>
+    </motion.div>
   );
 };
 

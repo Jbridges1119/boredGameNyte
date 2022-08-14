@@ -18,6 +18,8 @@ import {
   formatTime,
   fixDate
 } from "../../helperFunctions/helperFunctions";
+import {motion} from 'framer-motion'
+
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -86,6 +88,7 @@ const GameNyteList = (props) => {
   }, [props.state.user]);
 
   return (
+    <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         pt: 2.5,
@@ -299,6 +302,7 @@ const GameNyteList = (props) => {
         </Grid>
       </Grid>
     </Box>
+    </motion.div>
   );
 };
 

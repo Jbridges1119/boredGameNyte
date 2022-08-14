@@ -1,6 +1,6 @@
 // import React from "react";
 import "./styles/App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import theme from "./assets/theme";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
@@ -18,9 +18,10 @@ import Login from "./pages/Login/Login";
 import useApplicationData from "./hooks/useApplicationData";
 import { useContext } from 'react';
 import { authContext } from './pages/Login/Auth';
-
-
+// import AnimatedRoutes from './AnimatedRoutes'
+import {AnimatePresence} from 'framer-motion'
 function App() {
+  const location = useLocation()
   const { userId, state, setState, logout, login, gameNytesHosted  } = useContext(authContext);
   const {
     setTitle,
@@ -38,11 +39,13 @@ function App() {
   } = useApplicationData();
   
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
+    // <ThemeProvider theme={theme}>
+    //   <BrowserRouter>
+    <>
       {!userId && <Login theme={theme} />}
        {userId && <Layout logout={logout} theme={theme}>
-          <Routes>
+        <AnimatePresence  exitBeforeEnter={true}>
+          <Routes location={location} key={location.pathname}>
             <Route
               exact path="/"
               element={
@@ -111,10 +114,12 @@ function App() {
               />} 
               theme={theme} />
           </Routes>
+          </AnimatePresence>
         </Layout>}
-      </BrowserRouter>
+        </>
+    //   </BrowserRouter>
 
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
 

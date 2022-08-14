@@ -143,7 +143,7 @@ export default function VideoCard(props) {
                 alignContent: "center",
               }}
             >
-              {howTo}
+              {props.videos && howTo}
             </Grid>
           </Box>
         </AccordionDetails>
@@ -185,7 +185,7 @@ export default function VideoCard(props) {
                 alignContent: "center",
               }}
             >
-              {gitGud}
+              {props.videos2 && gitGud}
             </Grid>
           </Box>
         </AccordionDetails>

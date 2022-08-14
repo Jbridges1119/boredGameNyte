@@ -5,6 +5,12 @@ import useSearchData from "../../hooks/useSearchData";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import LoadingButton from '@mui/lab/LoadingButton';
+import {motion} from 'framer-motion'
+
+
+
+
+
 const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root:hover": {
     "& > fieldset": {
@@ -25,7 +31,8 @@ const Search = (props) => {
   };
 
   return (
-    <Box
+    <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
+    <Box 
       sx={{
         width: "100%",
 
@@ -130,6 +137,7 @@ const Search = (props) => {
         </Grid>
       </Grid>
     </Box>
+    </motion.div>
   );
 };
 
