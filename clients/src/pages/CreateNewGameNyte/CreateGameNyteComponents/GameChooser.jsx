@@ -4,7 +4,7 @@ import GameChooserDialog from "./GameChooserDialog";
 import GameChooserDisplayCard from "../CreateGameNyteComponents/GameChooserDisplayCard";
 import { getGameById } from "../../../helperFunctions/helperFunctions";
 import { useState, useEffect } from "react";
-// mt:35.7
+import {motion} from 'framer-motion'
 const GameChooser = (props) => {
   const [addButton, setAddButton] = useState(35.7);
 
@@ -20,6 +20,7 @@ const GameChooser = (props) => {
   }, [game1]);
 
   return (
+  
     <Paper
       elevation={8}
       sx={{

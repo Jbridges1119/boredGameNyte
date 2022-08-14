@@ -37,7 +37,7 @@ const CreateNew = (props) => {
   }, [props.newGameNyte.competitive]);
 
   return (
-    // <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         height: "100%",
@@ -115,20 +115,21 @@ const CreateNew = (props) => {
                       </Grid>{" "}
                     </Grid>
                   </FormGroup>
-
+                  <motion.div  className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
                   <FriendInviter
                     state={props.state}
                     setState={props.setState}
                     newGameNyte={props.newGameNyte}
                     setNewGameNyte={props.setNewGameNyte}
                     handleFriendToggle={props.handleFriendToggle}
-                  />
+                  /></motion.div>
                 </Stack>
               </Grid>
               <Grid item xs={1.25}></Grid>
               {/* Game list */}
 
               <Grid item xs={5.25}>
+              <motion.div  className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
                 <Stack sx={{ alignItems: "center" }}>
                   <GameChooser
                     state={props.state}
@@ -169,13 +170,14 @@ const CreateNew = (props) => {
                     Create Game Nyte
                   </Button>
                 </Stack>
+                </motion.div>
               </Grid>
             </Grid>{" "}
           </Stack>
         </Grid>
       </Grid>
     </Box>
-
+    </motion.div>
   );
 };
 
