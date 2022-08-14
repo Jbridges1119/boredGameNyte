@@ -63,7 +63,7 @@ if(user.attendee_id === userId){
 
 
   return (
-    <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         width: "100%",
