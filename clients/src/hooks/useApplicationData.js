@@ -149,6 +149,7 @@ const useApplicationData = () => {
   };
 
   const addGameToCollection = (user, gameId, game) => {
+
     let newGame = {
       name: game.name,
       min_players: game.min_players,
@@ -162,7 +163,7 @@ const useApplicationData = () => {
     return axios.post(`http://localhost:3005/api/users/${user}/collection`, newGame )
     .then(() => {
       setState((prev) => {
-        return {...prev, collection: [...state.collection, newGame]}
+        return {...prev, collection: [...state.collection, newGame], globalCollection: [...state.globalCollection, newGame]}
       })
     })
     .catch((err) => {
