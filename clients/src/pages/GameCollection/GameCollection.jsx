@@ -27,7 +27,7 @@ const GameCollection = (props) => {
   });
 
   return ( 
-    <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Grid container justifyContent="center" alignItems="center" sx={{ pt: 2, backgroundColor: theme.palette.primary.dark }}>
         <Box
             sx={{
@@ -55,7 +55,7 @@ const GameCollection = (props) => {
           </Box>
         {gameCollectionResults}
     </Grid>
-    </motion.div>
+   </motion.div>
    );
 }
  

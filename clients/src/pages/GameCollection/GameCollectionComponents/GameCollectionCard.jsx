@@ -10,7 +10,7 @@ import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
-
+import {motion} from 'framer-motion'
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -49,12 +49,12 @@ export default function GameCollectionCard(props) {
 
 
   return (
-    
+    <motion.div  className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
     <Paper direction="row"  sx={{
       maxWidth: '100% !important',
       backgroundColor: theme.palette.primary.main,
       color: "white",
-      ml: 11,
+      mx: 11,
       borderRadius: "20px"
       
     }}elevation={4}>
@@ -153,6 +153,6 @@ sx={{
             </Box></Stack>
             </Grid></Grid></Grid></Grid>
     </Paper>
-  
+    </motion.div>
   );
 }
