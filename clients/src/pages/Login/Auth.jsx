@@ -64,9 +64,20 @@ export default function AuthProvider(props) {
     setState((prev) => {
       return { ...prev, user: null }
     })
+    // setGameNytesHosted({
+    //   host: null,
+    //   gamesChosen: [],
+    //   friendsInvited: [],
+    //   competitive: false,
+    //   name: '',
+    //   place: '',
+    //   date: new Date(),
+    //   open: false
+    // })
     Cookies.remove('userId')
     window.localStorage.removeItem("SuperSecretUserId")
     window.localStorage.removeItem("SuperSecretData")
+
   };
 
 useEffect(()=> {
@@ -77,11 +88,28 @@ useEffect(()=> {
 },[])
 
 useEffect(() => {
+  setNewGameNyte({
+    host: userId,
+    gamesChosen: [],
+    friendsInvited: [],
+    competitive: false,
+    name: '',
+    place: '',
+    date: new Date(),
+    open: false
+  });
   window.localStorage.setItem("SuperSecretUserId", JSON.stringify(userId) )
 }, [userId])
 
+
+
+
+useEffect(() => {
+  
+}, [userId])
+
+
 useEffect(()=> {
- 
   if(state.user === null) {
   const data = window.localStorage.getItem("SuperSecretData")
   setState(JSON.parse(data))
