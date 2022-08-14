@@ -19,7 +19,7 @@ const NyteInvites = (props) => {
   const attendingList = props.data.map((friend) => {
     const status = friend.attend_status;
     return (
-      <ListItem sx={{ p: 0 }} key={friend.id}>
+      <ListItem key={friend.id} sx={{ p: 0 }} >
         {status === false && (
           <CloseOutlinedIcon
             sx={{

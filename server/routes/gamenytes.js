@@ -274,8 +274,8 @@ module.exports = (db) => {
     const emailBody = `We are excited to inform you that ${hostName} has invited you to "${title}", a GameNyte scheduled for ${date} at ${location}. For more information on this GameNyte and to let ${hostName} know if you can attend please visit the GameNyte page. Happy Gaming!`;
     const emailSubject = 'You\'ve been invited to a new GameNyte';
     // sendEmail function calls mailgun API and uses provided data
-    const emailResponse = await sendEmail({ subject: emailSubject, message: emailBody, email: toEmails });
-    console.log(emailResponse); // confirms email was sent successfully
+    const emailResponse = await sendEmail({ subject: emailSubject, message: emailBody, email: toEmails })
+    console.log('emailresponse', emailResponse); // confirms email was sent successfully
   });
 
   router.post('/createnew', (req, res) => {

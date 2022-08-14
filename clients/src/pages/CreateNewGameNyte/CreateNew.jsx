@@ -14,6 +14,7 @@ import BGN from "../../assets/Pictures/BGN.png";
 import BGNCasual from "../../assets/Pictures/BGNCasual.png";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const CreateNew = (props) => {
   const navigate = useNavigate();
@@ -54,14 +55,16 @@ const CreateNew = (props) => {
     if (props.newGameNyte.place === '') {return alert('Please give your game nyte a location!')}
     if (props.newGameNyte.friendsInvited.length === 0) {return alert('Please invite some friends!')}
     if (props.newGameNyte.gamesChosen.length < 1) {return alert('Please choose at least one game for your game nyte!')}
-    Promise.all ([
-      axios.post(`http://localhost:3005/api/gamenytes/createnew/email`, mailgunInfo),
-      axios.post(`http://localhost:3005/api/gamenytes/createnew`, props.newGameNyte)
-      .then((data) => {
+
+    axios.post(`http://localhost:3005/api/gamenytes/createnew`, props.newGameNyte)
+    .then((data) => {
+        axios.post(`http://localhost:3005/api/gamenytes/createnew/email`, mailgunInfo)
         let nyteId = data.data;
         navigate(`/nyte/${nyteId}`);
+        props.setNewGameNyte((prev) => {
+          return { ...prev, host: Cookies.get('userId'), gamesChosen: [], friendsInvited: [], name: '', place: '', date: new Date(), open: false, competitive: false }
+        })
       })
-    ])
     .catch((error) => {
       console.log(error);
     });

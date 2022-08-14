@@ -57,7 +57,7 @@ const useApplicationData = () => {
   // Will have to use setCollection with a useEffect later
 
   const [newGameNyte, setNewGameNyte] = useState({
-    host: Cookies.get('userId'),
+    host: state.user ? state.user.id : Cookies.get('userId'),
     gamesChosen: [],
     friendsInvited: [],
     competitive: false,
