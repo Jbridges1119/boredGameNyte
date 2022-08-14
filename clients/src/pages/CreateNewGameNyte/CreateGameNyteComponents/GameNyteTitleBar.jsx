@@ -15,6 +15,12 @@ const TitleBar = (props) => {
       label="Name Your Game Nyte!"
       id="title"
       value={props.title}
+      inputProps={{
+        autoComplete: 'new-password',
+        form: {
+          autoComplete: 'off',
+        },
+      }}
       InputLabelProps={{
         style: { color: "#fff" },
       }}

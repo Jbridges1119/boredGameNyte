@@ -33,7 +33,11 @@ export default function FriendsList(props) {
             size="large"
             edge="end"
             aria-label="delete"
-            sx={{ color: "white" }}
+            sx={{ color: "white",
+              ':hover': {
+                color: 'red',
+                boxShadow:24
+              }}}
           >
             <DeleteIcon />
           </IconButton>

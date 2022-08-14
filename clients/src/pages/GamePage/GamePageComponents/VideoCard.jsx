@@ -118,7 +118,10 @@ export default function VideoCard(props) {
         <AccordionSummary
           aria-controls="panel1d-content"
           id="panel1d-header"
-          x={{
+          sx={{':hover': {
+            bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+            boxShadow:24
+          },
             borderRadius: "20px",
             width: "100%",
           }}
@@ -153,7 +156,13 @@ export default function VideoCard(props) {
           backgroundColor: theme.palette.primary.main,
         }}
       >
-        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header"  sx={{':hover': {
+            bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+            boxShadow:24
+          },
+            borderRadius: "20px",
+            width: "100%",
+          }}>
           <Typography sx={{ color: "#FFFFFF" }} variant="h5">
             Git Gud
           </Typography>

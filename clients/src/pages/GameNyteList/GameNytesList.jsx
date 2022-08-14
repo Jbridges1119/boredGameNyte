@@ -107,7 +107,11 @@ const GameNyteList = (props) => {
             <AccordionSummary
               aria-controls="panel1a-content"
               id="panel1a-header"
-            >
+              sx={{':hover': {
+                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                boxShadow:24
+              }
+              }}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
                 Upcoming Game Nytes
               </Typography>
@@ -172,7 +176,10 @@ const GameNyteList = (props) => {
             <AccordionSummary
               aria-controls="panel2d-content"
               id="panel2d-header"
-            >
+              sx={{':hover': {
+                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                boxShadow:24
+              }}}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
                 Game Nytes You've Hosted
               </Typography>
@@ -233,7 +240,10 @@ const GameNyteList = (props) => {
             <AccordionSummary
               aria-controls="panel3d-content"
               id="panel3d-header"
-            >
+              sx={{':hover': {
+                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                boxShadow:24
+              }}}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
                 Game Nytes You've Attended
               </Typography>

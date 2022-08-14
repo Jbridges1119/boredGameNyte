@@ -15,6 +15,12 @@ const LocationBar = (props) => {
       label="Where is your Game Nyte?"
       id="location"
       value={props.location}
+      inputProps={{
+        autoComplete: 'new-password',
+        form: {
+          autoComplete: 'off',
+        },
+      }}
       InputLabelProps={{
         style: { color: "#fff" },
       }}

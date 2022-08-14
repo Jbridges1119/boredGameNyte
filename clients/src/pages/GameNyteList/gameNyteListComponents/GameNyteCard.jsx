@@ -156,7 +156,10 @@ sx={{
           <Accordion  sx={{
               backgroundColor: theme.palette.primary.main, borderRadius: "20px", color:'white'
             }}>
-              <AccordionSummary sx={{
+              <AccordionSummary sx={{ ':hover': {
+                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                boxShadow:24
+              },
                 color: 'white', 
                 borderRadius: "20px",
                 backgroundColor: theme.palette.secondary.main,

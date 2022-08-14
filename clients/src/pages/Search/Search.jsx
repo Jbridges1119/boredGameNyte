@@ -63,6 +63,12 @@ const Search = (props) => {
                   <CssTextField
                     label="Find a game!"
                     id="search"
+                    inputProps={{
+                      autoComplete: 'new-password',
+                      form: {
+                        autoComplete: 'off',
+                      },
+                    }}
                     InputLabelProps={{
                       style: { color: "#fff" },
                     }}
