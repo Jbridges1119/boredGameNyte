@@ -48,7 +48,7 @@ const AccordionSummary = styled((props) => (
 
 export default function GameSearchCard(props) {
   return (
-    <motion.div exitBeforeEnter={true} className="outer" initial={{y: -3000, opacity: 0, }} animate={{y: 0, opacity: 1}} exit={{y: -300, opacity: 0 }}>
+    <motion.div  className="outer" initial={{y: -3000, opacity: 0, }} animate={{y: 0, opacity: 1}} exit={{y: 3000, opacity: 0 }}>
     <Paper
       direction="row"
       sx={{
