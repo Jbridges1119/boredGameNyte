@@ -245,7 +245,6 @@ module.exports = (db) => {
     // sendEmail function calls mailgun API and uses provided data
     const emailResponse = await sendEmail({ subject: emailSubject, message: emailBody, email: toEmails });
     console.log(emailResponse); // confirms email was sent successfully
-
   });
 
   //Cancel Game nyte
@@ -263,7 +262,21 @@ module.exports = (db) => {
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-  })
+  });
+
+  // Send email to GameNyte invitees upon creation of GameNyte
+  router.post("/createnew/email", async (req, res) => {
+    const { hostName, title, date, location, inviteesEmails } = req.body;
+    let toEmails = ""
+    for (let email of inviteesEmails) {
+      toEmails += `${email}; `
+    }
+    const emailBody = `We are excited to inform you that ${hostName} has invited you to "${title}", a GameNyte scheduled for ${date} at ${location}. For more information on this GameNyte and to let ${hostName} know if you can attend please visit the GameNyte page. Happy Gaming!`;
+    const emailSubject = 'You\'ve been invited to a new GameNyte';
+    // sendEmail function calls mailgun API and uses provided data
+    const emailResponse = await sendEmail({ subject: emailSubject, message: emailBody, email: toEmails });
+    console.log(emailResponse); // confirms email was sent successfully
+  });
 
   router.post('/createnew', (req, res) => {
     const gameNyte = req.body;
