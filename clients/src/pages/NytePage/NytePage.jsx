@@ -30,13 +30,10 @@ const NytePage = (props) => {
   }, []);
 
   const onCancelNyte = (nyteId) => {
-    console.log("data:", data);
     let inviteesEmails = [];
     for (let d of data) {
-      console.log("d.email:", d.email);
       inviteesEmails.push(d.email);
     };
-    console.log("inviteesEmails:", inviteesEmails);
     const mailgunInfo = {
       hostName: hostData.first_name,
       title: data[0].title,
