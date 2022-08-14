@@ -15,7 +15,7 @@ export default function AuthProvider(props) {
   })
 
   const [newGameNyte, setNewGameNyte] = useState({
-    host: state.user ? state.user.id : '',
+    host: userId ? userId : Cookies.get('userId'),
     gamesChosen: [],
     friendsInvited: [],
     competitive: false,
