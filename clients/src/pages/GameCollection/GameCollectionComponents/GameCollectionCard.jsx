@@ -119,6 +119,10 @@ sx={{
             onClick={() => {props.deleteGame(props.user.id, props.gameId)}}
             variant="contained" 
             sx={{
+              ':hover': {
+                bgcolor: theme.palette.error.light,
+                boxShadow:24
+              },
               backgroundColor: theme.palette.error.main,
               height: 40,
               fontSize: 20,
@@ -127,7 +131,12 @@ sx={{
             }}>Remove From Collection</Button>
          
      
-            <Button variant="contained" component={Link} to={'/game/' + props.gameId} sx={{
+            <Button variant="contained" component={Link} to={'/game/' + props.gameId} 
+                    sx={{
+                    ':hover': {
+                      bgcolor: theme.palette.error.light,
+                      boxShadow:24
+                    },
                     backgroundColor: theme.palette.error.main,
                     height: 40,
                     fontSize: 20,
