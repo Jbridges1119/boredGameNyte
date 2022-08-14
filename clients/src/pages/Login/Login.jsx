@@ -91,7 +91,7 @@ const Login = (props) => {
               >
                 <CardMedia
                   component="img"
-                  image={BGNLogo}
+                  image="https://i.imgur.com/9fxI7kC.jpg"
                   alt=""
                   sx={{
                     objectFit: "fill",
