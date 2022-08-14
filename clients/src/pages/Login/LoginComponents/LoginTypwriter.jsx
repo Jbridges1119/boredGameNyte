@@ -26,7 +26,6 @@ const Writer = (props) => {
         .pauseFor(1250)
         .deleteAll()
         .typeString('Choose 3 <strong>Games</strong>')
-       
         .pauseFor(1000)
         .deleteAll()
          .typeString('Pick A <strong>Nyte</strong>!')

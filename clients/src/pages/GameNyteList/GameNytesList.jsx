@@ -116,7 +116,7 @@ const GameNyteList = (props) => {
               }
               }}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
-                Upcoming Game Nytes
+              Upcoming GameNytes
               </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
@@ -184,7 +184,7 @@ const GameNyteList = (props) => {
                 boxShadow:24
               }}}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
-                Game Nytes You've Hosted
+              Your GameNytes
               </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
@@ -248,7 +248,7 @@ const GameNyteList = (props) => {
                 boxShadow:24
               }}}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
-                Game Nytes You've Attended
+              Invited GameNytes History
               </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
