@@ -1,5 +1,5 @@
 INSERT INTO users (first_name, last_name, email, password, city)
-VALUES ('Jeff', 'Bridges', 'jbridges1119@gmail.com', 'password123', 'Lethbridge');
+VALUES ('Jeff', 'Bridges', 'jbridges1119@gmail.com', '1', 'Lethbridge');
 INSERT INTO users (first_name, last_name, email, password, city)
 VALUES ('Ken', 'Moon', 'kennymoon90@gmail.com', 'password123', 'Vancouver');
 INSERT INTO users (first_name, last_name, email, password, city)

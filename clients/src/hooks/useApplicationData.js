@@ -50,7 +50,7 @@ const games = [
 ]
 
 const useApplicationData = () => {
-  const { userId, state, setState, logout, login, gameNytesHosted, newGameNyte, setNewGameNyte  } = useContext(authContext);
+  const { userId, state, setState, logout, login, gameNytesHosted,newGameNyte, setNewGameNyte   } = useContext(authContext);
 
   // This will ideally be the users collection retrieved from database
   // Currently, default state is dummy data stored above
@@ -67,6 +67,9 @@ const useApplicationData = () => {
   //   open: false
   // })
   
+
+
+
   // Function to set/unset checked friends in state
   const handleFriendToggle = (value) => () => {
     const currentIndex = newGameNyte.friendsInvited.indexOf(value);
