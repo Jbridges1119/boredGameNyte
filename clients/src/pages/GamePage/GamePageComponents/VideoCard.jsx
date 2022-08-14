@@ -185,7 +185,8 @@ export default function VideoCard(props) {
                 alignContent: "center",
               }}
             >
-              {props.videos2 && gitGud}
+              {console.log("props",props.videos2[0].id.videoId)}
+              {props.videos2[0].id.videoId && gitGud}
             </Grid>
           </Box>
         </AccordionDetails>

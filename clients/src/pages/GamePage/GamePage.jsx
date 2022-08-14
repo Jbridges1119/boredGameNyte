@@ -51,12 +51,12 @@ const GamePage = (props) => {
   }, []);
 
   return (
-    // <motion.div exitBeforeEnter={true} className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         width: "100%",
         backgroundColor: theme.palette.primary.dark,
-        height: "100vh",
+       
       }}
     >
       <Grid
@@ -65,20 +65,25 @@ const GamePage = (props) => {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={11}>
-          <Stack spacing={4} mt={5}>
+        <Grid item xs={11} >
+          <Stack spacing={4} mt={5} >
+            <Box container sx={{
+        width: "100%",
+        backgroundColor: theme.palette.primary.dark,
+       
+      }}>
             <GameCard
               gameData={gameData}
               state={props.state}
               addGame={props.addGame}
               removeGame={props.removeGame}
-            />
+            /> </Box> 
             <VideoCard videos={videos[0]} videos2={videos[1]} />
           </Stack>
         </Grid>
       </Grid>
     </Box>
-    // </motion.div>
+   </motion.div>
   );
 };
 export default GamePage;
