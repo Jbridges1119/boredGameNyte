@@ -14,7 +14,7 @@ import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import GameBanner from './GameNyteCardComponents/GameBanner';
 import { Link } from 'react-router-dom';
-
+import {motion} from 'framer-motion'
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -50,6 +50,7 @@ export default function GameNyteCard(props) {
   
 
   return (
+    <motion.div  className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
     <Paper 
       elevation={8}
       sx={{
@@ -198,6 +199,6 @@ sx={{
           </Grid>
           </Grid> 
         
-    </Card></Paper>
+    </Card></Paper></motion.div>
   );
 }
