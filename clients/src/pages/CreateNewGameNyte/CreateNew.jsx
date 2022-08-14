@@ -19,16 +19,52 @@ const CreateNew = (props) => {
   const navigate = useNavigate();
   const [casualPicture, setCasualPicture] = useState();
 
+  const emailInfo = {
+    hostEmail: props.state.user.email,
+    hostName: props.state.user.name,
+
+  };
+
   const createGameNyte = () => {
+    let inviteesInfo = []; // array to store invited friends user info as objects
+    const invitees = props.newGameNyte.friendsInvited; // array of invited user_id's
+    const friendsList = props.state.friendsList; // all user's friends in an array of objects(user info) 
+    for (let friend of friendsList) {
+      for (let invitee of invitees) {
+        if (invitee === friend.friend_id) {
+          inviteesInfo.push(friend);
+        }
+      }
+    };
+
+    let inviteesEmails = [];
+    for (let inviteeInfo of inviteesInfo) {
+      inviteesEmails.push(inviteeInfo.email);
+    };
+
+    const mailgunInfo = {
+      inviteesEmails,
+      location: props.newGameNyte.place,
+      date: props.newGameNyte.date,
+      title: props.newGameNyte.name,
+      hostName: props.state.user.first_name,
+    };
+
     if (props.newGameNyte.name === '') {return alert('Please name your game nyte!')}
     if (props.newGameNyte.place === '') {return alert('Please give your game nyte a location!')}
     if (props.newGameNyte.friendsInvited.length === 0) {return alert('Please invite some friends!')}
     if (props.newGameNyte.gamesChosen.length < 1) {return alert('Please choose at least one game for your game nyte!')}
-    return axios.post(`http://localhost:3005/api/gamenytes/createnew`, props.newGameNyte)
-    .then((data) => {
-      let nyteId = data.data;
-      navigate(`/nyte/${nyteId}`);
-    })
+    Promise.all ([
+      axios.post(`http://localhost:3005/api/gamenytes/createnew/email`, mailgunInfo),
+      axios.post(`http://localhost:3005/api/gamenytes/createnew`, props.newGameNyte)
+      .then((data) => {
+        let nyteId = data.data;
+        navigate(`/nyte/${nyteId}`);
+      })
+    ])
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   useEffect(() => {

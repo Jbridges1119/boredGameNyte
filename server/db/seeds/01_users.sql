@@ -1,9 +1,9 @@
 INSERT INTO users (first_name, last_name, email, password, city)
-VALUES ('Jeff', 'Bridges', 'me@me.com', 'password123', 'Lethbridge');
+VALUES ('Jeff', 'Bridges', 'jbridges1119@gmail.com', 'password123', 'Lethbridge');
 INSERT INTO users (first_name, last_name, email, password, city)
-VALUES ('Ken', 'Moon', 'moon@me.com', 'password123', 'Vancouver');
+VALUES ('Ken', 'Moon', 'kennymoon90@gmail.com', 'password123', 'Vancouver');
 INSERT INTO users (first_name, last_name, email, password, city)
-VALUES ('Jesse', 'Kopala', 'kopala@me.com', 'password123', 'Calgary');
+VALUES ('Jesse', 'Kopala', 'jdkopala@gmail.com', 'password123', 'Calgary');
 INSERT INTO users (first_name, last_name, email, password, city)
 VALUES ('Philip', 'Fry', 'fry@me.com', 'password123', 'Vancouver');
 INSERT INTO users (first_name, last_name, email, password, city)
