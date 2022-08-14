@@ -14,7 +14,7 @@ import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import GameBanner from './GameNyteCardComponents/GameBanner';
 import { Link } from 'react-router-dom';
-
+import {motion} from 'framer-motion'
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -50,6 +50,7 @@ export default function GameNyteCard(props) {
   
 
   return (
+    <motion.div  className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
     <Paper 
       elevation={8}
       sx={{
@@ -132,13 +133,17 @@ sx={{
                     ':hover': {
                       bgcolor: theme.palette.error.light,
                       boxShadow:24
+                    },':active': {
+                      bgcolor: theme.palette.error.light,
+                      boxShadow:8
+                      
                     },
                     backgroundColor: theme.palette.error.main,
                     height: 40,
-                    fontSize: 25,
+                    fontSize: 22,
                     borderRadius: "20px",
                     textTransform: "none",
-                    pt:1.25,
+                    pt:1,
                     mt:1
                   }}
                   type="submit"
@@ -156,7 +161,10 @@ sx={{
           <Accordion  sx={{
               backgroundColor: theme.palette.primary.main, borderRadius: "20px", color:'white'
             }}>
-              <AccordionSummary sx={{
+              <AccordionSummary sx={{ ':hover': {
+                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                boxShadow:24
+              },
                 color: 'white', 
                 borderRadius: "20px",
                 backgroundColor: theme.palette.secondary.main,
@@ -191,6 +199,6 @@ sx={{
           </Grid>
           </Grid> 
         
-    </Card></Paper>
+    </Card></Paper></motion.div>
   );
 }

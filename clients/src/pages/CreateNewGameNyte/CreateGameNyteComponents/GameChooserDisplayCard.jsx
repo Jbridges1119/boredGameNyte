@@ -2,9 +2,10 @@ import { Grid, IconButton, Paper, Stack, Typography } from "@mui/material";
 import Close from "@mui/icons-material/Close";
 import theme from "../../../assets/theme";
 import { Box } from "@mui/system";
-
+import {motion} from 'framer-motion'
 export default function GameDisplayCard(props) {
-  return (
+  return ( 
+  
     <Box
       sx={{
         width: "100%",
@@ -77,7 +78,10 @@ export default function GameDisplayCard(props) {
 
           <Grid item xs={1}>
             <IconButton
-              sx={{ color: "white" }}
+              sx={{ color: "white" ,  ':hover': {
+                color: 'red',
+                
+              }}}
               onClick={props.toggleOff(props.id)}
             >
               <Close />

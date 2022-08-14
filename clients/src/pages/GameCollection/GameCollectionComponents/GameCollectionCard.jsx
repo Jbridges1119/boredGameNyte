@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, Grid, Box, Stack } from '@mui/material';
@@ -11,7 +10,7 @@ import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
-
+import {motion} from 'framer-motion'
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -50,12 +49,12 @@ export default function GameCollectionCard(props) {
 
 
   return (
-    
+    <motion.div  className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
     <Paper direction="row"  sx={{
       maxWidth: '100% !important',
       backgroundColor: theme.palette.primary.main,
       color: "white",
-      ml: 11,
+      mx: 11,
       borderRadius: "20px"
       
     }}elevation={4}>
@@ -118,10 +117,14 @@ sx={{
             <Button 
             onClick={() => {props.deleteGame(props.user.id, props.gameId)}}
             variant="contained" 
-            sx={{
-              ':hover': {
+            sx={{ ':hover': {
+              bgcolor: theme.palette.error.light,
+              boxShadow:24,
+              transform: 'translate(0px ,-1px) ',
+              },':active': {
                 bgcolor: theme.palette.error.light,
-                boxShadow:24
+                boxShadow:8
+                
               },
               backgroundColor: theme.palette.error.main,
               height: 40,
@@ -131,12 +134,16 @@ sx={{
             }}>Remove From Collection</Button>
          
      
-            <Button variant="contained" component={Link} to={'/game/' + props.gameId} 
-                    sx={{
-                    ':hover': {
-                      bgcolor: theme.palette.error.light,
-                      boxShadow:24
-                    },
+            <Button variant="contained" component={Link} to={'/game/' + props.gameId} sx={{ ':hover': {
+                  bgcolor: theme.palette.error.light,
+                  boxShadow:24,
+                  transform: 'translate(0px ,-1px) ',
+                  },':active': {
+                    bgcolor: theme.palette.error.light,
+                    boxShadow:8
+                    
+                  },
+                
                     backgroundColor: theme.palette.error.main,
                     height: 40,
                     fontSize: 20,
@@ -146,6 +153,6 @@ sx={{
             </Box></Stack>
             </Grid></Grid></Grid></Grid>
     </Paper>
-  
+    </motion.div>
   );
 }

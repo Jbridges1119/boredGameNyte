@@ -4,7 +4,7 @@ import { Box, Grid, Paper, TextField, Typography } from "@mui/material";
 import theme from "../../assets/theme";
 import '../../styles/Search.css'
 import GameCollectionCard from "./GameCollectionComponents/GameCollectionCard";
-
+import {motion} from 'framer-motion'
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 
 // *** REPLACE HARDCODED API SEARCH WITH COLLECTION DATA FROM SERVER ***
@@ -27,6 +27,7 @@ const GameCollection = (props) => {
   });
 
   return ( 
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Grid container justifyContent="center" alignItems="center" sx={{ pt: 2, backgroundColor: theme.palette.primary.dark }}>
         <Box
             sx={{
@@ -36,7 +37,7 @@ const GameCollection = (props) => {
           >
             <Paper
               sx={{
-                backgroundColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.secondary.main,
                 borderRadius: "22px",
                 m: 1.5,
                 pt: 0.75,
@@ -54,6 +55,7 @@ const GameCollection = (props) => {
           </Box>
         {gameCollectionResults}
     </Grid>
+   </motion.div>
    );
 }
  

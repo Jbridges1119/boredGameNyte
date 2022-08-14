@@ -10,6 +10,8 @@ import VideoCard from "./GamePageComponents/VideoCard";
 import { useParams } from "react-router-dom";
 import GameInfo from "./GamePageComponents/CardComponents/GameInfo";
 import { urlRewrite } from "../../helperFunctions/helperFunctions";
+import {motion} from 'framer-motion'
+
 
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 const apiKey = process.env.REACT_APP_YOUTUBE_APIKEY;
@@ -49,11 +51,12 @@ const GamePage = (props) => {
   }, []);
 
   return (
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         width: "100%",
         backgroundColor: theme.palette.primary.dark,
-        height: "100vh",
+       
       }}
     >
       <Grid
@@ -62,19 +65,25 @@ const GamePage = (props) => {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={11}>
-          <Stack spacing={4} mt={5}>
+        <Grid item xs={11} >
+          <Stack spacing={4} mt={5} >
+            <Box container sx={{
+        width: "100%",
+        backgroundColor: theme.palette.primary.dark,
+       
+      }}>
             <GameCard
               gameData={gameData}
               state={props.state}
               addGame={props.addGame}
               removeGame={props.removeGame}
-            />
+            /> </Box> 
             <VideoCard videos={videos[0]} videos2={videos[1]} />
           </Stack>
         </Grid>
       </Grid>
     </Box>
+   </motion.div>
   );
 };
 export default GamePage;

@@ -63,12 +63,18 @@ sx={{
     sx={{':hover': {
         bgcolor: theme.palette.error.light,
         boxShadow:24
-        }, backgroundColor: theme.palette.error.main, 
+       
+        }, ':active': {
+          bgcolor: theme.palette.error.light,
+          boxShadow:8
+          
+        },
+        backgroundColor: theme.palette.error.main, 
         height: 60,  
         fontSize: 35,
         textTransform: 'none', 
         borderRadius: '20px',
-        pt: 1.25 }} variant="contained">How To Play</Button>
+        pt: .6 }} variant="contained">How To Play</Button>
   
     </Stack>
     </Grid>

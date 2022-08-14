@@ -52,19 +52,7 @@ const labelsRating = {
   5.0: "Best Game Ever",
 };
 
-<Button
-  sx={{
-    color: "white",
-    backgroundColor: theme.palette.error.main,
-    height: 55,
-    fontSize: 30,
-    textTransform: "none",
-    borderRadius: "20px",
-    width: "300px",
-  }}
->
-  Add To Collection
-</Button>;
+
 const GameInfo = (props) => {
   
   const name = props.gameData ? props.gameData.name : "";
@@ -192,6 +180,10 @@ const GameInfo = (props) => {
                         ':hover': {
                           bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
                           boxShadow:24
+                        },':active': {
+                          bgcolor: theme.palette.error.light,
+                          boxShadow:8
+                          
                         },
                         color: "white",
                         backgroundColor: theme.palette.secondary.main,
@@ -200,7 +192,7 @@ const GameInfo = (props) => {
                         textTransform: "none",
                         borderRadius: "20px",
                         width: "275px",
-                        pt:1.25
+                        pt:1
                       }}
                       onClick={handleClickOpen("paper")}
                     >
@@ -368,16 +360,22 @@ const GameInfo = (props) => {
                 onClick={props.addGame}
                 variant="contained" 
                 sx={{
-                    ':hover': {
-                    bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                  ':hover': {
+                    bgcolor: theme.palette.error.light,
                     boxShadow:24
-                    },
+                    
+                  },':active': {
+                    bgcolor: theme.palette.error.light,
+                    boxShadow:8
+                    
+                  },
                     backgroundColor: theme.palette.error.main,
-                    height: 40,
-                    fontSize: 20,
+                    height: 45,
+                    fontSize: 25,textTransform: "none",
                     borderRadius: "20px",
                     color:'white',
-                    pt:1.25
+                    width: "275px",
+                    pt:1
                   }}>Add To Collection
               </Button>}
               
@@ -389,11 +387,16 @@ const GameInfo = (props) => {
                   ':hover': {
                     bgcolor: theme.palette.error.light,
                     boxShadow:24
+                  },':active': {
+                    bgcolor: theme.palette.error.light,
+                    boxShadow:8
+                    
                   },
                   backgroundColor: theme.palette.error.main,
                   height: 45,
-                  fontSize: 16,
+                  fontSize: 20,textTransform: "none",
                   borderRadius: "20px",
+                  width: "275px",
                   color:'error'
                 }}>Remove From Collection</Button>}
 
@@ -422,7 +425,7 @@ const GameInfo = (props) => {
                       textTransform: "none",
                       borderRadius: "20px",
                       width: "275px",
-                      pt:1.25
+                      pt:1
                     }}
                   >
                     Official Website

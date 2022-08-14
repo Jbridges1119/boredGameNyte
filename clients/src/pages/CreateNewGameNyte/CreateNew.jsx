@@ -15,7 +15,7 @@ import BGNCasual from "../../assets/Pictures/BGNCasual.png";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
-
+import {motion} from 'framer-motion'
 const CreateNew = (props) => {
   const navigate = useNavigate();
   const [casualPicture, setCasualPicture] = useState();
@@ -76,6 +76,7 @@ const CreateNew = (props) => {
   }, [props.newGameNyte.competitive]);
 
   return (
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         height: "100%",
@@ -153,20 +154,21 @@ const CreateNew = (props) => {
                       </Grid>{" "}
                     </Grid>
                   </FormGroup>
-
+                  <motion.div  className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
                   <FriendInviter
                     state={props.state}
                     setState={props.setState}
                     newGameNyte={props.newGameNyte}
                     setNewGameNyte={props.setNewGameNyte}
                     handleFriendToggle={props.handleFriendToggle}
-                  />
+                  /></motion.div>
                 </Stack>
               </Grid>
               <Grid item xs={1.25}></Grid>
               {/* Game list */}
 
               <Grid item xs={5.25}>
+              <motion.div  className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
                 <Stack sx={{ alignItems: "center" }}>
                   <GameChooser
                     state={props.state}
@@ -188,6 +190,10 @@ const CreateNew = (props) => {
                       ':hover': {
                         bgcolor: theme.palette.error.light,
                         boxShadow:24
+                      },':active': {
+                        bgcolor: theme.palette.error.light,
+                        boxShadow:8
+                        
                       },
                       width: 500,
                       backgroundColor: theme.palette.error.main,
@@ -203,12 +209,14 @@ const CreateNew = (props) => {
                     Create Game Nyte
                   </Button>
                 </Stack>
+                </motion.div>
               </Grid>
             </Grid>{" "}
           </Stack>
         </Grid>
       </Grid>
     </Box>
+    </motion.div>
   );
 };
 

@@ -18,6 +18,8 @@ import {
   formatTime,
   fixDate
 } from "../../helperFunctions/helperFunctions";
+import {motion} from 'framer-motion'
+
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -86,6 +88,7 @@ const GameNyteList = (props) => {
   }, [props.state.user]);
 
   return (
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         pt: 2.5,
@@ -107,7 +110,11 @@ const GameNyteList = (props) => {
             <AccordionSummary
               aria-controls="panel1a-content"
               id="panel1a-header"
-            >
+              sx={{':hover': {
+                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                boxShadow:24
+              }
+              }}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
                 Upcoming Game Nytes
               </Typography>
@@ -172,7 +179,10 @@ const GameNyteList = (props) => {
             <AccordionSummary
               aria-controls="panel2d-content"
               id="panel2d-header"
-            >
+              sx={{':hover': {
+                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                boxShadow:24
+              }}}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
                 Game Nytes You've Hosted
               </Typography>
@@ -233,7 +243,10 @@ const GameNyteList = (props) => {
             <AccordionSummary
               aria-controls="panel3d-content"
               id="panel3d-header"
-            >
+              sx={{':hover': {
+                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                boxShadow:24
+              }}}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
                 Game Nytes You've Attended
               </Typography>
@@ -289,6 +302,7 @@ const GameNyteList = (props) => {
         </Grid>
       </Grid>
     </Box>
+    </motion.div>
   );
 };
 

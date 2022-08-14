@@ -13,6 +13,10 @@ import { useEffect, useState } from "react";
 import theme from "../../assets/theme";
 import GameNyteCard from "../GameNyteList/gameNyteListComponents/GameNyteCard";
 import axios from 'axios'
+import {motion} from 'framer-motion'
+
+
+
 export default function Home(props) {
 
   const [gameNytes, setGameNytes] = useState([]);
@@ -64,7 +68,8 @@ export default function Home(props) {
   });
   
   return (
-    <Box
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
+    <Box 
       sx={{
         mt: 2,
         width: "100%",
@@ -92,13 +97,18 @@ export default function Home(props) {
             {/* Follow GameNyteCards to be replaced with mapped cards with data */}
 
             <Grid container justifyContent="center">
-              <Grid item xs={10.25} py={1}>
-                <Stack spacing={1}>{gameNytesHosted}</Stack>
+              <Grid item xs={10.25} py={1}> <motion.div  className="outer" initial={{x: -300, opacity: 0 }} animate={{x: 0, opacity: 1}} exit={{x: 300, opacity: 0}}>
+                <Stack spacing={1}>
+               
+                  {gameNytesHosted}
+                
+                  </Stack>  </motion.div>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       </Stack>
     </Box>
+    </motion.div>
   );
 }

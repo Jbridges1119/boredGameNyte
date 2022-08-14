@@ -5,6 +5,12 @@ import useSearchData from "../../hooks/useSearchData";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import LoadingButton from '@mui/lab/LoadingButton';
+import {motion} from 'framer-motion'
+
+
+
+
+
 const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root:hover": {
     "& > fieldset": {
@@ -25,7 +31,8 @@ const Search = (props) => {
   };
 
   return (
-    <Box
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
+    <Box 
       sx={{
         width: "100%",
 
@@ -63,6 +70,12 @@ const Search = (props) => {
                   <CssTextField
                     label="Find a game!"
                     id="search"
+                    inputProps={{
+                      autoComplete: 'new-password',
+                      form: {
+                        autoComplete: 'off',
+                      },
+                    }}
                     InputLabelProps={{
                       style: { color: "#fff" },
                     }}
@@ -96,12 +109,18 @@ const Search = (props) => {
                     ':hover': {
                       bgcolor: theme.palette.error.light,
                       boxShadow:24
+                      
+                    },':active': {
+                      bgcolor: theme.palette.error.light,
+                      boxShadow:8
+                      
                     },
+                    
                     backgroundColor: theme.palette.error.main,
                     height: 50,
                     fontSize: 25,
                     borderRadius: "20px",
-                    pt: 1.25,
+                    pt: 0.9,
                   }}
                   type="submit"
                   onClick={gameSearch}
@@ -118,6 +137,7 @@ const Search = (props) => {
         </Grid>
       </Grid>
     </Box>
+    </motion.div>
   );
 };
 

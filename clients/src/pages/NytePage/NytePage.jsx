@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getGameById } from "../../helperFunctions/helperFunctions";
 import axios from "axios";
-
+import {motion} from 'framer-motion'
 const NytePage = (props) => {
   const navigate = useNavigate();
   const nightId = useParams().id;
@@ -80,6 +80,7 @@ const NytePage = (props) => {
   };
 
   return (
+    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
     <Box
       sx={{
         width: "100%",
@@ -168,6 +169,7 @@ const NytePage = (props) => {
         </Grid>
       </Grid>
     </Box>
+    </motion.div>
   );
 };
 

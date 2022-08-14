@@ -10,6 +10,10 @@ const Host = (props) => {
             ':hover': {
               bgcolor: theme.palette.warning.main,
               boxShadow:24
+            },':active': {
+              bgcolor: theme.palette.error.light,
+              boxShadow:8
+              
             },
             backgroundColor: "darkred", 
             height: 50, 
@@ -17,7 +21,7 @@ const Host = (props) => {
             fontSize: 25,  
             borderRadius: '20px',
             textTransform: "none", 
-            pt:1.25  }} variant="contained">Cancel Nyte</Button>
+            pt:0.9  }} variant="contained">Cancel Nyte</Button>
    )
 }
 // component={Link} to={'/home'}
