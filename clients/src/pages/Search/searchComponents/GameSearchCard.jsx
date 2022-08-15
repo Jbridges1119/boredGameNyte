@@ -112,13 +112,22 @@ export default function GameSearchCard(props) {
                 </Typography>
 
                 <Accordion
-                  sx={{
+                  sx={{':hover': {
+                     // theme.palette.primary.main
+                    boxShadow:24
+                  },
                     backgroundColor: theme.palette.secondary.main,
                     borderRadius: "20px",
                     color: "white",
+                    
                   }}
                 >
-                  <AccordionSummary
+                  <AccordionSummary sx={{ ':hover': {
+                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+              
+              }
+                
+              }}
                     expandIcon={
                       <ArrowDownward
                         sx={{
@@ -131,7 +140,7 @@ export default function GameSearchCard(props) {
                     id="panel1a-header"
                   >
                     <Typography
-                      sx={{ color: "#FFFFFF", borderRadius: "20px" }}
+                      sx={{ color: "#FFFFFF", borderRadius: "20px", }}
                       pl={1}
                       variant="h5"
                     >
