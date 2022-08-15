@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const { formatDate, formatTime, fixDate } = require("../helperFunctions/helperFunctions");
 const router = express.Router();
 const sendEmail = require("../sendEmail");
 
@@ -236,12 +237,14 @@ module.exports = (db) => {
 
   // Send email to GameNyte invitees upon cancellation of GameNyte
   router.post("/cancel/email/:nyteId", async (req, res) => {
-    const { hostName, title, date, location, inviteesEmails } = req.body;
+    let { hostName, title, date, location, inviteesEmails } = req.body;
+    let newDate = formatDate(fixDate(date))
+    let time = formatTime(fixDate(date))
     let toEmails = ""
     for (let email of inviteesEmails) {
       toEmails += `${email}; `
     }
-    const emailBody = `We regret to inform you that ${hostName} has cancelled the "${title}" GameNyte scheduled for ${date} at ${location}. Hopefully you can get another GameNyte organized soon. Happy Gaming!`;
+    const emailBody = `We regret to inform you that ${hostName} has cancelled the "${title}" GameNyte scheduled for ${newDate}, ${time} at ${location}. Hopefully you can get another GameNyte organized soon. Happy Gaming!`;
     const emailSubject = 'GameNyte Cancelled';
     // sendEmail function calls mailgun API and uses provided data
     const emailResponse = await sendEmail({ subject: emailSubject, message: emailBody, email: toEmails });
@@ -254,7 +257,7 @@ module.exports = (db) => {
 
     const params = [nyte_id];
     const query = `
-  DELETE FROM game_nights WHERE game_nights.id = $1;
+    DELETE FROM game_nights WHERE game_nights.id = $1;
   `;
     return db.query(query, params)
       .then((data) => {
@@ -267,12 +270,14 @@ module.exports = (db) => {
 
   // Send email to GameNyte invitees upon creation of GameNyte
   router.post("/createnew/email", async (req, res) => {
-    const { hostName, title, date, location, inviteesEmails } = req.body;
+    let { hostName, title, date, location, inviteesEmails } = req.body;
+    let newDate = formatDate(fixDate(date))
+    let time = formatTime(fixDate(date))
     let toEmails = ""
     for (let email of inviteesEmails) {
       toEmails += `${email}; `
     }
-    const emailBody = `We are excited to inform you that ${hostName} has invited you to "${title}", a GameNyte scheduled for ${date} at ${location}. For more information on this GameNyte and to let ${hostName} know if you can attend please visit the GameNyte page. Happy Gaming!`;
+    const emailBody = `We are excited to inform you that ${hostName} has invited you to "${title}", a GameNyte scheduled for ${newDate}, ${time} at ${location}. For more information on this GameNyte and to let ${hostName} know if you can attend please visit the GameNyte page. Happy Gaming!`;
     const emailSubject = 'You\'ve been invited to a new GameNyte';
     // sendEmail function calls mailgun API and uses provided data
     const emailResponse = await sendEmail({ subject: emailSubject, message: emailBody, email: toEmails })

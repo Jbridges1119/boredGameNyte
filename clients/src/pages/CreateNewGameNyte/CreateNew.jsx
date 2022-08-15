@@ -58,7 +58,7 @@ const CreateNew = (props) => {
 
     axios.post(`http://localhost:3005/api/gamenytes/createnew`, props.newGameNyte)
     .then((data) => {
-        // axios.post(`http://localhost:3005/api/gamenytes/createnew/email`, mailgunInfo)
+        axios.post(`http://localhost:3005/api/gamenytes/createnew/email`, mailgunInfo)
         let nyteId = data.data;
         navigate(`/nyte/${nyteId}`);
         props.setNewGameNyte((prev) => {

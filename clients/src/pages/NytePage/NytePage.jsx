@@ -38,7 +38,7 @@ const NytePage = (props) => {
       hostName: hostData.first_name,
       title: data[0].title,
       date: data[0].date,
-      location: data[0].date,
+      location: data[0].location,
       inviteesEmails: inviteesEmails,
     }
 
