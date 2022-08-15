@@ -154,6 +154,7 @@ module.exports = (db) => {
     users.first_name,
     users.last_name,
     users.email,
+    users.avatar_img,
     game_choices.bgatlas_game_1 as game_1,
     game_choices.bgatlas_game_2 as game_2,
     game_choices.bgatlas_game_3 as game_3
@@ -275,7 +276,7 @@ module.exports = (db) => {
     const emailSubject = 'You\'ve been invited to a new GameNyte';
     // sendEmail function calls mailgun API and uses provided data
     const emailResponse = await sendEmail({ subject: emailSubject, message: emailBody, email: toEmails })
-    console.log('emailresponse', emailResponse); // confirms email was sent successfully
+      console.log('emailresponse', emailResponse); // confirms email was sent successfully
   });
 
   router.post('/createnew', (req, res) => {

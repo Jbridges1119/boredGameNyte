@@ -19,7 +19,7 @@ const NyteInvites = (props) => {
   const attendingList = props.data.map((friend) => {
     const status = friend.attend_status;
     return (
-      <ListItem key={friend.id} sx={{ p: 0 }} >
+      <ListItem  sx={{ p: 0 }} >
         {status === false && (
           <CloseOutlinedIcon
             sx={{
@@ -54,9 +54,7 @@ const NyteInvites = (props) => {
           />
         )}
         <ListItemAvatar>
-          <Avatar sx={{ width: 26, height: 26, pt: 0, ml: 1, pr: 0 }}>
-            <Person />
-          </Avatar>
+          <Avatar sx={{ width: 26, height: 26, pt: 0, ml: 1, pr: 0 }} src={friend.avatar_img + '.png'} alt={friend.first_name}/>
         </ListItemAvatar>
         <ListItemText primary={`${friend.first_name} ${friend.last_name}`} />
       </ListItem>

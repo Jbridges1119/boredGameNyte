@@ -34,7 +34,7 @@ module.exports = (db) => {
     let user_id = req.params.id;
     const params = [user_id];
     const query = `
-    SELECT user_id, friend_id, first_name, last_name, email, city
+    SELECT user_id, friend_id, first_name, last_name, email, city, avatar_img
     FROM friends
     JOIN users on id = friend_id
     WHERE user_id = $1;

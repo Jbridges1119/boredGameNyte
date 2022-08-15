@@ -57,7 +57,7 @@ sx={{
 
     <Typography sx={{color: "#FFFFFF"}} align="center"  variant="h4">{props.name}</Typography>
 
-    <Button 
+    {props.id !== "No img" && <Button 
     component={Link} 
     to={'/game/' + props.id} 
     sx={{':hover': {
@@ -74,7 +74,26 @@ sx={{
         fontSize: 35,
         textTransform: 'none', 
         borderRadius: '20px',
-        pt: .6 }} variant="contained">How To Play</Button>
+        pt: .6 }} variant="contained">How To Play</Button>}
+  {props.id === "No img" && <Button
+  disabled 
+    component={Link} 
+    to={'/game/' + props.id} 
+    sx={{':hover': {
+        bgcolor: theme.palette.error.light,
+        boxShadow:24
+       
+        }, ':active': {
+          bgcolor: theme.palette.error.light,
+          boxShadow:8
+          
+        },
+        backgroundColor: theme.palette.error.main, 
+        height: 60,  
+        fontSize: 35,
+        textTransform: 'none', 
+        borderRadius: '20px',
+        pt: .6 }} variant="contained">How To Play</Button>}
   
     </Stack>
     </Grid>

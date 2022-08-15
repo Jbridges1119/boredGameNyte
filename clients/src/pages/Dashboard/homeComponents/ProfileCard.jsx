@@ -48,8 +48,7 @@ export default function ProfileCard(props) {
               >
                 <CardMedia
                   component="img"
-                  image="https://i.imgur.com/hHmdwtZ.png"
-                  alt=""
+                  image={props.state ? props.state.avatar_img : "https://i.imgur.com/hHmdwtZ.png"}
                   sx={{
                     objectFit: "contain",
                     maxWidth: "250px",
