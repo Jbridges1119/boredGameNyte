@@ -18,5 +18,13 @@ INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas
 VALUES (9, 'WVgc4bUL8N', '3RVcHxhPEZ', 'OF145SrX44');
 INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
 VALUES (10, 'OIXt3DmJU0', 'Ad9NDUFxmt', '3RVcHxhPEZ');
-
-
+INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
+VALUES (11, 'axOr9uuOwN', 'Ad9NDUFxmt', 'RLlDWHh7hR');
+INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
+VALUES (12, 'OIXt3DmJU0', 'axOr9uuOwN', 'Z6h8zF22uh');
+INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
+VALUES (13, 'axOr9uuOwN', '3RVcHxhPEZ', 'EL3YmDLY6W');
+INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
+VALUES (14, 'OIXt3DmJU0', 'axOr9uuOwN', null);
+INSERT INTO game_choices (game_night_id, bgatlas_game_1, bgatlas_game_2, bgatlas_game_3)
+VALUES (15, 'EL3YmDLY6W', 'axOr9uuOwN', null);

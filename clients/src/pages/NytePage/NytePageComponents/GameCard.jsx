@@ -4,7 +4,7 @@ import {motion} from 'framer-motion'
 import GameCardData from "./NyteGameComponents/GameCardData";
 
 const GameCard = (props) => {
-  console.log('hello',props.game)
+  
   const card = (
     <>
       <CardContent

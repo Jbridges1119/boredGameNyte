@@ -132,7 +132,7 @@ const GameNyteList = (props) => {
               
                 {/* upcoming */}
                 {gameNytes.invited.map((nyte) => {
-                  if (nyte.status === "Scheduled") {
+                  if (nyte.status === "scheduled" || nyte.status === 'Scheduled') {
                     const date = formatDate(fixDate(nyte.date));
                     const time = formatTime(fixDate(nyte.date));
                     return (

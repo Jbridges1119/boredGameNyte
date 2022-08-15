@@ -45,7 +45,7 @@ export default function FriendsList(props) {
       >
         <ListItemAvatar>
           <Avatar>
-            <Person />
+            <Avatar src={friend.avatar_img + '.png'} alt={name}/>
           </Avatar>
         </ListItemAvatar>
         <FriendList primary={name} secondary={friend.email} />
