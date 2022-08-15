@@ -39,8 +39,6 @@ function App() {
   } = useApplicationData();
   
   return (
-    // <ThemeProvider theme={theme}>
-    //   <BrowserRouter>
     <>
       {!userId && <Login theme={theme} />}
        {userId && <Layout logout={logout} theme={theme}>
@@ -117,9 +115,6 @@ function App() {
           </AnimatePresence>
         </Layout>}
         </>
-    //   </BrowserRouter>
-
-    // </ThemeProvider>
   );
 }
 

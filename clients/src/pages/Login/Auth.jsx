@@ -34,6 +34,8 @@ export default function AuthProvider(props) {
         for (let u of users) {
           if (u.email === email && u.password === password) {
             Cookies.set('userId', u.id, { expires: 7 })
+            window.localStorage.setItem("SuperSecretUserId", JSON.stringify(userId) )
+            
             Promise.all([
               axios.get(`http://localhost:3005/api/users/${u.id}/friends`),
               axios.get(`http://localhost:3005/api/users/${u.id}/collection`),
@@ -42,9 +44,9 @@ export default function AuthProvider(props) {
             ])
             .then((all) => {
               setUserId(u.id);
-              setState((prev) => {
+              setState(() => {
                 return { 
-                  ...prev, 
+                  ...state, 
                   user: u, 
                   friendsList: all[0].data, 
                   collection: all[1].data,
@@ -64,20 +66,9 @@ export default function AuthProvider(props) {
     setState((prev) => {
       return { ...prev, user: null }
     })
-    // setGameNytesHosted({
-    //   host: null,
-    //   gamesChosen: [],
-    //   friendsInvited: [],
-    //   competitive: false,
-    //   name: '',
-    //   place: '',
-    //   date: new Date(),
-    //   open: false
-    // })
     Cookies.remove('userId')
     window.localStorage.removeItem("SuperSecretUserId")
     window.localStorage.removeItem("SuperSecretData")
-
   };
 
 useEffect(()=> {
@@ -88,31 +79,14 @@ useEffect(()=> {
 },[])
 
 useEffect(() => {
-  setNewGameNyte({
-    host: userId,
-    gamesChosen: [],
-    friendsInvited: [],
-    competitive: false,
-    name: '',
-    place: '',
-    date: new Date(),
-    open: false
-  });
   window.localStorage.setItem("SuperSecretUserId", JSON.stringify(userId) )
 }, [userId])
 
-
-
-
-useEffect(() => {
-  
-}, [userId])
-
-
 useEffect(()=> {
+ 
   if(state.user === null) {
   const data = window.localStorage.getItem("SuperSecretData")
-  setState(JSON.parse(data))
+  if(data) setState(JSON.parse(data))
   }
 },[])
 

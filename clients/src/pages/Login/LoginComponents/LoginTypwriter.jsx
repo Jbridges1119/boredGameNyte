@@ -36,7 +36,6 @@ const Writer = (props) => {
         .typeString('Make It A<br><strong>Bored?GameNyte!</strong>').callFunction(()=> props.classChange('button'))
         .pauseFor(6000)
         .deleteAll().callFunction(()=> props.classChange('button1'))
-        
         .start()
       }}
       />
