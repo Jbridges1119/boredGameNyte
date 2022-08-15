@@ -51,7 +51,7 @@ const NyteStatus = (props) => {
             <Typography sx={font} align="center" variant="h6">{date}</Typography>
             <Typography sx={font}  align="center" variant="h6">{time}</Typography>    
               
-            <Typography sx={font}  align="center" variant="h6">{location}</Typography> 
+            <Typography sx={font}  align="center" variant="h6">At {location}</Typography> 
             </Box>
             <Box sx={{display:'flex', flexDirection: 'column', height:'87px', justifyContent:'space-evenly'}}>
 
