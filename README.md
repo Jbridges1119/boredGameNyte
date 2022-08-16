@@ -1,11 +1,11 @@
 # Bored?GameNyte
 Welcome to Bored?GameNyte! or BGN. A multipage wep application for board game and game night enthuiasts, to help facilitate the organizing of game collections, scheduling events and making sure everyone is prepared to maximize their time together.
 
-(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Login.gif?raw=true)
-(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Profile.gif?raw=true)
-(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Search-Collection.gif?raw=true)
-(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Create.gif?raw=true)
-(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Nyte-Game.gif?raw=true)
+!["Gif of Login Page"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Login.gif?raw=true)
+!["Gif of Profile Page"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Profile.gif?raw=true)
+!["Gif of Game Search and Collection Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Search-Collection.gif?raw=true)
+!["Gif of GameNyte Creation Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Create.gif?raw=true)
+!["Gif of GameNyte and Game Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Nyte-Game.gif?raw=true)
 
 This app was built by [Kenny Moon](https://github.com/kcmoon), [Jesse Kopala](https://github.com/jdkopala), and [Jeff Bridges](https://github.com/Jbridges1119). 
 ### Why did we build this app?
