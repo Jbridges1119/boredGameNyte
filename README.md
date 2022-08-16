@@ -1,15 +1,22 @@
 # Bored?GameNyte
-Welcome to **Bored?GameNyte!** or BGN. A multipage wep application for board game and game night enthuiasts, to help facilitate the organizing of game collections, scheduling events and making sure everyone is prepared to maximize their time together.
+Welcome to **Bored?GameNyte!** or BGN. A multipage web application for board game and game night enthusiasts, to help facilitate the organizing of game collections, scheduling events and making sure everyone is prepared to maximize their time together.
 
+This app was built by [Kenny Moon](https://github.com/kcmoon), [Jesse Kopala](https://github.com/jdkopala), and [Jeff Bridges](https://github.com/Jbridges1119).
+## Final Product
+### Login
 !["Gif of Login Page"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Login.gif?raw=true)
+### Dashboard
 !["Gif of Profile Page"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Profile.gif?raw=true)
+### Search And Game Collection Page
 !["Gif of Game Search and Collection Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Search-Collection.gif?raw=true)
+### GameNyte Creation Page
 !["Gif of GameNyte Creation Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Create.gif?raw=true)
+### GameNyte and Game Pages
 !["Gif of GameNyte and Game Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Nyte-Game.gif?raw=true)
 
-This app was built by [Kenny Moon](https://github.com/kcmoon), [Jesse Kopala](https://github.com/jdkopala), and [Jeff Bridges](https://github.com/Jbridges1119). 
+ 
 ## Why did we build this app?
-Board gaming and board game nights have become increasingly popular over the last few years. As restrictions have lifted and people have returned to their busy lives, it has once again become difficult to organize game nights. Furtermore, for anyone who has partaken in a board game night may know the frustration that can come with learning a new game on the fly or even more so, teaching a new game to a player. Enter **Bored?GameNyte!** an app with multiple features that provide perfect solutions to all those issues and plenty more for casual fans of games or board game enthusiasts. 
+Board gaming and board game nights have become increasingly popular over the last few years. As restrictions have lifted and people have returned to their busy lives, it has once again become difficult to organize game nights. Furthermore, for anyone who has partaken in a board game night may know the frustration that can come with learning a new game on the fly or even more so, teaching a new game to a player. Enter **Bored?GameNyte!** an app with multiple features that provide perfect solutions to all those issues and plenty more for casual fans of games or board game enthusiasts. 
 
 ## What does the app do?
 #### Allows users to:
@@ -18,12 +25,12 @@ Board gaming and board game nights have become increasingly popular over the las
 - View details and information on a specific game.
 - Connect to youtube videos to learn about specific games.
 - Create new game nights, invite friends and select the games to be played from their collection. 
-- Automatically send emails to invited guests when a game night is created or cancelled.
+- Automatically send emails to invited guests when a game night is created or canceled.
 - Track who is coming amongst your invited guests.
 - Select an attending status when invited to a game night.
 - View all past and upcoming game nights.
 
-## Teach Stack
+## Tech Stack
 #### Bored?GameNyte! was built with:
 - React v17.0.0
 - Node v16.16.0
@@ -40,11 +47,11 @@ This application requires two terminals, so please open up two terminal windows.
 
 #### Server Side Setup 
 1. In your first terminal enter the project directory and cd into the **server** director.
-2. Run *npm install* to install the dependancies. 
+2. Run *npm install* to install the dependencies. 
 
 #### Clients Side Setup
 1. Enter the main project directory in the second terminal and then cd into the **clients** directory.
-2. Run *npm install* to install the dependancies. 
+2. Run *npm install* to install the dependencies. 
 3. Run **npm run db:reset** to seed the database. 
 
-Your app is now ready to be launched, please run *npm start* in both terminals. The React application will be launched, but it not, please open your browser to [http://localhost:3000/](http://localhost:3000/) to view the app. 
+Your app is now ready to be launched, please run *npm start* in both terminals. The React application will be launched, please open your browser to [http://localhost:3000/](http://localhost:3000/) to view the app. 
