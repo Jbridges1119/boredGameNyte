@@ -184,7 +184,7 @@ const GameNyteList = (props) => {
                 boxShadow:24
               }}}>
               <Typography sx={{ color: "#FFFFFF" }} variant="h5">
-              Your GameNytes
+              Your Hosted GameNytes
               </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
