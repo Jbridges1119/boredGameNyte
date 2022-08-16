@@ -10,7 +10,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getGameById } from "../../helperFunctions/helperFunctions";
 import axios from "axios";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
+
 const NytePage = (props) => {
   const navigate = useNavigate();
   const nightId = useParams().id;
@@ -33,24 +34,28 @@ const NytePage = (props) => {
     let inviteesEmails = [];
     for (let d of data) {
       inviteesEmails.push(d.email);
-    };
+    }
     const mailgunInfo = {
       hostName: hostData.first_name,
       title: data[0].title,
       date: data[0].date,
       location: data[0].location,
       inviteesEmails: inviteesEmails,
-    }
+    };
 
     Promise.all([
-      axios.post(`http://localhost:3005/api/gamenytes/cancel/email/${nyteId}`, mailgunInfo),
-      axios.delete(`http://localhost:3005/api/gamenytes/cancel/${nyteId}`).then(() => {
-        navigate("/"); //use this  instead of history.push
-      })
-    ])
-      .catch((error) => {
-        console.log(error);
-      });
+      axios.post(
+        `http://localhost:3005/api/gamenytes/cancel/email/${nyteId}`,
+        mailgunInfo
+      ),
+      axios
+        .delete(`http://localhost:3005/api/gamenytes/cancel/${nyteId}`)
+        .then(() => {
+          navigate("/");
+        }),
+    ]).catch((error) => {
+      console.log(error);
+    });
   };
 
   const onStatusChange = (status, userId, nyteId) => {
@@ -80,95 +85,100 @@ const NytePage = (props) => {
   };
 
   return (
-    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
-    <Box
-      sx={{
-        width: "100%",
-        backgroundColor: theme.palette.primary.dark,
-        height: "100vh",
-      }}
+    <motion.div
+      className="outer"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
+      <Box
+        sx={{
+          width: "100%",
+          backgroundColor: theme.palette.primary.dark,
+          height: "100vh",
+        }}
       >
-        <Grid item xs={11}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <Paper
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item xs={11}>
+            <Box
               sx={{
-                backgroundColor: theme.palette.secondary.main,
-                borderRadius: "22px",
-                m: 1.5,
-                pt: 0.75,
-                px: 5,
                 display: "flex",
                 justifyContent: "center",
-                alignContent: "center",
               }}
-              elevation={4}
             >
-              <Typography pl={0} variant="h2">
-                {data[0] && data[0].title}
-              </Typography>
-            </Paper>
-          </Box>
+              <Paper
+                sx={{
+                  backgroundColor: theme.palette.secondary.main,
+                  borderRadius: "22px",
+                  m: 1.5,
+                  pt: 0.75,
+                  px: 5,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignContent: "center",
+                }}
+                elevation={4}
+              >
+                <Typography pl={0} variant="h2">
+                  {data[0] && data[0].title}
+                </Typography>
+              </Paper>
+            </Box>
 
-          <Grid container direction="row">
-            <Grid item xs={2.5}>
-              <NyteDetails
-                data={data}
-                hostData={hostData}
-                user={props.state.user}
-                onConfirm={() =>
-                  onStatusChange(true, props.state.user.id, nightId)
-                }
-                onCancel={() =>
-                  onStatusChange(false, props.state.user.id, nightId)
-                }
-                onCancelNyte={() => onCancelNyte(nightId)}
-              />
-            </Grid>
-            <Grid item xs={0.5}></Grid>
-            <Grid item xs={9}>
-              <Stack spacing={3}>
-                {data[0] && (
-                  <GameCard
-                    game={getGameById(
-                      props.state.globalCollection,
-                      data[0] ? data[0].game_1 : ""
-                    )}
-                  />
-                )}
-                {data[0] && (
-                  <GameCard
-                    game={getGameById(
-                      props.state.globalCollection,
-                      data[0] ? data[0].game_2 : ""
-                    )}
-                  />
-                )}
-                {data[0] && (
-                  <GameCard
-                    game={getGameById(
-                      props.state.globalCollection,
-                      data[0] ? data[0].game_3 : ""
-                    )}
-                    key={data[0] ? data[0].game_3 : ""}
-                  />
-                )}
-              </Stack>
+            <Grid container direction="row">
+              <Grid item xs={2.5}>
+                <NyteDetails
+                  data={data}
+                  hostData={hostData}
+                  user={props.state.user}
+                  onConfirm={() =>
+                    onStatusChange(true, props.state.user.id, nightId)
+                  }
+                  onCancel={() =>
+                    onStatusChange(false, props.state.user.id, nightId)
+                  }
+                  onCancelNyte={() => onCancelNyte(nightId)}
+                />
+              </Grid>
+              <Grid item xs={0.5}></Grid>
+              <Grid item xs={9}>
+                <Stack spacing={3}>
+                  {data[0] && (
+                    <GameCard
+                      game={getGameById(
+                        props.state.globalCollection,
+                        data[0] ? data[0].game_1 : ""
+                      )}
+                    />
+                  )}
+                  {data[0] && (
+                    <GameCard
+                      game={getGameById(
+                        props.state.globalCollection,
+                        data[0] ? data[0].game_2 : ""
+                      )}
+                    />
+                  )}
+                  {data[0] && (
+                    <GameCard
+                      game={getGameById(
+                        props.state.globalCollection,
+                        data[0] ? data[0].game_3 : ""
+                      )}
+                      key={data[0] ? data[0].game_3 : ""}
+                    />
+                  )}
+                </Stack>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
     </motion.div>
   );
 };

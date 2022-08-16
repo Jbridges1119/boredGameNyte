@@ -1,9 +1,8 @@
 import { createTheme } from "@mui/material";
 
-
-const primaryColor = '#0A3943';
-const secondaryColor = '#0F6E83';
-const dangerColor = '#976606';
+const primaryColor = "#0A3943";
+const secondaryColor = "#0F6E83";
+const dangerColor = "#976606";
 
 const theme = createTheme({
   palette: {
@@ -19,5 +18,4 @@ const theme = createTheme({
   },
 });
 
-
-export default theme
+export default theme;

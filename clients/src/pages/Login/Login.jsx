@@ -10,44 +10,24 @@ import {
 } from "@mui/material";
 import theme from "../../assets/theme";
 import "../../styles/Search.css";
-import useSearchData from "../../hooks/useSearchData";
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import LoadingButton from "@mui/lab/LoadingButton";
 import Writer from "./LoginComponents/LoginTypwriter";
 import { useState } from "react";
 import { authContext } from "./Auth";
 import { useContext } from "react";
-import BGNLogo from "../../assets/BGN-logo-dark.png";
 import "../../styles/Login.css";
-import { Link } from "react-router-dom";
-
-const CssTextField = styled(TextField)({
-  "& .MuiOutlinedInput-root:hover": {
-    "& > fieldset": {
-      border: "1px solid white",
-    },
-  },
-  "& .MuiOutlinedInput-root": {
-    "& > fieldset": { borderRadius: "20px", border: "2px solid white" },
-  },
-});
 
 const Login = (props) => {
   const [buttonClass, setButtonClass] = useState("button1");
-  const removeProperty = function () {
-    let element = document.styleSheets[0].cssRules[0].style;
-    element.removeProperty("button.button::after");
-  };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(authContext);
+
   const onSubmit = function (event) {
     event.preventDefault();
     email && login(email, password);
   };
 
-  const { loading } = useSearchData(props);
   return (
     <Box
       sx={{

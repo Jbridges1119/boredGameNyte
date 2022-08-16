@@ -10,16 +10,16 @@ import {
 } from "@mui/material";
 import theme from "../../../../assets/theme";
 import Grid from "@mui/material/Grid";
-import Person from "@mui/icons-material/Person";
 import CheckOutlinedIcon from "@mui/icons-material/CheckOutlined";
 import QuestionMarkOutlinedIcon from "@mui/icons-material/QuestionMarkOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 const NyteInvites = (props) => {
+  // Map out invted names, avatar, and status
   const attendingList = props.data.map((friend) => {
     const status = friend.attend_status;
     return (
-      <ListItem  sx={{ p: 0 }} >
+      <ListItem sx={{ p: 0 }}>
         {status === false && (
           <CloseOutlinedIcon
             sx={{
@@ -54,7 +54,11 @@ const NyteInvites = (props) => {
           />
         )}
         <ListItemAvatar>
-          <Avatar sx={{ width: 26, height: 26, pt: 0, ml: 1, pr: 0 }} src={friend.avatar_img + '.png'} alt={friend.first_name}/>
+          <Avatar
+            sx={{ width: 26, height: 26, pt: 0, ml: 1, pr: 0 }}
+            src={friend.avatar_img + ".png"}
+            alt={friend.first_name}
+          />
         </ListItemAvatar>
         <ListItemText primary={`${friend.first_name} ${friend.last_name}`} />
       </ListItem>

@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import { TextField } from "@mui/material";
 import theme from "../../../assets/theme";
 
@@ -16,9 +15,9 @@ const LocationBar = (props) => {
       id="location"
       value={props.location}
       inputProps={{
-        autoComplete: 'new-password',
+        autoComplete: "new-password",
         form: {
-          autoComplete: 'off',
+          autoComplete: "off",
         },
       }}
       InputLabelProps={{

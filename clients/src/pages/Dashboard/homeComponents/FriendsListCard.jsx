@@ -1,7 +1,6 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -95,13 +94,13 @@ export default function FriendsListCard(props) {
               <div>
                 <Button
                   sx={{
-                    ':hover': {
+                    ":hover": {
                       bgcolor: theme.palette.error.light,
-                      boxShadow:24
-                    },':active': {
+                      boxShadow: 24,
+                    },
+                    ":active": {
                       bgcolor: theme.palette.error.light,
-                      boxShadow:8
-                      
+                      boxShadow: 8,
                     },
                     backgroundColor: theme.palette.error.main,
                     height: 40,
@@ -119,7 +118,6 @@ export default function FriendsListCard(props) {
                 <Dialog open={open} onClose={handleClose}>
                   <DialogTitle
                     sx={{
-                      
                       color: "white",
                       backgroundColor: theme.palette.secondary.main,
                     }}
@@ -181,21 +179,6 @@ export default function FriendsListCard(props) {
                   </DialogActions>
                 </Dialog>
               </div>
-              {/* <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: theme.palette.error.main,
-                  height: 40,
-                  fontSize: 25,
-                  borderRadius: "20px",
-                  textTransform: "none",
-                  pt: 1.25,
-                  m: 1.
-                }}
-                type="submit"
-              >
-                Add Friend
-              </Button> */}
             </Grid>
           </Grid>
           <FriendsList state={props.state} />

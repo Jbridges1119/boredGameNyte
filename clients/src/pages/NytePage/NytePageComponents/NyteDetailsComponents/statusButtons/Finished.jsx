@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import theme from "../../../../../assets/theme";
 
 const Finished = (props) => {
   return (

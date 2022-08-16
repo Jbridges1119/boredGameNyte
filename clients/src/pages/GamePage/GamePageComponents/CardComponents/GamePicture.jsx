@@ -4,12 +4,11 @@ import theme from "../../../../assets/theme";
 
 const GamePicture = (props) => {
   return (
-   
     <Box
       sx={{
         width: "100%",
         borderRadius: "20px",
-        border:'none',
+        border: "none",
         backgroundColor: theme.palette.primary.dark,
         height: "444px",
         display: "flex",
@@ -19,22 +18,16 @@ const GamePicture = (props) => {
     >
       <CardMedia
         component="img"
-        image={
-          props.picture.gameData
-            ? props.picture.gameData.thumb_url
-            : ""
-        }
+        image={props.picture.gameData ? props.picture.gameData.thumb_url : ""}
         alt=""
         sx={{
           objectFit: "contain",
           maxWidth: "400px",
           maxHeight: "600px",
-          borderRadius: '20px',
-          
+          borderRadius: "20px",
         }}
       />
     </Box>
-       
   );
 };
 

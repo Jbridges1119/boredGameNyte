@@ -16,10 +16,9 @@ import {
   getGameById,
   formatDate,
   formatTime,
-  fixDate
+  fixDate,
 } from "../../helperFunctions/helperFunctions";
-import {motion} from 'framer-motion'
-
+import { motion } from "framer-motion";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -88,182 +87,129 @@ const GameNyteList = (props) => {
   }, [props.state.user]);
 
   return (
-    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
-    <Box
-      sx={{
-        pt: 2.5,
-        width: "100%",
-
-        backgroundColor: theme.palette.primary.dark,
-      }}
+    <motion.div
+      className="outer"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
-      <Grid container justifyContent="center" alignItems="center">
-        <Grid item xs={10}>
-          <Accordion
-            sx={{
-              borderRadius: "20px",
-              backgroundColor: theme.palette.primary.dark,
-            }}
-            expanded={expanded === "panel1"}
-            onChange={handleChange("panel1")}
-          >
-            <AccordionSummary
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{':hover': {
-                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
-                boxShadow:24
-              }
-              }}>
-              <Typography sx={{ color: "#FFFFFF" }} variant="h5">
-              Upcoming GameNytes
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
-              <List
+      <Box
+        sx={{
+          pt: 2.5,
+          width: "100%",
+
+          backgroundColor: theme.palette.primary.dark,
+        }}
+      >
+        <Grid container justifyContent="center" alignItems="center">
+          <Grid item xs={10}>
+            <Accordion
+              sx={{
+                borderRadius: "20px",
+                backgroundColor: theme.palette.primary.dark,
+              }}
+              expanded={expanded === "panel1"}
+              onChange={handleChange("panel1")}
+            >
+              <AccordionSummary
+                aria-controls="panel1a-content"
+                id="panel1a-header"
                 sx={{
-                  width: "100%",
-                  height: "100%",
-                  position: "relative",
-                  overflow: "auto",
-                  borderRadius: "20px",
+                  ":hover": {
+                    bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                    boxShadow: 24,
+                  },
                 }}
               >
-              
-                {/* upcoming */}
-                {gameNytes.invited.map((nyte) => {
-                  if (nyte.status === "scheduled" || nyte.status === 'Scheduled') {
-                    const date = formatDate(fixDate(nyte.date));
-                    const time = formatTime(fixDate(nyte.date));
-                    return (
-                      <ListItem key={nyte.id}>
-                        <GameNyteCard
-                          id={nyte.id}
-                          first_name={nyte.first_name}
-                          last_name={nyte.last_name}
-                          title={nyte.title}
-                          comp={nyte.competitive}
-                          status={nyte.status}
-                          location={nyte.location}
-                          date={date}
-                          time={time}
-                          game1={getGameById(
-                            props.state.globalCollection,
-                            nyte.bgatlas_game_1
-                          )}
-                          game2={getGameById(
-                            props.state.globalCollection,
-                            nyte.bgatlas_game_2
-                          )}
-                          game3={getGameById(
-                            props.state.globalCollection,
-                            nyte.bgatlas_game_3
-                          )}
-                        />
-                      </ListItem>
-                    );
-                  }
-                  return null;
-                })}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            sx={{
-              borderRadius: "20px",
-              backgroundColor: theme.palette.primary.dark,
-            }}
-            expanded={expanded === "panel2"}
-            onChange={handleChange("panel2")}
-          >
-            <AccordionSummary
-              aria-controls="panel2d-content"
-              id="panel2d-header"
-              sx={{':hover': {
-                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
-                boxShadow:24
-              }}}>
-              <Typography sx={{ color: "#FFFFFF" }} variant="h5">
-              Your Hosted GameNytes
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
-              <List
+                <Typography sx={{ color: "#FFFFFF" }} variant="h5">
+                  Upcoming GameNytes
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
+                <List
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    position: "relative",
+                    overflow: "auto",
+                    borderRadius: "20px",
+                  }}
+                >
+                  {/* upcoming */}
+                  {gameNytes.invited.map((nyte) => {
+                    if (
+                      nyte.status === "scheduled" ||
+                      nyte.status === "Scheduled"
+                    ) {
+                      const date = formatDate(fixDate(nyte.date));
+                      const time = formatTime(fixDate(nyte.date));
+                      return (
+                        <ListItem key={nyte.id}>
+                          <GameNyteCard
+                            id={nyte.id}
+                            first_name={nyte.first_name}
+                            last_name={nyte.last_name}
+                            title={nyte.title}
+                            comp={nyte.competitive}
+                            status={nyte.status}
+                            location={nyte.location}
+                            date={date}
+                            time={time}
+                            game1={getGameById(
+                              props.state.globalCollection,
+                              nyte.bgatlas_game_1
+                            )}
+                            game2={getGameById(
+                              props.state.globalCollection,
+                              nyte.bgatlas_game_2
+                            )}
+                            game3={getGameById(
+                              props.state.globalCollection,
+                              nyte.bgatlas_game_3
+                            )}
+                          />
+                        </ListItem>
+                      );
+                    }
+                    return null;
+                  })}
+                </List>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              sx={{
+                borderRadius: "20px",
+                backgroundColor: theme.palette.primary.dark,
+              }}
+              expanded={expanded === "panel2"}
+              onChange={handleChange("panel2")}
+            >
+              <AccordionSummary
+                aria-controls="panel2d-content"
+                id="panel2d-header"
                 sx={{
-                  width: "100%",
-                  height: "100%",
-                  position: "relative",
-                  overflow: "auto",
-                  borderRadius: "20px",
-                }}
-              >  
-                {/* Hosted */}
-                {gameNytes.hosted.map((nyte) => {
-                  const date = formatDate(nyte.date);
-                  const time = formatTime(nyte.date);
-                  return (
-                    <ListItem key={nyte.id}>
-                      <GameNyteCard
-                        id={nyte.id}
-                        first_name={nyte.first_name}
-                        last_name={nyte.last_name}
-                        title={nyte.title}
-                        comp={nyte.competitive}
-                        status={nyte.status}
-                        location={nyte.location}
-                        date={date}
-                        time={time}
-                        game1={getGameById(
-                          props.state.globalCollection,
-                          nyte.bgatlas_game_1
-                        )}
-                        game2={getGameById(
-                          props.state.globalCollection,
-                          nyte.bgatlas_game_2
-                        )}
-                        game3={getGameById(
-                          props.state.globalCollection,
-                          nyte.bgatlas_game_3
-                        )}
-                      />
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            sx={{
-              borderRadius: "20px",
-              backgroundColor: theme.palette.primary.dark,
-            }}
-            expanded={expanded === "panel3"}
-            onChange={handleChange("panel3")}
-          >
-            <AccordionSummary
-              aria-controls="panel3d-content"
-              id="panel3d-header"
-              sx={{':hover': {
-                bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
-                boxShadow:24
-              }}}>
-              <Typography sx={{ color: "#FFFFFF" }} variant="h5">
-              Invited GameNytes History
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
-              <List
-                sx={{
-                  width: "100%",
-                  height: "100%",
-                  position: "relative",
-                  overflow: "auto",
-                  borderRadius: "20px",
+                  ":hover": {
+                    bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                    boxShadow: 24,
+                  },
                 }}
               >
-                {/* invited */}
-                {gameNytes.invited.map((nyte) => {
-                  if (nyte.status === "complete") {
+                <Typography sx={{ color: "#FFFFFF" }} variant="h5">
+                  Your Hosted GameNytes
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
+                <List
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    position: "relative",
+                    overflow: "auto",
+                    borderRadius: "20px",
+                  }}
+                >
+                  {/* Hosted */}
+                  {gameNytes.hosted.map((nyte) => {
                     const date = formatDate(nyte.date);
                     const time = formatTime(nyte.date);
                     return (
@@ -293,15 +239,83 @@ const GameNyteList = (props) => {
                         />
                       </ListItem>
                     );
-                  }
-                  return null;
-                })}
-              </List>
-            </AccordionDetails>
-          </Accordion>
+                  })}
+                </List>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              sx={{
+                borderRadius: "20px",
+                backgroundColor: theme.palette.primary.dark,
+              }}
+              expanded={expanded === "panel3"}
+              onChange={handleChange("panel3")}
+            >
+              <AccordionSummary
+                aria-controls="panel3d-content"
+                id="panel3d-header"
+                sx={{
+                  ":hover": {
+                    bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+                    boxShadow: 24,
+                  },
+                }}
+              >
+                <Typography sx={{ color: "#FFFFFF" }} variant="h5">
+                  Invited GameNytes History
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ borderRadius: "20px", height: "75vh" }}>
+                <List
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    position: "relative",
+                    overflow: "auto",
+                    borderRadius: "20px",
+                  }}
+                >
+                  {/* invited */}
+                  {gameNytes.invited.map((nyte) => {
+                    if (nyte.status === "complete") {
+                      const date = formatDate(nyte.date);
+                      const time = formatTime(nyte.date);
+                      return (
+                        <ListItem key={nyte.id}>
+                          <GameNyteCard
+                            id={nyte.id}
+                            first_name={nyte.first_name}
+                            last_name={nyte.last_name}
+                            title={nyte.title}
+                            comp={nyte.competitive}
+                            status={nyte.status}
+                            location={nyte.location}
+                            date={date}
+                            time={time}
+                            game1={getGameById(
+                              props.state.globalCollection,
+                              nyte.bgatlas_game_1
+                            )}
+                            game2={getGameById(
+                              props.state.globalCollection,
+                              nyte.bgatlas_game_2
+                            )}
+                            game3={getGameById(
+                              props.state.globalCollection,
+                              nyte.bgatlas_game_3
+                            )}
+                          />
+                        </ListItem>
+                      );
+                    }
+                    return null;
+                  })}
+                </List>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
     </motion.div>
   );
 };

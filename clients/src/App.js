@@ -9,20 +9,21 @@ import axios from "axios";
 import Home from "./pages/Dashboard/Home";
 import Layout from "./pages/Layout/Layout";
 import Search from "./pages/Search/Search";
-import NytePage from './pages/NytePage/NytePage'
-import GameNyteList from './pages/GameNyteList/GameNytesList'
-import GamePage from './pages/GamePage/GamePage'
+import NytePage from "./pages/NytePage/NytePage";
+import GameNyteList from "./pages/GameNyteList/GameNytesList";
+import GamePage from "./pages/GamePage/GamePage";
 import CreateNew from "./pages/CreateNewGameNyte/CreateNew";
 import GameCollection from "./pages/GameCollection/GameCollection";
 import Login from "./pages/Login/Login";
 import useApplicationData from "./hooks/useApplicationData";
-import { useContext } from 'react';
-import { authContext } from './pages/Login/Auth';
-// import AnimatedRoutes from './AnimatedRoutes'
-import {AnimatePresence} from 'framer-motion'
+import { useContext } from "react";
+import { authContext } from "./pages/Login/Auth";
+
+import { AnimatePresence } from "framer-motion";
 function App() {
-  const location = useLocation()
-  const { userId, state, setState, logout, login, gameNytesHosted  } = useContext(authContext);
+  const location = useLocation();
+  const { userId, state, setState, logout, gameNytesHosted } =
+    useContext(authContext);
   const {
     setTitle,
     setLocation,
@@ -35,86 +36,95 @@ function App() {
     handleCompSwitch,
     toggleOff,
     deleteGameFromCollection,
-    addGameToCollection
+    addGameToCollection,
   } = useApplicationData();
-  
+
   return (
     <>
       {!userId && <Login theme={theme} />}
-       {userId && <Layout logout={logout} theme={theme}>
-        <AnimatePresence  exitBeforeEnter={true}>
-          <Routes location={location} key={location.pathname}>
-            <Route
-              exact path="/"
-              element={
-              <Home
-                state={state}
-                gameNytesHosted={gameNytesHosted}
-                userId={userId}
-              />} 
-              theme={theme} />
-            <Route 
-              path="/search" 
-              element={
-              <Search
-                state={state}
-                addGame={addGameToCollection}
-                removeGame={deleteGameFromCollection}
-              />} 
-              theme={theme} />
-            <Route 
-              path="/nyte/:id" 
-              element={
-              <NytePage
-                state={state}
-              />} 
-              theme={theme} />
-            <Route
-              path="/gamenytes"
-              element={
-              <GameNyteList
-                state={state}
-              />}
-              theme={theme} />
-            <Route
-              path="/create"
-              element={
-              <CreateNew
-                setTitle={setTitle}
-                setLocation={setLocation}
-                state={state}
-                setState={setState}
-                newGameNyte={newGameNyte}
-                setNewGameNyte={setNewGameNyte}
-                handleClickOpen={handleClickOpen}
-                handleClose={handleClose}
-                handleToggle={handleToggle}
-                handleFriendToggle={handleFriendToggle}
-                handleCompSwitch={handleCompSwitch}
-                toggleOff={toggleOff}
-              />}
-              theme={theme} />
-            <Route 
-              path="/collection" 
-              element={
-                <GameCollection 
-                  state={state}
-                  deleteGame={deleteGameFromCollection}
-                />} 
-              theme={theme} />
-            <Route 
-              path="/game/:id" 
-              element={
-              <GamePage 
-                state={state}
-                addGame={addGameToCollection}
-                removeGame={deleteGameFromCollection}
-              />} 
-              theme={theme} />
-          </Routes>
+      {userId && (
+        <Layout logout={logout} theme={theme}>
+          <AnimatePresence exitBeforeEnter={true}>
+            <Routes location={location} key={location.pathname}>
+              <Route
+                exact
+                path="/"
+                element={
+                  <Home
+                    state={state}
+                    gameNytesHosted={gameNytesHosted}
+                    userId={userId}
+                  />
+                }
+                theme={theme}
+              />
+              <Route
+                path="/search"
+                element={
+                  <Search
+                    state={state}
+                    addGame={addGameToCollection}
+                    removeGame={deleteGameFromCollection}
+                  />
+                }
+                theme={theme}
+              />
+              <Route
+                path="/nyte/:id"
+                element={<NytePage state={state} />}
+                theme={theme}
+              />
+              <Route
+                path="/gamenytes"
+                element={<GameNyteList state={state} />}
+                theme={theme}
+              />
+              <Route
+                path="/create"
+                element={
+                  <CreateNew
+                    setTitle={setTitle}
+                    setLocation={setLocation}
+                    state={state}
+                    setState={setState}
+                    newGameNyte={newGameNyte}
+                    setNewGameNyte={setNewGameNyte}
+                    handleClickOpen={handleClickOpen}
+                    handleClose={handleClose}
+                    handleToggle={handleToggle}
+                    handleFriendToggle={handleFriendToggle}
+                    handleCompSwitch={handleCompSwitch}
+                    toggleOff={toggleOff}
+                  />
+                }
+                theme={theme}
+              />
+              <Route
+                path="/collection"
+                element={
+                  <GameCollection
+                    state={state}
+                    deleteGame={deleteGameFromCollection}
+                  />
+                }
+                theme={theme}
+              />
+              <Route
+                path="/game/:id"
+                element={
+                  <GamePage
+                    state={state}
+                    addGame={addGameToCollection}
+                    removeGame={deleteGameFromCollection}
+                  />
+                }
+                theme={theme}
+              />
+            </Routes>
           </AnimatePresence>
-        </Layout>}
-        </>
+        </Layout>
+      )}
+    </>
   );
 }
 

@@ -52,9 +52,7 @@ const labelsRating = {
   5.0: "Best Game Ever",
 };
 
-
 const GameInfo = (props) => {
-  
   const name = props.gameData ? props.gameData.name : "";
   const age = props.gameData ? props.gameData.min_age : "";
   const players = props.gameData ? props.gameData.players : "";
@@ -128,7 +126,6 @@ const GameInfo = (props) => {
           }}
         >
           <Stack
-           
             sx={{
               height: "100%",
               justifyContent: "space-between",
@@ -177,13 +174,13 @@ const GameInfo = (props) => {
                     {/* Game Description button */}
                     <Button
                       sx={{
-                        ':hover': {
+                        ":hover": {
                           bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
-                          boxShadow:24
-                        },':active': {
+                          boxShadow: 24,
+                        },
+                        ":active": {
                           bgcolor: theme.palette.error.light,
-                          boxShadow:8
-                          
+                          boxShadow: 8,
                         },
                         color: "white",
                         backgroundColor: theme.palette.secondary.main,
@@ -192,7 +189,7 @@ const GameInfo = (props) => {
                         textTransform: "none",
                         borderRadius: "20px",
                         width: "275px",
-                        pt:1
+                        pt: 1,
                       }}
                       onClick={handleClickOpen("paper")}
                     >
@@ -246,7 +243,7 @@ const GameInfo = (props) => {
                 {/* Scores */}
                 <Stack spacing={1}>
                   {/* Rating score */}
-                  <Stack  justifyContent="center" alignItems="center">
+                  <Stack justifyContent="center" alignItems="center">
                     <Typography
                       sx={{ fontSize: "20px" }}
                       color="white"
@@ -274,7 +271,7 @@ const GameInfo = (props) => {
                     </Box>
                   </Stack>
                   {/* Learing Curve */}
-                  <Stack  justifyContent="center" alignItems="center">
+                  <Stack justifyContent="center" alignItems="center">
                     <Typography
                       sx={{ fontSize: "20px" }}
                       color="white"
@@ -303,7 +300,7 @@ const GameInfo = (props) => {
                   </Stack>
 
                   {/* Strat score */}
-                  <Stack  justifyContent="center" alignItems="center">
+                  <Stack justifyContent="center" alignItems="center">
                     <Typography
                       sx={{ fontSize: "20px" }}
                       color="white"
@@ -335,7 +332,7 @@ const GameInfo = (props) => {
             </Grid>
             {/* End of ratings */}
             {/* end of middle content */}
-            
+
             {/* Bottom buttons */}
             <Grid
               container
@@ -353,53 +350,60 @@ const GameInfo = (props) => {
                   justifyContent: "center",
                 }}
               >
-              {/* Add to collection button */}
+                {/* Add to collection button */}
 
-              {!getGameById(props.state.collection, props.gameData.id) && 
-              <Button 
-                onClick={props.addGame}
-                variant="contained" 
-                sx={{
-                  ':hover': {
-                    bgcolor: theme.palette.error.light,
-                    boxShadow:24
-                    
-                  },':active': {
-                    bgcolor: theme.palette.error.light,
-                    boxShadow:8
-                    
-                  },
-                    backgroundColor: theme.palette.error.main,
-                    height: 45,
-                    fontSize: 25,textTransform: "none",
-                    borderRadius: "20px",
-                    color:'white',
-                    width: "275px",
-                    pt:1
-                  }}>Add To Collection
-              </Button>}
-              
-              {getGameById(props.state.collection, props.gameData.id) && 
-              <Button 
-                onClick={props.removeGame}
-                variant="contained" 
-                sx={{
-                  ':hover': {
-                    bgcolor: theme.palette.error.light,
-                    boxShadow:24
-                  },':active': {
-                    bgcolor: theme.palette.error.light,
-                    boxShadow:8
-                    
-                  },
-                  backgroundColor: theme.palette.error.main,
-                  height: 45,
-                  fontSize: 20,textTransform: "none",
-                  borderRadius: "20px",
-                  width: "275px",
-                  color:'error'
-                }}>Remove From Collection</Button>}
+                {!getGameById(props.state.collection, props.gameData.id) && (
+                  <Button
+                    onClick={props.addGame}
+                    variant="contained"
+                    sx={{
+                      ":hover": {
+                        bgcolor: theme.palette.error.light,
+                        boxShadow: 24,
+                      },
+                      ":active": {
+                        bgcolor: theme.palette.error.light,
+                        boxShadow: 8,
+                      },
+                      backgroundColor: theme.palette.error.main,
+                      height: 45,
+                      fontSize: 25,
+                      textTransform: "none",
+                      borderRadius: "20px",
+                      color: "white",
+                      width: "275px",
+                      pt: 1,
+                    }}
+                  >
+                    Add To Collection
+                  </Button>
+                )}
 
+                {getGameById(props.state.collection, props.gameData.id) && (
+                  <Button
+                    onClick={props.removeGame}
+                    variant="contained"
+                    sx={{
+                      ":hover": {
+                        bgcolor: theme.palette.error.light,
+                        boxShadow: 24,
+                      },
+                      ":active": {
+                        bgcolor: theme.palette.error.light,
+                        boxShadow: 8,
+                      },
+                      backgroundColor: theme.palette.error.main,
+                      height: 45,
+                      fontSize: 20,
+                      textTransform: "none",
+                      borderRadius: "20px",
+                      width: "275px",
+                      color: "error",
+                    }}
+                  >
+                    Remove From Collection
+                  </Button>
+                )}
               </Grid>
               {/* official website button */}
               <Grid
@@ -414,18 +418,18 @@ const GameInfo = (props) => {
                 <a href={official} target="_blank" rel="noreferrer">
                   <Button
                     sx={{
-                      ':hover': {
+                      ":hover": {
                         bgcolor: theme.palette.error.light,
-                        boxShadow:24
+                        boxShadow: 24,
                       },
                       color: "white",
                       backgroundColor: theme.palette.error.main,
                       height: 45,
-                        fontSize: 25,
+                      fontSize: 25,
                       textTransform: "none",
                       borderRadius: "20px",
                       width: "275px",
-                      pt:1
+                      pt: 1,
                     }}
                   >
                     Official Website

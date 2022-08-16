@@ -1,4 +1,3 @@
-import { styled } from "@mui/material/styles";
 import { TextField } from "@mui/material";
 import theme from "../../../assets/theme";
 
@@ -16,9 +15,9 @@ const TitleBar = (props) => {
       id="title"
       value={props.title}
       inputProps={{
-        autoComplete: 'new-password',
+        autoComplete: "new-password",
         form: {
-          autoComplete: 'off',
+          autoComplete: "off",
         },
       }}
       InputLabelProps={{

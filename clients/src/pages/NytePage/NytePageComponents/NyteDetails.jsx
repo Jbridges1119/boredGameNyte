@@ -2,8 +2,8 @@ import { CardContent, CardMedia, Paper, Stack } from "@mui/material";
 import theme from "../../../assets/theme";
 import NyteStatus from "./NyteDetailsComponents/NyteStatus";
 import NyteInvites from "./NyteDetailsComponents/NyteInvites";
-import BGN from "./Pictures/BGN.png";
-import BGNCasual from "./Pictures/BGNCasual.png";
+import BGN from "../../../assets/Pictures/BGN.png";
+import BGNCasual from "../../../assets/Pictures/BGNCasual.png";
 
 const NyteDetails = (props) => {
   const picture = props.data[0] ? props.data[0].competitive : "";
@@ -18,43 +18,35 @@ const NyteDetails = (props) => {
         pt: 0,
       }}
     >
-     <Stack
-     
-     
-     justifyContent="center"
-     alignItems="center">
-     <Paper
-    sx={{
-      
-      borderRadius: "22px"
-    }}
-    elevation={4}
-  >
-     <CardMedia
-              component="img"
-              image={img}
-              alt="BGN"
-              sx={{
-                maxWidth: "200px",
-                maxHeight: "200px",
-                borderRadius: "20px"
-              }}
-            />
-      </Paper>
-    
-      <NyteStatus 
-        data={props.data}
-        user={props.user}
-        hostData={props.hostData}
-        onConfirm={props.onConfirm}
-        onCancel={props.onCancel}
-        onCancelNyte={props.onCancelNyte}
-      />
-      <NyteInvites
-        data={props.data}
-        hostData={props.hostData}
-      />
-     </Stack>
+      <Stack justifyContent="center" alignItems="center">
+        <Paper
+          sx={{
+            borderRadius: "22px",
+          }}
+          elevation={4}
+        >
+          <CardMedia
+            component="img"
+            image={img}
+            alt="BGN"
+            sx={{
+              maxWidth: "200px",
+              maxHeight: "200px",
+              borderRadius: "20px",
+            }}
+          />
+        </Paper>
+
+        <NyteStatus
+          data={props.data}
+          user={props.user}
+          hostData={props.hostData}
+          onConfirm={props.onConfirm}
+          onCancel={props.onCancel}
+          onCancelNyte={props.onCancelNyte}
+        />
+        <NyteInvites data={props.data} hostData={props.hostData} />
+      </Stack>
     </CardContent>
   );
 };

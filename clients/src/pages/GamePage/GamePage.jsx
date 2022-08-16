@@ -8,10 +8,7 @@ import axios from "axios";
 import GameCard from "./GamePageComponents/GameCard";
 import VideoCard from "./GamePageComponents/VideoCard";
 import { useParams } from "react-router-dom";
-import GameInfo from "./GamePageComponents/CardComponents/GameInfo";
-import { urlRewrite } from "../../helperFunctions/helperFunctions";
-import {motion} from 'framer-motion'
-
+import { motion } from "framer-motion";
 
 const BGA_CLIENT_ID = process.env.REACT_APP_BGA_CLIENT_ID;
 const apiKey = process.env.REACT_APP_YOUTUBE_APIKEY;
@@ -32,7 +29,7 @@ const GamePage = (props) => {
         `https://api.boardgameatlas.com/api/search?ids=${atlasGame}&pretty=true&client_id=${BGA_CLIENT_ID}`
       )
       .then((all) => {
-         setGameData(all.data.games[0]);
+        setGameData(all.data.games[0]);
         const youTubeGame = all.data.games[0].name
           .replace(/ /g, "%20")
           .replace(/&/g, "%20");
@@ -40,50 +37,56 @@ const GamePage = (props) => {
           axios.get(
             `${youtubeApiUrl}?q=${youTubeGame}%20how%20to%20play%20game&maxResults=3&key=${apiKey}`
           ),
-         axios.get(
+          axios.get(
             `${youtubeApiUrl}?q=${youTubeGame}%20tips%20and%20tricks%20game&maxResults=3&key=${apiKey}`
           ),
-         ])
-        .then((all) => {
+        ]).then((all) => {
           setVideos([all[0].data.items, all[1].data.items]);
         });
       });
   }, []);
 
   return (
-    <motion.div  className="outer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity: 0}}>
-    <Box
-      sx={{
-        width: "100%",
-        backgroundColor: theme.palette.primary.dark,
-       
-      }}
+    <motion.div
+      className="outer"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
+      <Box
+        sx={{
+          width: "100%",
+          backgroundColor: theme.palette.primary.dark,
+        }}
       >
-        <Grid item xs={11} >
-          <Stack spacing={4} mt={5} >
-            <Box container sx={{
-        width: "100%",
-        backgroundColor: theme.palette.primary.dark,
-       
-      }}>
-            <GameCard
-              gameData={gameData}
-              state={props.state}
-              addGame={props.addGame}
-              removeGame={props.removeGame}
-            /> </Box> 
-            <VideoCard videos={videos[0]} videos2={videos[1]} />
-          </Stack>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item xs={11}>
+            <Stack spacing={4} mt={5}>
+              <Box
+                container
+                sx={{
+                  width: "100%",
+                  backgroundColor: theme.palette.primary.dark,
+                }}
+              >
+                <GameCard
+                  gameData={gameData}
+                  state={props.state}
+                  addGame={props.addGame}
+                  removeGame={props.removeGame}
+                />{" "}
+              </Box>
+              <VideoCard videos={videos[0]} videos2={videos[1]} />
+            </Stack>
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
-   </motion.div>
+      </Box>
+    </motion.div>
   );
 };
 export default GamePage;

@@ -5,8 +5,6 @@ import theme from "../../../assets/theme";
 import { Box, TextField } from "@mui/material";
 
 const StaticDatePicker = (props) => {
-  
-
   return (
     <Box
       sx={{ my: 4, display: "flex" }}

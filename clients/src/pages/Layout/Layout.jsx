@@ -21,12 +21,9 @@ import theme from "../../assets/theme";
 import React from "react";
 import "../../styles/Sidebar.css";
 import { Link } from "react-router-dom";
-import { ClassNames } from "@emotion/react";
 import { useContext } from "react";
 import { authContext } from "../Login/Auth";
 import { useLocation } from "react-router-dom";
-
-
 
 const drawerWidth = 360;
 const sidebarButtonStyle = {
@@ -36,12 +33,12 @@ const sidebarButtonStyle = {
   },
   backgroundColor: theme.palette.secondary.main,
   p: 0,
-  
+
   boxShadow: theme.shadows,
-  
+
   "&.Mui-selected": {
     background: `linear-gradient(180deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main} 60%, ${theme.palette.primary.dark} )`,
-  }
+  },
 };
 
 const menuItems = [
@@ -55,7 +52,7 @@ const menuItems = [
     icon: <CalendarMonth sx={{ color: "white" }} />,
     path: "/gamenytes",
   },
-  
+
   {
     text: "Game Collection",
     icon: <Casino sx={{ color: "white" }} />,
@@ -68,30 +65,23 @@ const menuItems = [
   },
 ];
 
-
-
 const Layout = (props) => {
-  const {pathname } = useLocation()
-  console.log(pathname)
+  const { pathname } = useLocation();
   const sideBarLinks = menuItems.map((item) => {
-   
-    
     return (
       <div key={menuItems.indexOf(item)} style={{ paddingBottom: 10 }}>
         <Link to={item.path}>
-          <ListItem sx={sidebarButtonStyle} selected={item.path === pathname} >
+          <ListItem sx={sidebarButtonStyle} selected={item.path === pathname}>
             <ListItemButton
               sx={{
                 height: "60px",
                 fontSize: "45px",
-                
               }}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText
                 primary={item.text}
                 primaryTypographyProps={{ fontSize: "20px", pt: 0.6 }}
-                
               />
             </ListItemButton>
           </ListItem>
@@ -143,9 +133,11 @@ const Layout = (props) => {
                       backgroundPosition: "right",
                       bgcolor: theme.palette.error.light,
                       boxShadow: 24,
-                    },transition: '0.4s',backgroundSize: '200%',
+                    },
+                    transition: "0.4s",
+                    backgroundSize: "200%",
                     textAlign: "center",
-                    
+
                     backgroundImage: `linear-gradient(90deg, #b77b05 10%, #976606 100%)`,
                     height: "70px",
                   }}

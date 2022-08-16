@@ -1,5 +1,4 @@
 import { Box, CardMedia } from "@mui/material";
-
 import theme from "../../../assets/theme";
 
 const CompPicture = (props) => {

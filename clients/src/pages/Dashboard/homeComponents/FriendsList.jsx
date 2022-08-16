@@ -8,7 +8,6 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Person from "@mui/icons-material/Person";
 
 const FriendList = styled(ListItemText)({
   "& .MuiListItemText-secondary": {
@@ -33,11 +32,12 @@ export default function FriendsList(props) {
             size="large"
             edge="end"
             aria-label="delete"
-            sx={{ color: "white",
-              ':hover': {
-                color: 'red',
-               
-              }}}
+            sx={{
+              color: "white",
+              ":hover": {
+                color: "red",
+              },
+            }}
           >
             <DeleteIcon />
           </IconButton>
@@ -45,7 +45,7 @@ export default function FriendsList(props) {
       >
         <ListItemAvatar>
           <Avatar>
-            <Avatar src={friend.avatar_img + '.png'} alt={name}/>
+            <Avatar src={friend.avatar_img + ".png"} alt={name} />
           </Avatar>
         </ListItemAvatar>
         <FriendList primary={name} secondary={friend.email} />

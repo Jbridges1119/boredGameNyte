@@ -1,7 +1,6 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import { Box, Typography } from "@mui/material";
-
 import theme from "../../../assets/theme";
 import YoutubeEmbed from "./CardComponents/YoutubeEmbed";
 import { styled } from "@mui/material/styles";
@@ -48,13 +47,11 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function VideoCard(props) {
-
   const [expanded, setExpanded] = React.useState("panel1");
   //Map for How To Play videos - Feeds into embeder function
-  let count = 500
+  let count = 500;
   const howTo = props.videos.map((video) => {
-    
-    count++
+    count++;
     return (
       <Grid
         item
@@ -66,24 +63,18 @@ export default function VideoCard(props) {
           alignContent: "center",
         }}
       >
-        <YoutubeEmbed
-          
-          id={video.id.videoId}
-          embedId="nJ-ehbVQYxI"
-        />
+        <YoutubeEmbed id={video.id.videoId} embedId="nJ-ehbVQYxI" />
       </Grid>
     );
   });
 
   //Map for Tips and tricks videos - Feeds into embeder function
-  let countGitGud = 1000
+  let countGitGud = 1000;
   const gitGud = props.videos2.map((video) => {
-    
-    countGitGud++
+    countGitGud++;
     return (
-      
       <Grid
-      key={countGitGud}
+        key={countGitGud}
         item
         xs={4}
         sx={{
@@ -92,11 +83,7 @@ export default function VideoCard(props) {
           alignContent: "center",
         }}
       >
-        <YoutubeEmbed
-          
-          id={video.id.videoId}
-          embedId="nJ-ehbVQYxI"
-        />
+        <YoutubeEmbed id={video.id.videoId} embedId="nJ-ehbVQYxI" />
       </Grid>
     );
   });
@@ -118,10 +105,11 @@ export default function VideoCard(props) {
         <AccordionSummary
           aria-controls="panel1d-content"
           id="panel1d-header"
-          sx={{':hover': {
-            bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
-            boxShadow:24
-          },
+          sx={{
+            ":hover": {
+              bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+              boxShadow: 24,
+            },
             borderRadius: "20px",
             width: "100%",
           }}
@@ -131,9 +119,9 @@ export default function VideoCard(props) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ borderRadius: "20px" }}>
-          <Box >
+          <Box>
             <Grid
-             container
+              container
               direction="row"
               sx={{
                 backgroundColor: theme.palette.primary.main,
@@ -156,13 +144,18 @@ export default function VideoCard(props) {
           backgroundColor: theme.palette.primary.main,
         }}
       >
-        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header"  sx={{':hover': {
-            bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
-            boxShadow:24
-          },
+        <AccordionSummary
+          aria-controls="panel2d-content"
+          id="panel2d-header"
+          sx={{
+            ":hover": {
+              bgcolor: theme.palette.secondary.light, // theme.palette.primary.main
+              boxShadow: 24,
+            },
             borderRadius: "20px",
             width: "100%",
-          }}>
+          }}
+        >
           <Typography sx={{ color: "#FFFFFF" }} variant="h5">
             Git Gud
           </Typography>
@@ -175,7 +168,7 @@ export default function VideoCard(props) {
             }}
           >
             <Grid
-             container
+              container
               direction="row"
               sx={{
                 backgroundColor: theme.palette.primary.main,
@@ -185,7 +178,6 @@ export default function VideoCard(props) {
                 alignContent: "center",
               }}
             >
-             
               {gitGud}
             </Grid>
           </Box>

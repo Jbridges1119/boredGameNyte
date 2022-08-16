@@ -7,8 +7,8 @@ import Checkbox from "@mui/material/Checkbox";
 import { Person } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { ListItemButton } from "@mui/material";
-import {motion} from 'framer-motion'
-import theme from '../../../assets/theme'
+import theme from "../../../assets/theme";
+
 const FriendList = styled(ListItemText)({
   "& .MuiListItemText-secondary": {
     color: "white",
@@ -21,13 +21,12 @@ const FriendList = styled(ListItemText)({
 });
 
 export default function FriendsList(props) {
-  
   const friendsList = props.state.friendsList.map((friend) => {
     let labelId = `checkbox-list-secondary-label-${friend.friend_id}`;
     let name = `${friend.first_name} ${friend.last_name}`;
     return (
-      
-      <ListItemButton sx={{ color: "white", }}
+      <ListItemButton
+        sx={{ color: "white" }}
         role={undefined}
         onClick={props.handleFriendToggle(friend.friend_id)}
         key={friend.friend_id}
@@ -35,15 +34,20 @@ export default function FriendsList(props) {
         <ListItem
           secondaryAction={
             <Checkbox
-              sx={{ color: "white", 
-                ':hover': {
+              sx={{
+                color: "white",
+                ":hover": {
                   bgcolor: theme.palette.error.light,
-                  boxShadow:24
-                }, }}
+                  boxShadow: 24,
+                },
+              }}
               color="error"
               edge="end"
               onChange={props.handleFriendToggle(friend.friend_id)}
-              checked={props.newGameNyte.friendsInvited.indexOf(friend.friend_id) !== -1}
+              checked={
+                props.newGameNyte.friendsInvited.indexOf(friend.friend_id) !==
+                -1
+              }
               inputProps={{ "aria-labelledby": labelId }}
             />
           }
@@ -58,7 +62,6 @@ export default function FriendsList(props) {
   });
 
   return (
-  
     <List
       dense
       sx={{
