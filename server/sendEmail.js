@@ -1,20 +1,20 @@
-const formData = require('form-data');
-const Mailgun = require('mailgun.js');
+const formData = require("form-data");
+const Mailgun = require("mailgun.js");
 const mailgun = new Mailgun(formData);
 
 const DOMAIN = process.env.MAILGUN_DOMAIN;
 
 const client = mailgun.client({
-  username: 'api',
+  username: "api",
   key: process.env.MAILGUN_APIKEY,
 });
 
 const sendEmail = async ({ subject, message, name, email }) => {
   const data = {
-    from: 'BGN, <info@bgn.com>',
-    to: 'jdkopala@gmail.com, jbridges1119@gmail.com, kennymoon90@gmail.com',
+    from: "BGN, <info@bgn.com>",
+    to: "jdkopala@gmail.com, jbridges1119@gmail.com, kennymoon90@gmail.com",
     subject: subject,
-    text: message
+    text: message,
   };
 
   try {

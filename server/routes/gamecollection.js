@@ -2,15 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-
   router.get("/", (req, res) => {
     let query = `
     SELECT DISTINCT name, bgatlas_game_id as id, thumb_url FROM game_collections;
-    `
-    return db.query(query)
-    .then((data) => {
-      return res.json(data.rows)
-    })
+    `;
+    return db.query(query).then((data) => {
+      return res.json(data.rows);
+    });
   });
 
   router.get("/:userId", (req, res) => {
@@ -19,11 +17,10 @@ module.exports = (db) => {
     let query = `
     SELECT * FROM game_collections
     WHERE user_id = $1;
-    `
-    return db.query(query, params)
-    .then((data) => {
-      return res.json(data.rows)
-    })
+    `;
+    return db.query(query, params).then((data) => {
+      return res.json(data.rows);
+    });
   });
 
   router.delete("/:userId/:gameId", (req, res) => {
@@ -33,12 +30,11 @@ module.exports = (db) => {
     let query = `
     DELETE FROM game_collections
     WHERE user_id = $1 AND bgatlas_game_id = $2;
-    `
-    return db.query(query, params)
-    .then((data) => {
-      return res.json(data.rows)
-    })
+    `;
+    return db.query(query, params).then((data) => {
+      return res.json(data.rows);
+    });
   });
 
-  return router
+  return router;
 };
