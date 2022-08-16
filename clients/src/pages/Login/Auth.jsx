@@ -80,6 +80,16 @@ export default function AuthProvider(props) {
   }, []);
 
   useEffect(() => {
+    setNewGameNyte({
+      host: userId,
+      gamesChosen: [],
+      friendsInvited: [],
+      competitive: false,
+      name: '',
+      place: '',
+      date: new Date(),
+      open: false
+    });
     window.localStorage.setItem("SuperSecretUserId", JSON.stringify(userId));
   }, [userId]);
 
