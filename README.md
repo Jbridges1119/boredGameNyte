@@ -1,6 +1,12 @@
 # Bored?GameNyte
 Welcome to Bored?GameNyte! or BGN. A multipage wep application for board game and game night enthuiasts, to help facilitate the organizing of game collections, scheduling events and making sure everyone is prepared to maximize their time together.
 
+(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Login.gif?raw=true)
+(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Profile.gif?raw=true)
+(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Search-Collection.gif?raw=true)
+(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Create.gif?raw=true)
+(https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Nyte-Game.gif?raw=true)
+
 This app was built by [Kenny Moon](https://github.com/kcmoon), [Jesse Kopala](https://github.com/jdkopala), and [Jeff Bridges](https://github.com/Jbridges1119). 
 ### Why did we build this app?
 Board gaming and board game nights have become increasingly popular over the last few years. As restrictions have lifted and people have returned to their busy lives, it has once again become difficult to organize game nights. Furtermore, for anyone who has partaken in a board game night may know the frustration that can come with learning a new game on the fly or even more so, teaching a new game to a player. Enter Bored?GameNyte! an app with multiple features that provide perfect solutions to all those issues and plenty more for casual fans of games or board game enthusiasts. 
