@@ -61,4 +61,4 @@ This application requires two terminals, so please open up two terminal windows.
 4. Update the .env with your relavent local information.
 
 
-Your app is now ready to be launched, please run *npm start* in both server and client folers. The React application will be launched, please open your browser to [http://localhost:3000/](http://localhost:3000/) to view the app. 
+Your app is now ready to be launched, please run *npm start* in both server and client folders. The React application will be launched, please open your browser to [http://localhost:3000/](http://localhost:3000/) to view the app. 
