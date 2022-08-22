@@ -4,15 +4,18 @@ Welcome to **Bored?GameNyte!** or BGN. A multipage web application for board gam
 This app was built by [Kenny Moon](https://github.com/kcmoon), [Jesse Kopala](https://github.com/jdkopala), and [Jeff Bridges](https://github.com/Jbridges1119).
 ## Final Product
 ### Login
-!["Gif of Login Page"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Login.gif?raw=true)
+!["Gif of Login Page"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Gif/loginPage.gif?raw=true)
 ### Dashboard
-!["Gif of Profile Page"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Profile.gif?raw=true)
+!["Gif of Profile Page"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Gif/dashboard.gif?raw=true)
 ### Search And Game Collection Page
-!["Gif of Game Search and Collection Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Search-Collection.gif?raw=true)
+!["Gif of Game Search and Collection Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Gif/searchGameCollection.gif?raw=true)
 ### GameNyte Creation Page
-!["Gif of GameNyte Creation Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Create.gif?raw=true)
-### GameNyte and Game Pages
-!["Gif of GameNyte and Game Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Nyte-Game.gif?raw=true)
+!["Gif of GameNyte Creation Pages1"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Gif/createPage1.gif?raw=true)
+!["Gif of GameNyte Creation Pages2"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Gif/createPage2.gif?raw=true)
+### GameNyte and Game Page
+!["Gif of GameNyte and Game Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Gif/gamePage.gif?raw=true)
+### GameNyte List
+!["Gif of GameNyte and Game Pages"](https://github.com/Jbridges1119/boredGameNyte/blob/master/docs/Gif/confirm.gif?raw=true)
 
  
 ## Why did we build this app?
