@@ -2,7 +2,7 @@
 Welcome to **Bored?GameNyte!** or BGN. A multipage web application for board game and game night enthusiasts, to help facilitate the organizing of game collections, scheduling events and making sure everyone is prepared to maximize their time together.
 
 This app was built by [Kenny Moon](https://github.com/kcmoon), [Jesse Kopala](https://github.com/jdkopala), and [Jeff Bridges](https://github.com/Jbridges1119).
-## [Prject Demo Presentation](https://youtu.be/ge31-cPi2Do)
+## [Project Demo Presentation](https://youtu.be/ge31-cPi2Do)
 Our presentation of Bored?GameNyte! at Lighthouse Labs Demo Day - Aug 18, 2022
 ## Final Product
 ### Login
