@@ -1,7 +1,20 @@
 # Bored?GameNyte
-Welcome to **Bored?GameNyte!** or BGN. A multipage web application for board game and game night enthusiasts, to help facilitate the organizing of game collections, scheduling events and making sure everyone is prepared to maximize their time together.
+Welcome to **Bored?GameNyte!** or BGN. A multipage web application for board game and game night enthusiasts, to help facilitate the organizing of game collections, scheduling events and making sure everyone is prepared to maximize their time together. This application was build using **React**, **Express**, **Node**, **MUI**, **Framer-Motion**, and **PostgreSQL** database.
 
 This app was built by [Kenny Moon](https://github.com/kcmoon), [Jesse Kopala](https://github.com/jdkopala), and [Jeff Bridges](https://github.com/Jbridges1119).
+
+## Features?
+#### Allows users to:
+- Manage their board game collections by adding and removing games.
+- Search for games using a connection to an external API.
+- View details and information on a specific game.
+- Connect to youtube videos to learn about specific games.
+- Create new game nights, invite friends and select the games to be played from their collection. 
+- Automatically send emails to invited guests when a game night is created or canceled.
+- Track who is coming amongst your invited guests.
+- Select an attending status when invited to a game night.
+- View all past and upcoming game nights.
+
 ## [Project Demo Presentation](https://youtu.be/ge31-cPi2Do)
 Our presentation of Bored?GameNyte! at Lighthouse Labs Demo Day - Aug 18, 2022
 ## Final Product
@@ -23,17 +36,6 @@ Our presentation of Bored?GameNyte! at Lighthouse Labs Demo Day - Aug 18, 2022
 ## Why did we build this app?
 Board gaming and board game nights have become increasingly popular over the last few years. As restrictions have lifted and people have returned to their busy lives, it has once again become difficult to organize game nights. Furthermore, for anyone who has partaken in a board game night may know the frustration that can come with learning a new game on the fly or even more so, teaching a new game to a player. Enter **Bored?GameNyte!** an app with multiple features that provide perfect solutions to all those issues and plenty more for casual fans of games or board game enthusiasts. 
 
-## What does the app do?
-#### Allows users to:
-- Manage their board game collections by adding and removing games.
-- Search for games using a connection to an external API.
-- View details and information on a specific game.
-- Connect to youtube videos to learn about specific games.
-- Create new game nights, invite friends and select the games to be played from their collection. 
-- Automatically send emails to invited guests when a game night is created or canceled.
-- Track who is coming amongst your invited guests.
-- Select an attending status when invited to a game night.
-- View all past and upcoming game nights.
 
 ## Tech Stack
 #### Bored?GameNyte! was built with:
@@ -46,6 +48,20 @@ Board gaming and board game nights have become increasingly popular over the las
 - DotENV v16.0.1
 - Material UI -5.0.0
 - Framer-motion v6.5.1
+
+## Dependencies
+#### Server
+"bcryptjs": "^2.4.3"
+"chalk": "^2.4.2"
+"cookie-session": "^2.0.0"
+"cors": "^2.8.5"
+"dotenv": "^16.0.1"
+"express": "^4.18.1"
+"form-data": "^4.0.0"
+"mailgun.js": "^8.0.0"
+"method-override": "^3.0.0"
+"morgan": "^1.10.0"
+"pg": "^8.7.3"
 
 ## Getting Started
 This application requires two terminals, so please open up two terminal windows. In order to get started, please **clone** this repo.  
