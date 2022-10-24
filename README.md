@@ -15,7 +15,7 @@ This app was built by [Kenny Moon](https://github.com/kcmoon), [Jesse Kopala](ht
 - Select an attending status when invited to a game night.
 - View all past and upcoming game nights.
 
-## [Project Demo Presentation](https://youtu.be/ge31-cPi2Do)
+## [Project Presentation](https://youtu.be/ge31-cPi2Do)
 Our presentation of Bored?GameNyte! at Lighthouse Labs Demo Day - Aug 18, 2022
 ## Final Product
 ### Login
@@ -50,18 +50,44 @@ Board gaming and board game nights have become increasingly popular over the las
 - Framer-motion v6.5.1
 
 ## Dependencies
+#### Client
+    "@date-io/date-fns": "^1.3.13",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.94",
+    "@mui/material": "^5.9.3",
+    "@mui/styles": "^5.9.3",
+    "@mui/x-date-pickers": "^5.0.0-beta.4",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^8.0.7",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.1",
+    "date-fns": "^2.29.1",
+    "framer-motion": "^6.5.1",
+    "js-cookie": "^3.0.1",
+    "moment": "^2.29.4",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "react-widgets": "^5.8.4",
+    "typewriter-effect": "^2.19.0",
+    "web-vitals": "^2.1.4"
+    
 #### Server
-"bcryptjs": "^2.4.3"
-"chalk": "^2.4.2"
-"cookie-session": "^2.0.0"
-"cors": "^2.8.5"
-"dotenv": "^16.0.1"
-"express": "^4.18.1"
-"form-data": "^4.0.0"
-"mailgun.js": "^8.0.0"
-"method-override": "^3.0.0"
-"morgan": "^1.10.0"
-"pg": "^8.7.3"
+    "bcryptjs": "^2.4.3",
+    "chalk": "^2.4.2",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "form-data": "^4.0.0",
+    "mailgun.js": "^8.0.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3"
 
 ## Getting Started
 This application requires two terminals, so please open up two terminal windows. In order to get started, please **clone** this repo.  
